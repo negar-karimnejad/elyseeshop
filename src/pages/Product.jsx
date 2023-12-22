@@ -17,13 +17,27 @@ function Product() {
   const [showProductDetails, setShowProductDetails] = useState(true);
   const [showProductFeatures, setShowProductFeatures] = useState(true);
   const [showProductBrand, setShowProductBrand] = useState(true);
+
   const { id } = useParams();
   const { product, error, isLoading } = useProduct(id);
-  const { name, image, mass } = product;
 
   if (error) return;
   if (isLoading) return <Loader />;
 
+  const {
+    name,
+    image,
+    mass,
+    price,
+    code,
+    brand,
+    brandDescription,
+    brandImage,
+    category,
+    description,
+    features,
+  } = product[0];
+  console.log(product);
   return (
     <div className="pt-5">
       <div className="container">
@@ -46,19 +60,16 @@ function Product() {
             <p className="text-2xl text-stone-700 dark:text-stone-200">
               {name} | {mass} میل
             </p>
-            <p className="pt-3 text-[13px] text-stone-400">
-              Dermalift Dermalift Eczolift Urea 20% For Very Dry And Delicate
-              Skin 40 ml
-            </p>
+            <p className="pt-3 text-[13px] text-stone-400">{brand}</p>
             <Link to="" className="mt-5 h-20 w-20">
               <img
                 className="h-20 w-20 border-2 border-pink-600 p-1"
-                src="../images/new-products/07.jpg"
+                src={image}
                 alt=""
-                title="40 میل"
+                title={name}
               />
             </Link>
-            <p className="text-sm dark:text-stone-300">40 میل</p>
+            <p className="text-sm dark:text-stone-300">{`${mass} میل`}</p>
             <form
               onSubmit={(e) => e.preventDefault()}
               className="flex flex-col gap-5 pt-14"
@@ -78,7 +89,7 @@ function Product() {
                 </span>
                 <p className="w-48 bg-stone-100 p-3">
                   <span className="ml-3 font-yekanB text-pink-600">
-                    195,000
+                    {price.toLocaleString()}
                   </span>
                   تومان
                 </p>
@@ -94,7 +105,7 @@ function Product() {
               </div>
             </form>
             <div className="my-10 flex items-center justify-between">
-              <p className="text-sm text-stone-400">کد کالا: 5030-3418</p>
+              <p className="text-sm text-stone-400">کد کالا: {code}</p>
               <p className="font-yekanB text-2xl text-stone-800 dark:text-stone-200">
                 Dermalift
               </p>
@@ -119,35 +130,7 @@ function Product() {
                     : 'max-h-0 overflow-hidden'
                 } leading-9 text-stone-500 transition-all duration-500 dark:text-stone-400`}
               >
-                اگر پوست چربی دارید نباید برای جلوگیری از چرب تر شدن پوست،
-                استفاده از کرم آبرسان را قطع کنید. بلکه باید از محصول مناسب پوست
-                چرب مانند ژل کرم مرطوب کننده اسکین وان استفاده نمایید. این
-                آبرسان به فرم ژل کرم می باشدکه جذب بسیار بالایی دارد و بافتی
-                بسیار سبک که باعث ایجاد احساس چربی و یا سنگینی روی پوست نمی
-                گردد. آبرسان هیال اسکین وان، رطوبت رسانی بسیار قوی می باشد که
-                پوست را به طور کامل و طولانی مدت آبرسانی کرده و مانع از خشک شدن
-                پوست می گردد. این محصول کنترل کننده ترشح چربی در پوست می باشد و
-                می توان اینطور بیان کرد که تعادل میان چربی و رطوبت پوست را حفظ
-                می کند و مانع از برق افتادن پوست صورت می گردد. آبرسان هیال اسکین
-                وان منافذ پوست را جمع کرده و برای افرادی که پوست چرب و یا مختلط
-                دارند گزینه ای بسیار مناسب است. این ژل کرم آبرسان، غیر کومدون زا
-                می باشد و ترکیبات گیاهی موجود در آن به تقویت پوست و تغذیه بهتر
-                آن کمک می نماید. آبرسان هیال اسکین وان حاوی هیالورونیک اسید می
-                باشد که علاوه بر آبرسانی به پوست، به افزایش استحکام پوست کمک
-                کرده و مانع از پیری زود رس پوست می گردد. ترکیبات ژل کرم مرطوب
-                کننده اسکین وان آب، پی ای جی-۸ استئارات، ستئاریل اتیل هگزانوات،
-                گلیسیریل استئارات، استئاریل هپتانوات، ستیل الکل، بوتیل استئارات،
-                اولیو گلیسرایدز، استئاریل کاپریلات، ستیل پالمیتات، سوربیتان
-                سسکواولئات، استئاریک اسید، توکوفرول، پتاسیم هیدروکسید،
-                ستو-استئاریل الکل، پلی اکریل آمید، سی ۱۴-۱۳ ایزو پارافین،
-                لورت-۷، کراس پلیمر دایمتیکون/وینیل دایمتیکون، پروپیلن گلایکول،
-                نگهدارنده بر پایه فنوکسی اتانول، متیل پارابن، پروپیل پارابن،
-                بوتیل پارابن، تریپل آرگونین، عصاره قارچ، بوتیلن گلایکول،
-                هیالورونیک اسید، اسانس تری اتانول آمین، زینک پی سی ای. روش
-                استفاده از ژل کرم مرطوب کننده اسکین وان مقداری از ژل کرم را روی
-                پوست تمیز صورت و گردن خود قرار داده و به آرامی ماساژ دهید تا جذب
-                پوست گردد. از این ژل کرم حداقل باید دو مرتبه در طول شبانه روز
-                استفاده نمایید.
+                {description}
               </div>
             </div>
             <div className="cursor-pointer border-b py-2">
@@ -170,15 +153,9 @@ function Product() {
                 } leading-9 text-stone-500 transition-all duration-500 dark:text-stone-400`}
               >
                 <ul className="list-disc pr-8 leading-7">
-                  <li>
-                    برطرف کننده پوسته ریزی و حالت فلسی در پوست‌های بسیار خشک
-                  </li>
-                  <li>کمک به رفع میخچه، ضخیم شدگی و ترک خوردگی کف پا</li>
-                  <li>
-                    رفع زبری، تیرگی و پینه دست، آرنج، زانو، پاشنه و قوزک پا
-                  </li>
-                  <li>نرم کننده و مرطوب کننده عمیق پوست</li>
-                  <li>فاقد رنگ، اسانس، پارابن و اتانول</li>
+                  {features.map((feature, index) => (
+                    <li key={index}>{feature} </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -201,18 +178,7 @@ function Product() {
                     : 'max-h-0 overflow-hidden'
                 } leading-9 text-stone-500 transition-all duration-500 dark:text-stone-400`}
               >
-                جی-۸ استئارات، ستئاریل اتیل هگزانوات، گلیسیریل استئارات،
-                استئاریل هپتانوات، ستیل الکل، بوتیل استئارات، اولیو گلیسرایدز،
-                استئاریل کاپریلات، ستیل پالمیتات، سوربیتان سسکواولئات، استئاریک
-                اسید، توکوفرول، پتاسیم هیدروکید، ستو-استئاریل الکل، پلی اکریل
-                آمید، سی ۱۴-۱۳ ایزو پارافین، لورت-۷، کراس پلیمر دایمتیکون/وینیل
-                دایمتیکون، پروپیلن گلایکول، نگهدارنده بر پایه فنوکسی اتانول،
-                متیل پارابن، پروپیل پارابن، بوتیل پارابن، تریپل آرگونین، عصاره
-                قارچ، بوتیلن گلایکول، هیالورونیک اسید، اسانس تری اتانول آمین،
-                زینک پی سی ای. روش استفاده از ژل کرم مرطوب کننده اسکین وان
-                مقداری از ژل کرم را روی پوست تمیز صورت و گردن خود قرار داده و به
-                آرامی ماساژ دهید تا جذب پوست گردد. از این ژل کرم حداقل باید دو
-                مرت
+                {brandDescription}
               </div>
             </div>
           </div>

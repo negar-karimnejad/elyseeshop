@@ -20,5 +20,5 @@ export async function getProduct(id) {
     console.error(error);
     throw new Error('Product could not loaded');
   }
-  return { data };
+  return data;
 }
