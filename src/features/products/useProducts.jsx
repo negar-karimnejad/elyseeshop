@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { getProducts } from '../../services/apiProducts';
 
-function useCabins() {
+function useProducts() {
   const {
     data: products,
     error,
@@ -10,8 +10,7 @@ function useCabins() {
     queryKey: ['products'],
     queryFn: getProducts,
   });
-
   return { products, error, isLoading };
 }
 
-export default useCabins;
+export default useProducts;

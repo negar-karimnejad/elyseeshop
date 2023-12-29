@@ -1,10 +1,10 @@
-import useCabins from '../features/products/useCabins';
+import useProducts from '../features/products/useProducts';
 import Loader from './Loader';
 import NewProducts from './home/NewProducts';
 import ProductCard from './home/ProductCard';
 
 function RandomProducts({ startIndex, endIndex }) {
-  const { products, error, isLoading } = useCabins();
+  const { products, error, isLoading } = useProducts();
   const chunkedProducts = products?.sort(() => Math.random() - 0.5);
 
   if (error) return <div>{error}</div>;

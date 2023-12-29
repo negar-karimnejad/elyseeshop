@@ -2,13 +2,14 @@ import { Link } from 'react-router-dom';
 import Button from '../Button';
 
 function ProductCard({ product, isLoading }) {
+  
   if (!product) return;
 
   const { image, name, brand, price } = product;
 
   return (
     <Link
-      to=""
+      to={`/product/${name}`}
       className={`${isLoading ? 'animate-pulse' : ''} flex flex-col items-center overflow-hidden rounded-md bg-white text-center shadow-lg dark:bg-stone-900 dark:text-stone-200`}
     >
       <div className="group relative overflow-hidden">

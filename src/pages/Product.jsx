@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { IoIosPricetag } from 'react-icons/io';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
@@ -8,13 +8,21 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Breadcrumb from '../components/Breadcrumb';
 import Button from '../components/Button';
 import Input from '../components/Input';
+import Loader from '../components/Loader';
 import ProductCard from '../components/home/ProductCard';
+import useProduct from '../features/products/useProduct';
 
 function Product() {
   const [quantity, setQuantity] = useState(1);
   const [showProductDetails, setShowProductDetails] = useState(true);
   const [showProductFeatures, setShowProductFeatures] = useState(true);
   const [showProductBrand, setShowProductBrand] = useState(true);
+  const { id } = useParams();
+  const { product, error, isLoading } = useProduct(id);
+  const { name, image, mass } = product;
+
+  if (error) return;
+  if (isLoading) return <Loader />;
 
   return (
     <div className="pt-5">
@@ -32,11 +40,11 @@ function Product() {
         />
         <div className="grid grid-cols-1 gap-y-5 pt-5 lg:grid-cols-2">
           <div>
-            <img src="../images/new-products/07.jpg" alt="product" />
+            <img src={image} alt="product" />
           </div>
           <div className="flex flex-col border-r pr-3">
             <p className="text-2xl text-stone-700 dark:text-stone-200">
-              کرم مرطوب کننده حاوی اوره 20 درصد درمالیفت | 40 میل
+              {name} | {mass} میل
             </p>
             <p className="pt-3 text-[13px] text-stone-400">
               Dermalift Dermalift Eczolift Urea 20% For Very Dry And Delicate

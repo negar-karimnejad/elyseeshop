@@ -9,3 +9,16 @@ export async function getProducts() {
   }
   return data;
 }
+
+export async function getProduct(id) {
+  const { data, error } = await supabase
+    .from('products')
+    .select('*')
+    .eq('name', id);
+
+  if (error) {
+    console.error(error);
+    throw new Error('Product could not loaded');
+  }
+  return { data };
+}
