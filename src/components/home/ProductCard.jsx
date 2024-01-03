@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import Button from '../Button';
 
-function ProductCard({ image, title, brand, price }) {
+function ProductCard({ product }) {
+  if (!product) return;
+  const { image, name, brand, price } = product;
+
   return (
     <Link
       to=""
@@ -18,7 +21,7 @@ function ProductCard({ image, title, brand, price }) {
         </Button>
       </div>
       <div className="flex w-full flex-1 flex-col justify-between gap-5 bg-pink-50 p-5 dark:bg-stone-800">
-        <p className="text-sm hover:text-pink-400">{title}</p>
+        <p className="text-sm hover:text-pink-400">{name}</p>
         <p>{brand}</p>
         <p className="font-yekanB">
           <span className="font-yekanB text-pink-600">{price} </span>
