@@ -178,3 +178,38 @@
     margin-right: 3rem;
   }
 }
+
+/* Loader */
+.loader {
+  width: 15px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: l5 1s infinite linear alternate;
+}
+
+@keyframes l5 {
+  0% {
+    box-shadow:
+      20px 0 #ff69b4,
+      -20px 0 #ff69b4;
+    background: #ff69b4;
+  }
+  33% {
+    box-shadow:
+      20px 0 #ff69b4,
+      -20px 0 #ff69b4;
+    background: #ffb6c1;
+  }
+  66% {
+    box-shadow:
+      20px 0 #ffb6c1,
+      -20px 0 #ff69b4;
+    background: #ffb6c1;
+  }
+  100% {
+    box-shadow:
+      20px 0 #ffb6c1,
+      -20px 0 #ff69b4;
+    background: #ff69b4;
+  }
+}
