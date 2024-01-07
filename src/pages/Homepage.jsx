@@ -4,8 +4,11 @@ import Brands from '../components/home/Brands';
 import Hero from '../components/home/Hero';
 import NewProducts from '../components/home/NewProducts';
 import ProductCard from '../components/home/ProductCard';
+import useCabins from '../features/products/useCabins';
 
 function Homepage() {
+  const { error, isLoading, products } = useCabins();
+
   return (
     <div className="pb-14">
       <Hero />
