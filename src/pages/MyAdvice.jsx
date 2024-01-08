@@ -6,7 +6,7 @@ function MyAdvice() {
       <Link to="/advice" className="font-yekanB text-sky-500">
         :: ارسال سوال جدید
       </Link>
-      <p className="mt-10 font-yekanB text-stone-800">فهرست سوال های شما</p>
+      <p className="mt-10 font-yekanB text-stone-800 dark:text-white">فهرست سوال های شما</p>
     </div>
   );
 }

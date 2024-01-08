@@ -8,19 +8,19 @@ import Cart from './pages/Cart';
 import CommonQuestions from './pages/CommonQuestions';
 import Complaints from './pages/Complaints';
 import Contact from './pages/Contact';
+import CreateProduct from './pages/CreateProduct';
 import CustomerClub from './pages/CustomerClub';
 import Guide from './pages/Guide';
 import Homepage from './pages/Homepage';
 import Login from './pages/Login';
+import MyAdvice from './pages/MyAdvice';
 import NotFound from './pages/NotFound';
+import Orders from './pages/Orders';
 import Privacy from './pages/Privacy';
 import Product from './pages/Product';
 import Products from './pages/Products';
 import Register from './pages/Register';
 import Terms from './pages/Terms';
-import CreateProduct from './pages/CreateProduct';
-import Orders from './pages/Orders';
-import MyAdvice from './pages/MyAdvice';
 
 function App() {
   return (

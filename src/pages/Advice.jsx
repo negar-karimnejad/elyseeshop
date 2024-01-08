@@ -1,24 +1,38 @@
-import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 
 function Advice() {
+  const [message, setMessage] = useState('');
   const user = true;
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    setMessage('');
+  };
+
   return (
     <div className="container my-14">
       {user ? (
-        <form className="mb-5 flex w-1/2 flex-col gap-3 rounded-md border bg-sky-100 p-3 dark:bg-sky-500">
+        <form
+          onSubmit={submitHandler}
+          className="mb-5 flex w-1/2 flex-col gap-3 rounded-md border bg-sky-100 p-3 dark:bg-stone-500"
+        >
           <label className="font-yekanB text-stone-600 dark:text-stone-200">
             لطفا سوال خود را وارد کنید
           </label>
           <textarea
-            className="rounded-md border"
-            name=""
-            id=""
+            className="rounded-md border p-2 outline-none dark:bg-stone-300"
             cols="30"
             rows="3"
+            required
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           ></textarea>
-          <Button className="rounded-md bg-sky-600 px-12 hover:bg-sky-700">
+          <Button
+            type="submit"
+            className="rounded-md bg-sky-600 px-12 hover:bg-sky-700 dark:bg-black dark:hover:bg-sky-700"
+          >
             ارسال
           </Button>
         </form>
