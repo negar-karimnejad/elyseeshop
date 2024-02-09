@@ -2,7 +2,7 @@ import React from 'react';
 
 function Orders() {
   return (
-    <div className="container my-20">
+    <div className="container my-16">
       <h5 className="mb-2 text-center font-yekanB text-lg text-stone-700">
         فهرست سفارشات
       </h5>

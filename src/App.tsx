@@ -20,6 +20,7 @@ import Register from './pages/Register';
 import Terms from './pages/Terms';
 import CreateProduct from './pages/CreateProduct';
 import Orders from './pages/Orders';
+import MyAdvice from './pages/MyAdvice';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path="/products/:id" element={<Products />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/myAdvice" element={<MyAdvice />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
