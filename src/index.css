@@ -161,3 +161,20 @@
 .similarproduct .swiper-button-next {
   left: 10px !important;
 }
+/* UserIcon Style */
+.userIcon {
+  margin-top: 1rem !important;
+  margin-right: 4rem;
+}
+@media (min-width: 700px) {
+  .userIcon {
+    margin-top: 1rem !important;
+    margin-right: 7rem;
+  }
+}
+@media (min-width: 1024px) {
+  .userIcon {
+    margin-top: 4rem !important;
+    margin-right: 3rem;
+  }
+}

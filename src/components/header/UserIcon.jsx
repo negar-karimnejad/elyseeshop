@@ -138,16 +138,8 @@ function UserIcon() {
           className="fixed right-0 top-0 h-screen w-full items-start justify-end p-10"
         >
           <div
-            style={{
-              marginTop: '6rem',
-              marginRight: '6rem',
-              '@media (max-width: 768px)': {
-                marginTop: '1rem',
-                marginRight: '5rem',
-              },
-            }}
             onClick={(e) => e.stopPropagation()}
-            className="absolute  rounded-md border bg-white px-10 py-5 text-stone-500 shadow-lg dark:border-0 dark:bg-stone-600 dark:text-white"
+            className="userIcon absolute rounded-md border bg-white px-10 py-5 text-stone-500 shadow-lg dark:border-0 dark:bg-stone-600 dark:text-white"
           >
             <ul className="flex flex-col gap-3">
               <li>
