@@ -141,7 +141,7 @@ function UserIcon() {
             style={{
               marginTop: '6rem',
               marginRight: '6rem',
-              '@media(max-width: 768px)': {
+              '@media (max-width: 768px)': {
                 marginTop: '1rem',
                 marginRight: '5rem',
               },
