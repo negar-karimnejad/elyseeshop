@@ -39,7 +39,7 @@ function StyledProductsUl({
       </ul>
 
       {openedHeading === heading && (
-        <div className="absolute right-0 z-40 flex h-52 w-full flex-col overflow-y-auto border bg-white p-2 px-5 text-left shadow-lg md:hidden">
+        <div className="absolute right-0 z-40 flex h-52 w-full flex-col overflow-y-auto border bg-white p-2 px-5 text-left shadow-lg dark:bg-stone-500 md:hidden">
           {list.map((item) => (
             <Link
               key={item}
