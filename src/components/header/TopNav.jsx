@@ -1,14 +1,18 @@
 import { useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { FaPhoneAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import Input from '../Input';
 import Instagram from '../Instagram';
 
 function TopNav({ scrollPosition }) {
+  const navigate = useNavigate();
   const [query, setQuery] = useState('');
 
   const submitHandler = (e) => {
     e.preventDefault();
+    navigate(`/products/${query}`);
+    setQuery('');
   };
 
   return (

@@ -1,11 +1,12 @@
-import React from "react";
-import { BiSearch } from "react-icons/bi";
+import React from 'react';
+import { BiSearch } from 'react-icons/bi';
 
-function SearchIcon() {
+function SearchIcon({ toggleSearchModal }) {
   return (
     <button
       type="button"
-      className="text-stone-300 lg:hidden hover:text-stone-400 transition-all"
+      onClick={toggleSearchModal}
+      className="text-stone-300 transition-all hover:text-stone-400 lg:hidden"
     >
       <BiSearch size={28} />
     </button>
