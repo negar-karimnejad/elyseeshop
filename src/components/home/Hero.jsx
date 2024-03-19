@@ -1,11 +1,11 @@
-import "swiper/css";
-import "swiper/css/navigation";
-import { Autoplay, Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { Autoplay, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 function Hero() {
   return (
-    <div>
+    <div className="h-full w-full">
       <Swiper
         spaceBetween={0}
         centeredSlides={true}
@@ -16,7 +16,7 @@ function Hero() {
         loop={true}
         navigation={true}
         modules={[Autoplay, Navigation]}
-        className="max-md:hidden heroSwiper"
+        className="heroSwiper hidden md:flex"
       >
         <SwiperSlide>
           <img src="./images/hero/01.jpg" alt="" />
