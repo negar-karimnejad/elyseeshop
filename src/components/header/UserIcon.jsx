@@ -23,7 +23,7 @@ function UserIcon() {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative" ref={userModalRef}>
       <button
         type="button"
         className="text-stone-300 transition-all hover:text-stone-400"
@@ -32,10 +32,7 @@ function UserIcon() {
         <BiUser size={29} />
       </button>
       {isShowUserModal && (
-        <div
-          ref={userModalRef}
-          className="absolute right-0 top-8 z-50 rounded-md border bg-white px-10 py-5 text-stone-500 shadow-lg dark:bg-stone-600"
-        >
+        <div className="absolute right-0 top-8 z-50 rounded-md border bg-white px-10 py-5 text-stone-500 shadow-lg dark:bg-stone-600">
           <ul className="flex flex-col gap-3">
             <li>
               <Link

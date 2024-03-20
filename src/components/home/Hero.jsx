@@ -5,13 +5,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 function Hero() {
   return (
-    <div className="h-full w-full">
+    <div>
       <Swiper
         spaceBetween={0}
         centeredSlides={true}
         autoplay={{
           delay: 4000,
-          disableOnInteraction: false,
+          // disableOnInteraction: false,
         }}
         loop={true}
         navigation={true}
