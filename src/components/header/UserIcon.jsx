@@ -21,7 +21,6 @@ function UserIcon() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-
   return (
     <div className="relative" ref={userModalRef}>
       <button
