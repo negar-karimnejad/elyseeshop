@@ -16,6 +16,7 @@ function Hero() {
   return (
     <div>
       <Swiper
+        preventInteractionOnTransition={true}
         spaceBetween={0}
         centeredSlides={true}
         autoplay={{
