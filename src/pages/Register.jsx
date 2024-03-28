@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from '../components/Button';
 import Input from '../components/Input';
+import { Link } from 'react-router-dom';
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -46,6 +47,12 @@ function Register() {
           ثبت نام
         </Button>
       </form>
+      <Link
+        to="/login"
+        className="mx-auto mt-2 block w-fit text-sm text-stone-600 transition-all hover:text-pink-600 hover:underline dark:text-stone-200 dark:hover:text-pink-500"
+      >
+        ورود به حساب کاربری
+      </Link>
     </div>
   );
 }
