@@ -4,18 +4,19 @@ function Input({
   placeholder,
   value,
   onChange,
-  required,
+  disabled,
   id,
   name,
 }) {
   return (
     <input
-      className={`${className} border outline-none dark:text-stone-800`}
+      className={`border outline-none dark:border-0 dark:bg-stone-500 dark:text-stone-100  dark:placeholder:text-stone-300 ${className}`}
       type={type}
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      required={required}
+      disabled={disabled}
+      required
       id={id}
       name={name}
     />

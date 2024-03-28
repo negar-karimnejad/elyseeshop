@@ -31,7 +31,7 @@ function TopNav({ scrollPosition }) {
               <BiSearch size={17} />
             </button>
             <Input
-              className="border-0 bg-white dark:bg-stone-800 placeholder:dark:text-stone-200"
+              className="border-0 bg-white dark:bg-stone-800"
               type="text"
               placeholder="جستجو"
               value={query}
