@@ -5,13 +5,13 @@ import Register from "./pages/Register";
 import Brands from "./pages/Brands";
 import Blog from "./pages/Blog";
 import Advice from "./pages/Advice";
-import CustumerClub from "./pages/CustumerClub";
 import About from "./pages/About";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import Guide from "./pages/Guide";
 import CommonQuestions from "./pages/CommonQuestions";
 import Complaints from "./pages/Complaints";
+import CustomerClub from "./pages/CustomerClub";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
 import Products from "./pages/Products";
@@ -27,7 +27,7 @@ function App() {
         <Route path="/brands" element={<Brands />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/advice" element={<Advice />} />
-        <Route path="/باشگاه-مشتریان" element={<CustumerClub />} />
+        <Route path="/باشگاه-مشتریان" element={<CustomerClub />} />
         <Route path="/درباره-ما" element={<About />} />
         <Route path="/قوانین-و-مقررات" element={<Terms />} />
         <Route path="/حریم-خصوصی" element={<Privacy />} />
