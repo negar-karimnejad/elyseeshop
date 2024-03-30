@@ -2,17 +2,17 @@ import { Link } from "react-router-dom";
 
 function NotFound() {
   return (
-    <div class="not-found">
+    <div className="not-found">
       <Link
         to="/"
-        class="text-warning d-flex align-items-center pt-2 px-4 link-underline link-underline-opacity-0"
+        className="text-warning d-flex align-items-center pt-2 px-4 link-underline link-underline-opacity-0"
       >
         <span className="fs-3">&larr;</span>
         برگشت به صفحه اصلی
       </Link>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-12 mt-5 mb-5">
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-12 col-md-12 mt-5 mt-lg-0">
             <svg
               width="100%"
               height="auto"
