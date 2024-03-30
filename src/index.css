@@ -1,8 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Not-Found Page Styles */
 .not-found {
   min-height: 37.8rem;
   height: 48em;
   background-color: #141019;
   background: radial-gradient(at 50% -20%, #908392, #0d060e) fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
 
 #handboy {

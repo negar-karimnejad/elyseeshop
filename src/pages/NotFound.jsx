@@ -7,9 +7,10 @@ function NotFound() {
         to="/"
         className="text-warning d-flex align-items-center pt-2 px-4 link-underline link-underline-opacity-0"
       >
-        <span className="fs-3">&larr;</span>
         برگشت به صفحه اصلی
+        <span className="fs-3">&larr;</span>
       </Link>
+
       <div className="container">
         <div className="row">
           <div className="col-sm-12 col-md-12 mt-5 mt-lg-0">
