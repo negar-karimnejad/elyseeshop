@@ -12,6 +12,7 @@ import CustomerClub from "./pages/CustomerClub";
 import Guide from "./pages/Guide";
 import Homepage from "./pages/Homepage";
 import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
 import Privacy from "./pages/Privacy";
 import Product from "./pages/Product";
 import Products from "./pages/Products";
@@ -41,6 +42,7 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<Product />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
