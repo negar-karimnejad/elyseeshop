@@ -1,47 +1,92 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import NavUl from "./NavUl";
-import NavDropdownLink from "./NavMobileDropdownLink";
+import NavDropdownList from "./NavDropdownList";
 
 function NavLinks() {
+  const [showDropdown, setShowDropdown] = useState("");
+
   return (
-    <div className="hidden lg:block">
-      <div className="flex gap-6 text-sm">
-        <div className="relative">
+    <div className="hidden lg:block text-stone-600">
+      <div className="flex gap-6">
+        <div
+          onMouseEnter={() => setShowDropdown("مراقبت از پوست")}
+          onMouseLeave={() => setShowDropdown("")}
+          className="transition-all hover:border-b border-stone-400 relative"
+        >
           <Link to="" className="font-yekanB" aria-current="page">
             مراقبت از پوست
           </Link>
-          <NavDropdownLink />
-          <ul>
-            <li>
-              <Link
-                to=""
-                className="font-yekanB hover:text-red-700 transition-all"
-              >
-                مراقبت پوست
-              </Link>
-            </li>
-          </ul>
+          {showDropdown === "مراقبت از پوست" && (
+            <NavDropdownList id="مراقبت از پوست" />
+          )}
         </div>
-        <Link to="" className="font-yekanB" aria-current="page">
-          لوازم آرایشی
-        </Link>
-        <Link to="" className="font-yekanB" aria-current="page">
-          مراقبت از مو
-        </Link>
-        <Link to="" className="font-yekanB" aria-current="page">
-          محصولات بدن
-        </Link>
-        <Link to="" className="font-yekanB" aria-current="page">
-          عطر و ادکلن
-        </Link>
-        <Link to="" className="font-yekanB" aria-current="page">
+        <div
+          onMouseEnter={() => setShowDropdown("لوازم آرایشی")}
+          onMouseLeave={() => setShowDropdown("")}
+          className="transition-all hover:border-b border-stone-400 relative"
+        >
+          <Link to="" className="font-yekanB" aria-current="page">
+            لوازم آرایشی
+          </Link>
+          {showDropdown === "لوازم آرایشی" && (
+            <NavDropdownList id="لوازم آرایشی" />
+          )}
+        </div>
+        <div
+          onMouseEnter={() => setShowDropdown("مراقبت از مو")}
+          onMouseLeave={() => setShowDropdown("")}
+          className="transition-all hover:border-b border-stone-400 relative"
+        >
+          <Link to="" className="font-yekanB" aria-current="page">
+            مراقبت از مو
+          </Link>
+          {showDropdown === "مراقبت از مو" && (
+            <NavDropdownList id="مراقبت از مو" />
+          )}
+        </div>
+        <div
+          onMouseEnter={() => setShowDropdown("محصولات بدن")}
+          onMouseLeave={() => setShowDropdown("")}
+          className="transition-all hover:border-b border-stone-400 relative"
+        >
+          <Link to="" className="font-yekanB" aria-current="page">
+            محصولات بدن
+          </Link>
+          {showDropdown === "محصولات بدن" && (
+            <NavDropdownList id="محصولات بدن" />
+          )}
+        </div>
+        <div
+          onMouseEnter={() => setShowDropdown("عطر و ادکلن")}
+          onMouseLeave={() => setShowDropdown("")}
+          className="transition-all hover:border-b border-stone-400 relative"
+        >
+          <Link to="" className="font-yekanB" aria-current="page">
+            عطر و ادکلن
+          </Link>
+          {showDropdown === "عطر و ادکلن" && (
+            <NavDropdownList id="عطر و ادکلن" />
+          )}
+        </div>
+        <Link
+          to=""
+          className="font-yekanB hover:border-b border-stone-400"
+          aria-current="page"
+        >
           برندها
         </Link>
-        <Link to="" className="font-yekanB" aria-current="page">
+        <Link
+          to=""
+          className="font-yekanB hover:border-b border-stone-400"
+          aria-current="page"
+        >
           وبلاگ
         </Link>
-        <Link to="" className="font-yekanB" aria-current="page">
+        <Link
+          to=""
+          className="font-yekanB hover:border-b border-stone-400"
+          aria-current="page"
+        >
           مشاوره رایگان
         </Link>
       </div>

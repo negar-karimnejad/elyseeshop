@@ -362,10 +362,10 @@ function NotFound() {
                       opacity="0.25"
                       d="M551.1 201.4C551.1 201.4 550.9 205 553.8 206.7"
                       stroke="white"
-                      stroke-width="0.4635"
+                      strokeWidth="0.4635"
                       stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                     <g id="Group_11" opacity="0.25">
                       <g id="Group_12" opacity="0.25">
@@ -374,18 +374,18 @@ function NotFound() {
                           opacity="0.25"
                           d="M551.8 206.2L551.7 206.9"
                           stroke="white"
-                          stroke-width="0.4635"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="0.4635"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         />
                         <path
                           id="Vector_60"
                           opacity="0.25"
                           d="M551.7 208.2L550.3 238"
                           stroke="white"
-                          stroke-width="0.4635"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="0.4635"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           stroke-dasharray="1.39 1.39"
                         />
                         <path
@@ -393,9 +393,9 @@ function NotFound() {
                           opacity="0.25"
                           d="M550.2 238.7V239.4"
                           stroke="white"
-                          stroke-width="0.4635"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="0.4635"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         />
                       </g>
                     </g>
@@ -404,10 +404,10 @@ function NotFound() {
                       opacity="0.25"
                       d="M562 209.6L564.7 237.9"
                       stroke="white"
-                      stroke-width="0.4635"
+                      strokeWidth="0.4635"
                       stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       stroke-dasharray="1.39 1.39"
                     />
                     <path
@@ -415,10 +415,10 @@ function NotFound() {
                       opacity="0.25"
                       d="M564.3 201.9C564.3 201.9 564 205.4 564.3 206C564.6 206.7 565.9 207.2 566.2 207.4C566.5 207.5 567.7 206.4 567.8 205.7C567.9 205 567.9 202 567.9 202C567.9 202 565.7 201.6 564.3 201.9Z"
                       stroke="white"
-                      stroke-width="0.4635"
+                      strokeWidth="0.4635"
                       stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       id="Vector_64"
@@ -712,7 +712,7 @@ function NotFound() {
                       opacity="0.25"
                       d="M81.5 204.9C81.5 204.9 81.3 208.6 81.8 209.6C82.3 210.6 83.7 211.3 83.7 211.3C83.7 211.3 85.5 210.5 86 209.4C86.5 207.2 86.4 204.5 86.4 204.5C86.4 204.5 82.8 203.7 81.5 204.9Z"
                       stroke="white"
-                      stroke-width="0.4635"
+                      strokeWidth="0.4635"
                       stroke-miterlimit="10"
                     />
                     <path
@@ -720,20 +720,20 @@ function NotFound() {
                       opacity="0.25"
                       d="M97.2 201.9C97.2 201.9 97.4 205 94.7 206.5"
                       stroke="white"
-                      stroke-width="0.4635"
+                      strokeWidth="0.4635"
                       stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       id="Vector_112"
                       opacity="0.25"
                       d="M96.5 204.6L98.7 241.6"
                       stroke="white"
-                      stroke-width="0.4635"
+                      strokeWidth="0.4635"
                       stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       id="Vector_113"
@@ -746,10 +746,10 @@ function NotFound() {
                       opacity="0.25"
                       d="M87.4 213L84.3 243.2"
                       stroke="white"
-                      stroke-width="0.4635"
+                      strokeWidth="0.4635"
                       stroke-miterlimit="10"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       id="Vector_115"
@@ -816,7 +816,7 @@ function NotFound() {
                     id="Vector_125"
                     d="M523.5 247.4C523.5 247.4 521.5 234.8 531.8 226.1C531.7 236.3 528.9 245 523.5 247.4Z"
                     stroke="#1F3247"
-                    stroke-width="0.9271"
+                    strokeWidth="0.9271"
                     stroke-miterlimit="10"
                   />
                   <g id="Group_26">
@@ -909,7 +909,7 @@ function NotFound() {
                     id="Vector_139"
                     d="M174.2 250.2C174.2 250.2 161.8 247.6 154.1 238.3C167.3 239.7 173 244.4 174.2 250.2Z"
                     stroke="#1F3247"
-                    stroke-width="0.9271"
+                    strokeWidth="0.9271"
                     stroke-miterlimit="10"
                   />
                   <g id="Group_33">

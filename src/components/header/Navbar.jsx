@@ -6,10 +6,7 @@ import NavLinks from "./NavLinks";
 import SearchIcon from "./SearchIcon";
 import ShoppingCartIcon from "./ShoppingCartIcon";
 import UserIcon from "./UserIcon";
-
-const Divider = ({ className }) => (
-  <span className={`text-stone-100 ${className}`}>|</span>
-);
+import Divider from "../Divider";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,16 +21,16 @@ function Navbar() {
           <div className="flex items-center justify-between gap-4">
             <MobileMenuIcon toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />
             <ShoppingCartIcon />
-            <Divider />
+            <Divider className="border-r-2 h-5 border-stone-100" />
             <UserIcon />
-            <Divider className="lg:hidden" />
+            <Divider className="border-r-2 h-5 border-stone-100 lg:hidden" />
             <SearchIcon />
           </div>
           <NavLinks />
           <Logo />
         </div>
       </div>
-      
+
       {/* Dropdown menu, show/hide based on menu state. */}
       {isMenuOpen && <MobileNavMenu />}
     </nav>
