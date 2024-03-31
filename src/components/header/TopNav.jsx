@@ -4,7 +4,7 @@ import { BsInstagram } from "react-icons/bs";
 import { FaPhoneAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-function Header({ scrollPosition }) {
+function TopNav({ scrollPosition }) {
   return (
     <div
       className={`bg-stone-100 max-lg:hidden ${
@@ -39,4 +39,4 @@ function Header({ scrollPosition }) {
   );
 }
 
-export default Header;
+export default TopNav;
