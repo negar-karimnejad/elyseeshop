@@ -2,14 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Yekan";
+  src: local("Yekan"), url("./fonts/BYekan.ttf") format("truetype");
+}
+
 @layer components {
   .container {
     @apply mx-auto px-5;
   }
 }
+@layer base {
+  @font-face {
+    font-family: "YekanBold";
+
+    src: url("./fonts/BYekanBold.ttf") format("truetype");
+  }
+}
 
 * {
   scroll-behavior: smooth;
+  font-family: "Yekan";
 }
 
 /* Not-Found Page Styles */

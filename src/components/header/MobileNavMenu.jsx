@@ -3,11 +3,11 @@ import NavDropdownLink from "./NavDropdownLink";
 import NavUl from "./NavUl";
 
 const linkStyles =
-  "block px-7 py-2 font-medium border-b border-dashed border-white";
+  "block px-7 py-2 font-bold border-b border-dashed border-white";
 
 function MobileNavMenu() {
   return (
-    <div className="sm:hidden" id="mobile-menu">
+    <div className="lg:hidden " id="mobile-menu">
       <div className="bg-red-100">
         <NavUl title="مراقبت از پوست">
           <NavDropdownLink title="مراقبت پوست" to="" />

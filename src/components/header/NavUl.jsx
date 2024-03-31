@@ -5,7 +5,7 @@ function NavUl({ children, title }) {
   const [activeMenu, setActiveMenu] = useState("");
 
   return (
-    <div className="relative font-medium border-b border-dashed border-white">
+    <div className="relative border-b border-dashed border-white">
       <div
         onClick={() => setActiveMenu((prev) => (prev === title ? "" : title))}
         className="p-3 flex items-end cursor-pointer"
