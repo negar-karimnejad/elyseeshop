@@ -7,7 +7,7 @@ function Instagram() {
     <Link
       to="https://www.instagram.com/"
       target="_blank"
-      className="hover:text-red-600 transition-all"
+      className="hover:text-pink-600 transition-all"
     >
       <BsInstagram />
     </Link>

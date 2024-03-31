@@ -23,7 +23,9 @@ function TopNav({ scrollPosition }) {
         </div>
         <form className="w-[500px]" onSubmit={submitHandler}>
           <label className="bg-white flex rounded-5 px-4 py-1 items-center gap-3 border border-stone-300 rounded-full">
-            <BiSearch />
+            <button type="submit" className="hover:text-pink-500 cursor-pointer">
+              <BiSearch size={17} />
+            </button>
             <input
               className="border-0 outline-none"
               type="text"
@@ -31,6 +33,7 @@ function TopNav({ scrollPosition }) {
               aria-label="Search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
+              required
             />
           </label>
         </form>

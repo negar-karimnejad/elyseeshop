@@ -8,7 +8,7 @@ const linkStyles =
 function MobileNavMenu() {
   return (
     <div className="lg:hidden" id="mobile-menu">
-      <div className="bg-red-100">
+      <div className="bg-pink-100">
         <NavUl title="مراقبت از پوست">
           <NavMobileDropdownLink title="مراقبت پوست" to="" />
           <NavMobileDropdownLink title="مراقبت از چشم" to="" />
