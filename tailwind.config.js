@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        yekanBold: ["yekanBold", "sans-serif"],
+        yekanB: ["yekanB", "sans-serif"],
       },
     },
   },
