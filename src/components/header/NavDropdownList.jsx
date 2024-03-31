@@ -190,7 +190,7 @@ const data = [
 
 function NavDropdownList({ id }) {
   return (
-    <div className="bg-white absolute top-12 -right-40 shadow p-5 min-w-max flex gap-10">
+    <div className="bg-white absolute top-11 border -right-40 shadow p-5 min-w-max flex gap-10">
       {data.map(
         (d) =>
           d.id === id &&
