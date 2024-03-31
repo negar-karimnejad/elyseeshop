@@ -75,3 +75,40 @@
     transform: rotate(-6deg);
   }
 }
+
+/* Swiper */
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  color: rgb(237, 237, 237);
+  font-size: 1rem !important;
+  background-color: rgb(93, 93, 93);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
