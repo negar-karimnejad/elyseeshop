@@ -14,7 +14,7 @@ function Navbar() {
     setIsMenuOpen((prev) => !prev);
   };
   return (
-    <div className="bg-white">
+    <nav className="bg-white">
       <div className="mx-auto sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center justify-between gap-4">
@@ -25,13 +25,13 @@ function Navbar() {
             <span className="text-stone-200 lg:hidden">|</span>
             <SearchIcon />
           </div>
-            <NavLinks />
+          <NavLinks />
           <Logo />
         </div>
       </div>
       {/* Dropdown menu, show/hide based on menu state. */}
       {isMenuOpen && <MobileNavMenu />}
-    </div>
+    </nav>
   );
 }
 

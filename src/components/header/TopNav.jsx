@@ -1,10 +1,15 @@
-import React from "react";
+import { useState } from "react";
 import { BiSearch } from "react-icons/bi";
-import { BsInstagram } from "react-icons/bs";
 import { FaPhoneAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import Instagram from "../Instagram";
 
 function TopNav({ scrollPosition }) {
+  const [query, setQuery] = useState("");
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div
       className={`bg-stone-100 max-lg:hidden ${
@@ -16,7 +21,7 @@ function TopNav({ scrollPosition }) {
           0123456789
           <FaPhoneAlt size={13} />
         </div>
-        <form className="w-[500px]">
+        <form className="w-[500px]" onSubmit={submitHandler}>
           <label className="bg-white flex rounded-5 px-4 py-1 items-center gap-3 border border-stone-300 rounded-full">
             <BiSearch />
             <input
@@ -24,16 +29,12 @@ function TopNav({ scrollPosition }) {
               type="text"
               placeholder="جستجو"
               aria-label="Search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
             />
           </label>
         </form>
-        <Link
-          to="https://www.instagram.com/"
-          target="_blank"
-          className="hover:text-red-600 transition-all"
-        >
-          <BsInstagram />
-        </Link>
+        <Instagram />
       </div>
     </div>
   );

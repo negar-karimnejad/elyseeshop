@@ -16,12 +16,12 @@ function Header() {
   }, []);
 
   return (
-    <nav
+    <header
       className={`${scrollPosition ? "shadow" : ""} sticky top-0 z-40 left-0`}
     >
       <TopNav scrollPosition={scrollPosition} />
       <Navbar />
-    </nav>
+    </header>
   );
 }
 
