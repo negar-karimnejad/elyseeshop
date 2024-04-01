@@ -22,7 +22,7 @@ function ShoppingCartIcon() {
         >
           <Link
             to="/cart"
-            className="block w-fit rounded-full mx-auto px-3 py-2 text-sm text-white bg-cyan-800"
+            className="block w-fit rounded-full mx-auto px-3 py-2 text-sm text-white bg-cyan-700"
             role="menuitem"
             tabindex="-1"
             id="user-menu-item-0"
