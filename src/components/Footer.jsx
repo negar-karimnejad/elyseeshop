@@ -3,7 +3,7 @@ import Instagram from "./Instagram";
 
 function Footer() {
   return (
-    <footer class="bg-white dark:bg-cyan-900 mt-5">
+    <footer class="bg-white dark:bg-cyan-900 pt-5">
       <div class="container p-5">
         <div class="md:flex md:justify-center">
           <div class="gap-10 grid grid-cols-4 max-lg:grid-cols-2">

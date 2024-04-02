@@ -3,7 +3,7 @@ import { IoIosPricetag } from "react-icons/io";
 import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Breadcrumb from "../components/Breadcrumb";
 import { NewProductsLink } from "./Homepage";
@@ -207,23 +207,37 @@ function Product() {
           </div>
         </div>
       </div>
-      <div className="bg-stone-100 mt-5">
+      <div className="bg-stone-200 mt-20 pb-40">
         <div className="container flex flex-col items-center">
-          <p className="font-yekanB py-10 text-stone-800 text-xl">
+          <p className="font-yekanB py-14 text-stone-800 text-lg">
             محصولات مشابه
           </p>
           <Swiper
-            slidesPerView={5}
-            spaceBetween={40}
+            // slidesPerView={4}
+            spaceBetween={30}
             centeredSlides={true}
-            autoplay={{
-              delay: 4000,
-              disableOnInteraction: false,
-            }}
             loop={true}
             navigation={true}
-            modules={[Autoplay, Navigation]}
-            className="max-md:hidden"
+            modules={[Navigation]}
+            breakpoints={{
+              350: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+              996: {
+                slidesPerView: 4,
+                spaceBetween: 40,
+              },
+              1100: {
+                slidesPerView: 5,
+                spaceBetween: 40,
+              },
+            }}
+            className="similarproduct"
           >
             <SwiperSlide className="rounded-md">
               <NewProductsLink
@@ -233,7 +247,7 @@ function Product() {
                 price="465,000"
               />
             </SwiperSlide>
-            <SwiperSlide className="rounded-md py-5">
+            <SwiperSlide className="rounded-md">
               <NewProductsLink
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
@@ -241,7 +255,7 @@ function Product() {
                 price="465,000"
               />
             </SwiperSlide>
-            <SwiperSlide className="rounded-md py-5">
+            <SwiperSlide className="rounded-md">
               <NewProductsLink
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
@@ -249,7 +263,7 @@ function Product() {
                 price="465,000"
               />
             </SwiperSlide>
-            <SwiperSlide className="rounded-md py-5">
+            <SwiperSlide className="rounded-md">
               <NewProductsLink
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
@@ -257,7 +271,7 @@ function Product() {
                 price="465,000"
               />
             </SwiperSlide>
-            <SwiperSlide className="rounded-md py-5">
+            <SwiperSlide className="rounded-md">
               <NewProductsLink
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
@@ -265,7 +279,7 @@ function Product() {
                 price="465,000"
               />
             </SwiperSlide>
-            <SwiperSlide className="rounded-md py-5">
+            <SwiperSlide className="rounded-md">
               <NewProductsLink
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
@@ -273,7 +287,7 @@ function Product() {
                 price="465,000"
               />
             </SwiperSlide>
-            <SwiperSlide className="rounded-md py-5">
+            <SwiperSlide className="rounded-md">
               <NewProductsLink
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
@@ -281,7 +295,119 @@ function Product() {
                 price="465,000"
               />
             </SwiperSlide>
-            <SwiperSlide className="rounded-md py-5">
+            <SwiperSlide className="rounded-md">
+              <NewProductsLink
+                image="../images/new-products/07.jpg"
+                title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
+                brand="Babaria"
+                price="465,000"
+              />
+            </SwiperSlide>
+            <SwiperSlide className="rounded-md">
+              <NewProductsLink
+                image="../images/new-products/07.jpg"
+                title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
+                brand="Babaria"
+                price="465,000"
+              />
+            </SwiperSlide>
+            <SwiperSlide className="rounded-md">
+              <NewProductsLink
+                image="../images/new-products/07.jpg"
+                title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
+                brand="Babaria"
+                price="465,000"
+              />
+            </SwiperSlide>
+            <SwiperSlide className="rounded-md">
+              <NewProductsLink
+                image="../images/new-products/07.jpg"
+                title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
+                brand="Babaria"
+                price="465,000"
+              />
+            </SwiperSlide>
+            <SwiperSlide className="rounded-md">
+              <NewProductsLink
+                image="../images/new-products/07.jpg"
+                title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
+                brand="Babaria"
+                price="465,000"
+              />
+            </SwiperSlide>
+            <SwiperSlide className="rounded-md">
+              <NewProductsLink
+                image="../images/new-products/07.jpg"
+                title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
+                brand="Babaria"
+                price="465,000"
+              />
+            </SwiperSlide>
+            <SwiperSlide className="rounded-md">
+              <NewProductsLink
+                image="../images/new-products/07.jpg"
+                title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
+                brand="Babaria"
+                price="465,000"
+              />
+            </SwiperSlide>
+            <SwiperSlide className="rounded-md">
+              <NewProductsLink
+                image="../images/new-products/07.jpg"
+                title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
+                brand="Babaria"
+                price="465,000"
+              />
+            </SwiperSlide>
+            <SwiperSlide className="rounded-md">
+              <NewProductsLink
+                image="../images/new-products/07.jpg"
+                title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
+                brand="Babaria"
+                price="465,000"
+              />
+            </SwiperSlide>
+            <SwiperSlide className="rounded-md">
+              <NewProductsLink
+                image="../images/new-products/07.jpg"
+                title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
+                brand="Babaria"
+                price="465,000"
+              />
+            </SwiperSlide>
+            <SwiperSlide className="rounded-md">
+              <NewProductsLink
+                image="../images/new-products/07.jpg"
+                title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
+                brand="Babaria"
+                price="465,000"
+              />
+            </SwiperSlide>
+            <SwiperSlide className="rounded-md">
+              <NewProductsLink
+                image="../images/new-products/07.jpg"
+                title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
+                brand="Babaria"
+                price="465,000"
+              />
+            </SwiperSlide>
+            <SwiperSlide className="rounded-md">
+              <NewProductsLink
+                image="../images/new-products/07.jpg"
+                title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
+                brand="Babaria"
+                price="465,000"
+              />
+            </SwiperSlide>
+            <SwiperSlide className="rounded-md">
+              <NewProductsLink
+                image="../images/new-products/07.jpg"
+                title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
+                brand="Babaria"
+                price="465,000"
+              />
+            </SwiperSlide>
+            <SwiperSlide className="rounded-md">
               <NewProductsLink
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"

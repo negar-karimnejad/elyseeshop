@@ -130,3 +130,31 @@
 .swiper:hover .swiper-button-next {
   display: flex;
 }
+
+/* Similar Product Swiper*/
+.similarproduct .swiper-button-prev,
+.similarproduct .swiper-button-next {
+  color: rgb(237, 237, 237);
+  background-color: rgb(93, 93, 93);
+  border-radius: 50%;
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  display: flex;
+}
+.similarproduct .swiper-button-prev:after,
+.similarproduct .swiper-button-next:after {
+  font-size: 12px;
+  font-weight: bold;
+}
+.similarproduct .swiper-button-prev:hover,
+.similarproduct .swiper-button-next:hover {
+  background-color: rgba(219, 126, 183, 0.708);
+  transition: all ease-in-out 400ms;
+}
+.similarproduct .swiper-button-prev {
+  right: 10px !important;
+}
+
+.similarproduct .swiper-button-next {
+  left: 10px !important;
+}
