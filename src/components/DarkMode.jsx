@@ -1,13 +1,12 @@
-import React from "react";
-import useDarkMode from "../hooks/useDarkMode";
 import { BiMoon, BiSun } from "react-icons/bi";
+import useDarkMode from "../hooks/useDarkMode";
 
 function DarkMode() {
   const { theme, handleToggle } = useDarkMode();
 
   return (
     <button
-      className="fixed bottom-5 left-11 z-50 bg-stone-800/50 rounded-full p-2.5 text-white hover:text-yellow-400 transition-all hover:bg-stone-800/75 dark:bg-white"
+      className="fixed bottom-5 left-11 z-50 bg-stone-800/50 rounded-full p-2.5 text-white hover:text-yellow-400 transition-all hover:bg-stone-800/75"
       onClick={handleToggle}
     >
       <p className="hover:scale-110 transition-all">

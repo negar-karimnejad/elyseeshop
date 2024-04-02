@@ -16,7 +16,7 @@ function NavLinks() {
   const [showDropdown, setShowDropdown] = useState("");
 
   return (
-    <div className="hidden lg:block text-stone-600">
+    <div className="hidden lg:block text-stone-600 dark:text-stone-200">
       <div className="flex gap-6">
         {links.map((link) => (
           <div

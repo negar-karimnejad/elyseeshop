@@ -7,7 +7,7 @@ import NewProductsLink from "../components/home/NewProductsLink";
 
 function Homepage() {
   return (
-    <>
+    <div className="">
       <Hero />
       <Banner quantity={4} />
       <NewProducts>
@@ -127,7 +127,7 @@ function Homepage() {
           price="225,000"
         />
       </NewProducts>
-    </>
+    </div>
   );
 }
 
