@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import Banner from "../components/Banner";
-import Hero from "../components/Hero";
-import NewProducts from "../components/NewProducts";
-import Articles from "../components/Articles";
-import Brands from "../components/Brands";
+import Banner from "../components/home/Banner";
+import Hero from "../components/home/Hero";
+import NewProducts from "../components/home/NewProducts";
+import Articles from "../components/home/Articles";
+import Brands from "../components/home/Brands";
 
 const BannerLink = ({ image }) => {
   return (
