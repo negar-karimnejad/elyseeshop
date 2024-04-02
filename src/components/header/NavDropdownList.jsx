@@ -15,7 +15,7 @@ function NavDropdownList({ id }) {
   }, [id]);
 
   return (
-    <div className="bg-white absolute top-11 border -right-40 shadow p-5 min-w-max flex gap-10">
+    <div className="bg-white absolute top-6 border -right-40 shadow p-5 min-w-max flex gap-10">
       {list?.map((l) => (
         <ul className="flex flex-col gap-1">
           {l.map((item, index) => (

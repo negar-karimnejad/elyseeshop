@@ -23,13 +23,13 @@ export const NewProductsLink = ({ image, title, brand, price }) => {
       to=""
       className="overflow-hidden flex flex-col items-center text-center rounded-md bg-white"
     >
-      <div class="relative group overflow-hidden">
+      <div className="relative group overflow-hidden">
         <img
           src={image}
-          class="w-full object-contain group-hover:brightness-75 transition-all duration-500"
+          className="w-full object-contain group-hover:brightness-75 transition-all duration-500"
           alt="new product"
         />
-        <button class="absolute w-fit -bottom-16 right-0 left-0 m-auto bg-black text-white rounded-full py-2 px-6 transition-all duration-700 hover:bg-lime-600 group-hover:block group-hover:bottom-10">
+        <button className="absolute w-fit -bottom-16 right-0 left-0 m-auto bg-black text-white rounded-full py-2 px-6 transition-all duration-700 hover:bg-lime-600 group-hover:block group-hover:bottom-10">
           مشاهده محصول
         </button>
       </div>
