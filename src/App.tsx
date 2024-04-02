@@ -20,6 +20,7 @@ import Register from "./pages/Register";
 import Terms from "./pages/Terms";
 
 function App() {
+  
   return (
     <BrowserRouter>
       <Routes>

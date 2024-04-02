@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/header/Header";
 import Footer from "../components/Footer";
+import DarkMode from "../components/DarkMode";
 
 function AppLayout() {
   return (
@@ -8,6 +9,7 @@ function AppLayout() {
       <Header />
       <Outlet />
       <Footer />
+      <DarkMode />
     </div>
   );
 }
