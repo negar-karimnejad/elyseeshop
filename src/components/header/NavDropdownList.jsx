@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Divider from "../Divider";
 import { navMenu } from "../../data/data";
+import Divider from "../Divider";
 
 function NavDropdownList({ id }) {
   const [list, setList] = useState(null);
@@ -15,7 +15,7 @@ function NavDropdownList({ id }) {
   }, [id]);
 
   return (
-    <div className="bg-white absolute top-6 border dark:bg-sky-950 dark:border-sky-900 -right-40 shadow p-5 min-w-max flex gap-10">
+    <div className="bg-white absolute top-6 border dark:bg-stone-600 dark:border-stone-900 -right-40 shadow p-5 min-w-max flex gap-10">
       {list?.map((l) => (
         <ul className="flex flex-col gap-1">
           {l.map((item, index) => (

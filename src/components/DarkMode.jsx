@@ -6,7 +6,7 @@ function DarkMode() {
 
   return (
     <button
-      className="fixed bottom-5 left-11 z-50 bg-stone-800/50 rounded-full p-2.5 text-white hover:text-yellow-400 transition-all hover:bg-stone-800/75"
+      className="fixed bottom-5 left-11 z-50 dark:bg-pink-800/50 bg-stone-800/50  rounded-full p-2.5 text-white hover:text-yellow-200 transition-all hover:bg-stone-800/75"
       onClick={handleToggle}
     >
       <p className="hover:scale-110 transition-all">

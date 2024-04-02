@@ -12,7 +12,7 @@ function TopNav({ scrollPosition }) {
 
   return (
     <div
-      className={`bg-stone-100 max-lg:hidden dark:bg-sky-950 ${
+      className={`bg-stone-100 max-lg:hidden dark:bg-stone-800 ${
         scrollPosition > 2 ? "hidden" : ""
       }`}
     >
@@ -22,7 +22,7 @@ function TopNav({ scrollPosition }) {
           <FaPhoneAlt size={13} />
         </div>
         <form className="w-[500px]" onSubmit={submitHandler}>
-          <label className="bg-white dark:bg-sky-950 flex rounded-5 px-4 py-1 items-center gap-3 border border-stone-300 rounded-full">
+          <label className="bg-white dark:bg-stone-800 flex rounded-5 px-4 py-1 items-center gap-3 border border-stone-300 rounded-full">
             <button
               type="submit"
               className="hover:text-pink-500 dark:hover:text-white cursor-pointer"
@@ -30,7 +30,7 @@ function TopNav({ scrollPosition }) {
               <BiSearch size={17} />
             </button>
             <input
-              className="placeholder:dark:text-stone-200 border-0 outline-none bg-white dark:bg-sky-950"
+              className="placeholder:dark:text-stone-200 border-0 outline-none bg-white dark:bg-stone-800"
               type="text"
               placeholder="جستجو"
               aria-label="Search"

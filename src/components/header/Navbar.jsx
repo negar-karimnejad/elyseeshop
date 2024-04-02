@@ -15,7 +15,7 @@ function Navbar() {
     setIsMenuOpen((prev) => !prev);
   };
   return (
-    <nav className="bg-white dark:bg-sky-900">
+    <nav className="bg-white dark:bg-stone-700">
       <div className="mx-auto sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center justify-between gap-4">
