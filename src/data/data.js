@@ -1,3 +1,4 @@
+// Navbar Data
 export const navMobileMenu = [
   {
     id: "مراقبت از پوست",
@@ -224,6 +225,7 @@ export const navMenu = [
   },
 ];
 
+// Footer Data
 export const footerLinksList = [
   { heading: "صفحه نخست", links: ["ورود / ثبت نام", "برندها", "خبرها"] },
   {

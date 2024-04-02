@@ -6,13 +6,14 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Breadcrumb from "../components/Breadcrumb";
-import { NewProductsLink } from "./Homepage";
+import NewProductsLink from "../components/home/NewProductsLink";
 
 function Product() {
   const [quantity, setQuantity] = useState(1);
   const [showProductDetails, setShowProductDetails] = useState(true);
   const [showProductFeatures, setShowProductFeatures] = useState(true);
   const [showProductBrand, setShowProductBrand] = useState(true);
+
   return (
     <div className="pt-5">
       <div className="container">
