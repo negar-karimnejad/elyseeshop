@@ -33,7 +33,7 @@ function Product() {
             <img src="../images/new-products/07.jpg" alt="product" />
           </div>
           <div className="flex flex-col border-r pr-3">
-            <p className="text-stone-700 text-2xl">
+            <p className="text-stone-700 dark:text-stone-200 text-2xl">
               کرم مرطوب کننده حاوی اوره 20 درصد درمالیفت | 40 میل
             </p>
             <p className="text-[13px] text-stone-400 pt-3">
@@ -48,15 +48,15 @@ function Product() {
                 title="40 میل"
               />
             </Link>
-            <p className="text-sm">40 میل</p>
+            <p className="text-sm dark:text-stone-300">40 میل</p>
             <form
               onSubmit={(e) => e.preventDefault()}
               className="flex flex-col gap-5 pt-14"
             >
-              <label className="font-yekanB" htmlFor="">
+              <label className="font-yekanB dark:text-stone-100" htmlFor="">
                 تعداد
                 <input
-                  className="border p-2 outline-none mr-4"
+                  className="border p-2 outline-none mr-4 dark:text-stone-800"
                   value={quantity}
                   onChange={(e) => setQuantity(e.target.value)}
                   type="number"
@@ -69,7 +69,7 @@ function Product() {
                   <IoIosPricetag size={28} />
                 </span>
                 <p className="bg-stone-100 p-3 w-48">
-                  <span className="ml-3 text-lime-600 font-yekanB">
+                  <span className="ml-3 text-pink-600 font-yekanB">
                     195,000
                   </span>
                   تومان
@@ -79,7 +79,7 @@ function Product() {
                 <button
                   type="submit"
                   disabled
-                  className="text cursor-pointer w-full rounded-sm transition-all hover:bg-lime-400 bg-lime-600 font-yekanB text-white p-3"
+                  className="text cursor-pointer w-full rounded-sm transition-all hover:bg-pink-600 bg-pink-700 font-yekanB text-white p-3"
                 >
                   افزودن به سبد خرید
                 </button>
@@ -87,7 +87,9 @@ function Product() {
             </form>
             <div className="flex justify-between items-center my-10">
               <p className="text-sm text-stone-400">کد کالا: 5030-3418</p>
-              <p className="text-2xl font-yekanB text-stone-800">Dermalift</p>
+              <p className="text-2xl font-yekanB text-stone-800 dark:text-stone-200">
+                Dermalift
+              </p>
             </div>
             <hr />
             <div className="border-b py-2 cursor-pointer">
@@ -95,10 +97,10 @@ function Product() {
                 onClick={() => setShowProductDetails((prev) => !prev)}
                 className="group flex justify-between items-center "
               >
-                <p className="group-hover:text-pink-600 transition-all font-yekanB text-stone-800">
+                <p className="group-hover:text-pink-600 transition-all font-yekanB text-stone-800 dark:text-stone-300">
                   درباره محصول
                 </p>
-                <button className="group-hover:text-pink-600 transition-all font-yekanB text-xl">
+                <button className="group-hover:text-pink-600 dark:text-stone-300 transition-all font-yekanB text-xl">
                   {showProductDetails ? "-" : "+"}
                 </button>
               </div>
@@ -107,7 +109,7 @@ function Product() {
                   showProductDetails
                     ? "max-h-[1000px] mt-5"
                     : "overflow-hidden max-h-0"
-                } text-stone-500 leading-9 transition-all duration-500`}
+                } text-stone-500 dark:text-stone-400 leading-9 transition-all duration-500`}
               >
                 اگر پوست چربی دارید نباید برای جلوگیری از چرب تر شدن پوست،
                 استفاده از کرم آبرسان را قطع کنید. بلکه باید از محصول مناسب پوست
@@ -145,10 +147,10 @@ function Product() {
                 onClick={() => setShowProductFeatures((prev) => !prev)}
                 className="group flex justify-between items-center"
               >
-                <p className="group-hover:text-pink-600 transition-all font-yekanB text-stone-800">
+                <p className="group-hover:text-pink-600 dark:text-stone-300 transition-all font-yekanB text-stone-800 dark:text-stone-300">
                   ویژگی ها و مشخصات
                 </p>
-                <button className="group-hover:text-pink-600 transition-all font-yekanB text-xl">
+                <button className="group-hover:text-pink-600 transition-all dark:text-stone-300 font-yekanB text-xl">
                   {showProductFeatures ? "-" : "+"}
                 </button>
               </div>
@@ -157,7 +159,7 @@ function Product() {
                   showProductFeatures
                     ? "max-h-[1000px] mt-5"
                     : "overflow-hidden max-h-0"
-                } text-stone-500 leading-9 transition-all duration-500`}
+                } text-stone-500 dark:text-stone-400 leading-9 transition-all duration-500`}
               >
                 <ul className="list-disc pr-8 leading-7">
                   <li>
@@ -177,10 +179,10 @@ function Product() {
                 onClick={() => setShowProductBrand((prev) => !prev)}
                 className="group flex justify-between items-center"
               >
-                <p className="group-hover:text-pink-600 transition-all font-yekanB text-stone-800">
+                <p className="group-hover:text-pink-600 transition-all font-yekanB dark:text-stone-300 text-stone-800">
                   درباره برند
                 </p>
-                <button className="group-hover:text-pink-600 transition-all font-yekanB text-xl">
+                <button className="group-hover:text-pink-600 dark:text-stone-300 transition-all font-yekanB text-xl">
                   {showProductBrand ? "-" : "+"}
                 </button>
               </div>
@@ -189,7 +191,7 @@ function Product() {
                   showProductBrand
                     ? "max-h-[1000px] mt-5"
                     : "overflow-hidden max-h-0"
-                } text-stone-500 leading-9 transition-all duration-500`}
+                } text-stone-500 leading-9 dark:text-stone-400 transition-all duration-500`}
               >
                 جی-۸ استئارات، ستئاریل اتیل هگزانوات، گلیسیریل استئارات،
                 استئاریل هپتانوات، ستیل الکل، بوتیل استئارات، اولیو گلیسرایدز،
@@ -208,13 +210,12 @@ function Product() {
           </div>
         </div>
       </div>
-      <div className="bg-stone-200 mt-20 pb-40">
+      <div className="bg-stone-200 dark:bg-stone-600 mt-20 pb-40">
         <div className="container flex flex-col items-center">
-          <p className="font-yekanB py-14 text-stone-800 text-lg">
+          <p className="font-yekanB py-14 dark:text-stone-200 text-stone-800 text-lg">
             محصولات مشابه
           </p>
           <Swiper
-            // slidesPerView={4}
             spaceBetween={30}
             centeredSlides={true}
             loop={true}

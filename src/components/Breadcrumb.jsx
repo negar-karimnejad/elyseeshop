@@ -8,7 +8,7 @@ function Breadcrumb({ links }) {
         <li className="inline-flex items-center">
           <Link
             to="/"
-            className="inline-flex items-center text-stone-500 hover:text-pink-600 dark:text-stone-400 dark:hover:text-pink-600"
+            className="inline-flex items-center text-stone-500 dark:text-stone-200 hover:text-pink-600 dark:text-stone-400 dark:hover:text-pink-600"
           >
             خانه
           </Link>
@@ -38,7 +38,7 @@ function Breadcrumb({ links }) {
               ) : (
                 <Link
                   to=""
-                  className="ms-1 text-stone-500 hover:text-pink-600 md:ms-2 dark:text-stone-400 dark:hover:text-pink-600"
+                  className="ms-1 text-stone-500 dark:text-stone-200 hover:text-pink-600 md:ms-2 dark:text-stone-400 dark:hover:text-pink-600"
                 >
                   {link.title}
                 </Link>

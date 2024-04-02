@@ -7,7 +7,7 @@ function ShoppingCartIcon() {
   const cartRef = useRef(null);
 
   return (
-    <>
+    <div className="relative">
       {isCartOpen && (
         <div
           onClick={() => setIsCartOpen(false)}
@@ -27,12 +27,12 @@ function ShoppingCartIcon() {
       {isCartOpen && (
         <div
           ref={cartRef}
-          className="absolute dark:bg-stone-600 right-10 top-24 z-10 mt-2 w-48 rounded-md bg-white py-3 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="absolute dark:bg-stone-600 right-0 top-8 z-10 mt-2 w-48 rounded-md bg-white py-3 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="user-menu-button"
           tabindex="-1"
-          onClick={(e) => e.stopPropagation()} // Handle clicks inside the cart
+          onClick={(e) => e.stopPropagation()}
         >
           <Link
             to="/cart"
@@ -45,7 +45,7 @@ function ShoppingCartIcon() {
           </Link>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
