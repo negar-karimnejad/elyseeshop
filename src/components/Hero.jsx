@@ -16,7 +16,7 @@ function Hero() {
         loop={true}
         navigation={true}
         modules={[Autoplay, Navigation]}
-        className="max-md:hidden"
+        className="max-md:hidden heroSwiper"
       >
         <SwiperSlide>
           <img src="./images/hero/01.jpg" alt="" />
@@ -28,7 +28,6 @@ function Hero() {
           <img src="./images/hero/03.jpg" alt="" />
         </SwiperSlide>
       </Swiper>
-
       <div className="container flex flex-col gap-5 md:hidden">
         <img src="./images/hero/01.jpg" className="rounded-md" alt="" />
         <img src="./images/hero/02.jpg" className="rounded-md" alt="" />

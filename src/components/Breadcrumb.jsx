@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 function Breadcrumb({ links }) {
   return (
-    <nav className="container pt-5 flex" aria-label="Breadcrumb">
-      <ol className="inline-flex items-center">
+    <nav className="container pt-5" aria-label="Breadcrumb">
+      <ol className="flex items-center flex-wrap">
         <li className="inline-flex items-center">
           <Link
             to="/"
@@ -14,8 +14,8 @@ function Breadcrumb({ links }) {
           </Link>
         </li>
         {links.map((link) => (
-          <li key={link.id}>
-            <div className="flex items-center">
+          <li key={link.id} className="whitespace-nowrap">
+            <div className="flex items-center whitespace-nowrap">
               <svg
                 className="rtl:rotate-180 w-3 h-3 text-stone-300 mx-1"
                 aria-hidden="true"

@@ -6,7 +6,7 @@ function Footer() {
     <footer class="bg-white dark:bg-cyan-900 mt-5">
       <div class="container p-5">
         <div class="md:flex md:justify-center">
-          <div class="gap-10 grid grid-cols-4">
+          <div class="gap-10 grid grid-cols-4 max-lg:grid-cols-2">
             <div>
               <h2 class="mb-3 text-stone-900 uppercase dark:text-white">
                 صفحه نخست

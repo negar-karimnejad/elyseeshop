@@ -17,7 +17,7 @@ const BannerLink = ({ image }) => {
   );
 };
 
-const NewProductsLink = ({ image, title, brand, price }) => {
+export const NewProductsLink = ({ image, title, brand, price }) => {
   return (
     <Link
       to=""
