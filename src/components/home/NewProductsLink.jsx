@@ -4,7 +4,7 @@ function NewProductsLink({ image, title, brand, price }) {
   return (
     <Link
       to=""
-      className="overflow-hidden flex flex-col items-center text-center rounded-md bg-white dark:bg-transparent dark:shadow-2xl dark:text-stone-200"
+      className="overflow-hidden flex flex-col items-center text-center rounded-md bg-white dark:bg-sky-950 dark:shadow-2xl dark:text-stone-200"
     >
       <div className="relative group overflow-hidden">
         <img
@@ -17,7 +17,7 @@ function NewProductsLink({ image, title, brand, price }) {
         </button>
       </div>
       <div className="p-5 flex flex-col gap-5">
-        <p className="text-sm hover:text-pink-400">{title}</p>
+        <p className="text-sm hover:text-sky-400">{title}</p>
         <p>{brand}</p>
         <p className="font-yekanB">
           <span className="text-lime-500 font-yekanB">{price} </span>

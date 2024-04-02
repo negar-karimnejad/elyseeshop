@@ -5,7 +5,7 @@ import DarkMode from "../components/DarkMode";
 
 function AppLayout() {
   return (
-    <div className="text-stone- bg-white dark:bg-pink-950">
+    <div className="text-stone- bg-white dark:bg-sky-950">
       <Header />
       <Outlet />
       <Footer />

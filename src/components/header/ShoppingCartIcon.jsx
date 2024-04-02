@@ -14,7 +14,7 @@ function ShoppingCartIcon() {
       <BiShoppingBag size={28} />
       {isCartOpen && (
         <div
-          className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-3 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="absolute dark:bg-sky-950 dark:border dark:border-sky-900 right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-3 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="user-menu-button"
@@ -22,7 +22,7 @@ function ShoppingCartIcon() {
         >
           <Link
             to="/cart"
-            className="block w-fit rounded-full mx-auto px-3 py-2 text-sm text-white bg-cyan-700"
+            className="block w-fit rounded-full mx-auto px-3 py-2 text-sm text-white bg-black"
             role="menuitem"
             tabindex="-1"
             id="user-menu-item-0"
@@ -31,7 +31,7 @@ function ShoppingCartIcon() {
           </Link>
         </div>
       )}
-      <div className="absolute font-medium top-0 -right-2 bg-black rounded-full h-4 w-4 text-sm flex items-center justify-center ">
+      <div className="absolute font-medium -top-1 -right-3 bg-black rounded-full h-5 w-5 text-sm flex items-center justify-center">
         3
       </div>
     </button>
