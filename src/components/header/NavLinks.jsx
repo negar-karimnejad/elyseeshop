@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import NavDropdownList from "./NavDropdownList";
 
+const linkStyles = "font-yekanB hover:border-b border-stone-400";
+
 const links = [
   "مراقبت از پوست",
   "لوازم آرایشی",
@@ -29,25 +31,13 @@ function NavLinks() {
             {showDropdown === link && <NavDropdownList id={link} />}
           </div>
         ))}
-        <Link
-          to=""
-          className="font-yekanB hover:border-b border-stone-400"
-          aria-current="page"
-        >
+        <Link to="" className={linkStyles} aria-current="page">
           برندها
         </Link>
-        <Link
-          to=""
-          className="font-yekanB hover:border-b border-stone-400"
-          aria-current="page"
-        >
+        <Link to="" className={linkStyles} aria-current="page">
           وبلاگ
         </Link>
-        <Link
-          to=""
-          className="font-yekanB hover:border-b border-stone-400"
-          aria-current="page"
-        >
+        <Link to="" className={linkStyles} aria-current="page">
           مشاوره رایگان
         </Link>
       </div>
