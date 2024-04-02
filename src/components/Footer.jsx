@@ -116,7 +116,7 @@ function Footer() {
         <div className="float-end">
           <Instagram />
         </div>
-        <div class="text-center mt-10" style={{ direction: "ltr" }}>
+        <div class="text-center mt-20" style={{ direction: "ltr" }}>
           <span class="text-[11px] text-stone-400 ">
             ©{new Date().getFullYear()} ALL RIGHTS RESERVED | POWERED BY
             <Link

@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 function Hero() {
   return (
-    <div className="pt-5">
+    <div>
       <Swiper
         spaceBetween={0}
         centeredSlides={true}

@@ -37,7 +37,7 @@ const NewProductsLink = ({ image, title, brand, price }) => {
         <p className="text-sm hover:text-pink-400">{title}</p>
         <p>{brand}</p>
         <p className="font-yekanB">
-          <span className="text-green-600 font-yekanB">{price} </span>
+          <span className="text-lime-600 font-yekanB">{price} </span>
           تومان
         </p>
       </div>

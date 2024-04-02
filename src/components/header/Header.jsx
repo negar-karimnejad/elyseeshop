@@ -16,9 +16,7 @@ function Header() {
   }, []);
 
   return (
-    <header
-      className={`${scrollPosition ? "shadow" : ""} sticky top-0 z-40 left-0`}
-    >
+    <header className="shadow sticky top-0 z-40 left-0">
       <TopNav scrollPosition={scrollPosition} />
       <Navbar />
     </header>
