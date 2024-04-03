@@ -25,7 +25,7 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="float-end">
+        <div className="float-end mt-4">
           <Instagram />
         </div>
         <div className="text-center mt-20" style={{ direction: "ltr" }}>

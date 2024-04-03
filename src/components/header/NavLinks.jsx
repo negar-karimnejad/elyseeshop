@@ -31,13 +31,13 @@ function NavLinks() {
             {showDropdown === link && <NavDropdownList id={link} />}
           </div>
         ))}
-        <Link to="" className={linkStyles} aria-current="page">
+        <Link to="brands" className={linkStyles} aria-current="page">
           برندها
         </Link>
-        <Link to="" className={linkStyles} aria-current="page">
+        <Link to="blog" className={linkStyles} aria-current="page">
           وبلاگ
         </Link>
-        <Link to="" className={linkStyles} aria-current="page">
+        <Link to="advice" className={linkStyles} aria-current="page">
           مشاوره رایگان
         </Link>
       </div>

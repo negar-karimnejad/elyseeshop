@@ -27,6 +27,7 @@ function Blog() {
               className="hover:scale-110 object-contain transition-all duration-700"
               src={item.image}
               alt={item.title}
+              title={item.title}
             />
           </div>
           <div className="text-center pt-4 text-stone-800 hover:text-pink-500 transition-all dark:text-stone-300 dark:hover:text-stone-50">
