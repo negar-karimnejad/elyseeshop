@@ -147,7 +147,7 @@ function Product() {
                 onClick={() => setShowProductFeatures((prev) => !prev)}
                 className="group flex justify-between items-center"
               >
-                <p className="group-hover:text-pink-600 dark:text-stone-300 transition-all font-yekanB text-stone-800 dark:text-stone-300">
+                <p className="group-hover:text-pink-600 transition-all font-yekanB text-stone-800 dark:text-stone-300">
                   ویژگی ها و مشخصات
                 </p>
                 <button className="group-hover:text-pink-600 transition-all dark:text-stone-300 font-yekanB text-xl">

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Divider from "../Divider";
 import Logo from "../Logo";
 import MobileMenuIcon from "./MobileMenuIcon";
 import MobileNavMenu from "./MobileNavMenu";
@@ -6,7 +7,6 @@ import NavLinks from "./NavLinks";
 import SearchIcon from "./SearchIcon";
 import ShoppingCartIcon from "./ShoppingCartIcon";
 import UserIcon from "./UserIcon";
-import Divider from "../Divider";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,7 +16,7 @@ function Navbar() {
   };
   return (
     <nav className="bg-white dark:bg-stone-700">
-      <div className="mx-auto sm:px-6 lg:px-8">
+      <div className="container">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center justify-between gap-4">
             <MobileMenuIcon toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />
@@ -32,7 +32,7 @@ function Navbar() {
       </div>
 
       {/* Dropdown menu, show/hide based on menu state. */}
-      {isMenuOpen && <MobileNavMenu />}
+      {isMenuOpen && <MobileNavMenu toggleMenu={toggleMenu} />}
     </nav>
   );
 }

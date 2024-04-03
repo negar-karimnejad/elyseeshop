@@ -3,7 +3,7 @@ function MobileMenuIcon({ isMenuOpen, toggleMenu }) {
   return (
     <button
       type="button"
-      className="text-stone-700 lg:hidden hover:text-stone-400"
+      className="text-stone-700 dark:text-stone-200 lg:hidden hover:text-stone-400"
       aria-controls="mobile-menu"
       onClick={toggleMenu}
     >

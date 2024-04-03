@@ -14,7 +14,7 @@ function NavUl({ children, title }) {
         {title}
       </div>
       {activeMenu === title && (
-        <ul className="list-disc bottom-0 px-10 py-2 right-0 bg-white flex flex-col gap-3">
+        <ul className="list-disc bottom-0 px-10 py-2 dark:bg-stone-700 right-0 bg-white flex flex-col gap-3">
           {children}
         </ul>
       )}
