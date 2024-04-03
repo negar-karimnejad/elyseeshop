@@ -1,26 +1,26 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import About from "./pages/About";
-import Advice from "./pages/Advice";
-import AppLayout from "./pages/AppLayout";
-import Blog from "./pages/Blog";
-import Brands from "./pages/Brands";
-import Cart from "./pages/Cart";
-import CommonQuestions from "./pages/CommonQuestions";
-import Complaints from "./pages/Complaints";
-import Contact from "./pages/Contact";
-import CustomerClub from "./pages/CustomerClub";
-import Guide from "./pages/Guide";
-import Homepage from "./pages/Homepage";
-import Login from "./pages/Login";
-import NotFound from "./pages/NotFound";
-import Privacy from "./pages/Privacy";
-import Product from "./pages/Product";
-import Products from "./pages/Products";
-import Register from "./pages/Register";
-import Terms from "./pages/Terms";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import About from './pages/About';
+import Advice from './pages/Advice';
+import AppLayout from './pages/AppLayout';
+import Blog from './pages/Blog';
+import Brands from './pages/Brands';
+import Cart from './pages/Cart';
+import CommonQuestions from './pages/CommonQuestions';
+import Complaints from './pages/Complaints';
+import Contact from './pages/Contact';
+import CustomerClub from './pages/CustomerClub';
+import Guide from './pages/Guide';
+import Homepage from './pages/Homepage';
+import Login from './pages/Login';
+import NotFound from './pages/NotFound';
+import Privacy from './pages/Privacy';
+import Product from './pages/Product';
+import Products from './pages/Products';
+import Register from './pages/Register';
+import Terms from './pages/Terms';
+import CreateProduct from './pages/CreateProduct';
 
 function App() {
-  
   return (
     <BrowserRouter>
       <Routes>
@@ -29,6 +29,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/brands" element={<Brands />} />
+          <Route path="/create-product" element={<CreateProduct />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/advice" element={<Advice />} />
           <Route path="/باشگاه-مشتریان" element={<CustomerClub />} />
