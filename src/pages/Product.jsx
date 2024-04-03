@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Breadcrumb from "../components/Breadcrumb";
+import Button from "../components/Button";
 import NewProductsLink from "../components/home/NewProductsLink";
 
 function Product() {
@@ -76,13 +77,13 @@ function Product() {
                 </p>
               </div>
               <div className="w-60">
-                <button
+                <Button
                   type="submit"
                   disabled
-                  className="text cursor-pointer w-full rounded-sm transition-all hover:bg-pink-600 bg-pink-700 font-yekanB text-white p-3"
+                  className="w-full rounded-sm font-yekanB cursor-pointer"
                 >
                   افزودن به سبد خرید
-                </button>
+                </Button>
               </div>
             </form>
             <div className="flex justify-between items-center my-10">

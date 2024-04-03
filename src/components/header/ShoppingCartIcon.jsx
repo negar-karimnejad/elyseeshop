@@ -1,10 +1,12 @@
 import { useRef, useState } from "react";
 import { BiShoppingBag } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Button from "../Button";
 
 function ShoppingCartIcon() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const cartRef = useRef(null);
+  const navigate = useNavigate();
 
   return (
     <div className="relative">
@@ -34,15 +36,9 @@ function ShoppingCartIcon() {
           tabindex="-1"
           onClick={(e) => e.stopPropagation()}
         >
-          <Link
-            to="/cart"
-            className="block w-fit rounded-full mx-auto px-3 py-2 text-sm text-white bg-pink-600 hover:bg-pink-500 transition-all"
-            role="menuitem"
-            tabindex="-1"
-            id="user-menu-item-0"
-          >
+          <Button className="block mx-auto" onClick={() => navigate("/cart")}>
             مشاهده سبد خرید
-          </Link>
+          </Button>
         </div>
       )}
     </div>

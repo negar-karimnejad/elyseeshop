@@ -7,7 +7,7 @@ import NewProductsLink from "../components/home/NewProductsLink";
 
 function Homepage() {
   return (
-    <div className="">
+    <div className="pb-14">
       <Hero />
       <Banner quantity={4} />
       <NewProducts>

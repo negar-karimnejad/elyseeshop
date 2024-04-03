@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Button from "../Button";
 
 function NewProductsLink({ image, title, brand, price }) {
   return (
@@ -12,9 +13,9 @@ function NewProductsLink({ image, title, brand, price }) {
           className="w-full h-[187px] object-contain group-hover:brightness-75 transition-all duration-500"
           alt="new product"
         />
-        <button className="absolute w-fit -bottom-16 right-0 left-0 m-auto bg-black text-white rounded-full py-2 px-6 transition-all duration-700 hover:bg-pink-700 group-hover:block group-hover:bottom-10">
+        <Button className="absolute -bottom-16 right-0 left-0 m-auto bg-stone-950 text-white group-hover:block group-hover:bottom-10">
           مشاهده محصول
-        </button>
+        </Button>
       </div>
       <div className="p-5 flex flex-col gap-5 justify-between flex-1">
         <p className="text-sm hover:text-pink-400">{title}</p>

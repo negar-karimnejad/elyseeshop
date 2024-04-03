@@ -1,12 +1,27 @@
+import { MdOutlineKeyboardDoubleArrowUp } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { footerLinksList } from "../data/data";
 import FooterLink from "./FooterLink";
 import Instagram from "./Instagram";
 
 function Footer() {
+  const ScrollUp = () => {
+    window.scrollTo(0, 0);
+  };
+
+  console.log(location);
   return (
-    <footer className="bg-pink-200 dark:bg-stone-700 pt-5">
+    <footer className="relative bg-pink-200 dark:bg-stone-700 pt-5">
       <div className="container p-5">
+        <button
+          onClick={ScrollUp}
+          className="absolute left-0 -top-8 hover:text-pink-600 dark:hover:text-pink-600 dark:bg-stone-700 dark:text-white bg-pink-200 rounded-tr-md p-2"
+        >
+          <MdOutlineKeyboardDoubleArrowUp
+            className="hover:animate-bounce"
+            size={20}
+          />
+        </button>
         <div className="md:flex md:justify-center">
           <div className="gap-10 grid grid-cols-4 max-lg:grid-cols-2">
             {footerLinksList.map((link) => (
