@@ -8,7 +8,7 @@ function NavUl({ children, title }) {
     <div className="relative border-b border-dashed border-white">
       <div
         onClick={() => setActiveMenu((prev) => (prev === title ? "" : title))}
-        className="p-3  flex items-end cursor-pointer"
+        className="p-3 flex items-end cursor-pointer"
       >
         <MdOutlineKeyboardArrowLeft />
         {title}
