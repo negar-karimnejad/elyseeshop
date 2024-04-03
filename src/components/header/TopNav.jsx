@@ -1,10 +1,11 @@
-import { useState } from "react";
-import { BiSearch } from "react-icons/bi";
-import { FaPhoneAlt } from "react-icons/fa";
-import Instagram from "../Instagram";
+import { useState } from 'react';
+import { BiSearch } from 'react-icons/bi';
+import { FaPhoneAlt } from 'react-icons/fa';
+import Input from '../Input';
+import Instagram from '../Instagram';
 
 function TopNav({ scrollPosition }) {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -12,28 +13,27 @@ function TopNav({ scrollPosition }) {
 
   return (
     <div
-      className={`bg-stone-100 max-lg:hidden dark:bg-stone-800 ${
-        scrollPosition > 2 ? "hidden" : ""
+      className={`bg-stone-100 dark:bg-stone-800 max-lg:hidden ${
+        scrollPosition > 2 ? 'hidden' : ''
       }`}
     >
-      <div className="container text-stone-400 dark:text-stone-200 py-1.5 flex items-center justify-between">
+      <div className="container flex items-center justify-between py-1.5 text-stone-400 dark:text-stone-200">
         <div className="flex items-center gap-1">
           0123456789
           <FaPhoneAlt size={13} />
         </div>
         <form className="w-[500px]" onSubmit={submitHandler}>
-          <label className="bg-white dark:bg-stone-800 flex rounded-5 px-4 py-1 items-center gap-3 border border-stone-300 rounded-full">
+          <label className="rounded-5 flex items-center gap-3 rounded-full border border-stone-300 bg-white px-4 py-1 dark:bg-stone-800">
             <button
               type="submit"
-              className="hover:text-pink-500 dark:hover:text-white cursor-pointer"
+              className="cursor-pointer hover:text-pink-500 dark:hover:text-white"
             >
               <BiSearch size={17} />
             </button>
-            <input
-              className="placeholder:dark:text-stone-200 border-0 outline-none bg-white dark:bg-stone-800"
+            <Input
+              className="border-0 bg-white dark:bg-stone-800 placeholder:dark:text-stone-200"
               type="text"
               placeholder="جستجو"
-              aria-label="Search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               required

@@ -23,7 +23,7 @@ function Footer() {
           />
         </button>
         <div className="md:flex md:justify-center">
-          <div className="gap-10 grid grid-cols-4 max-lg:grid-cols-2">
+          <div className="gap-10 grid grid-cols-4 max-lg:grid-cols-2 max-sm:grid-cols-1">
             {footerLinksList.map((link) => (
               <FooterLink key={link.heading} link={link} />
             ))}
@@ -40,7 +40,7 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="float-end mt-4">
+        <div className="float-end mt-2">
           <Instagram />
         </div>
         <div className="text-center mt-20" style={{ direction: "ltr" }}>

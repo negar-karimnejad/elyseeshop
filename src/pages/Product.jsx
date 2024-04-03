@@ -1,13 +1,14 @@
-import { useState } from "react";
-import { IoIosPricetag } from "react-icons/io";
-import { Link } from "react-router-dom";
-import "swiper/css";
-import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Breadcrumb from "../components/Breadcrumb";
-import Button from "../components/Button";
-import NewProductsLink from "../components/home/NewProductsLink";
+import { useState } from 'react';
+import { IoIosPricetag } from 'react-icons/io';
+import { Link } from 'react-router-dom';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import Breadcrumb from '../components/Breadcrumb';
+import Button from '../components/Button';
+import Input from '../components/Input';
+import NewProductsLink from '../components/home/NewProductsLink';
 
 function Product() {
   const [quantity, setQuantity] = useState(1);
@@ -20,30 +21,30 @@ function Product() {
       <div className="container">
         <Breadcrumb
           links={[
-            { id: 1, title: "محصولات بدن" },
-            { id: 2, title: "ضد تعریق و دئودورانت" },
-            { id: 3, title: "اسپری و بادی اسپلش" },
+            { id: 1, title: 'محصولات بدن' },
+            { id: 2, title: 'ضد تعریق و دئودورانت' },
+            { id: 3, title: 'اسپری و بادی اسپلش' },
             {
               id: 4,
-              title: "بادی اسپلش زنانه مدل باکارات رژ بلک مارین وودلایک",
+              title: 'بادی اسپلش زنانه مدل باکارات رژ بلک مارین وودلایک',
             },
           ]}
         />
-        <div className="grid grid-cols-1 lg:grid-cols-2 pt-5 gap-y-5">
+        <div className="grid grid-cols-1 gap-y-5 pt-5 lg:grid-cols-2">
           <div>
             <img src="../images/new-products/07.jpg" alt="product" />
           </div>
           <div className="flex flex-col border-r pr-3">
-            <p className="text-stone-700 dark:text-stone-200 text-2xl">
+            <p className="text-2xl text-stone-700 dark:text-stone-200">
               کرم مرطوب کننده حاوی اوره 20 درصد درمالیفت | 40 میل
             </p>
-            <p className="text-[13px] text-stone-400 pt-3">
+            <p className="pt-3 text-[13px] text-stone-400">
               Dermalift Dermalift Eczolift Urea 20% For Very Dry And Delicate
               Skin 40 ml
             </p>
-            <Link to="" className="w-20 h-20 mt-5">
+            <Link to="" className="mt-5 h-20 w-20">
               <img
-                className="w-20 h-20 border-2 border-pink-600 p-1"
+                className="h-20 w-20 border-2 border-pink-600 p-1"
                 src="../images/new-products/07.jpg"
                 alt=""
                 title="40 میل"
@@ -56,21 +57,19 @@ function Product() {
             >
               <label className="font-yekanB dark:text-stone-100" htmlFor="">
                 تعداد
-                <input
-                  className="border p-2 outline-none mr-4 dark:text-stone-800"
+                <Input
+                  className="mr-4 p-2"
                   value={quantity}
                   onChange={(e) => setQuantity(e.target.value)}
                   type="number"
-                  name=""
-                  id=""
                 />
               </label>
               <div className="flex items-center text-lg">
                 <span className="bg-stone-200 p-3 text-stone-300">
                   <IoIosPricetag size={28} />
                 </span>
-                <p className="bg-stone-100 p-3 w-48">
-                  <span className="ml-3 text-pink-600 font-yekanB">
+                <p className="w-48 bg-stone-100 p-3">
+                  <span className="ml-3 font-yekanB text-pink-600">
                     195,000
                   </span>
                   تومان
@@ -80,37 +79,37 @@ function Product() {
                 <Button
                   type="submit"
                   disabled
-                  className="w-full rounded-sm font-yekanB cursor-pointer"
+                  className="w-full cursor-pointer rounded-sm font-yekanB"
                 >
                   افزودن به سبد خرید
                 </Button>
               </div>
             </form>
-            <div className="flex justify-between items-center my-10">
+            <div className="my-10 flex items-center justify-between">
               <p className="text-sm text-stone-400">کد کالا: 5030-3418</p>
-              <p className="text-2xl font-yekanB text-stone-800 dark:text-stone-200">
+              <p className="font-yekanB text-2xl text-stone-800 dark:text-stone-200">
                 Dermalift
               </p>
             </div>
             <hr />
-            <div className="border-b py-2 cursor-pointer">
+            <div className="cursor-pointer border-b py-2">
               <div
                 onClick={() => setShowProductDetails((prev) => !prev)}
-                className="group flex justify-between items-center "
+                className="group flex items-center justify-between "
               >
-                <p className="group-hover:text-pink-600 transition-all font-yekanB text-stone-800 dark:text-stone-300">
+                <p className="font-yekanB text-stone-800 transition-all group-hover:text-pink-600 dark:text-stone-300">
                   درباره محصول
                 </p>
-                <button className="group-hover:text-pink-600 dark:text-stone-300 transition-all font-yekanB text-xl">
-                  {showProductDetails ? "-" : "+"}
+                <button className="font-yekanB text-xl transition-all group-hover:text-pink-600 dark:text-stone-300">
+                  {showProductDetails ? '-' : '+'}
                 </button>
               </div>
               <div
                 className={`${
                   showProductDetails
-                    ? "max-h-[1000px] mt-5"
-                    : "overflow-hidden max-h-0"
-                } text-stone-500 dark:text-stone-400 leading-9 transition-all duration-500`}
+                    ? 'mt-5 max-h-[1000px]'
+                    : 'max-h-0 overflow-hidden'
+                } leading-9 text-stone-500 transition-all duration-500 dark:text-stone-400`}
               >
                 اگر پوست چربی دارید نباید برای جلوگیری از چرب تر شدن پوست،
                 استفاده از کرم آبرسان را قطع کنید. بلکه باید از محصول مناسب پوست
@@ -143,24 +142,24 @@ function Product() {
                 استفاده نمایید.
               </div>
             </div>
-            <div className="border-b py-2 cursor-pointer">
+            <div className="cursor-pointer border-b py-2">
               <div
                 onClick={() => setShowProductFeatures((prev) => !prev)}
-                className="group flex justify-between items-center"
+                className="group flex items-center justify-between"
               >
-                <p className="group-hover:text-pink-600 transition-all font-yekanB text-stone-800 dark:text-stone-300">
+                <p className="font-yekanB text-stone-800 transition-all group-hover:text-pink-600 dark:text-stone-300">
                   ویژگی ها و مشخصات
                 </p>
-                <button className="group-hover:text-pink-600 transition-all dark:text-stone-300 font-yekanB text-xl">
-                  {showProductFeatures ? "-" : "+"}
+                <button className="font-yekanB text-xl transition-all group-hover:text-pink-600 dark:text-stone-300">
+                  {showProductFeatures ? '-' : '+'}
                 </button>
               </div>
               <div
                 className={`${
                   showProductFeatures
-                    ? "max-h-[1000px] mt-5"
-                    : "overflow-hidden max-h-0"
-                } text-stone-500 dark:text-stone-400 leading-9 transition-all duration-500`}
+                    ? 'mt-5 max-h-[1000px]'
+                    : 'max-h-0 overflow-hidden'
+                } leading-9 text-stone-500 transition-all duration-500 dark:text-stone-400`}
               >
                 <ul className="list-disc pr-8 leading-7">
                   <li>
@@ -175,24 +174,24 @@ function Product() {
                 </ul>
               </div>
             </div>
-            <div className="border-b py-2 cursor-pointer">
+            <div className="cursor-pointer border-b py-2">
               <div
                 onClick={() => setShowProductBrand((prev) => !prev)}
-                className="group flex justify-between items-center"
+                className="group flex items-center justify-between"
               >
-                <p className="group-hover:text-pink-600 transition-all font-yekanB dark:text-stone-300 text-stone-800">
+                <p className="font-yekanB text-stone-800 transition-all group-hover:text-pink-600 dark:text-stone-300">
                   درباره برند
                 </p>
-                <button className="group-hover:text-pink-600 dark:text-stone-300 transition-all font-yekanB text-xl">
-                  {showProductBrand ? "-" : "+"}
+                <button className="font-yekanB text-xl transition-all group-hover:text-pink-600 dark:text-stone-300">
+                  {showProductBrand ? '-' : '+'}
                 </button>
               </div>
               <div
                 className={`${
                   showProductBrand
-                    ? "max-h-[1000px] mt-5"
-                    : "overflow-hidden max-h-0"
-                } text-stone-500 leading-9 dark:text-stone-400 transition-all duration-500`}
+                    ? 'mt-5 max-h-[1000px]'
+                    : 'max-h-0 overflow-hidden'
+                } leading-9 text-stone-500 transition-all duration-500 dark:text-stone-400`}
               >
                 جی-۸ استئارات، ستئاریل اتیل هگزانوات، گلیسیریل استئارات،
                 استئاریل هپتانوات، ستیل الکل، بوتیل استئارات، اولیو گلیسرایدز،
@@ -211,9 +210,9 @@ function Product() {
           </div>
         </div>
       </div>
-      <div className="bg-stone-200 dark:bg-stone-600 mt-20 pb-40">
+      <div className="mt-20 bg-stone-200 pb-40 dark:bg-stone-600">
         <div className="container flex flex-col items-center">
-          <p className="font-yekanB py-14 dark:text-stone-200 text-stone-800 text-lg">
+          <p className="py-14 font-yekanB text-lg text-stone-800 dark:text-stone-200">
             محصولات مشابه
           </p>
           <Swiper
