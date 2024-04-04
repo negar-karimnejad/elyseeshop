@@ -10,7 +10,7 @@ function Input({
 }) {
   return (
     <input
-      className={`border outline-none dark:border-0 dark:bg-stone-500 dark:text-stone-100  dark:placeholder:text-stone-300 ${className}`}
+      className={`border text-lg outline-none dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300 ${className}`}
       type={type}
       placeholder={placeholder}
       value={value}

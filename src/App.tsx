@@ -41,8 +41,8 @@ function App() {
           <Route path="/ثبت-شکایات-و-انتقادات" element={<Complaints />} />
           <Route path="/تماس-با-ما" element={<Contact />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:id" element={<Product />} />
+          <Route path="/products/:id" element={<Products />} />
+          <Route path="/product/:id" element={<Product />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

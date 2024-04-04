@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Breadcrumb from '../components/Breadcrumb';
 import Button from '../components/Button';
 import Input from '../components/Input';
-import NewProductsLink from '../components/home/NewProductsLink';
+import ProductCard from '../components/home/ProductCard';
 
 function Product() {
   const [quantity, setQuantity] = useState(1);
@@ -242,7 +242,7 @@ function Product() {
             className="similarproduct"
           >
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -250,7 +250,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -258,7 +258,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -266,7 +266,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -274,7 +274,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -282,7 +282,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -290,7 +290,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -298,7 +298,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -306,7 +306,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -314,7 +314,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -322,7 +322,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -330,7 +330,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -338,7 +338,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -346,7 +346,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -354,7 +354,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -362,7 +362,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -370,7 +370,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -378,7 +378,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -386,7 +386,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -394,7 +394,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -402,7 +402,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
@@ -410,7 +410,7 @@ function Product() {
               />
             </SwiperSlide>
             <SwiperSlide className="rounded-md">
-              <NewProductsLink
+              <ProductCard
                 image="../images/new-products/07.jpg"
                 title="شامپو ضد شوره موهای خشک یا چرب لیمو نعنا"
                 brand="Babaria"
