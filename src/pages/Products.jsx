@@ -1,7 +1,12 @@
+import { useState } from 'react';
+import { RiArrowDropLeftLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import StyledProductsUl from '../components/StyledProductsUl';
+import ProductCard from '../components/home/ProductCard';
 import { ProductsPagebrands } from '../data/data';
 
+const ProductsFilterItems = ['مراقبت از پوست', 'برند'];
+const ProductsSorting = ['ارزان ترین', 'گران ترین', 'جدید ترین'];
 const skinCare = [
   'مراقبت پوست',
   'مراقبت از چشم',
@@ -10,41 +15,77 @@ const skinCare = [
 ];
 
 function Products() {
+  const [openedHeading, setOpenedHeading] = useState(null);
+  // const { id } = useParams();
+
+  const toggleExpansion = () => {
+    setOpenedHeading(null);
+  };
+
   return (
     <div className="bg-stone-100 dark:bg-stone-600">
       <div className="flex h-36 items-center justify-center bg-[url('/images/heading-bg.jpg')] font-yekanB text-3xl text-stone-400">
-        <p className="">هدینگ</p>
+        <p className="flex items-end">
+          <RiArrowDropLeftLine /> {ProductsFilterItems[0]}
+        </p>
       </div>
-      <div className="container grid gap-5 py-8 md:grid-cols-12">
-        <div className="col-span-3 rounded-md bg-white p-5 pr-10 shadow-sm">
-          <StyledProductsUl heading="مراقبت از پوست" list={skinCare} />
-          <div className="my-16"></div>
-          <StyledProductsUl heading="برند" list={ProductsPagebrands} />
+      <div className="container grid grid-cols-1 gap-5 py-8 md:grid-cols-12">
+        <div className="col-span-12 flex gap-y-16 rounded-md bg-white shadow-sm dark:bg-stone-500 max-md:justify-between md:col-span-5 md:flex-col md:p-5 lg:col-span-3">
+          {ProductsFilterItems.map((filter) => (
+            <StyledProductsUl
+              key={filter}
+              toggleExpansion={toggleExpansion}
+              onClick={() =>
+                setOpenedHeading((prev) => (prev === filter ? '' : filter))
+              }
+              openedHeading={openedHeading}
+              heading={filter}
+              list={filter === 'برند' ? ProductsPagebrands : skinCare}
+            />
+          ))}
         </div>
-        <div className="col-span-9">
+
+        <div className="col-span-12 md:col-span-7 lg:col-span-9">
           <div className="flex items-center gap-2 text-lg">
-            <h4 className="text-stone-700">مرتب سازی براساس:</h4>
-            <Link
-              to=""
-              className="rounded-full border p-1 px-3 font-yekanB text-base text-stone-500 transition-all  hover:border-pink-300 hover:text-pink-300"
-            >
-              ارزان ترین
-            </Link>
-            <Link
-              to=""
-              className="rounded-full border p-1 px-3 font-yekanB text-base text-stone-500 transition-all  hover:border-pink-300 hover:text-pink-300"
-            >
-              گران ترین
-            </Link>
-            <Link
-              to=""
-              className="rounded-full border p-1 px-3 font-yekanB text-base text-stone-500 transition-all  hover:border-pink-300 hover:text-pink-300"
-            >
-              جدیدترین
-            </Link>
+            <h4 className="text-stone-700 dark:text-stone-200">
+              مرتب سازی براساس:
+            </h4>
+            {ProductsSorting.map((sort) => (
+              <Link
+                key={sort}
+                to={`/products/${sort.replaceAll(' ', '-')}`}
+                className="rounded-full border p-1 px-3 font-yekanB text-base text-stone-500 transition-all hover:border-pink-300 hover:text-pink-300  dark:text-stone-400 dark:hover:text-pink-400"
+              >
+                {sort}
+              </Link>
+            ))}
           </div>
-          <div>
-            
+
+          <div className="mt-10 grid grid-cols-2 gap-5 lg:grid-cols-3 xl:grid-cols-4">
+            <ProductCard
+              image="/images/new-products/01.jpg"
+              title="پلت سایه چشم Berry"
+              brand="Sheglam"
+              price="690,000"
+            />
+            <ProductCard
+              image="/images/new-products/01.jpg"
+              title="پلت سایه چشم Berry"
+              brand="Sheglam"
+              price="690,000"
+            />
+            <ProductCard
+              image="/images/new-products/01.jpg"
+              title="پلت سایه چشم Berry"
+              brand="Sheglam"
+              price="690,000"
+            />
+            <ProductCard
+              image="/images/new-products/01.jpg"
+              title="پلت سایه چشم Berry"
+              brand="Sheglam"
+              price="690,000"
+            />
           </div>
         </div>
       </div>
