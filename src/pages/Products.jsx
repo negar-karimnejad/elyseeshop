@@ -1,32 +1,32 @@
 import { useState } from 'react';
 import { RiArrowDropLeftLine } from 'react-icons/ri';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import StyledProductsUl from '../components/StyledProductsUl';
 import ProductCard from '../components/home/ProductCard';
-import { ProductsPagebrands } from '../data/data';
+import { ProductsPagebrands, navMobileMenu } from '../data/data';
+import NotFound from './NotFound';
 
-const ProductsFilterItems = ['مراقبت از پوست', 'برند'];
 const ProductsSorting = ['ارزان ترین', 'گران ترین', 'جدید ترین'];
-const skinCare = [
-  'مراقبت پوست',
-  'مراقبت از چشم',
-  'پاک کننده های صورت',
-  'ابزار جانبی پوست',
-];
 
 function Products() {
   const [openedHeading, setOpenedHeading] = useState(null);
-  // const { id } = useParams();
+  const { id } = useParams();
 
   const toggleExpansion = () => {
     setOpenedHeading(null);
   };
 
+  const { list, id: listId } = navMobileMenu.find(
+    (item) => item.id === id.replaceAll('-', ' '),
+  );
+  const ProductsFilterItems = [listId, 'برند'];
+
+  if (!list) return <NotFound />;
   return (
     <div className="bg-stone-100 dark:bg-stone-600">
       <div className="flex h-36 items-center justify-center bg-[url('/images/heading-bg.jpg')] font-yekanB text-3xl text-stone-400">
         <p className="flex items-end">
-          <RiArrowDropLeftLine /> {ProductsFilterItems[0]}
+          <RiArrowDropLeftLine /> {listId}
         </p>
       </div>
       <div className="container grid grid-cols-1 gap-5 py-8 md:grid-cols-12">
@@ -40,7 +40,7 @@ function Products() {
               }
               openedHeading={openedHeading}
               heading={filter}
-              list={filter === 'برند' ? ProductsPagebrands : skinCare}
+              list={filter === 'برند' ? ProductsPagebrands : list}
             />
           ))}
         </div>

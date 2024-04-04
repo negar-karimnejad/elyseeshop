@@ -1,31 +1,35 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import NavDropdownList from "./NavDropdownList";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import NavDropdownList from './NavDropdownList';
 
-const linkStyles = "font-yekanB hover:border-b border-stone-400";
+const linkStyles = 'font-yekanB hover:border-b border-stone-400';
 
 const links = [
-  "مراقبت از پوست",
-  "لوازم آرایشی",
-  "مراقبت از مو",
-  "محصولات بدن",
-  "عطر و ادکلن",
+  'مراقبت از پوست',
+  'لوازم آرایشی',
+  'مراقبت از مو',
+  'محصولات بدن',
+  'عطر و ادکلن',
 ];
 
 function NavLinks() {
-  const [showDropdown, setShowDropdown] = useState("");
+  const [showDropdown, setShowDropdown] = useState('');
 
   return (
-    <div className="hidden lg:block text-stone-600 dark:text-stone-100">
+    <div className="hidden text-stone-600 dark:text-stone-100 lg:block">
       <div className="flex gap-6">
         {links.map((link) => (
           <div
             key={link}
             onMouseEnter={() => setShowDropdown(link)}
-            onMouseLeave={() => setShowDropdown("")}
-            className="transition-all hover:border-b border-stone-400 relative"
+            onMouseLeave={() => setShowDropdown('')}
+            className="relative border-stone-400 transition-all hover:border-b"
           >
-            <Link to="" className="font-yekanB" aria-current="page">
+            <Link
+              to={`/products/${link.replaceAll(' ', '-')}`}
+              className="font-yekanB"
+              aria-current="page"
+            >
               {link}
             </Link>
             {showDropdown === link && <NavDropdownList id={link} />}

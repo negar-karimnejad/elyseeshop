@@ -30,7 +30,7 @@ function StyledProductsUl({
               className={`transition-all hover:text-pink-400 ${
                 heading === 'برند' ? 'text-sm ' : 'font-yekanB'
               }`}
-              to={`/products/${item.replaceAll(' ', '-')}`}
+              to={`/products/${item?.replaceAll(' ', '-')}`}
             >
               {item}
             </Link>
