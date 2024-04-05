@@ -135,6 +135,9 @@
 }
 
 /* Similar Product Swiper*/
+.similarproduct {
+  background-color: transparent;
+}
 .similarproduct .swiper-button-prev,
 .similarproduct .swiper-button-next {
   color: rgb(237, 237, 237);

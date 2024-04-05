@@ -108,9 +108,7 @@ function Product() {
             </form>
             <div className="my-10 flex items-center justify-between">
               <p className="text-sm text-stone-400">کد کالا: {code}</p>
-              <p className="font-yekanB text-2xl text-stone-800 dark:text-stone-200">
-                {brandImage}
-              </p>
+              <img className="w-32" src={brandImage} alt="" title={name} />
             </div>
             <hr />
             <div className="cursor-pointer border-b py-2">
@@ -194,6 +192,7 @@ function Product() {
           <Swiper
             spaceBetween={30}
             centeredSlides={true}
+            centeredSlidesBounds={true}
             loop={true}
             navigation={true}
             modules={[Navigation]}
