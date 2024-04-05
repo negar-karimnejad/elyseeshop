@@ -1,3 +1,5 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import About from './pages/About';
 import Advice from './pages/Advice';
@@ -23,34 +25,46 @@ import Register from './pages/Register';
 import Terms from './pages/Terms';
 
 function App() {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        // staleTime: 60 * 1000,
+        staleTime: 0,
+      },
+    },
+  });
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<AppLayout />}>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/brands" element={<Brands />} />
-          <Route path="/create-product" element={<CreateProduct />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/advice" element={<Advice />} />
-          <Route path="/باشگاه-مشتریان" element={<CustomerClub />} />
-          <Route path="/درباره-ما" element={<About />} />
-          <Route path="/قوانین-و-مقررات" element={<Terms />} />
-          <Route path="/حریم-خصوصی" element={<Privacy />} />
-          <Route path="/راهنمای-سفارش-و-خرید" element={<Guide />} />
-          <Route path="/سوالات-متداول" element={<CommonQuestions />} />
-          <Route path="/ثبت-شکایات-و-انتقادات" element={<Complaints />} />
-          <Route path="/تماس-با-ما" element={<Contact />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/products/:id" element={<Products />} />
-          <Route path="/product/:id" element={<Product />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/myAdvice" element={<MyAdvice />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/brands" element={<Brands />} />
+            <Route path="/create-product" element={<CreateProduct />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/advice" element={<Advice />} />
+            <Route path="/باشگاه-مشتریان" element={<CustomerClub />} />
+            <Route path="/درباره-ما" element={<About />} />
+            <Route path="/قوانین-و-مقررات" element={<Terms />} />
+            <Route path="/حریم-خصوصی" element={<Privacy />} />
+            <Route path="/راهنمای-سفارش-و-خرید" element={<Guide />} />
+            <Route path="/سوالات-متداول" element={<CommonQuestions />} />
+            <Route path="/ثبت-شکایات-و-انتقادات" element={<Complaints />} />
+            <Route path="/تماس-با-ما" element={<Contact />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/products/:id" element={<Products />} />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/myAdvice" element={<MyAdvice />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 }
 
