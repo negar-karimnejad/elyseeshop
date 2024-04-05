@@ -11,6 +11,7 @@ import Input from '../components/Input';
 import Loader from '../components/Loader';
 import ProductCard from '../components/home/ProductCard';
 import useProduct from '../features/products/useProduct';
+import useSimilarProducts from '../features/products/useSimilarProducts';
 
 function Product() {
   const [quantity, setQuantity] = useState(1);
@@ -20,9 +21,6 @@ function Product() {
 
   const { id } = useParams();
   const { product, error, isLoading } = useProduct(id);
-
-  if (error) return;
-  if (isLoading) return <Loader />;
 
   const {
     name,
@@ -36,8 +34,15 @@ function Product() {
     category,
     description,
     features,
+    tag,
   } = product[0];
-  console.log(product);
+
+  const { similarProducts } = useSimilarProducts(tag);
+  console.log(similarProducts);
+
+  if (error) return;
+  if (isLoading) return <Loader />;
+  
   return (
     <div className="pt-5">
       <div className="container">

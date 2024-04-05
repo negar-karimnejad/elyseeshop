@@ -22,3 +22,18 @@ export async function getProduct(id) {
   }
   return data;
 }
+
+export async function getSimilarProducts(tag) {
+  console.log(tag);
+  const { data, error } = await supabase
+    .from('products')
+    .select('*')
+    .eq('tag', tag);
+
+  if (error) {
+    console.error(error);
+    throw new Error('Similar Products could not loaded');
+  }
+  console.log('🎏', data);
+  return data;
+}
