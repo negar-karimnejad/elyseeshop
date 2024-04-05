@@ -193,7 +193,6 @@ function Product() {
             spaceBetween={30}
             centeredSlides={true}
             centeredSlidesBounds={true}
-            loop={true}
             navigation={true}
             modules={[Navigation]}
             breakpoints={{
@@ -205,9 +204,8 @@ function Product() {
                 slidesPerView: 3,
                 spaceBetween: 20,
               },
-
               1100: {
-                slidesPerView: 5,
+                slidesPerView: 4,
                 spaceBetween: 40,
               },
             }}

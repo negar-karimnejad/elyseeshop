@@ -138,6 +138,9 @@
 .similarproduct {
   background-color: transparent;
 }
+.similarproduct .swiper-slide img {
+  max-height: 300px;
+}
 .similarproduct .swiper-button-prev,
 .similarproduct .swiper-button-next {
   color: rgb(237, 237, 237);
