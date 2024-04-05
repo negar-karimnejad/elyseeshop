@@ -23,17 +23,16 @@ export async function getProduct(id) {
   return data;
 }
 
-export async function getSimilarProducts(tag) {
-  console.log(tag);
-  const { data, error } = await supabase
-    .from('products')
-    .select('*')
-    .eq('tag', tag);
+export async function getSimilarProducts(tag, id) {
+  const { data, error } = await supabase.from('products').select('*');
 
   if (error) {
     console.error(error);
     throw new Error('Similar Products could not loaded');
   }
-  console.log('🎏', data);
-  return data;
+  const products = data.filter((product) =>
+    product.tag.includes(tag[1] || tag[0]),
+  );
+  const similarProducts = products.filter((product) => product.id !== id);
+  return similarProducts;
 }
