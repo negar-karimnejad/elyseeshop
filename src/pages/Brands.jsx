@@ -16,7 +16,7 @@ function Brands() {
             key={brand.heading}
             className="flex flex-col rounded-md bg-white p-4 leading-7 text-stone-700 shadow-lg dark:bg-stone-400 dark:text-white "
           >
-            <p className="font-bold">{brand.heading}</p>
+            <p className="font-vazirBold">{brand.heading}</p>
             {brand.list.map((item) => (
               <Link
                 key={item}

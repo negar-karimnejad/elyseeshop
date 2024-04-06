@@ -1,7 +1,7 @@
 function NewProducts({ children }) {
   return (
     <div className="container">
-      <div className="p-5 gap-5 my-5 rounded-md bg-pink-200 grid grid-cols-2 lg:grid-cols-6 dark:bg-stone-700">
+      <div className="my-5 grid grid-cols-2 gap-4 rounded-md bg-pink-200 p-5 dark:bg-stone-700 lg:grid-cols-3 xl:grid-cols-6">
         {children}
       </div>
     </div>

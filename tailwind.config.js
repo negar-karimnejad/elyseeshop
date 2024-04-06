@@ -6,6 +6,7 @@ export default {
     extend: {
       fontFamily: {
         vazirBold: ['vazirBold', 'sans-serif'],
+        vazirMedium: ['vazirMedium', 'sans-serif'],
       },
     },
   },

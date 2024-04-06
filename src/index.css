@@ -8,25 +8,6 @@
     local('vazir'),
     url('./fonts/Vazir.ttf') format('truetype');
 }
-@font-face {
-  font-family: 'vazir-medium';
-  src:
-    local('vazir'),
-    url('./fonts/Vazir-Medium.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'vazirBold';
-  src:
-    local('vazir'),
-    url('./fonts/vazirBold.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'titr';
-  src:
-    local('titr'),
-    url('./fonts/Titr.ttf') format('truetype');
-}
 
 @layer components {
   .container {
@@ -34,7 +15,11 @@
   }
   @font-face {
     font-family: 'vazirBold';
-    src: url('./fonts/vazirBold.ttf') format('truetype');
+    src: url('./fonts/Vazir-Bold.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'vazirMedium';
+    src: url('./fonts/Vazir-Medium.ttf') format('truetype');
   }
 }
 

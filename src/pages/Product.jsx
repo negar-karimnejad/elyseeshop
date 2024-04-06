@@ -102,7 +102,7 @@ function Product() {
                 </span>
                 <p className="w-48 bg-stone-100 p-3">
                   <span className="font-vazirBold ml-3 text-pink-600">
-                    {price.toLocaleString()}
+                    {price.toLocaleString("Fa")}
                   </span>
                   تومان
                 </p>

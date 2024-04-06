@@ -29,8 +29,10 @@ function ProductCard({ product, isLoading }) {
           مشاهده محصول
         </Button>
       </div>
-      <div className="flex w-full flex-1 flex-col justify-between gap-5 bg-pink-50 p-5 dark:bg-stone-800">
-        <p className="h-8 text-sm hover:text-pink-400">{name}</p>
+      <div className="flex w-full flex-1 flex-col justify-between gap-5 bg-pink-50 px-1 py-5 dark:bg-stone-800">
+        <p className="font-vazirMedium h-8 text-sm hover:text-pink-400">
+          {name}
+        </p>
         <p
           style={{ direction: 'ltr' }}
           className="line-clamp-2 h-10 text-sm text-stone-700 dark:text-stone-500"
@@ -39,7 +41,7 @@ function ProductCard({ product, isLoading }) {
         </p>
         <p className="font-vazirBold">
           <span className="font-vazirBold text-pink-600">
-            {price.toLocaleString()}{' '}
+            {price.toLocaleString('Fa')}{' '}
           </span>
           تومان
         </p>
