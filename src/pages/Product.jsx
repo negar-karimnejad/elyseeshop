@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IoIosPricetag } from 'react-icons/io';
 import { Link, useParams } from 'react-router-dom';
 import 'swiper/css';
@@ -20,9 +20,15 @@ function Product() {
   const [showProductBrand, setShowProductBrand] = useState(true);
 
   const { id } = useParams();
-  const { product, error, isLoading } = useProduct(id.replaceAll('-', ' '));
+  const { product, error, isLoading, refetch } = useProduct(
+    id.replaceAll('-', ' '),
+  );
   const { similarProducts, isLoading: similarProductsLoading } =
     useSimilarProducts(product?.tag, product?.id);
+
+  useEffect(() => {
+    refetch();
+  }, [refetch, id]);
 
   if (error) return;
   if (isLoading) return <Loader />;
@@ -76,14 +82,19 @@ function Product() {
               onSubmit={(e) => e.preventDefault()}
               className="flex flex-col gap-5 pt-14"
             >
-              <label className="font-yekanB dark:text-stone-100" htmlFor="">
+              <label
+                className="flex items-center font-yekanB dark:text-stone-100"
+                htmlFor=""
+              >
                 تعداد
-                <Input
-                  className="mr-4 p-2"
-                  value={quantity}
-                  onChange={(e) => setQuantity(e.target.value)}
-                  type="number"
-                />
+                <div className="w-[195px]">
+                  <Input
+                    className="mr-4 w-full p-2"
+                    value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)}
+                    type="number"
+                  />
+                </div>
               </label>
               <div className="flex items-center text-lg">
                 <span className="bg-stone-200 p-3 text-stone-300">

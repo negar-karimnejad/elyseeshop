@@ -1,10 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../Button';
 
 function ProductCard({ product, isLoading }) {
-  if (!product) return;
+  const navigate = useNavigate();
 
+  if (!product) return;
   const { image, name, brand, price } = product;
+
+  const clickHandler = () => {
+    navigate(`/product/${name.replaceAll(' ', '-')}`);
+  };
 
   return (
     <Link
@@ -17,7 +22,10 @@ function ProductCard({ product, isLoading }) {
           className="w-full transition-all duration-500 group-hover:brightness-75"
           alt="new product"
         />
-        <Button className="absolute -bottom-16 left-0 right-0 m-auto bg-stone-950 text-white group-hover:bottom-10 group-hover:block">
+        <Button
+          onClick={clickHandler}
+          className="absolute -bottom-16 left-0 right-0 m-auto bg-stone-950 text-white group-hover:bottom-10 group-hover:block"
+        >
           مشاهده محصول
         </Button>
       </div>
@@ -25,7 +33,7 @@ function ProductCard({ product, isLoading }) {
         <p className="h-8 text-sm hover:text-pink-400">{name}</p>
         <p
           style={{ direction: 'ltr' }}
-          className="line-clamp-2 h-10 text-sm text-stone-700"
+          className="line-clamp-2 h-10 text-sm text-stone-700 dark:text-stone-500"
         >
           {brand}
         </p>
