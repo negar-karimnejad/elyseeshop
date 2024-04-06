@@ -11,7 +11,7 @@ const FooterLink = ({ link }) => {
           <li key={item}>
             <Link
               to=""
-              className="hover:underline hover:text-stone-700 dark:text-stone-300  dark:hover:text-stone-100 transition-all"
+              className="text-sm hover:underline hover:text-stone-700 dark:text-stone-300  dark:hover:text-stone-100 transition-all"
             >
               {item}
             </Link>
