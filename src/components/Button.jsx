@@ -1,8 +1,8 @@
-function Button({ type, onClick, children, disabled, className }) {
+function Button({ type, onClick, children, disabled, className, variant }) {
   return (
     <button
       type={type}
-      className={`w-fit bg-pink-600 text-white rounded-full py-2 px-6 transition-all duration-700 hover:bg-pink-500 group-hover:block group-hover:bottom-10 ${className}`}
+      className={`w-fit rounded-full bg-pink-600 px-6 py-2 text-white transition-all duration-700 hover:bg-pink-500 group-hover:bottom-10 group-hover:block ${className} ${variant === 'gray' ? 'bg-stone-400' : ''} ${variant === 'dark' ? 'px-32 py-3 bg-stone-800 hover:bg-stone-700' : ''}`}
       onClick={onClick}
       disabled={disabled}
     >
