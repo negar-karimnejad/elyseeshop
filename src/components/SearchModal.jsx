@@ -24,7 +24,7 @@ function SearchModal({ closeSearchModal }) {
         className="w-2/3 rounded-md bg-white p-5"
       >
         <form onSubmit={submitHandler} className="flex flex-col gap-4">
-          <label htmlFor="" className="font-yekanB text-stone-500">
+          <label htmlFor="" className="font-vazirBold text-stone-500">
             کلمه مورد نظر را جستجو کنید:
           </label>
           <Input

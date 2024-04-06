@@ -7,7 +7,7 @@ function Brands() {
       className="bg-stone-200 dark:bg-stone-600"
       style={{ direction: 'ltr' }}
     >
-      <div className="flex h-44 items-center justify-center bg-[url('/images/heading-bg.jpg')] font-yekanB text-3xl text-stone-400">
+      <div className="font-vazirBold flex h-44 items-center justify-center bg-[url('/images/heading-bg.jpg')] text-3xl text-stone-400">
         <p className="">برندها</p>
       </div>
       <div className="container grid grid-cols-2 gap-x-5 gap-y-8 py-20 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">

@@ -1,17 +1,17 @@
-import { useRef } from "react";
-import { Link } from "react-router-dom";
-import { navMobileMenu } from "../../data/data";
-import NavMobileDropdownLink from "./NavMobileDropdownLink";
-import NavUl from "./NavUl";
+import { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { navMobileMenu } from '../../data/data';
+import NavMobileDropdownLink from './NavMobileDropdownLink';
+import NavUl from './NavUl';
 
 const linkStyles =
-  "block px-7 font-yekanB py-2 border-b border-dashed border-white";
+  'block px-7 font-vazirBold py-2 border-b border-dashed border-white';
 
 function MobileNavMenu({ toggleMenu }) {
   const ref = useRef();
   return (
     <>
-      <div className="fixed z-0 inset-0" onClick={toggleMenu}></div>
+      <div className="fixed inset-0 z-0" onClick={toggleMenu}></div>
       <div
         ref={ref}
         className="lg:hidden"

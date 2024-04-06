@@ -28,10 +28,8 @@ function Product() {
 
   useEffect(() => {
     refetch();
+    window.scrollTo(0, 0);
   }, [refetch, id]);
-
-  if (error) return;
-  if (isLoading) return <Loader />;
 
   const {
     name,
@@ -46,6 +44,8 @@ function Product() {
     features,
   } = product;
 
+  if (error) return;
+  if (isLoading) return <Loader />;
   return (
     <div className="pt-5">
       <div className="container">
@@ -61,8 +61,8 @@ function Product() {
           ]}
         />
         <div className="grid grid-cols-1 gap-y-5 pt-5 lg:grid-cols-2">
-          <div>
-            <img src={image} alt="product" />
+          <div className="flex justify-center">
+            <img src={image} alt="product" className="h-fit max-w-md" />
           </div>
           <div className="flex flex-col border-r pr-3">
             <p className="text-2xl text-stone-700 dark:text-stone-200">
@@ -83,7 +83,7 @@ function Product() {
               className="flex flex-col gap-5 pt-14"
             >
               <label
-                className="flex items-center font-yekanB dark:text-stone-100"
+                className="font-vazirBold flex items-center dark:text-stone-100"
                 htmlFor=""
               >
                 تعداد
@@ -101,7 +101,7 @@ function Product() {
                   <IoIosPricetag size={28} />
                 </span>
                 <p className="w-48 bg-stone-100 p-3">
-                  <span className="ml-3 font-yekanB text-pink-600">
+                  <span className="font-vazirBold ml-3 text-pink-600">
                     {price.toLocaleString()}
                   </span>
                   تومان
@@ -111,7 +111,7 @@ function Product() {
                 <Button
                   type="submit"
                   disabled
-                  className="w-full cursor-pointer rounded-sm font-yekanB"
+                  className="font-vazirBold w-full cursor-pointer rounded-sm"
                 >
                   افزودن به سبد خرید
                 </Button>
@@ -127,10 +127,10 @@ function Product() {
                 onClick={() => setShowProductDetails((prev) => !prev)}
                 className="group flex items-center justify-between "
               >
-                <p className="font-yekanB text-stone-800 transition-all group-hover:text-pink-600 dark:text-stone-300">
+                <p className="font-vazirBold text-stone-800 transition-all group-hover:text-pink-600 dark:text-stone-300">
                   درباره محصول
                 </p>
-                <button className="font-yekanB text-xl transition-all group-hover:text-pink-600 dark:text-stone-300">
+                <button className="font-vazirBold text-xl transition-all group-hover:text-pink-600 dark:text-stone-300">
                   {showProductDetails ? '-' : '+'}
                 </button>
               </div>
@@ -149,10 +149,10 @@ function Product() {
                 onClick={() => setShowProductFeatures((prev) => !prev)}
                 className="group flex items-center justify-between"
               >
-                <p className="font-yekanB text-stone-800 transition-all group-hover:text-pink-600 dark:text-stone-300">
+                <p className="font-vazirBold text-stone-800 transition-all group-hover:text-pink-600 dark:text-stone-300">
                   ویژگی ها و مشخصات
                 </p>
-                <button className="font-yekanB text-xl transition-all group-hover:text-pink-600 dark:text-stone-300">
+                <button className="font-vazirBold text-xl transition-all group-hover:text-pink-600 dark:text-stone-300">
                   {showProductFeatures ? '-' : '+'}
                 </button>
               </div>
@@ -175,10 +175,10 @@ function Product() {
                 onClick={() => setShowProductBrand((prev) => !prev)}
                 className="group flex items-center justify-between"
               >
-                <p className="font-yekanB text-stone-800 transition-all group-hover:text-pink-600 dark:text-stone-300">
+                <p className="font-vazirBold text-stone-800 transition-all group-hover:text-pink-600 dark:text-stone-300">
                   درباره برند
                 </p>
-                <button className="font-yekanB text-xl transition-all group-hover:text-pink-600 dark:text-stone-300">
+                <button className="font-vazirBold text-xl transition-all group-hover:text-pink-600 dark:text-stone-300">
                   {showProductBrand ? '-' : '+'}
                 </button>
               </div>
@@ -197,7 +197,7 @@ function Product() {
       </div>
       <div className="mt-20 bg-stone-200 pb-40 dark:bg-stone-600">
         <div className="container flex flex-col items-center">
-          <p className="py-14 font-yekanB text-lg text-stone-800 dark:text-stone-200">
+          <p className="font-vazirBold py-14 text-lg text-stone-800 dark:text-stone-200">
             محصولات مشابه
           </p>
           <Swiper

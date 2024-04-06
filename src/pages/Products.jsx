@@ -24,7 +24,7 @@ function Products() {
   if (!list) return <NotFound />;
   return (
     <div className="bg-stone-100 dark:bg-stone-600">
-      <div className="flex h-36 items-center justify-center bg-[url('/images/heading-bg.jpg')] font-yekanB text-3xl text-stone-400">
+      <div className="font-vazirBold flex h-36 items-center justify-center bg-[url('/images/heading-bg.jpg')] text-3xl text-stone-400">
         <p className="flex items-end">
           <RiArrowDropLeftLine /> {listId}
         </p>
@@ -54,7 +54,7 @@ function Products() {
               <Link
                 key={sort}
                 to={`/products/${sort.replaceAll(' ', '-')}`}
-                className="rounded-full border p-1 px-3 font-yekanB text-base text-stone-500 transition-all hover:border-pink-300 hover:text-pink-300  dark:text-stone-400 dark:hover:text-pink-400"
+                className="font-vazirBold rounded-full border p-1 px-3 text-base text-stone-500 transition-all hover:border-pink-300 hover:text-pink-300  dark:text-stone-400 dark:hover:text-pink-400"
               >
                 {sort}
               </Link>

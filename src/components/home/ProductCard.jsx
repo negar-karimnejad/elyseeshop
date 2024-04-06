@@ -37,8 +37,10 @@ function ProductCard({ product, isLoading }) {
         >
           {brand}
         </p>
-        <p className="font-yekanB">
-          <span className="font-yekanB text-pink-600">{price} </span>
+        <p className="font-vazirBold">
+          <span className="font-vazirBold text-pink-600">
+            {price.toLocaleString()}{' '}
+          </span>
           تومان
         </p>
       </div>

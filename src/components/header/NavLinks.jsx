@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavDropdownList from './NavDropdownList';
 
-const linkStyles = 'font-yekanB hover:border-b border-stone-400';
+const linkStyles = 'font-vazirBold hover:border-b border-stone-400';
 
 const links = [
   'مراقبت از پوست',
@@ -27,7 +27,7 @@ function NavLinks() {
           >
             <Link
               to={`/products/${link.replaceAll(' ', '-')}`}
-              className="font-yekanB"
+              className="font-vazirBold"
               aria-current="page"
             >
               {link}

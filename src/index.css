@@ -3,10 +3,29 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Yekan';
+  font-family: 'vazir';
   src:
-    local('Yekan'),
-    url('./fonts/BYekan.ttf') format('truetype');
+    local('vazir'),
+    url('./fonts/Vazir.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'vazir-medium';
+  src:
+    local('vazir'),
+    url('./fonts/Vazir-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'vazirBold';
+  src:
+    local('vazir'),
+    url('./fonts/vazirBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'titr';
+  src:
+    local('titr'),
+    url('./fonts/Titr.ttf') format('truetype');
 }
 
 @layer components {
@@ -14,14 +33,14 @@
     @apply mx-auto px-2;
   }
   @font-face {
-    font-family: 'YekanB';
-    src: url('./fonts/BYekanBold.ttf') format('truetype');
+    font-family: 'vazirBold';
+    src: url('./fonts/vazirBold.ttf') format('truetype');
   }
 }
 
 * {
   scroll-behavior: smooth;
-  font-family: 'Yekan';
+  font-family: 'vazir';
 }
 
 /* Not-Found Page Styles */

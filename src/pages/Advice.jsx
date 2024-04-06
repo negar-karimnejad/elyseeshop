@@ -18,7 +18,7 @@ function Advice() {
           onSubmit={submitHandler}
           className="mb-5 flex w-1/2 flex-col gap-3 rounded-md border bg-sky-100 p-3 dark:bg-stone-500"
         >
-          <label className="font-yekanB text-stone-600 dark:text-stone-200">
+          <label className="font-vazirBold text-stone-600 dark:text-stone-200">
             لطفا سوال خود را وارد کنید
           </label>
           <textarea
@@ -37,9 +37,13 @@ function Advice() {
           </Button>
         </form>
       ) : (
-        <p className="mb-10 font-yekanB text-stone-600 dark:text-stone-200">
+        <p className="font-vazirBold mb-10 text-stone-600 dark:text-stone-200">
           برای ثبت سوال لطفا وارد{' '}
-          <Link title="لاگین" to="/login" className="font-yekanB text-pink-500">
+          <Link
+            title="لاگین"
+            to="/login"
+            className="font-vazirBold text-pink-500"
+          >
             حساب کاربری
           </Link>{' '}
           خود شوید
@@ -49,7 +53,7 @@ function Advice() {
         <div className="rounded-md border bg-pink-50 p-3 dark:bg-stone-500">
           <p className="text-sm text-stone-600 dark:text-stone-200">
             1402-12-16 |{' '}
-            <span className="font-yekanB text-base text-stone-700 dark:text-sky-50">
+            <span className="font-vazirBold text-base text-stone-700 dark:text-sky-50">
               سمیه
             </span>
           </p>
@@ -59,7 +63,7 @@ function Advice() {
             شما تا دریافت کارت باشگاه مشتریان: 1,000,000 تومان"
           </p>
           <div className="rounded-md border bg-white p-3 dark:bg-stone-300">
-            <p className="font-yekanB text-pink-400">پاسخ مشاور</p>
+            <p className="font-vazirBold text-pink-400">پاسخ مشاور</p>
             <p className="mt-2 text-stone-600">باسلام</p>
             <p className="leading-8 text-stone-600 dark:text-stone-800">
               برای عضویت در باشگاه مشتریان الیزه شاپ باید مجموع مبلغ خریدهای شما
@@ -72,7 +76,7 @@ function Advice() {
         <div className="rounded-md border bg-pink-50 p-3 dark:bg-stone-500">
           <p className="text-sm text-stone-600 dark:text-stone-200">
             1402-12-16 |{' '}
-            <span className="font-yekanB text-base text-stone-700 dark:text-sky-50">
+            <span className="font-vazirBold text-base text-stone-700 dark:text-sky-50">
               سمیه
             </span>
           </p>
@@ -82,7 +86,7 @@ function Advice() {
             شما تا دریافت کارت باشگاه مشتریان: 1,000,000 تومان"
           </p>
           <div className="rounded-md border bg-white p-3 dark:bg-stone-300">
-            <p className="font-yekanB text-pink-400">پاسخ مشاور</p>
+            <p className="font-vazirBold text-pink-400">پاسخ مشاور</p>
             <p className="mt-2 text-stone-600">باسلام</p>
             <p className="leading-8 text-stone-600 dark:text-stone-800">
               برای عضویت در باشگاه مشتریان الیزه شاپ باید مجموع مبلغ خریدهای شما
@@ -95,7 +99,7 @@ function Advice() {
         <div className="rounded-md border bg-pink-50 p-3 dark:bg-stone-500">
           <p className="text-sm text-stone-600 dark:text-stone-200">
             1402-12-16 |{' '}
-            <span className="font-yekanB text-base text-stone-700 dark:text-sky-50">
+            <span className="font-vazirBold text-base text-stone-700 dark:text-sky-50">
               سمیه
             </span>
           </p>
@@ -105,7 +109,7 @@ function Advice() {
             شما تا دریافت کارت باشگاه مشتریان: 1,000,000 تومان"
           </p>
           <div className="rounded-md border bg-white p-3 dark:bg-stone-300">
-            <p className="font-yekanB text-pink-400">پاسخ مشاور</p>
+            <p className="font-vazirBold text-pink-400">پاسخ مشاور</p>
             <p className="mt-2 text-stone-600">باسلام</p>
             <p className="leading-8 text-stone-600 dark:text-stone-800">
               برای عضویت در باشگاه مشتریان الیزه شاپ باید مجموع مبلغ خریدهای شما
