@@ -25,8 +25,8 @@ function Products() {
   return (
     <div className="bg-stone-100 dark:bg-stone-600">
       <div className="font-vazirBold flex h-36 items-center justify-center bg-[url('/images/heading-bg.jpg')] text-3xl text-stone-400">
-        <p className="flex items-end">
-          <RiArrowDropLeftLine /> {listId}
+        <p className="flex items-end text-3xl">
+          <RiArrowDropLeftLine size={24} /> {listId}
         </p>
       </div>
       <div className="container grid grid-cols-1 gap-5 py-8 md:grid-cols-12">
@@ -47,14 +47,14 @@ function Products() {
 
         <div className="col-span-12 md:col-span-7 lg:col-span-9">
           <div className="flex items-center gap-2 text-lg">
-            <h4 className="text-stone-700 dark:text-stone-200">
+            <h4 className="text-stone-700 dark:text-stone-100">
               مرتب سازی براساس:
             </h4>
             {ProductsSorting.map((sort) => (
               <Link
                 key={sort}
                 to={`/products/${sort.replaceAll(' ', '-')}`}
-                className="font-vazirBold rounded-full border p-1 px-3 text-base text-stone-500 transition-all hover:border-pink-300 hover:text-pink-300  dark:text-stone-400 dark:hover:text-pink-400"
+                className="font-vazirBold rounded-full border border-stone-300 p-1 px-3 text-base text-stone-500 transition-all hover:border-pink-300 hover:text-pink-400  dark:text-stone-300 dark:hover:text-pink-500"
               >
                 {sort}
               </Link>

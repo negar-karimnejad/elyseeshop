@@ -20,7 +20,10 @@ function ShoppingCartIcon() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-
+  const clickHandler = () => {
+    navigate('/cart');
+    setIsCartOpen(false);
+  };
   return (
     <div className="relative">
       <button
@@ -43,7 +46,7 @@ function ShoppingCartIcon() {
           tabindex="-1"
           onClick={(e) => e.stopPropagation()}
         >
-          <Button className="mx-auto block" onClick={() => navigate('/cart')}>
+          <Button className="mx-auto block" onClick={clickHandler}>
             مشاهده سبد خرید
           </Button>
         </div>
