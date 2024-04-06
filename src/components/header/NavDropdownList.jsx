@@ -22,10 +22,10 @@ function NavDropdownList({ id }) {
             <li key={index}>
               <Link
                 to=""
-                className={`text-sm  ${
+                className={`text-sm ${
                   index === 0
-                    ? 'font-vazirBold text-[14px] text-pink-500 dark:text-pink-400'
-                    : 'pr-2'
+                    ? 'font-vazirBold hover:text-pink-400 text-[14px] text-pink-500 dark:text-pink-400'
+                    : 'pr-2 transition-all hover:text-stone-950'
                 }`}
               >
                 {index === 0 && (

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavDropdownList from './NavDropdownList';
 
-const linkStyles = 'hover:border-b border-stone-400';
+const linkStyles = 'h-5 hover:border-b border-stone-400';
 
 const links = [
   'مراقبت از پوست',
@@ -23,7 +23,7 @@ function NavLinks() {
             key={link}
             onMouseEnter={() => setShowDropdown(link)}
             onMouseLeave={() => setShowDropdown('')}
-            className="relative border-stone-400 transition-all hover:border-b"
+            className="relative h-5 border-stone-400 transition-all hover:border-b"
           >
             <Link
               to={`/products/${link.replaceAll(' ', '-')}`}

@@ -227,10 +227,21 @@ export const navMenu = [
 
 // Footer Data
 export const footerLinksList = [
-  { heading: 'صفحه نخست', links: ['ورود / ثبت نام', 'برندها', 'خبرها'] },
+  {
+    heading: 'صفحه نخست',
+    links: [
+      { title: 'ورود / ثبت نام', to: '/login' },
+      { title: 'برندها', to: '/brands' },
+      { title: 'خبرها', to: '#' },
+    ],
+  },
   {
     heading: 'باشگاه مشتریان',
-    links: ['درباره ما', 'قوانین و مقررات', 'حریم خصوصی'],
+    links: [
+      { title: 'درباره ما', to: '#' },
+      { title: 'قوانین و مقررات', to: '#' },
+      { title: 'حریم خصوصی', to: '#' },
+    ],
   },
   {
     heading: 'راهنمای سفارش و خرید',

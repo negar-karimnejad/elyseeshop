@@ -27,13 +27,16 @@ function Footer() {
               <FooterLink key={link.heading} link={link} />
             ))}
             <div>
-              <h2 className="mb-3 uppercase text-stone-800 dark:text-white">
+              <h2
+                className="font-vazirBold ext-stone-700 mb-3 uppercase text-stone-800 dark:text-white"
+              >
                 نشانی
               </h2>
               <ul className="flex flex-col gap-2 font-medium text-stone-600 dark:text-stone-400">
-                <li className='text-sm max-w-80'>
+                <li className="max-w-80">
                   خوزستان، ماهشهر، شهرک بعثت، هزارواحدی، میدان کیمیا، مجتمع
-                  تجاری الماس شهر، فروشگاه الیزه <span className='font-BKoodak'>06152427352</span>
+                  تجاری الماس شهر، فروشگاه الیزه{' '}
+                  <span className="font-BKoodak">06152427352</span>
                 </li>
               </ul>
             </div>
