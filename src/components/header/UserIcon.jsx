@@ -2,6 +2,14 @@ import { useState } from 'react';
 import { BiUser } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
+const userList = [
+  { id: 1, to: '', title: 'داشبورد' },
+  { id: 2, to: '/orders', title: ' سفارش ها' },
+  { id: 3, to: '', title: ' مشخصات فردی' },
+  { id: 4, to: '', title: ' مشاوره های شما' },
+  { id: 5, to: '', title: 'خروج' },
+];
+
 function UserIcon() {
   const [isShowUserModal, setIsShowUserModal] = useState(false);
 
@@ -24,46 +32,16 @@ function UserIcon() {
             className="userIcon absolute rounded-md border bg-white px-10 py-5 text-stone-500 shadow-lg dark:border-0 dark:bg-stone-600 dark:text-white"
           >
             <ul className="flex flex-col gap-3">
-              <li>
-                <Link
-                  to=""
-                  className="whitespace-nowrap transition-all hover:text-pink-500"
-                >
-                  داشبورد
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to=""
-                  className="whitespace-nowrap transition-all hover:text-pink-500"
-                >
-                  سفارش ها
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to=""
-                  className="whitespace-nowrap transition-all hover:text-pink-500"
-                >
-                  مشخصات فردی
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to=""
-                  className="whitespace-nowrap transition-all hover:text-pink-500"
-                >
-                  مشاوره های شما
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to=""
-                  className="whitespace-nowrap transition-all hover:text-pink-400"
-                >
-                  خروج
-                </Link>
-              </li>
+              {userList.map((item) => (
+                <li key={item.id} onClick={() => setIsShowUserModal(false)}>
+                  <Link
+                    to={item.to}
+                    className="whitespace-nowrap transition-all hover:text-pink-500"
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

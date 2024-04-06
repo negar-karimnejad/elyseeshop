@@ -1,6 +1,6 @@
 function Orders() {
   return (
-    <div className="container my-16">
+    <div className="container my-16 max-md:text-sm">
       <h5 className="font-vazirBold mb-2 text-center text-lg text-stone-700 dark:text-white">
         فهرست سفارشات
       </h5>

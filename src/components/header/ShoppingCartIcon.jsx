@@ -29,7 +29,7 @@ function ShoppingCartIcon() {
         onClick={() => setIsCartOpen((prev) => !prev)}
       >
         <BiShoppingBag size={28} />
-        <div className="font-BKoodak absolute -right-3 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-black dark:bg-pink-600 dark:text-white">
+        <div className="font-BKoodak absolute -right-3 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-black pl-0.5 pt-0.5 dark:bg-pink-600 dark:text-white">
           3
         </div>
       </button>
