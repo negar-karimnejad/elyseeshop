@@ -23,6 +23,7 @@ import Product from './pages/Product';
 import Products from './pages/Products';
 import Register from './pages/Register';
 import Terms from './pages/Terms';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   const queryClient = new QueryClient({
@@ -60,6 +61,7 @@ function App() {
             <Route path="/product/:id" element={<Product />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/myAdvice" element={<MyAdvice />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

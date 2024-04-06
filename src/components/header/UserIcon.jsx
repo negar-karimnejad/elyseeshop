@@ -3,16 +3,17 @@ import { BiUser } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
 const userList = [
-  { id: 1, to: '', title: 'داشبورد' },
+  { id: 1, to: '/dashboard', title: 'داشبورد' },
   { id: 2, to: '/orders', title: ' سفارش ها' },
-  { id: 3, to: '', title: ' مشخصات فردی' },
-  { id: 4, to: '', title: ' مشاوره های شما' },
-  { id: 5, to: '', title: 'خروج' },
+  { id: 4, to: '/myAdvice', title: ' مشاوره های شما' },
 ];
 
 function UserIcon() {
   const [isShowUserModal, setIsShowUserModal] = useState(false);
 
+  const logoutHandler = () => {
+    // Log out function
+  };
   return (
     <div className="relative">
       <button
@@ -42,6 +43,14 @@ function UserIcon() {
                   </Link>
                 </li>
               ))}
+              <li onClick={() => setIsShowUserModal(false)}>
+                <button
+                  onClick={logoutHandler}
+                  className="whitespace-nowrap transition-all hover:text-pink-500"
+                >
+                  خروج
+                </button>
+              </li>
             </ul>
           </div>
         </div>
