@@ -27,9 +27,7 @@ function Footer() {
               <FooterLink key={link.heading} link={link} />
             ))}
             <div>
-              <h2
-                className="font-vazirBold ext-stone-700 mb-3 uppercase text-stone-800 dark:text-white"
-              >
+              <h2 className="font-vazirBold ext-stone-700 mb-3 uppercase text-stone-800 dark:text-white">
                 نشانی
               </h2>
               <ul className="flex flex-col gap-2 font-medium text-stone-600 dark:text-stone-400">

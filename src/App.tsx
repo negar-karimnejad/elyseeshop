@@ -12,6 +12,7 @@ import Complaints from './pages/Complaints';
 import Contact from './pages/Contact';
 import CreateProduct from './pages/CreateProduct';
 import CustomerClub from './pages/CustomerClub';
+import Dashboard from './pages/Dashboard';
 import Guide from './pages/Guide';
 import Homepage from './pages/Homepage';
 import Login from './pages/Login';
@@ -23,7 +24,6 @@ import Product from './pages/Product';
 import Products from './pages/Products';
 import Register from './pages/Register';
 import Terms from './pages/Terms';
-import Dashboard from './pages/Dashboard';
 
 function App() {
   const queryClient = new QueryClient({
