@@ -21,6 +21,10 @@
     font-family: 'vazirMedium';
     src: url('./fonts/Vazir-Medium.ttf') format('truetype');
   }
+  @font-face {
+    font-family: 'BKoodak';
+    src: url('./fonts/BKoodak.ttf') format('truetype');
+  }
 }
 
 * {

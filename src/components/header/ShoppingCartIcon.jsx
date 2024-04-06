@@ -20,7 +20,7 @@ function ShoppingCartIcon() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-  
+
   return (
     <div className="relative">
       <button
@@ -29,7 +29,7 @@ function ShoppingCartIcon() {
         onClick={() => setIsCartOpen((prev) => !prev)}
       >
         <BiShoppingBag size={28} />
-        <div className="absolute -right-3 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-black text-sm font-medium dark:bg-pink-600 dark:text-white">
+        <div className="font-BKoodak absolute -right-3 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-black dark:bg-pink-600 dark:text-white">
           3
         </div>
       </button>

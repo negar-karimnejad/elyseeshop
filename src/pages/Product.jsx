@@ -31,6 +31,9 @@ function Product() {
     window.scrollTo(0, 0);
   }, [refetch, id]);
 
+  if (error) return;
+  if (isLoading) return <Loader />;
+
   const {
     name,
     image,
@@ -44,8 +47,6 @@ function Product() {
     features,
   } = product;
 
-  if (error) return;
-  if (isLoading) return <Loader />;
   return (
     <div className="pt-5">
       <div className="container">
@@ -66,7 +67,7 @@ function Product() {
           </div>
           <div className="flex flex-col border-r pr-3">
             <p className="text-2xl text-stone-700 dark:text-stone-200">
-              {name} | {mass} میل
+              {name} | <span className="font-BKoodak">{mass}</span> میل
             </p>
             <p className="pt-3 text-[13px] text-stone-400">{brand}</p>
             <Link to="" className="mt-5 h-20 w-20">
@@ -77,7 +78,7 @@ function Product() {
                 title={name}
               />
             </Link>
-            <p className="text-sm dark:text-stone-300">{`${mass} میل`}</p>
+            <p className="font-BKoodak text-sm dark:text-stone-300">{`${mass} میل`}</p>
             <form
               onSubmit={(e) => e.preventDefault()}
               className="flex flex-col gap-5 pt-14"
@@ -102,7 +103,7 @@ function Product() {
                 </span>
                 <p className="w-48 bg-stone-100 p-3">
                   <span className="font-vazirBold ml-3 text-pink-600">
-                    {price.toLocaleString("Fa")}
+                    {price.toLocaleString('Fa')}
                   </span>
                   تومان
                 </p>

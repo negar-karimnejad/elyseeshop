@@ -33,7 +33,7 @@ function Footer() {
               <ul className="flex flex-col gap-2 font-medium text-stone-600 dark:text-stone-400">
                 <li>
                   خوزستان، ماهشهر، شهرک بعثت، هزارواحدی، میدان کیمیا، مجتمع
-                  تجاری الماس شهر، فروشگاه الیزه 06152427352
+                  تجاری الماس شهر، فروشگاه الیزه <span className='font-BKoodak'>06152427352</span>
                 </li>
               </ul>
             </div>

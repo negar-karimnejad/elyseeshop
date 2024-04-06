@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 function Breadcrumb({ links }) {
   return (
-    <nav className="container pt-5" aria-label="Breadcrumb">
+    <nav className="container py-5 text-sm" aria-label="Breadcrumb">
       <ol className="flex flex-wrap items-center">
         <li className="inline-flex items-center">
           <Link
             to="/"
-            className="inline-flex items-center text-stone-500 hover:text-pink-600 dark:text-stone-200 dark:text-stone-400 dark:hover:text-pink-600"
+            className="inline-flex items-center text-stone-500 hover:text-pink-600 dark:text-stone-200 dark:hover:text-pink-600"
           >
             خانه
           </Link>
@@ -38,7 +38,7 @@ function Breadcrumb({ links }) {
               ) : (
                 <Link
                   to=""
-                  className="ms-1 text-stone-500 hover:text-pink-600 dark:text-stone-200 dark:text-stone-400 dark:hover:text-pink-600 md:ms-2"
+                  className="ms-1 text-stone-500 hover:text-pink-600 dark:text-stone-200 dark:hover:text-pink-600 md:ms-2"
                 >
                   {link.title}
                 </Link>
