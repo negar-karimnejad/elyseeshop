@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { deleteFromCart } from '../../services/apiCart';
+import { toast } from 'react-toastify';
 
 function useDeleteCartItem() {
   const queryClient = useQueryClient();
@@ -12,7 +13,7 @@ function useDeleteCartItem() {
       });
       queryClient.refetchQueries('cart');
     },
-    // onError:(error)=>toast.error(err.message),
+    onError: (error) => toast.error(error.message),
   });
   return { isPending, mutate };
 }

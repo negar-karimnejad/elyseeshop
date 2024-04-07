@@ -1,5 +1,5 @@
-import supabase from './supabase';
 import { toast } from 'react-toastify';
+import supabase from './supabase';
 
 export async function getCart() {
   const { data, error } = await supabase.from('cart').select('*');
@@ -21,4 +21,55 @@ export async function deleteFromCart(id) {
     throw new Error('Product could not be deleted successfully');
   }
   return data;
+}
+
+export async function addToCart(newItem) {
+  // const { user } = useAuth();
+  try {
+    const { data: cart } = await supabase.from('cart').select('*');
+
+    const existingItem = cart.find(
+      (cartItem) =>
+        Number(cartItem.productId) === Number(newItem.productId) &&
+        Number(cartItem.userId) === Number(newItem.userId),
+    );
+
+    if (existingItem) {
+      const updatedQuantity = existingItem.quantity + 1;
+
+      try {
+        const { data: updatedItemData, error: updateError } = await supabase
+          .from('cart')
+          .update({ quantity: updatedQuantity })
+          .eq('id', existingItem.id)
+          .single();
+
+        if (updateError) {
+          throw updateError;
+        }
+
+        // Refresh cart after update
+        //   getUserCart();
+
+        return updatedItemData;
+      } catch (error) {
+        console.error('Error updating item quantity:', error.message);
+      }
+    }
+
+    const { data: insertedItemData, error: insertError } = await supabase
+      .from('cart')
+      .insert(newItem)
+      .single();
+
+    if (insertError) {
+      throw insertError;
+    }
+
+    // getUserCart();
+    return insertedItemData;
+  } catch (error) {
+    console.error('Error while adding item to cart:', error.message);
+    return null;
+  }
 }
