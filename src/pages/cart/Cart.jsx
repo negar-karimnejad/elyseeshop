@@ -1,10 +1,13 @@
+import Loader from '../../components/Loader';
+import useCart from '../../features/cart/useCart';
 import CartProducts from './CartProducts';
 import CartTable from './CartTable';
 import CartTotal from './CartTotal';
 import Checkout from './Checkout';
 
 function Cart() {
-  const cart = true;
+  const { cart, isLoading } = useCart();
+  if (isLoading) return <Loader />;
 
   return (
     <div className="dark:bg-stone-600">
@@ -15,7 +18,11 @@ function Cart() {
         {cart ? (
           <div>
             <CartTable />
-            <CartProducts />
+            <div className="shadow">
+              {cart.map((product) => (
+                <CartProducts key={product.id} product={product} />
+              ))}
+            </div>
             <CartTotal />
             <Checkout />
           </div>
