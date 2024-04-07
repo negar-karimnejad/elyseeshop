@@ -1,30 +1,63 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RiArrowDropLeftLine } from 'react-icons/ri';
 import { Link, useParams } from 'react-router-dom';
 import StyledProductsUl from '../components/StyledProductsUl';
 import ProductCard from '../components/home/ProductCard';
 import { ProductsPagebrands, navMobileMenu } from '../data/data';
+import useProducts from '../features/products/useProducts';
 import NotFound from './NotFound';
 
 const ProductsSorting = ['ارزان ترین', 'گران ترین', 'جدید ترین'];
 
 function Products() {
   const [openedHeading, setOpenedHeading] = useState(null);
+  const [productList, setProductList] = useState([]);
+  const [productSort, setProductSort] = useState('');
+
   const { id } = useParams();
+  const { products } = useProducts();
+  const urlQuery = id.replaceAll('-', ' ');
+
+  useEffect(() => {
+    setProductSort('');
+  }, [id]);
+
+  useEffect(() => {
+    let filteredProducts = [];
+    filteredProducts = products?.filter(
+      (product) => product.category === urlQuery,
+    );
+    setProductList(filteredProducts);
+  }, [products, urlQuery]);
+
+  const { list, id: listId } = navMobileMenu.find(
+    (item) => item.id === urlQuery,
+  );
+  const ProductsFilterItems = [listId, 'برند'];
 
   const toggleExpansion = () => {
     setOpenedHeading(null);
   };
 
-  const { list, id: listId } = navMobileMenu.find(
-    (item) => item.id === id.replaceAll('-', ' '),
-  );
-  const ProductsFilterItems = [listId, 'برند'];
+  const sortChangeHandler = (sort) => {
+    setProductSort(sort);
+    let filteredProducts = [];
+
+    if (sort === 'ارزان ترین') {
+      filteredProducts = productList.slice().sort((a, b) => a.price - b.price);
+    } else if (sort === 'گران ترین') {
+      filteredProducts = productList.slice().sort((a, b) => b.price - a.price);
+    } else if (sort === 'جدید ترین') {
+      filteredProducts = productList.slice().sort((a, b) => a.id - b.id);
+    }
+    setProductList(filteredProducts);
+  };
 
   if (!list) return <NotFound />;
+
   return (
     <div className="bg-stone-100 dark:bg-stone-600">
-      <div className="font-vazirBold flex h-36 items-center justify-center bg-[url('/images/heading-bg.jpg')] text-3xl text-stone-400">
+      <div className="flex h-36 items-center justify-center bg-[url('/images/heading-bg.jpg')] font-vazirBold text-3xl text-stone-400">
         <p className="flex items-end text-3xl">
           <RiArrowDropLeftLine size={24} /> {listId}
         </p>
@@ -53,8 +86,9 @@ function Products() {
             {ProductsSorting.map((sort) => (
               <Link
                 key={sort}
-                to={`/products/${sort.replaceAll(' ', '-')}`}
-                className="font-vazirBold rounded-full border border-stone-300 p-1 px-3 text-base text-stone-500 transition-all hover:border-pink-300 hover:text-pink-400  dark:text-stone-300 dark:hover:text-pink-500"
+                to={`${sort.replaceAll(' ', '-')}`}
+                className={`rounded-full border p-1 px-3 font-vazirBold text-base  transition-all hover:border-pink-300 hover:text-pink-400   dark:hover:text-pink-500 ${productSort === sort ? 'border-pink-500 text-pink-500' : 'border-stone-300 text-stone-500 dark:text-stone-300'}`}
+                onClick={() => sortChangeHandler(sort)}
               >
                 {sort}
               </Link>
@@ -62,30 +96,9 @@ function Products() {
           </div>
 
           <div className="mt-10 grid grid-cols-2 gap-5 lg:grid-cols-3 xl:grid-cols-4">
-            <ProductCard
-              image="/images/new-products/01.jpg"
-              title="پلت سایه چشم Berry"
-              brand="Sheglam"
-              price="690,000"
-            />
-            <ProductCard
-              image="/images/new-products/01.jpg"
-              title="پلت سایه چشم Berry"
-              brand="Sheglam"
-              price="690,000"
-            />
-            <ProductCard
-              image="/images/new-products/01.jpg"
-              title="پلت سایه چشم Berry"
-              brand="Sheglam"
-              price="690,000"
-            />
-            <ProductCard
-              image="/images/new-products/01.jpg"
-              title="پلت سایه چشم Berry"
-              brand="Sheglam"
-              price="690,000"
-            />
+            {productList?.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
           </div>
         </div>
       </div>

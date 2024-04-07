@@ -60,7 +60,7 @@ function App() {
             <Route path="/ثبت-شکایات-و-انتقادات" element={<Complaints />} />
             <Route path="/تماس-با-ما" element={<Contact />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/products/:id" element={<Products />} />
+            <Route path="/products/:id/*" element={<Products />} />
             <Route path="/product/:id" element={<Product />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/myAdvice" element={<MyAdvice />} />
