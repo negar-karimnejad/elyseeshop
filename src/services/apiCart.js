@@ -35,7 +35,7 @@ export async function addToCart(newItem) {
     );
 
     if (existingItem) {
-      const updatedQuantity = existingItem.quantity + 1;
+      const updatedQuantity = existingItem.quantity + Number(newItem.quantity);
 
       try {
         const { data: updatedItemData, error: updateError } = await supabase
@@ -47,10 +47,6 @@ export async function addToCart(newItem) {
         if (updateError) {
           throw updateError;
         }
-
-        // Refresh cart after update
-        //   getUserCart();
-
         return updatedItemData;
       } catch (error) {
         console.error('Error updating item quantity:', error.message);
@@ -66,7 +62,6 @@ export async function addToCart(newItem) {
       throw insertError;
     }
 
-    // getUserCart();
     return insertedItemData;
   } catch (error) {
     console.error('Error while adding item to cart:', error.message);

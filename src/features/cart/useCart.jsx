@@ -10,11 +10,15 @@ function useCart() {
     queryKey: ['cart'],
     queryFn: getCart,
   });
-  const totalQty = cart.reduce((total, curr) => {
-    console.log(curr);
+  
+  const totalQty = cart?.reduce((acc, item) => acc + item.quantity, 0);
+  const totalPrice = cart?.reduce((acc, item) => {
+    const itemPrice = item.item.price;
+    const itemQty = item.quantity;
+    return acc + itemPrice * itemQty;
   }, 0);
 
-  return { cart, totalQty, isLoading, error };
+  return { cart, isLoading, error, totalQty, totalPrice };
 }
 
 export default useCart;

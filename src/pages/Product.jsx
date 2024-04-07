@@ -60,6 +60,7 @@ function Product() {
 
     try {
       mutate(newItem);
+      setQuantity(1);
     } catch (error) {
       console.log(error);
     }

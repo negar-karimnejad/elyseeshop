@@ -1,5 +1,6 @@
 import Button from '../../components/Button';
 import Input from '../../components/Input';
+import useCart from '../../features/cart/useCart';
 
 const StyledDiv = ({ title, value }) => {
   return (
@@ -24,6 +25,8 @@ const StyledDiv = ({ title, value }) => {
 };
 
 function CartTotal() {
+  const { totalPrice, totalQty } = useCart();
+
   return (
     <div className="flex w-full justify-between gap-y-10 pt-10 max-md:flex-col max-md:items-center">
       <div>
@@ -39,10 +42,10 @@ function CartTotal() {
       </div>
       <div className="flex w-96 items-center gap-5 text-xl">
         <div className="flex w-full flex-col divide-y-4 divide-white text-white dark:divide-stone-600">
-          <StyledDiv title="تعداد" value={2} />
-          <StyledDiv title="تخفیف" value={5000} />
+          <StyledDiv title="تعداد" value={totalQty} />
+          <StyledDiv title="تخفیف" value={0} />
           <StyledDiv title="هزینه ارسال" value={0} />
-          <StyledDiv title="مبلغ قابل پرداخت" value={1725000} />
+          <StyledDiv title="مبلغ قابل پرداخت" value={totalPrice} />
         </div>
       </div>
     </div>
