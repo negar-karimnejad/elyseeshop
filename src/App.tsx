@@ -6,7 +6,7 @@ import Advice from './pages/Advice';
 import AppLayout from './pages/AppLayout';
 import Blog from './pages/Blog';
 import Brands from './pages/Brands';
-import Cart from './pages/Cart';
+import Cart from './pages/cart/Cart';
 import CommonQuestions from './pages/CommonQuestions';
 import Complaints from './pages/Complaints';
 import Contact from './pages/Contact';
