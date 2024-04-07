@@ -10,6 +10,7 @@ import Button from '../components/Button';
 import Input from '../components/Input';
 import Loader from '../components/Loader';
 import ProductCard from '../components/home/ProductCard';
+import useCreateCartItem from '../features/cart/useCreateCartItem';
 import useProduct from '../features/products/useProduct';
 import useSimilarProducts from '../features/products/useSimilarProducts';
 
@@ -25,6 +26,7 @@ function Product() {
   );
   const { similarProducts, isLoading: similarProductsLoading } =
     useSimilarProducts(product?.tag, product?.id);
+  const { mutate, isPending } = useCreateCartItem();
 
   useEffect(() => {
     refetch();
@@ -46,6 +48,22 @@ function Product() {
     description,
     features,
   } = product;
+
+  const submitAddToCart = async (e) => {
+    e.preventDefault();
+    const newItem = {
+      userId: 12,
+      productId: product.id,
+      quantity,
+      item: product,
+    };
+
+    try {
+      mutate(newItem);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="pt-5">
@@ -80,11 +98,11 @@ function Product() {
             </Link>
             <p className="font-BKoodak text-sm dark:text-stone-300">{`${mass} میل`}</p>
             <form
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={submitAddToCart}
               className="flex flex-col gap-5 pt-14"
             >
               <label
-                className="font-vazirBold flex items-center dark:text-stone-100"
+                className="flex items-center font-vazirBold dark:text-stone-100"
                 htmlFor=""
               >
                 تعداد
@@ -102,7 +120,7 @@ function Product() {
                   <IoIosPricetag size={28} />
                 </span>
                 <p className="w-48 bg-stone-100 p-3">
-                  <span className="font-vazirBold ml-3 text-pink-600">
+                  <span className="ml-3 font-vazirBold text-pink-600">
                     {price.toLocaleString('Fa')}
                   </span>
                   تومان
@@ -111,10 +129,10 @@ function Product() {
               <div className="w-60">
                 <Button
                   type="submit"
-                  disabled
-                  className="font-vazirBold w-full cursor-pointer rounded-sm"
+                  disabled={isPending}
+                  className="w-full cursor-pointer rounded-sm font-vazirBold"
                 >
-                  افزودن به سبد خرید
+                  {isPending ? 'در حال افزودن...' : 'افزودن به سبد خرید'}
                 </Button>
               </div>
             </form>
@@ -198,7 +216,7 @@ function Product() {
       </div>
       <div className="mt-20 bg-stone-200 pb-40 dark:bg-stone-600">
         <div className="container flex flex-col items-center">
-          <p className="font-vazirBold py-14 text-lg text-stone-800 dark:text-stone-200">
+          <p className="py-14 font-vazirBold text-lg text-stone-800 dark:text-stone-200">
             محصولات مشابه
           </p>
           <Swiper

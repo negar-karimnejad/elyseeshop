@@ -2,12 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { BiShoppingBag } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
 import Button from '../Button';
+import useCart from '../../features/cart/useCart';
 
 function ShoppingCartIcon() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const cartRef = useRef(null);
   const navigate = useNavigate();
-
+  const { totalQty } = useCart();
+  console.log(totalQty);
   useEffect(() => {
     function handleClickOutside(event) {
       if (cartRef.current && !cartRef.current.contains(event.target)) {
@@ -32,7 +34,7 @@ function ShoppingCartIcon() {
         onClick={() => setIsCartOpen((prev) => !prev)}
       >
         <BiShoppingBag size={28} />
-        <div className="font-BKoodak absolute -right-3 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-black pl-0.5 pt-0.5 dark:bg-pink-600 dark:text-white">
+        <div className="absolute -right-3 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-black pl-0.5 pt-0.5 font-BKoodak dark:bg-pink-600 dark:text-white">
           3
         </div>
       </button>

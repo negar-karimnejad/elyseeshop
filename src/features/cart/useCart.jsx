@@ -10,8 +10,11 @@ function useCart() {
     queryKey: ['cart'],
     queryFn: getCart,
   });
+  const totalQty = cart.reduce((total, curr) => {
+    console.log(curr);
+  }, 0);
 
-  return { cart, isLoading, error };
+  return { cart, totalQty, isLoading, error };
 }
 
 export default useCart;
