@@ -15,7 +15,7 @@ function Cart() {
         🛒 سبد خرید
       </h2>
       <div className="container pb-20 pt-10">
-        {cart ? (
+        {cart.length ? (
           <div>
             <CartTable />
             <div className="shadow">
@@ -27,7 +27,7 @@ function Cart() {
             <Checkout />
           </div>
         ) : (
-          <p className="font-vazirBold text-pink-600">سبد خرید شما خالی است</p>
+          <p className="text-center font-vazirBold text-pink-600">سبد خرید شما خالی است</p>
         )}
       </div>
     </div>

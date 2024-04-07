@@ -17,10 +17,10 @@ const StyledDiv = ({ children, style }) => {
 function CartProducts({ product }) {
   const [quantity, setQuantity] = useState(product?.quantity);
 
-  const { mutate, isLoading } = useDeleteCartItem();
+  const { mutate, isPending } = useDeleteCartItem();
 
-  const { id, image, name, price, category } = product.item;
-
+  const { image, name, price, category } = product.item;
+  
   return (
     <div
       className={`grid grid-cols-12 items-center bg-stone-200 text-stone-700 transition-all hover:bg-stone-200 dark:text-white dark:hover:bg-stone-700 ${product.id % 2 === 0 ? 'dark:bg-stone-500/50' : 'dark:bg-stone-700'}`}
@@ -56,12 +56,18 @@ function CartProducts({ product }) {
       </StyledDiv>
       <StyledDiv style="col-span-1 h-full justify-center p-1 py-7 text-center">
         <button
-          onClick={() => mutate(id)}
-          disabled={isLoading}
-          className="my-1 font-vazirBold text-4xl text-red-500 hover:text-red-600"
+          onClick={() => mutate(product.id)}
+          disabled={isPending}
+          className="relative my-1 font-vazirBold text-4xl text-red-500 hover:text-red-600"
         >
-          <BiTrash size={20} />
-          {!isLoading && <AiOutlineLoading />}
+          {isPending ? (
+            <AiOutlineLoading
+              size={24}
+              className="absolute bottom-0 left-0 right-0 top-0 m-auto animate-spin"
+            />
+          ) : (
+            <BiTrash size={20} />
+          )}
         </button>
       </StyledDiv>
     </div>

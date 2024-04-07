@@ -11,12 +11,12 @@ export async function getCart() {
 }
 
 export async function deleteFromCart(id) {
-  const { error } = await supabase.from('cart').delete().eq('id', id);
-//   toast success
-alert("حذف شد")
+  const { data, error } = await supabase.from('cart').delete().eq('id', id);
+  //   toast success
   if (error) {
     console.error(error);
     // toast error
     throw new Error('Product could not be deleted successfully');
   }
+  return data;
 }
