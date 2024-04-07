@@ -13,7 +13,7 @@ function StyledProductsUl({
     <div className="text-stone-500 dark:text-white max-md:relative max-md:w-full">
       <h4
         onClick={onClick}
-        className="font-vazirBold flex cursor-pointer items-center justify-between gap-2 border-b py-1 pr-3 text-stone-700 dark:text-white max-md:border max-md:px-4 md:relative md:mb-3"
+        className="flex cursor-pointer items-center justify-between gap-2 border-b py-1 pr-3 font-vazirBold text-stone-700 dark:text-white max-md:border max-md:px-4 md:relative md:mb-3"
       >
         <MdOutlineKeyboardArrowDown
           className={`md:hidden ${openedHeading === heading ? 'rotate-180 transform' : ''}`}
@@ -24,13 +24,13 @@ function StyledProductsUl({
         {heading}
       </h4>
       <ul className="hidden list-disc flex-col gap-y-2 pr-3 md:flex">
-        {list.map((item) => (
+        {list?.map((item) => (
           <li key={item}>
             <Link
               className={`transition-all hover:text-pink-400 ${
                 heading === 'برند' ? 'text-sm ' : 'font-vazirBold'
               }`}
-              to={`/products/${item?.replaceAll(' ', '-')}`}
+              to={`${heading === 'برند' ? `/products/برند/${item?.replaceAll(' ', '-')}` : `/products/${item?.replaceAll(' ', '-')}`}`}
             >
               {item}
             </Link>

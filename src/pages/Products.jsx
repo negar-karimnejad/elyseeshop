@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 import { RiArrowDropLeftLine } from 'react-icons/ri';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import StyledProductsUl from '../components/StyledProductsUl';
 import ProductCard from '../components/home/ProductCard';
 import { ProductsPagebrands, navMobileMenu } from '../data/data';
 import useProducts from '../features/products/useProducts';
-import NotFound from './NotFound';
 
 const ProductsSorting = ['ارزان ترین', 'گران ترین', 'جدید ترین'];
 
@@ -17,6 +16,9 @@ function Products() {
   const { id } = useParams();
   const { products } = useProducts();
   const urlQuery = id.replaceAll('-', ' ');
+  const location = useLocation();
+  const pathname = location.pathname;
+  const wildcard = pathname.split('/').slice(3).join('/');
 
   useEffect(() => {
     setProductSort('');
@@ -24,14 +26,20 @@ function Products() {
 
   useEffect(() => {
     let filteredProducts = [];
-    filteredProducts = products?.filter(
-      (product) => product.category === urlQuery,
-    );
+    if (urlQuery === 'برند') {
+      filteredProducts = products?.filter(
+        (product) => product.brandName === wildcard,
+      );
+    } else {
+      filteredProducts = products?.filter(
+        (product) => product.category === urlQuery,
+      );
+    }
     setProductList(filteredProducts);
-  }, [products, urlQuery]);
+  }, [products, urlQuery, wildcard]);
 
   const { list, id: listId } = navMobileMenu.find(
-    (item) => item.id === urlQuery,
+    (item) => item.id === urlQuery || wildcard,
   );
   const ProductsFilterItems = [listId, 'برند'];
 
@@ -52,8 +60,7 @@ function Products() {
     }
     setProductList(filteredProducts);
   };
-
-  if (!list) return <NotFound />;
+  console.log(productList);
 
   return (
     <div className="bg-stone-100 dark:bg-stone-600">
@@ -64,9 +71,9 @@ function Products() {
       </div>
       <div className="container grid grid-cols-1 gap-5 py-8 md:grid-cols-12">
         <div className="col-span-12 flex gap-y-16 rounded-md bg-white shadow-sm dark:bg-stone-500 max-md:justify-between md:col-span-5 md:flex-col md:p-5 lg:col-span-3">
-          {ProductsFilterItems.map((filter) => (
+          {ProductsFilterItems.map((filter, index) => (
             <StyledProductsUl
-              key={filter}
+              key={index}
               toggleExpansion={toggleExpansion}
               onClick={() =>
                 setOpenedHeading((prev) => (prev === filter ? '' : filter))
@@ -83,9 +90,9 @@ function Products() {
             <h4 className="text-stone-700 dark:text-stone-100">
               مرتب سازی براساس:
             </h4>
-            {ProductsSorting.map((sort) => (
+            {ProductsSorting.map((sort, index) => (
               <Link
-                key={sort}
+                key={index}
                 to={`${sort.replaceAll(' ', '-')}`}
                 className={`rounded-full border p-1 px-3 font-vazirBold text-base  transition-all hover:border-pink-300 hover:text-pink-400   dark:hover:text-pink-500 ${productSort === sort ? 'border-pink-500 text-pink-500' : 'border-stone-300 text-stone-500 dark:text-stone-300'}`}
                 onClick={() => sortChangeHandler(sort)}

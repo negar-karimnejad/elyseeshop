@@ -1,6 +1,10 @@
 // Navbar Data
 export const navMobileMenu = [
   {
+    id: 'برند',
+    list: [],
+  },
+  {
     id: 'مراقبت از پوست',
     list: [
       'مراقبت پوست',
