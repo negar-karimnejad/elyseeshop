@@ -1,12 +1,33 @@
-import React from 'react';
-import Input from '../../components/Input';
 import Button from '../../components/Button';
+import Input from '../../components/Input';
+
+const StyledDiv = ({ title, value }) => {
+  return (
+    <div className="flex gap-3 bg-white dark:bg-stone-600">
+      <p className="w-full bg-pink-700 p-1 dark:bg-stone-800">{title}</p>
+      <p className="w-full bg-stone-200 p-1 text-center font-vazirBold text-stone-700 dark:bg-stone-500 dark:text-white">
+        {title === 'مبلغ قابل پرداخت' ? (
+          <>
+            <span className="font-vazirBold text-xl text-pink-600 dark:text-stone-800">
+              {value.toLocaleString('Fa')}
+            </span>{' '}
+            تومان
+          </>
+        ) : (
+          <>
+            {value.toLocaleString('Fa')} {title === 'تعداد' ? '' : 'تومان'}{' '}
+          </>
+        )}
+      </p>
+    </div>
+  );
+};
 
 function CartTotal() {
   return (
     <div className="flex w-full justify-between gap-y-10 pt-10 max-md:flex-col max-md:items-center">
       <div>
-        <form action="" className="flex items-center gap-3">
+        <form className="flex items-center gap-3">
           <label htmlFor="offCode" className="dark:text-white">
             کد تخفیف:
           </label>
@@ -17,22 +38,11 @@ function CartTotal() {
         </form>
       </div>
       <div className="flex w-96 items-center gap-5 text-xl">
-        <div className="flex w-full flex-col gap-1 divide-y-2 divide-white bg-pink-700 text-white dark:divide-stone-600 dark:bg-stone-800">
-          <p className="p-1">تعداد</p>
-          <p className="p-1">تخفیف</p>
-          <p className="p-1">هزینه ارسال</p>
-          <p className="p-1">مبلغ قابل پرداخت</p>
-        </div>
-        <div className="flex w-full flex-col gap-1 divide-y-2 divide-white bg-stone-100 text-center text-stone-700 dark:divide-stone-600 dark:bg-stone-500 dark:text-white">
-          <p className="p-1 font-vazirBold">{(2).toLocaleString('Fa')}</p>
-          <p className="p-1 font-vazirBold">{(0).toLocaleString('Fa')} تومان</p>
-          <p className="p-1 font-vazirBold">{(0).toLocaleString('Fa')} تومان</p>
-          <p className="p-1 font-vazirBold">
-            <span className="font-vazirBold text-xl text-pink-600 dark:text-stone-800">
-              {(1725000).toLocaleString('Fa')}
-            </span>{' '}
-            تومان
-          </p>
+        <div className="flex w-full flex-col divide-y-4 divide-white text-white dark:divide-stone-600">
+          <StyledDiv title="تعداد" value={2} />
+          <StyledDiv title="تخفیف" value={5000} />
+          <StyledDiv title="هزینه ارسال" value={0} />
+          <StyledDiv title="مبلغ قابل پرداخت" value={1725000} />
         </div>
       </div>
     </div>
