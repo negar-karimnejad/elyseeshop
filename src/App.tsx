@@ -40,7 +40,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <ToastContainer />
+      <ToastContainer autoClose={3000} />
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>

@@ -68,3 +68,57 @@ export async function addToCart(newItem) {
     return null;
   }
 }
+
+export async function incrementQty(id) {
+  const { data: existingProduct } = await supabase
+    .from('cart')
+    .select()
+    .eq('id', id);
+
+  const { data: updatedItemData, error: updateError } = await supabase
+    .from('cart')
+    .update({ quantity: existingProduct[0].quantity + 1 })
+    .eq('id', id)
+    .single();
+
+  if (updateError) {
+    throw updateError;
+  }
+
+  return updatedItemData;
+}
+
+export async function decrementQty(id) {
+  const { data, error: existInCartError } = await supabase
+    .from('cart')
+    .select()
+    .eq('id', id);
+
+  if (existInCartError) {
+    throw existInCartError;
+  }
+
+  if (data[0].quantity <= 1) {
+    const { data, error } = await supabase
+      .from('cart')
+      .delete()
+      .eq('id', id);
+    toast.success('محصول از سبد خرید حذف شد');
+
+    if (error) {
+      console.error('Error while removing item from cart:', error.message);
+      return;
+    }
+    return data;
+  }
+
+  const { error: updateError } = await supabase
+    .from('cart')
+    .update({ quantity: data[0].quantity - 1 })
+    .eq('id', id)
+    .single();
+
+  if (updateError) {
+    throw updateError;
+  }
+}

@@ -4,6 +4,8 @@ import { BiTrash } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import Input from '../../components/Input';
 import useDeleteCartItem from '../../features/cart/useDeleteCartItem';
+import useIncrementItem from '../../features/cart/useIncrementItem';
+import useDecrementItem from '../../features/cart/useDecrementItem';
 
 const StyledDiv = ({ children, style }) => {
   return (
@@ -18,9 +20,26 @@ function CartProducts({ product }) {
   const [quantity, setQuantity] = useState(product?.quantity);
 
   const { mutate, isPending } = useDeleteCartItem();
+  const { mutate: incrementItem, isPending: incrementPending } =
+    useIncrementItem();
+  const { mutate: decrementtItem, isPending: decrementtPending } =
+    useDecrementItem();
 
   const { image, name, price, category } = product.item;
-  
+
+  const changeHandler = async (e) => {
+    setQuantity(e.target.value);
+    try {
+      if (quantity > e.target.value) {
+        decrementtItem(product.id);
+      } else {
+        incrementItem(product.id);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div
       className={`grid grid-cols-12 items-center bg-stone-200 text-stone-700 transition-all hover:bg-stone-200 dark:text-white dark:hover:bg-stone-700 ${product.id % 2 === 0 ? 'dark:bg-stone-500/50' : 'dark:bg-stone-700'}`}
@@ -40,7 +59,8 @@ function CartProducts({ product }) {
         <Input
           className="w-full py-1 text-center md:w-1/2"
           value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
+          onChange={changeHandler}
+          disabled={incrementPending || decrementtPending}
           type="number"
         />
       </StyledDiv>
