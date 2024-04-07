@@ -1,12 +1,13 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import About from './pages/About';
 import Advice from './pages/Advice';
 import AppLayout from './pages/AppLayout';
 import Blog from './pages/Blog';
 import Brands from './pages/Brands';
-import Cart from './pages/cart/Cart';
 import CommonQuestions from './pages/CommonQuestions';
 import Complaints from './pages/Complaints';
 import Contact from './pages/Contact';
@@ -24,6 +25,7 @@ import Product from './pages/Product';
 import Products from './pages/Products';
 import Register from './pages/Register';
 import Terms from './pages/Terms';
+import Cart from './pages/cart/Cart';
 
 function App() {
   const queryClient = new QueryClient({
@@ -38,6 +40,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
+      <ToastContainer />
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
