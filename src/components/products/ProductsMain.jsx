@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useProducts from '../../features/products/useProducts';
-import ProductSorting from './ProductSorting';
 import ProductCard from '../home/ProductCard';
+import ProductSorting from './ProductSorting';
 
 function ProductsMain() {
   const [productList, setProductList] = useState([]);
