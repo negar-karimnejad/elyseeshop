@@ -29,19 +29,19 @@ function Hero() {
         className="heroSwiper hidden md:flex"
       >
         <SwiperSlide>
-          <HeroLink to="/products/برند/Cosrx" image="./images/hero/01.jpg" />
+          <HeroLink to="/products/Cosrx" image="./images/hero/01.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <HeroLink to="/products/برند/Sheglam" image="./images/hero/02.jpg" />
+          <HeroLink to="/products/Sheglam" image="./images/hero/02.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <HeroLink to="/products/برند/Simple" image="./images/hero/03.jpg" />
+          <HeroLink to="/products/Simple" image="./images/hero/03.jpg" />
         </SwiperSlide>
       </Swiper>
       <div className="container flex flex-col gap-5 md:hidden">
-        <HeroLink to="/products/برند/Cosrx" image="./images/hero/01.jpg" />
-        <HeroLink to="/products/برند/Sheglam" image="./images/hero/02.jpg" />
-        <HeroLink to="/products/برند/Simple" image="./images/hero/03.jpg" />
+        <HeroLink to="/products/Cosrx" image="./images/hero/01.jpg" />
+        <HeroLink to="/products/Sheglam" image="./images/hero/02.jpg" />
+        <HeroLink to="/products/Simple" image="./images/hero/03.jpg" />
       </div>
     </div>
   );

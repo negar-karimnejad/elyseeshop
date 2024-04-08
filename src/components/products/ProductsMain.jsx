@@ -13,6 +13,7 @@ function ProductsMain() {
 
   const sortChangeHandler = (sort) => {
     let filteredProducts = [];
+
     if (sort === 'ارزان ترین') {
       filteredProducts = productList.slice().sort((a, b) => a.price - b.price);
     } else if (sort === 'گران ترین') {
@@ -25,9 +26,14 @@ function ProductsMain() {
 
   useEffect(() => {
     let filteredProducts = [];
-    filteredProducts = products?.filter(
-      (product) => product.category === urlQuery,
-    );
+
+    filteredProducts = products?.filter((product) => {
+      if (product.category === urlQuery) {
+        return product.category === urlQuery;
+      }
+      return product.brandName === urlQuery;
+    });
+
     setProductList(filteredProducts);
   }, [products, urlQuery]);
 

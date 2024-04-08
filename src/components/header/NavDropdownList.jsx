@@ -16,15 +16,15 @@ function NavDropdownList({ id }) {
 
   return (
     <div className="absolute -right-40 top-6 flex min-w-max gap-10 border bg-white p-5 shadow dark:border-stone-900 dark:bg-stone-600">
-      {list?.map((l) => (
-        <ul className="flex flex-col gap-1">
+      {list?.map((l, index) => (
+        <ul key={index} className="flex flex-col gap-1">
           {l.map((item, index) => (
             <li key={index}>
               <Link
                 to=""
                 className={`text-sm ${
                   index === 0
-                    ? 'font-vazirBold hover:text-pink-400 text-[14px] text-pink-500 dark:text-pink-400'
+                    ? 'font-vazirBold text-[14px] text-pink-500 hover:text-pink-400 dark:text-pink-400'
                     : 'pr-2 transition-all hover:text-stone-950'
                 }`}
               >

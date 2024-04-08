@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function StyledProductsUl({
   toggleExpansion,
   heading,
-  list,
+  list ,
   openedHeading,
   onClick,
 }) {

@@ -5,30 +5,40 @@ import StyledProductsUl from './StyledProductsUl';
 
 function ProductsSidebar() {
   const [openedHeading, setOpenedHeading] = useState(null);
+
   const { id } = useParams();
   const urlQuery = id.replaceAll('-', ' ');
 
-  const { list, id: listId } = navMobileMenu.find(
-    (item) => item.id === urlQuery,
-  );
-  const ProductsFilterItems = [listId, 'برند'];
+  const menuEntry = navMobileMenu.find((item) => item.id === urlQuery);
+  const list = menuEntry ? menuEntry.list : [];
+  const listId = menuEntry?.id;
+
   const toggleExpansion = () => {
     setOpenedHeading(null);
   };
+
   return (
     <div className="col-span-12 flex gap-y-16 rounded-md bg-white shadow-sm dark:bg-stone-500 max-md:justify-between md:col-span-5 md:flex-col md:p-5 lg:col-span-3">
-      {ProductsFilterItems.map((filter, index) => (
+      {list.length > 0 && (
         <StyledProductsUl
-          key={index}
           toggleExpansion={toggleExpansion}
           onClick={() =>
-            setOpenedHeading((prev) => (prev === filter ? '' : filter))
+            setOpenedHeading((prev) => (prev === listId ? '' : listId))
           }
           openedHeading={openedHeading}
-          heading={filter}
-          list={filter === 'برند' ? ProductsPagebrands : list}
+          heading={listId}
+          list={list}
         />
-      ))}
+      )}
+      <StyledProductsUl
+        toggleExpansion={toggleExpansion}
+        onClick={() =>
+          setOpenedHeading((prev) => (prev === 'برندها' ? '' : 'برندها'))
+        }
+        openedHeading={openedHeading}
+        heading="برندها"
+        list={ProductsPagebrands}
+      />
     </div>
   );
 }

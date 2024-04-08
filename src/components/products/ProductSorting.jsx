@@ -1,14 +1,9 @@
-import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 const ProductsSorting = ['ارزان ترین', 'گران ترین', 'جدید ترین'];
 
 function ProductSorting({ sortChangeHandler }) {
-  const { id } = useParams();
   const [productSort, setProductSort] = useState('');
-
-  useEffect(() => {
-    setProductSort('');
-  }, [id]);
 
   return (
     <div className="flex items-center gap-2 text-lg">
