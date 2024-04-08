@@ -114,7 +114,7 @@ function Product() {
                 htmlFor=""
               >
                 تعداد
-                <div className="w-[195px]">
+                <div className="w-[175px]">
                   <Input
                     className="mr-4 w-full p-2"
                     value={quantity}

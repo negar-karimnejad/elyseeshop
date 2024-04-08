@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import supabase from './supabase';
 
 export async function signup({ email, password, username }) {
@@ -14,12 +15,13 @@ export async function signup({ email, password, username }) {
 
     if (error) {
       console.error(error);
-      throw new Error('Get problem while logging user');
+      throw new Error('متاسفانه ثبت نام انجام نشد');
     }
 
     return data;
   } catch (error) {
-    console.error('Error signing up:', error.message);
+    toast.error(error.message);
+    throw new Error(error.message);
   }
 }
 
@@ -32,12 +34,13 @@ export async function login({ email, password }) {
 
     if (error) {
       console.error(error);
-      throw new Error('Get problem while logging user');
+      throw new Error('متاسفانه لاگین انجام نشد');
     }
 
     return data;
   } catch (error) {
-    console.error('Error logging in:', error.message);
+    toast.error(error.message);
+    throw new Error(error.message);
   }
 }
 
@@ -49,7 +52,7 @@ export async function getCurrentUser() {
 
   if (error) {
     console.error(error);
-    throw new Error('Get problem while getting user');
+    throw new Error('متاسفانه عملیات با موفقیت انجام نشد');
   }
 
   return data?.user;
@@ -61,10 +64,11 @@ export async function logout() {
 
     if (error) {
       console.error(error);
-      throw new Error('Get problem while logging out user');
+      throw new Error('متاسفانه عملیات با موفقیت انجام نشد');
     }
   } catch (error) {
-    console.error('Error signing out:', error.message);
+    toast.error(error.message);
+    throw new Error(error.message);
   }
 }
 
@@ -76,7 +80,7 @@ export async function updateUser({ password, username }) {
   const { data, error } = await supabase.auth.updateUser(updateData);
   if (error) {
     console.error(error);
-    throw new Error('Get problem while updating user');
+    throw new Error('متاسفانه ویرایش با موفقیت انجام نشد');
   }
 
   return data;
