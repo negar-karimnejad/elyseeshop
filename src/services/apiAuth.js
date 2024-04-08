@@ -1,28 +1,30 @@
-import { toast } from 'react-toastify';
 import supabase from './supabase';
 
-export async function signup(email, password, username) {
+export async function signup({ email, password, username }) {
+  console.log(email, password, username);
   try {
     let { data, error } = await supabase.auth.signUp({
       email,
       password,
-      username,
+      options: {
+        data: {
+          username,
+        },
+      },
     });
 
     if (error) {
       console.error(error);
-      toast.error(error.message);
       throw new Error('Get problem while logging user');
     }
 
-    toast.success('ثبت نام شما با موفقیت انجام شد');
     return data;
   } catch (error) {
     console.error('Error signing up:', error.message);
   }
 }
 
-export async function login(email, password) {
+export async function login({ email, password }) {
   try {
     let { data, error } = await supabase.auth.signInWithPassword({
       email,
@@ -31,29 +33,27 @@ export async function login(email, password) {
 
     if (error) {
       console.error(error);
-      toast.error(error.message);
       throw new Error('Get problem while logging user');
     }
 
-    toast.success('شما با موفقیت وارد حساب خود شدید');
     return data;
   } catch (error) {
     console.error('Error logging in:', error.message);
   }
 }
-export async function getUser() {
-  const {
-    data: { user },
-    error,
-  } = await supabase.auth.getUser();
+
+export async function getCurrentUser() {
+  const { data: session } = await supabase.auth.getSession();
+  if (!session.session) return null;
+
+  const { data, error } = await supabase.auth.getUser();
 
   if (error) {
     console.error(error);
-    toast.error(error.message);
     throw new Error('Get problem while getting user');
   }
 
-  return user;
+  return data?.user;
 }
 
 export async function logout() {
@@ -62,16 +62,14 @@ export async function logout() {
 
     if (error) {
       console.error(error);
-      toast.error(error.message);
       throw new Error('Get problem while logging out user');
     }
-    toast.success('شما با موفقیت از حساب خود خارج شدید');
   } catch (error) {
     console.error('Error signing out:', error.message);
   }
 }
 
-export async function updateUser(email, password, username) {
+export async function updateUser({ email, password, username }) {
   const { data, error } = await supabase.auth.updateUser({
     email,
     password,
@@ -79,10 +77,8 @@ export async function updateUser(email, password, username) {
   });
   if (error) {
     console.error(error);
-    toast.error(error.message);
     throw new Error('Get problem while updating user');
   }
 
-  toast.success('اطلاعات شما با موفقیت بروزرسانی شد');
   return data;
 }

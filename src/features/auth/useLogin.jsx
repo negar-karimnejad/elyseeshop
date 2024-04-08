@@ -7,12 +7,17 @@ function useLogin() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
-  const { mutate: login, isPending } = useMutation({
+  const {
+    mutate: login,
+    isPending,
+    isSuccess,
+  } = useMutation({
     mutationFn: ({ email, password }) => loginApi({ email, password }),
 
     onSuccess: (user) => {
       queryClient.setQueryData(['user'], user.user);
       navigate('/dashboard', { replace: true });
+      toast.success('با موفقیت وارد حساب کاربری شدید');
     },
     onError: (err) => {
       console.log('ERROR', err);
@@ -20,7 +25,7 @@ function useLogin() {
     },
   });
 
-  return { login, isPending };
+  return { login, isPending, isSuccess };
 }
 
 export default useLogin;

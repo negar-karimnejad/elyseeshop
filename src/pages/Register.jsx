@@ -2,15 +2,23 @@ import { useState } from 'react';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import { Link } from 'react-router-dom';
+import useSignup from '../features/auth/useSignup';
 
 function Register() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const { isPending, signup, isSuccess } = useSignup();
+
   const submitHandler = (e) => {
     e.preventDefault();
-    //code
+    signup({ username, email, password });
+    if (isSuccess) {
+      setUsername('');
+      setEmail('');
+      setPassword('');
+    }
   };
 
   return (
@@ -24,6 +32,7 @@ function Register() {
           className="p-3"
           type="text"
           value={username}
+          disabled={isPending}
           onChange={(e) => setUsername(e.target.value)}
         />
         <Input
@@ -31,6 +40,7 @@ function Register() {
           className="p-3"
           type="email"
           value={email}
+          disabled={isPending}
           onChange={(e) => setEmail(e.target.value)}
         />
         <Input
@@ -38,10 +48,12 @@ function Register() {
           className="p-3"
           type="password"
           value={password}
+          disabled={isPending}
           onChange={(e) => setPassword(e.target.value)}
         />
         <Button
           type="submit"
+          disabled={isPending}
           className="w-full rounded-sm dark:bg-white dark:text-black dark:hover:bg-pink-600 dark:hover:text-white"
         >
           ثبت نام

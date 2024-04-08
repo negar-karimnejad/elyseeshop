@@ -2,14 +2,20 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import Input from '../components/Input';
+import useLogin from '../features/auth/useLogin';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { isPending, login, isSuccess } = useLogin();
 
   const submitHandler = (e) => {
     e.preventDefault();
-    //code
+    login({ email, password });
+    if (isSuccess) {
+      setEmail('');
+      setPassword('');
+    }
   };
 
   return (
@@ -23,6 +29,7 @@ function Login() {
           className="p-3"
           type="email"
           value={email}
+          disabled={isPending}
           onChange={(e) => setEmail(e.target.value)}
         />
         <Input
@@ -30,10 +37,12 @@ function Login() {
           className="p-3"
           type="password"
           value={password}
+          disabled={isPending}
           onChange={(e) => setPassword(e.target.value)}
         />
         <Button
           type="submit"
+          disabled={isPending}
           className="w-full rounded-sm dark:bg-white dark:text-black dark:hover:bg-pink-600 dark:hover:text-white"
         >
           ثبت نام

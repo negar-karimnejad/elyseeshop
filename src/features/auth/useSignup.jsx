@@ -1,15 +1,23 @@
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
 import { signup as signupApi } from '../../services/apiAuth';
+import { useNavigate } from 'react-router-dom';
 
 function useSignup() {
-  const { mutate: signup, isPending } = useMutation({
+  const navigate = useNavigate();
+
+  const {
+    mutate: signup,
+    isPending,
+    isSuccess,
+  } = useMutation({
     mutationFn: signupApi,
     onSuccess: () => {
-      toast.error('ثبت نام با موفقیت انجام شد');
+      toast.success('ثبت نام با موفقیت انجام شد');
+      navigate('/login', { replace: true });
     },
   });
-  return { signup, isPending };
+  return { signup, isPending, isSuccess };
 }
 
 export default useSignup;

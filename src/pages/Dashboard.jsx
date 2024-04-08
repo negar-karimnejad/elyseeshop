@@ -2,13 +2,20 @@ import { FaCartPlus } from 'react-icons/fa';
 import { IoIosChatbubbles } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
+import useUser from '../features/auth/useUser';
 
 function Dashboard() {
+  const { user } = useUser();
   return (
     <div className="bg-stone-100 py-20 dark:bg-stone-600">
       <div className="container grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         <div className="flex h-64 flex-col justify-between rounded-md border bg-white p-5 dark:border-stone-500 dark:bg-stone-700 dark:text-white">
-          <h3 className="font-vazirMedium">,خوش آمدید</h3>
+          <h3 className="font-vazirMedium">
+            <span className="font-vazirBold text-lg text-pink-500">
+              {user?.user_metadata?.username}
+            </span>{' '}
+            عزیز , خوش آمدید
+          </h3>
           <Button
             type="submit"
             className="rounded-md bg-sky-600 px-12 hover:bg-sky-700 dark:bg-stone-900 dark:hover:bg-stone-800"

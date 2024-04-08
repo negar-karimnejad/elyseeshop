@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BiUser } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import useUser from '../../features/auth/useUser';
 
 const userList = [
   { id: 1, to: '/dashboard', title: 'داشبورد' },
@@ -10,16 +11,20 @@ const userList = [
 
 function UserIcon() {
   const [isShowUserModal, setIsShowUserModal] = useState(false);
+  const { user } = useUser();
 
   const logoutHandler = () => {
     // Log out function
   };
+
   return (
     <div className="relative">
       <button
         type="button"
         className="text-stone-300 transition-all hover:text-stone-400"
-        onClick={() => setIsShowUserModal((prev) => !prev)}
+        onClick={() => {
+          setIsShowUserModal((prev) => !prev);
+        }}
       >
         <BiUser size={29} />
       </button>
