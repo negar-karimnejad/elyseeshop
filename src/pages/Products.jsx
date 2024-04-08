@@ -1,17 +1,15 @@
 import { useEffect, useState } from 'react';
 import { RiArrowDropLeftLine } from 'react-icons/ri';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
+import ProductSorting from '../components/ProductSorting';
 import StyledProductsUl from '../components/StyledProductsUl';
 import ProductCard from '../components/home/ProductCard';
 import { ProductsPagebrands, navMobileMenu } from '../data/data';
 import useProducts from '../features/products/useProducts';
 
-const ProductsSorting = ['ارزان ترین', 'گران ترین', 'جدید ترین'];
-
 function Products() {
   const [openedHeading, setOpenedHeading] = useState(null);
   const [productList, setProductList] = useState([]);
-  const [productSort, setProductSort] = useState('');
 
   const { id } = useParams();
   const { products } = useProducts();
@@ -19,10 +17,6 @@ function Products() {
   const location = useLocation();
   const pathname = location.pathname;
   const wildcard = pathname.split('/').slice(3).join('/');
-
-  useEffect(() => {
-    setProductSort('');
-  }, [id]);
 
   useEffect(() => {
     let filteredProducts = [];
@@ -46,21 +40,6 @@ function Products() {
   const toggleExpansion = () => {
     setOpenedHeading(null);
   };
-
-  const sortChangeHandler = (sort) => {
-    setProductSort(sort);
-    let filteredProducts = [];
-
-    if (sort === 'ارزان ترین') {
-      filteredProducts = productList.slice().sort((a, b) => a.price - b.price);
-    } else if (sort === 'گران ترین') {
-      filteredProducts = productList.slice().sort((a, b) => b.price - a.price);
-    } else if (sort === 'جدید ترین') {
-      filteredProducts = productList.slice().sort((a, b) => a.id - b.id);
-    }
-    setProductList(filteredProducts);
-  };
-  console.log(productList);
 
   return (
     <div className="bg-stone-100 dark:bg-stone-600">
@@ -86,21 +65,7 @@ function Products() {
         </div>
 
         <div className="col-span-12 md:col-span-7 lg:col-span-9">
-          <div className="flex items-center gap-2 text-lg">
-            <h4 className="text-stone-700 dark:text-stone-100">
-              مرتب سازی براساس:
-            </h4>
-            {ProductsSorting.map((sort, index) => (
-              <Link
-                key={index}
-                to={`${sort.replaceAll(' ', '-')}`}
-                className={`rounded-full border p-1 px-3 font-vazirBold text-base  transition-all hover:border-pink-300 hover:text-pink-400   dark:hover:text-pink-500 ${productSort === sort ? 'border-pink-500 text-pink-500' : 'border-stone-300 text-stone-500 dark:text-stone-300'}`}
-                onClick={() => sortChangeHandler(sort)}
-              >
-                {sort}
-              </Link>
-            ))}
-          </div>
+          <ProductSorting />
 
           <div className="mt-10 grid grid-cols-2 gap-5 lg:grid-cols-3 xl:grid-cols-4">
             {productList?.map((product) => (

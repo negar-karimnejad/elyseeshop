@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { AiOutlineLoading } from 'react-icons/ai';
 import { BiTrash } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Input from '../../components/Input';
+import useDecrementItem from '../../features/cart/useDecrementItem';
 import useDeleteCartItem from '../../features/cart/useDeleteCartItem';
 import useIncrementItem from '../../features/cart/useIncrementItem';
-import useDecrementItem from '../../features/cart/useDecrementItem';
 
 const StyledDiv = ({ children, style }) => {
   return (
@@ -16,6 +17,7 @@ const StyledDiv = ({ children, style }) => {
     </div>
   );
 };
+
 function CartProducts({ product }) {
   const [quantity, setQuantity] = useState(product?.quantity);
 
@@ -38,6 +40,35 @@ function CartProducts({ product }) {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const deleteHandler = () => {
+    toast(
+      () => (
+        <div
+          className="flex items-center justify-between"
+          style={{ direction: 'rtl' }}
+        >
+          <span>حذف محصول از سبد خرید:</span>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => {
+                mutate(product.id);
+                toast.dismiss();
+              }}
+              className="rounded-md bg-red-500 px-5 py-1 text-white transition-all hover:bg-red-400"
+            >
+              حذف
+            </button>
+          </div>
+        </div>
+      ),
+      {
+        autoClose: false,
+        position: 'top-right',
+        theme: 'light',
+      },
+    );
   };
 
   return (
@@ -76,7 +107,7 @@ function CartProducts({ product }) {
       </StyledDiv>
       <StyledDiv style="col-span-1 h-full justify-center p-1 py-7 text-center">
         <button
-          onClick={() => mutate(product.id)}
+          onClick={deleteHandler}
           disabled={isPending}
           className="relative my-1 font-vazirBold text-4xl text-red-500 hover:text-red-600"
         >
