@@ -23,16 +23,3 @@ export async function getProduct(id) {
   return data;
 }
 
-export async function getSimilarProducts(tag, id) {
-  const { data, error } = await supabase.from('products').select('*');
-
-  if (error) {
-    console.error(error);
-    throw new Error('Similar Products could not loaded');
-  }
-  const products = data.filter((product) =>
-    product.tag.includes(tag[1]),
-  );
-  const similarProducts = products.filter((product) => product.id !== id);
-  return similarProducts;
-}

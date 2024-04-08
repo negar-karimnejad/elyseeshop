@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { IoIosPricetag } from 'react-icons/io';
 import { Link, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
@@ -10,31 +11,39 @@ import Button from '../components/Button';
 import Input from '../components/Input';
 import Loader from '../components/Loader';
 import ProductCard from '../components/home/ProductCard';
+import useUser from '../features/auth/useUser';
 import useCreateCartItem from '../features/cart/useCreateCartItem';
 import useProduct from '../features/products/useProduct';
-import useSimilarProducts from '../features/products/useSimilarProducts';
-import useUser from '../features/auth/useUser';
-import { toast } from 'react-toastify';
+import useProducts from '../features/products/useProducts';
 
 function Product() {
   const [quantity, setQuantity] = useState(1);
   const [showProductDetails, setShowProductDetails] = useState(true);
   const [showProductFeatures, setShowProductFeatures] = useState(true);
   const [showProductBrand, setShowProductBrand] = useState(true);
+  const [similarProducts, setSimilarProducts] = useState([]);
 
   const { id } = useParams();
+
+  const { mutate, isPending } = useCreateCartItem();
+  const { user } = useUser();
+  const { products } = useProducts();
   const { product, error, isLoading, refetch } = useProduct(
     id.replaceAll('-', ' '),
   );
-  const { similarProducts, isLoading: similarProductsLoading } =
-    useSimilarProducts(product?.tag, product?.id);
-  const { mutate, isPending } = useCreateCartItem();
-  const { user } = useUser();
 
   useEffect(() => {
+    const filteredProducts = products?.filter((item) =>
+      item?.tag.includes(product?.tag[0]),
+    );
+    const selectedProducts = filteredProducts?.filter(
+      (item) => item.id !== product.id,
+    );
+    setSimilarProducts(selectedProducts);
+
     refetch();
     window.scrollTo(0, 0);
-  }, [refetch, id]);
+  }, [refetch, id, products, product?.tag, product.id]);
 
   if (error) return;
   if (isLoading) return <Loader />;
@@ -76,17 +85,7 @@ function Product() {
   return (
     <div className="pt-5">
       <div className="container">
-        <Breadcrumb
-          links={[
-            { id: 1, title: 'محصولات بدن' },
-            { id: 2, title: 'ضد تعریق و دئودورانت' },
-            { id: 3, title: 'اسپری و بادی اسپلش' },
-            {
-              id: 4,
-              title: 'بادی اسپلش زنانه مدل باکارات رژ بلک مارین وودلایک',
-            },
-          ]}
-        />
+        <Breadcrumb links={product.tag} productName={product.name} />
         <div className="grid grid-cols-1 gap-y-5 pt-5 lg:grid-cols-2">
           <div className="flex justify-center">
             <img src={image} alt="product" className="h-fit max-w-md" />
@@ -252,7 +251,6 @@ function Product() {
             {similarProducts?.map((product) => (
               <SwiperSlide key={product.id} className="rounded-md">
                 <ProductCard
-                  isLoading={similarProductsLoading}
                   product={product}
                 />
               </SwiperSlide>

@@ -21,7 +21,7 @@ function NavDropdownList({ id }) {
           {l.map((item, index) => (
             <li key={index}>
               <Link
-                to={`/products/${item}`}
+                to={`/products/${item.replaceAll(" ","-")}`}
                 className={`text-sm ${
                   index === 0
                     ? 'font-vazirBold text-[14px] text-pink-500 hover:text-pink-400 dark:text-pink-400'

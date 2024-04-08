@@ -32,23 +32,26 @@ function ProductsMain() {
         return product.category === urlQuery;
       }
       return (
-        product.brandName.includes(urlQuery) || product.name.includes(urlQuery)
+        product.brandName.includes(urlQuery) ||
+        product.name.includes(urlQuery) ||
+        product.tag.find((item) => item.includes(id))
       );
     });
-
+    console.log(filteredProducts);
     setProductList(filteredProducts);
-  }, [products, urlQuery]);
+  }, [id, products, urlQuery]);
 
   return (
     <div className="col-span-12 md:col-span-7 lg:col-span-9">
       <ProductSorting sortChangeHandler={sortChangeHandler} />
       <div className="mt-10 grid grid-cols-2 gap-5 lg:grid-cols-3 xl:grid-cols-4">
-        {productList.length?
-        productList?.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        )):
-        <p className='text-stone-600'>هیچ محصولی یافت نشد</p>
-        }
+        {productList?.length ? (
+          productList?.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))
+        ) : (
+          <p className="text-stone-600">هیچ محصولی یافت نشد</p>
+        )}
       </div>
     </div>
   );
