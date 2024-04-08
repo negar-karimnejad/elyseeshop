@@ -82,7 +82,7 @@ function CartProducts({ product }) {
         >
           {isPending ? (
             <AiOutlineLoading
-              size={24}
+              size={20}
               className="absolute bottom-0 left-0 right-0 top-0 m-auto animate-spin"
             />
           ) : (

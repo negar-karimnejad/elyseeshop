@@ -24,14 +24,13 @@ export async function deleteFromCart(id) {
 }
 
 export async function addToCart(newItem) {
-  // const { user } = useAuth();
   try {
     const { data: cart } = await supabase.from('cart').select('*');
 
     const existingItem = cart.find(
       (cartItem) =>
         Number(cartItem.productId) === Number(newItem.productId) &&
-        Number(cartItem.userId) === Number(newItem.userId),
+        cartItem.userId === newItem.userId,
     );
 
     if (existingItem) {
@@ -99,10 +98,7 @@ export async function decrementQty(id) {
   }
 
   if (data[0].quantity <= 1) {
-    const { data, error } = await supabase
-      .from('cart')
-      .delete()
-      .eq('id', id);
+    const { data, error } = await supabase.from('cart').delete().eq('id', id);
     toast.success('محصول از سبد خرید حذف شد');
 
     if (error) {

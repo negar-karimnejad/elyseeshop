@@ -13,6 +13,8 @@ import ProductCard from '../components/home/ProductCard';
 import useCreateCartItem from '../features/cart/useCreateCartItem';
 import useProduct from '../features/products/useProduct';
 import useSimilarProducts from '../features/products/useSimilarProducts';
+import useUser from '../features/auth/useUser';
+import { toast } from 'react-toastify';
 
 function Product() {
   const [quantity, setQuantity] = useState(1);
@@ -27,6 +29,7 @@ function Product() {
   const { similarProducts, isLoading: similarProductsLoading } =
     useSimilarProducts(product?.tag, product?.id);
   const { mutate, isPending } = useCreateCartItem();
+  const { user } = useUser();
 
   useEffect(() => {
     refetch();
@@ -51,8 +54,12 @@ function Product() {
 
   const submitAddToCart = async (e) => {
     e.preventDefault();
+    if (!user) {
+      toast.error('ابتدا باید وارد حساب خود شوید');
+      return;
+    }
     const newItem = {
-      userId: 12,
+      userId: user?.id,
       productId: product.id,
       quantity,
       item: product,

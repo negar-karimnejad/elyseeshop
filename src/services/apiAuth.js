@@ -1,7 +1,6 @@
 import supabase from './supabase';
 
 export async function signup({ email, password, username }) {
-  console.log(email, password, username);
   try {
     let { data, error } = await supabase.auth.signUp({
       email,
