@@ -1,23 +1,15 @@
 import { useEffect, useState } from 'react';
-import { IoIosPricetag } from 'react-icons/io';
 import { Link, useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import Breadcrumb from '../components/Breadcrumb';
-import Button from '../components/Button';
-import Input from '../components/Input';
 import Loader from '../components/Loader';
-import ProductCard from '../components/home/ProductCard';
-import useUser from '../features/auth/useUser';
-import useCreateCartItem from '../features/cart/useCreateCartItem';
+import ProductCartForm from '../components/product/ProductCartForm';
+import SimilarProducts from '../components/product/SimilarProducts';
 import useProduct from '../features/products/useProduct';
 import useProducts from '../features/products/useProducts';
 
 function Product() {
-  const [quantity, setQuantity] = useState(1);
   const [showProductDetails, setShowProductDetails] = useState(true);
   const [showProductFeatures, setShowProductFeatures] = useState(true);
   const [showProductBrand, setShowProductBrand] = useState(true);
@@ -25,8 +17,6 @@ function Product() {
 
   const { id } = useParams();
 
-  const { mutate, isPending } = useCreateCartItem();
-  const { user } = useUser();
   const { products } = useProducts();
   const { product, error, isLoading, refetch } = useProduct(
     id.replaceAll('-', ' '),
@@ -43,7 +33,7 @@ function Product() {
 
     refetch();
     window.scrollTo(0, 0);
-  }, [refetch, id, products, product?.tag, product.id]);
+  }, [refetch, id, products, product?.tag, product?.id]);
 
   if (error) return;
   if (isLoading) return <Loader />;
@@ -52,7 +42,6 @@ function Product() {
     name,
     image,
     mass,
-    price,
     code,
     brand,
     brandDescription,
@@ -60,27 +49,6 @@ function Product() {
     description,
     features,
   } = product;
-
-  const submitAddToCart = async (e) => {
-    e.preventDefault();
-    if (!user) {
-      toast.error('ابتدا باید وارد حساب خود شوید');
-      return;
-    }
-    const newItem = {
-      userId: user?.id,
-      productId: product.id,
-      quantity,
-      item: product,
-    };
-
-    try {
-      mutate(newItem);
-      setQuantity(1);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <div className="pt-5">
@@ -104,45 +72,7 @@ function Product() {
               />
             </Link>
             <p className="font-BKoodak text-sm dark:text-stone-300">{`${mass} میل`}</p>
-            <form
-              onSubmit={submitAddToCart}
-              className="flex flex-col gap-5 pt-14"
-            >
-              <label
-                className="flex items-center font-vazirBold dark:text-stone-100"
-                htmlFor=""
-              >
-                تعداد
-                <div className="w-[175px]">
-                  <Input
-                    className="mr-4 w-full p-2"
-                    value={quantity}
-                    onChange={(e) => setQuantity(e.target.value)}
-                    type="number"
-                  />
-                </div>
-              </label>
-              <div className="flex items-center text-lg">
-                <span className="bg-stone-200 p-3 text-stone-300">
-                  <IoIosPricetag size={28} />
-                </span>
-                <p className="w-48 bg-stone-100 p-3">
-                  <span className="ml-3 font-vazirBold text-pink-600">
-                    {price.toLocaleString('Fa')}
-                  </span>
-                  تومان
-                </p>
-              </div>
-              <div className="w-60">
-                <Button
-                  type="submit"
-                  disabled={isPending}
-                  className="w-full cursor-pointer rounded-sm font-vazirBold"
-                >
-                  {isPending ? 'در حال افزودن...' : 'افزودن به سبد خرید'}
-                </Button>
-              </div>
-            </form>
+            <ProductCartForm product={product} />
             <div className="my-10 flex items-center justify-between">
               <p className="text-sm text-stone-400">کد کالا: {code}</p>
               <img className="w-32" src={brandImage} alt="" title={name} />
@@ -221,43 +151,7 @@ function Product() {
           </div>
         </div>
       </div>
-      <div className="mt-20 bg-stone-200 pb-40 dark:bg-stone-600">
-        <div className="container flex flex-col items-center">
-          <p className="py-14 font-vazirBold text-lg text-stone-800 dark:text-stone-200">
-            محصولات مشابه
-          </p>
-          <Swiper
-            spaceBetween={30}
-            centeredSlides={true}
-            centeredSlidesBounds={true}
-            navigation={true}
-            modules={[Navigation]}
-            breakpoints={{
-              350: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-              },
-              1100: {
-                slidesPerView: 4,
-                spaceBetween: 40,
-              },
-            }}
-            className="similarproduct"
-          >
-            {similarProducts?.map((product) => (
-              <SwiperSlide key={product.id} className="rounded-md">
-                <ProductCard
-                  product={product}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </div>
+      <SimilarProducts similarProducts={similarProducts} />
     </div>
   );
 }
