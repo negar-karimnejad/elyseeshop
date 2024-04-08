@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-function BannerLink({ image }) {
+function BannerLink({ item, style }) {
   return (
-    <Link to="/products/Cosrx" className="rounded-md overflow-hidden">
+    <Link to={item?.to} className="overflow-hidden rounded-md">
       <img
-        src={image}
-        className="hover:scale-110 object-contain transition-all duration-700"
+        src={item?.image}
+        className={`object-cover transition-all duration-700 hover:scale-110 ${style ? style : ''} `}
         alt="Banner image"
       />
     </Link>
