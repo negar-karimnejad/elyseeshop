@@ -1,7 +1,7 @@
-import useProducts from '../features/products/useProducts';
-import Loader from './Loader';
-import NewProducts from './home/NewProducts';
-import ProductCard from './home/ProductCard';
+import useProducts from '../../features/products/useProducts';
+import Loader from '../Loader';
+import NewProducts from '../home/NewProducts';
+import ProductCard from '../home/ProductCard';
 
 function RandomProducts({ startIndex, endIndex }) {
   const { products, error, isLoading } = useProducts();
