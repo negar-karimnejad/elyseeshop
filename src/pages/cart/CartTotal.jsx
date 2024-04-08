@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import useCart from '../../features/cart/useCart';
@@ -30,7 +31,13 @@ function CartTotal() {
   return (
     <div className="flex w-full justify-between gap-y-10 pt-10 max-md:flex-col max-md:items-center">
       <div>
-        <form className="flex items-center gap-3">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            toast.error('کد وارد شده صحیح نمی باشد');
+          }}
+          className="flex items-center gap-3"
+        >
           <label htmlFor="offCode" className="dark:text-white">
             کد تخفیف:
           </label>

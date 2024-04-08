@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { FaCartPlus } from 'react-icons/fa';
 import { IoIosChatbubbles } from 'react-icons/io';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
+import Loader from '../components/Loader';
 import UpdateUserModal from '../components/UpdateUserModal';
 import useUser from '../features/auth/useUser';
 
@@ -10,10 +11,15 @@ function Dashboard() {
   const [isShowUpdateModal, setIsShowUpdateModal] = useState(false);
   const { user } = useUser();
 
+  const navigate = useNavigate();
+
   const closeModal = () => {
     setIsShowUpdateModal(false);
   };
-  
+  if (user === null) {
+    navigate('/login');
+    return <Loader title="در حال انتقال..." />;
+  }
   return (
     <>
       <div className="bg-stone-100 py-20 dark:bg-stone-600">

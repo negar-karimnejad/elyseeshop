@@ -1,7 +1,11 @@
 import BannerLink from './BannerLink';
 
 const bannerDate = [
-  { id: 1, image: './images/banner/01.jpg', to: '/products/بادی-اسپلش' },
+  {
+    id: 1,
+    image: './images/banner/01.jpg',
+    to: '/products/اسپری-و-بادی-اسپلش',
+  },
   { id: 2, image: './images/banner/02.jpg', to: 'https://www.instagram.com/' },
   { id: 3, image: './images/banner/03.jpg', to: '/products/iunik' },
   { id: 4, image: './images/banner/04.jpg', to: '/products/شامپو' },

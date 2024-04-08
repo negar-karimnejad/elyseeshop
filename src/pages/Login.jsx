@@ -1,13 +1,19 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import Input from '../components/Input';
+import Loader from '../components/Loader';
 import useLogin from '../features/auth/useLogin';
+import useUser from '../features/auth/useUser';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const { isPending, login, isSuccess } = useLogin();
+  const { user } = useUser();
+
+  const navigate = useNavigate();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -18,6 +24,10 @@ function Login() {
     }
   };
 
+  if (user !== null) {
+    navigate('/dashboard');
+    return <Loader title="در حال انتقال..." />;
+  }
   return (
     <div className="container my-10 md:mx-auto md:w-1/2 lg:w-1/3">
       <p className="text-lg text-stone-600 dark:text-stone-200">
