@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BiUser } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import useLogout from '../../features/auth/useLogout';
 import useUser from '../../features/auth/useUser';
 
 const userList = [
@@ -10,21 +11,25 @@ const userList = [
 ];
 
 function UserIcon() {
+  const navigate = useNavigate();
   const [isShowUserModal, setIsShowUserModal] = useState(false);
   const { user } = useUser();
+  const { isLoading, logout } = useLogout();
 
-  const logoutHandler = () => {
-    // Log out function
+  const clickHandler = () => {
+    if (user !== null) {
+      setIsShowUserModal((prev) => !prev);
+    } else {
+      navigate('/login');
+    }
   };
 
   return (
     <div className="relative">
       <button
         type="button"
-        className="text-stone-300 transition-all hover:text-stone-400"
-        onClick={() => {
-          setIsShowUserModal((prev) => !prev);
-        }}
+        className={`transition-all ${user?.id ? 'text-blue-300 hover:text-blue-400' : 'text-stone-300 hover:text-stone-400'} `}
+        onClick={clickHandler}
       >
         <BiUser size={29} />
       </button>
@@ -50,8 +55,9 @@ function UserIcon() {
               ))}
               <li onClick={() => setIsShowUserModal(false)}>
                 <button
-                  onClick={logoutHandler}
-                  className="whitespace-nowrap transition-all hover:text-pink-500"
+                  disabled={isLoading}
+                  onClick={logout}
+                  className="flex items-center gap-5 whitespace-nowrap transition-all hover:text-pink-500"
                 >
                   خروج
                 </button>

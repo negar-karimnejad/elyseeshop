@@ -69,12 +69,12 @@ export async function logout() {
   }
 }
 
-export async function updateUser({ email, password, username }) {
-  const { data, error } = await supabase.auth.updateUser({
-    email,
-    password,
-    data: { username },
-  });
+export async function updateUser({ password, username }) {
+  let updateData;
+  if (password) updateData = { password };
+  if (username) updateData = { data: { username } };
+
+  const { data, error } = await supabase.auth.updateUser(updateData);
   if (error) {
     console.error(error);
     throw new Error('Get problem while updating user');

@@ -7,6 +7,7 @@ function Input({
   disabled,
   id,
   name,
+  defaultValue,
 }) {
   return (
     <input
@@ -18,6 +19,7 @@ function Input({
       disabled={disabled}
       required
       id={id}
+      defaultValue={defaultValue}
       name={name}
     />
   );
