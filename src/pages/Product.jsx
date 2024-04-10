@@ -32,8 +32,9 @@ function Product() {
     setSimilarProducts(selectedProducts);
 
     refetch();
+    if (isLoading) return <Loader />;
     window.scrollTo(0, 0);
-  }, [refetch, id, products, product?.tag, product?.id]);
+  }, [refetch, id, products, product?.tag, product.id, isLoading]);
 
   if (error) return;
   if (isLoading) return <Loader />;
