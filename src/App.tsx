@@ -24,9 +24,9 @@ import Privacy from './pages/Privacy';
 import Product from './pages/Product';
 import Products from './pages/Products';
 import Register from './pages/Register';
+import SingleBlog from './pages/SingleBlog';
 import Terms from './pages/Terms';
 import Cart from './pages/cart/Cart';
-import SingleBlog from './pages/SingleBlog';
 
 function App() {
   const queryClient = new QueryClient({
