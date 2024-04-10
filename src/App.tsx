@@ -26,6 +26,7 @@ import Products from './pages/Products';
 import Register from './pages/Register';
 import Terms from './pages/Terms';
 import Cart from './pages/cart/Cart';
+import SingleBlog from './pages/SingleBlog';
 
 function App() {
   const queryClient = new QueryClient({
@@ -50,6 +51,7 @@ function App() {
             <Route path="/brands" element={<Brands />} />
             <Route path="/create-product" element={<CreateProduct />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<SingleBlog />} />
             <Route path="/advice" element={<Advice />} />
             <Route path="/باشگاه-مشتریان" element={<CustomerClub />} />
             <Route path="/درباره-ما" element={<About />} />

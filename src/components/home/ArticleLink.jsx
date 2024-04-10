@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-const ArticleLink = ({ image }) => {
+const ArticleLink = ({ link }) => {
   return (
-    <Link to="" className="rounded-md overflow-hidden">
+    <Link to={`/products/${link.title}`} className="overflow-hidden rounded-md">
       <img
-        className="hover:scale-110 object-contain transition-all duration-700"
-        src={image}
-        alt=""
+        className="object-contain transition-all duration-700 hover:scale-110"
+        src={link.image}
+        alt={link.image}
       />
     </Link>
   );
