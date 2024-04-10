@@ -1,5 +1,3 @@
-import React from 'react';
-
 function CustomerClub() {
   return (
     <div className="container my-16">
