@@ -47,7 +47,7 @@ function Footer() {
           <span className="text-[11px] text-stone-600 dark:text-stone-400">
             ©{new Date().getFullYear()} ALL RIGHTS RESERVED | POWERED BY
             <Link
-              to=""
+              to="/"
               className="text-stone-700 transition-all hover:text-stone-900 hover:underline dark:text-stone-500 dark:hover:text-stone-200"
             >
               {' '}

@@ -17,10 +17,10 @@ function Brands() {
             className="flex flex-col rounded-md bg-white p-4 leading-7 text-stone-700 shadow-lg dark:bg-stone-400 dark:text-white "
           >
             <p className="font-vazirBold">{brand.heading}</p>
-            {brand.list.map((item) => (
+            {brand.list.map((item, index) => (
               <Link
-                key={item}
-                to=""
+                key={index}
+                to={`/products/${item}`}
                 className="transition-all hover:text-pink-300"
               >
                 {item}
