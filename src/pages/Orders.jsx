@@ -2,7 +2,7 @@ const style = 'font-vazirBold col-span-2 border p-1 text-center';
 
 function Orders() {
   return (
-    <div className="dark:bg-stone-600">
+    <div className="min-h-72 dark:bg-stone-600">
       <div className="container py-16 max-md:text-sm">
         <h5 className="font-vazirBold mb-4 text-center text-lg text-stone-700 dark:text-white">
           فهرست سفارشات

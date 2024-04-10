@@ -23,9 +23,9 @@ function ProductsMain() {
     }
     setProductList(filteredProducts);
   };
-
   useEffect(() => {
     let filteredProducts = [];
+    console.log('🎏', id);
 
     filteredProducts = products?.filter((product) => {
       if (product.category === urlQuery) {
@@ -41,7 +41,7 @@ function ProductsMain() {
   }, [id, products, urlQuery]);
 
   return (
-    <div className="col-span-12 md:col-span-7 lg:col-span-9 mb-5">
+    <div className="col-span-12 mb-5 md:col-span-7 lg:col-span-9">
       <ProductSorting sortChangeHandler={sortChangeHandler} />
       <div className="mt-10 grid grid-cols-2 gap-5 lg:grid-cols-3 xl:grid-cols-4">
         {productList?.length ? (

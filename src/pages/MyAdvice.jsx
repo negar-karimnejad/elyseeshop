@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 
 function MyAdvice() {
   return (
-    <div className="container my-14">
+    <div className="container min-h-72 py-10">
       <Link to="/advice" className="font-vazirBold text-sky-500">
         :: ارسال سوال جدید
       </Link>
-      <p className="font-vazirBold mt-10 text-stone-800 dark:text-white">
+      <p className="mt-10 font-vazirBold text-stone-800 dark:text-white">
         فهرست سوال های شما
       </p>
     </div>
