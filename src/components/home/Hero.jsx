@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 const HeroLink = ({ to, image }) => {
   return (
     <Link to={to}>
-      <img src={image} alt="" />
+      <img src={image} alt="brand" />
     </Link>
   );
 };

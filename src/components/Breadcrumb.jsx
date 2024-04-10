@@ -13,7 +13,7 @@ function Breadcrumb({ links, productName }) {
             خانه
           </Link>
         </li>
-        {links.map((link, index) => (
+        {links?.map((link, index) => (
           <li key={index} className="whitespace-nowrap">
             <div className="flex items-center whitespace-nowrap">
               <svg

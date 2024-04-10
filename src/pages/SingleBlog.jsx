@@ -11,7 +11,7 @@ function SingleBlog() {
       <img
         src={blog?.image}
         className="mx-auto w-[600px] object-contain"
-        alt=""
+        alt={blog?.title}
       />
       <h5 className="mb-5 mt-20 font-vazirBold text-xl text-stone-700 dark:text-stone-200">
         {blogTitle}

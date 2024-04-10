@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { AiOutlineLoading } from 'react-icons/ai';
+import { useParams } from 'react-router-dom';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import Breadcrumb from '../components/Breadcrumb';
@@ -18,7 +19,7 @@ function Product() {
   const { id } = useParams();
 
   const { products } = useProducts();
-  const { product, error, refetch, isFetching } = useProduct(
+  const { product, error, refetch, isFetching, isLoading } = useProduct(
     id.replaceAll('-', ' '),
   );
 
@@ -33,10 +34,10 @@ function Product() {
 
     refetch();
     window.scrollTo(0, 0);
-  }, [refetch, id, products, product?.tag, product?.id]);
+  }, [product, products, refetch]);
 
   if (error) return;
-  if (isFetching) return <Loader />;
+  if (isLoading) return <Loader />;
 
   const {
     name,
@@ -48,34 +49,46 @@ function Product() {
     brandImage,
     description,
     features,
+    tag,
   } = product;
 
   return (
     <div className="pt-5">
       <div className="container">
-        <Breadcrumb links={product.tag} productName={product.name} />
+        <Breadcrumb links={tag} productName={name} />
         <div className="grid grid-cols-1 gap-y-5 pt-5 lg:grid-cols-2">
           <div className="flex justify-center">
-            <img src={image} alt="product" className="h-fit max-w-md" />
+            {isFetching ? (
+              <AiOutlineLoading
+                size={24}
+                className="mx-auto mt-32 animate-spin text-pink-400"
+              />
+            ) : (
+              <img src={image} alt="product" className="h-fit max-w-md" />
+            )}
           </div>
           <div className="flex flex-col border-r pr-3">
             <p className="text-2xl text-stone-700 dark:text-stone-200">
               {name} | <span className="font-BKoodak">{mass}</span> میل
             </p>
             <p className="pt-3 text-[13px] text-stone-400">{brand}</p>
-            <Link to="" className="mt-5 h-20 w-20">
-              <img
-                className="h-20 w-20 border-2 border-pink-600 p-1"
-                src={image}
-                alt=""
-                title={name}
-              />
-            </Link>
+            <div className="mt-5 h-20 w-20 border-2 border-pink-600 p-1">
+              {isFetching ? (
+                <AiOutlineLoading
+                  size={24}
+                  className="m-auto mt-5 animate-spin text-pink-400"
+                />
+              ) : (
+                <img className="" src={image} alt={name} title={name} />
+              )}
+            </div>
+
             <p className="font-BKoodak text-sm dark:text-stone-300">{`${mass} میل`}</p>
             <ProductCartForm product={product} />
             <div className="my-10 flex items-center justify-between">
               <p className="text-sm text-stone-400">کد کالا: {code}</p>
-              <img className="w-32" src={brandImage} alt="" title={name} />
+
+              <img className="w-32" src={brandImage} alt={name} title={name} />
             </div>
             <hr />
             <div className="cursor-pointer border-b py-2">

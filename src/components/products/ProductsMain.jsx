@@ -25,7 +25,6 @@ function ProductsMain() {
   };
   useEffect(() => {
     let filteredProducts = [];
-    console.log('🎏', id);
 
     filteredProducts = products?.filter((product) => {
       if (product.category === urlQuery) {
