@@ -34,7 +34,7 @@ function Product() {
 
     refetch();
     window.scrollTo(0, 0);
-  }, [product, products, refetch]);
+  }, [product, products, refetch, id]);
 
   if (error) return;
   if (isLoading) return <Loader />;

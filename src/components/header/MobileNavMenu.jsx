@@ -18,11 +18,12 @@ function MobileNavMenu({ toggleMenu }) {
         <div className="relative bg-pink-100 dark:bg-stone-600 dark:text-stone-100">
           {navMobileMenu.map((menu) => (
             <NavUl title={menu.id} key={menu.id}>
-              {menu.list.map((item) => (
+              {menu.list.map((item, index) => (
                 <NavMobileDropdownLink
                   title={item}
                   to={`/products/${item.replaceAll(' ', '-')}`}
                   onClick={toggleMenu}
+                  key={index}
                 />
               ))}
             </NavUl>
