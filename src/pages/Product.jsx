@@ -18,7 +18,7 @@ function Product() {
   const { id } = useParams();
 
   const { products } = useProducts();
-  const { product, error, isLoading, refetch } = useProduct(
+  const { product, error, refetch, isFetching } = useProduct(
     id.replaceAll('-', ' '),
   );
 
@@ -32,12 +32,11 @@ function Product() {
     setSimilarProducts(selectedProducts);
 
     refetch();
-    if (isLoading) return <Loader />;
     window.scrollTo(0, 0);
-  }, [refetch, id, products, product?.tag, product.id, isLoading]);
+  }, [refetch, id, products, product?.tag, product?.id]);
 
   if (error) return;
-  if (isLoading) return <Loader />;
+  if (isFetching) return <Loader />;
 
   const {
     name,
