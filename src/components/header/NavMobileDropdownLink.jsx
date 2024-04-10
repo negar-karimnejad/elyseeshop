@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function NavMobileDropdownLink({ title, to }) {
+function NavMobileDropdownLink({ title, to, onClick }) {
   return (
-    <li>
+    <li onClick={onClick}>
       <Link
         to={to}
         className="font-vazirBold transition-all hover:text-pink-600"
