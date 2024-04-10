@@ -12,7 +12,6 @@ import CommonQuestions from './pages/CommonQuestions';
 import Complaints from './pages/Complaints';
 import Contact from './pages/Contact';
 import CreateProduct from './pages/CreateProduct';
-import CustomerClub from './pages/CustomerClub';
 import Dashboard from './pages/Dashboard';
 import Guide from './pages/Guide';
 import Homepage from './pages/Homepage';
@@ -53,7 +52,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<SingleBlog />} />
             <Route path="/advice" element={<Advice />} />
-            <Route path="/باشگاه-مشتریان" element={<CustomerClub />} />
+            {/* <Route path="/باشگاه-مشتریان" element={<CustomerClub />} /> */}
             <Route path="/درباره-ما" element={<About />} />
             <Route path="/قوانین-و-مقررات" element={<Terms />} />
             <Route path="/حریم-خصوصی" element={<Privacy />} />
