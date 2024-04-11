@@ -9,10 +9,9 @@ interface RandomProductsProps {
 }
 
 function RandomProducts({ startIndex, endIndex }: RandomProductsProps) {
-  const { products, error, isLoading } = useProducts();
+  const { products, isLoading } = useProducts();
   const chunkedProducts = products?.sort(() => Math.random() - 0.5);
 
-  if (error) return <div>{error}</div>;
   if (isLoading) return <Loader title="" />;
 
   return (

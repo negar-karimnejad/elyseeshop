@@ -1,7 +1,11 @@
-
 import { Link } from 'react-router-dom';
 
-function Breadcrumb({ links, productName }) {
+interface BreadcrumbProps {
+  links: string[];
+  productName: string;
+}
+
+function Breadcrumb({ links, productName }: BreadcrumbProps) {
   return (
     <nav className="container py-5 text-sm" aria-label="Breadcrumb">
       <ol className="flex flex-wrap items-center">

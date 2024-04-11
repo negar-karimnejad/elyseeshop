@@ -9,18 +9,19 @@ import ProductCartForm from '../components/product/ProductCartForm';
 import SimilarProducts from '../components/product/SimilarProducts';
 import useProduct from '../features/products/useProduct';
 import useProducts from '../features/products/useProducts';
+import { ProductProps } from '../types/ProductProps';
 
 function Product() {
   const [showProductDetails, setShowProductDetails] = useState(true);
   const [showProductFeatures, setShowProductFeatures] = useState(true);
   const [showProductBrand, setShowProductBrand] = useState(true);
-  const [similarProducts, setSimilarProducts] = useState([]);
+  const [similarProducts, setSimilarProducts] = useState<ProductProps[]>([]);
 
   const { id } = useParams();
 
   const { products } = useProducts();
   const { product, error, refetch, isFetching, isLoading } = useProduct(
-    id.replaceAll('-', ' '),
+    id?.replaceAll('-', ' '),
   );
 
   useEffect(() => {
@@ -30,7 +31,9 @@ function Product() {
     const selectedProducts = filteredProducts?.filter(
       (item) => item.id !== product.id,
     );
-    setSimilarProducts(selectedProducts);
+    if (selectedProducts) {
+      setSimilarProducts(selectedProducts);
+    }
 
     refetch();
     window.scrollTo(0, 0);
@@ -133,7 +136,7 @@ function Product() {
                 } leading-9 text-stone-500 transition-all duration-500 dark:text-stone-400`}
               >
                 <ul className="list-disc pr-8 leading-7">
-                  {features.map((feature, index) => (
+                  {features.map((feature: string, index: number) => (
                     <li key={index}>{feature} </li>
                   ))}
                 </ul>

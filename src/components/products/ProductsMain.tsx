@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useProducts from '../../features/products/useProducts';
+import { ProductProps } from '../../types/ProductProps';
 import ProductCard from '../home/ProductCard';
 import ProductSorting from './ProductSorting';
-import { ProductProps } from '../../types/ProductProps';
 
 function ProductsMain() {
-  const [productList, setProductList] = useState([]);
+  const [productList, setProductList] = useState<ProductProps[]>([]);
   const { products } = useProducts();
 
   const { id } = useParams();
@@ -24,19 +24,23 @@ function ProductsMain() {
     }
     setProductList(filteredProducts);
   };
-  useEffect(() => {
-    let filteredProducts = [];
 
-    filteredProducts = products?.filter((product) => {
-      if (product.category === urlQuery) {
-        return product.category === urlQuery;
-      }
-      return (
-        product.brandName.includes(urlQuery) ||
-        product.name.includes(urlQuery) ||
-        product.tag.find((item) => item.includes(id))
-      );
-    });
+  useEffect(() => {
+    let filteredProducts: ProductProps[] = [];
+
+    if (products) {
+      const query = urlQuery ?? ''; // Use empty string as default value if urlQuery is undefined
+      filteredProducts = products.filter((product) => {
+        if (product.category === query) {
+          return product.category === query;
+        }
+        return (
+          product.brandName.includes(query) ||
+          product.name.includes(query) ||
+          product.tag.find((item) => item.includes(id || ''))
+        );
+      });
+    }
     setProductList(filteredProducts);
   }, [id, products, urlQuery]);
 
