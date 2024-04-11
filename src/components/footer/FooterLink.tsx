@@ -1,6 +1,19 @@
 import { Link } from 'react-router-dom';
 
-const FooterLink = ({ link }) => {
+interface FooterLinkProps {
+  link: {
+    heading: {
+      title: string;
+      to: string;
+    };
+    links: {
+      title: string;
+      to: string;
+    }[];
+  };
+}
+
+const FooterLink = ({ link }: FooterLinkProps) => {
   return (
     <div>
       <Link

@@ -1,8 +1,8 @@
 import { MdOutlineKeyboardDoubleArrowUp } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { footerLinksList } from '../../data/data';
-import FooterLink from './FooterLink';
 import Instagram from '../Instagram';
+import FooterLink from './FooterLink';
 
 function Footer() {
   const ScrollUp = () => {
