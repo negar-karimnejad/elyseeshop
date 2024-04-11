@@ -48,7 +48,7 @@ function ShoppingCartIcon() {
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="user-menu-button"
-          tabindex="-1"
+          tabIndex="-1"
           onClick={(e) => e.stopPropagation()}
         >
           {cart.map((product) => (

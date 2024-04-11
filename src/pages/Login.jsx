@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import Button from '../components/Button';
-import Input from '../components/Input';
-import Loader from '../components/Loader';
 import useLogin from '../features/auth/useLogin';
 import useUser from '../features/auth/useUser';
+import { Link, useNavigate } from 'react-router-dom';
+import Loader from '../components/Loader';
+import Input from '../components/Input';
+import Button from '../components/Button';
 
 function Login() {
   const [email, setEmail] = useState('');

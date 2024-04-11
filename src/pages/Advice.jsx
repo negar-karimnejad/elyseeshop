@@ -16,7 +16,7 @@ function Advice() {
       {user ? (
         <form
           onSubmit={submitHandler}
-          className="mb-5 flex lg:w-1/2 flex-col gap-3 rounded-md border bg-sky-100 p-3 dark:bg-stone-500"
+          className="mb-5 flex flex-col gap-3 rounded-md border bg-sky-100 p-3 dark:bg-stone-500 lg:w-1/2"
         >
           <label className="font-vazirBold text-stone-600 dark:text-stone-200">
             لطفا سوال خود را وارد کنید
@@ -37,7 +37,7 @@ function Advice() {
           </Button>
         </form>
       ) : (
-        <p className="font-vazirBold mb-10 text-stone-600 dark:text-stone-200">
+        <p className="mb-10 font-vazirBold text-stone-600 dark:text-stone-200">
           برای ثبت سوال لطفا وارد{' '}
           <Link
             title="لاگین"

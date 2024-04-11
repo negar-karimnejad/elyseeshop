@@ -1,6 +1,6 @@
+import ProductsMain from '../components/products/ProductsMain';
 import ProductsSidebar from '../components/products/ProductsSidebar';
 import ProductsHeader from './ProductsHeader';
-import ProductsMain from '../components/products/ProductsMain';
 
 function Products() {
   return (

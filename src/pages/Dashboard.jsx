@@ -16,10 +16,12 @@ function Dashboard() {
   const closeModal = () => {
     setIsShowUpdateModal(false);
   };
+
   if (user === null) {
     navigate('/login');
     return <Loader title="در حال انتقال..." />;
   }
+  
   return (
     <>
       <div className="bg-stone-100 py-20 dark:bg-stone-600">
