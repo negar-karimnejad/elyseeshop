@@ -1,6 +1,14 @@
 import { Link } from 'react-router-dom';
 
-function BannerLink({ item, style }) {
+interface BannerLinkProps {
+  item: {
+    to: string;
+    image: string;
+  };
+  style: string;
+}
+
+function BannerLink({ item, style }: BannerLinkProps) {
   return (
     <Link to={item?.to} className="overflow-hidden rounded-md">
       <img

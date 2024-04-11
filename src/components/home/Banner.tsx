@@ -12,7 +12,12 @@ const bannerDate = [
   { id: 5, image: './images/banner/05.jpg', to: '/products/Garnier' },
   { id: 6, image: './images/banner/06.jpg', to: '/products/Dove' },
 ];
-function Banner({ quantity }) {
+
+interface BannerProps {
+  quantity: number;
+}
+
+function Banner({ quantity }: BannerProps) {
   return (
     <div
       className={`${
@@ -22,7 +27,7 @@ function Banner({ quantity }) {
       {quantity === 4
         ? bannerDate
             .slice(0, 4)
-            .map((item) => <BannerLink key={item.id} item={item} />)
+            .map((item) => <BannerLink key={item.id} item={item} style="" />)
         : bannerDate
             .slice(4, 6)
             .map((item) => (
