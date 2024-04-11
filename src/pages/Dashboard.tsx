@@ -21,7 +21,7 @@ function Dashboard() {
     navigate('/login');
     return <Loader title="در حال انتقال..." />;
   }
-  
+
   return (
     <>
       <div className="bg-stone-100 py-20 dark:bg-stone-600">
@@ -60,10 +60,7 @@ function Dashboard() {
               <FaCartPlus size={30} />
               <p>مشاهده سبد خرید</p>
             </Link>
-            <Link
-              to="/cart"
-              className="transition-al flex flex-1 flex-col items-center justify-center rounded-md border bg-white p-5 text-stone-600 dark:border-stone-500 dark:bg-stone-700 dark:text-white"
-            >
+            <div className="transition-al flex flex-1 flex-col items-center justify-center rounded-md border bg-white p-5 text-stone-600 dark:border-stone-500 dark:bg-stone-700 dark:text-white">
               <IoIosChatbubbles size={35} />
               <div className="flex flex-1 gap-1 text-sm">
                 <Link to="/advice" className="hover:text-pink-500">
@@ -74,7 +71,7 @@ function Dashboard() {
                   سوال های شما
                 </Link>
               </div>
-            </Link>
+            </div>
           </div>
         </div>
       </div>

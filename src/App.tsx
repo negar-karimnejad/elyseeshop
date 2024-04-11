@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import About from './pages/About';
 import Advice from './pages/Advice';
+import AppLayout from './pages/AppLayout';
 import Blog from './pages/Blog';
 import Brands from './pages/Brands';
 import CommonQuestions from './pages/CommonQuestions';
@@ -24,9 +25,8 @@ import Product from './pages/Product';
 import Products from './pages/Products';
 import Register from './pages/Register';
 import SingleBlog from './pages/SingleBlog';
-import Cart from './pages/cart/Cart';
-import AppLayout from './pages/AppLayout';
 import Terms from './pages/Terms';
+import Cart from './pages/cart/Cart';
 
 function App() {
   const queryClient = new QueryClient({

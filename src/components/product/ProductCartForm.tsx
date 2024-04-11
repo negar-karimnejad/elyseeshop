@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { IoIosPricetag } from 'react-icons/io';
 import Button from '../Button';
 import Input from '../Input';

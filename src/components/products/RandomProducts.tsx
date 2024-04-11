@@ -8,7 +8,7 @@ function RandomProducts({ startIndex, endIndex }) {
   const chunkedProducts = products?.sort(() => Math.random() - 0.5);
 
   if (error) return <div>{error}</div>;
-  if (isLoading) return <Loader />;
+  if (isLoading) return <Loader title="" />;
 
   return (
     <NewProducts>
