@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 const ProductsSorting = ['ارزان ترین', 'گران ترین', 'جدید ترین'];
 
-function ProductSorting({ sortChangeHandler }) {
+interface ProductSortingProps {
+  sortChangeHandler: (sort: string) => void;
+}
+
+function ProductSorting({ sortChangeHandler }: ProductSortingProps) {
   const { id } = useParams();
   const [productSort, setProductSort] = useState('');
 

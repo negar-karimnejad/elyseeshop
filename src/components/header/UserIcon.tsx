@@ -14,7 +14,7 @@ function UserIcon() {
   const navigate = useNavigate();
   const [isShowUserModal, setIsShowUserModal] = useState(false);
   const { user } = useUser();
-  const { isLoading, logout } = useLogout();
+  const { isPending, logout } = useLogout();
 
   const clickHandler = () => {
     if (user !== null) {
@@ -24,6 +24,14 @@ function UserIcon() {
     }
   };
 
+  const handleLogout = () => {
+    try {
+      logout();
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+  };
+  
   return (
     <div className="relative">
       <button
@@ -55,8 +63,8 @@ function UserIcon() {
               ))}
               <li onClick={() => setIsShowUserModal(false)}>
                 <button
-                  disabled={isLoading}
-                  onClick={logout}
+                  disabled={isPending}
+                  onClick={handleLogout}
                   className="flex items-center gap-5 whitespace-nowrap transition-all hover:text-pink-500"
                 >
                   خروج

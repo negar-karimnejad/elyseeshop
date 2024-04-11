@@ -3,7 +3,12 @@ import Loader from '../Loader';
 import NewProducts from '../home/NewProducts';
 import ProductCard from '../home/ProductCard';
 
-function RandomProducts({ startIndex, endIndex }) {
+interface RandomProductsProps {
+  startIndex: number;
+  endIndex: number;
+}
+
+function RandomProducts({ startIndex, endIndex }: RandomProductsProps) {
   const { products, error, isLoading } = useProducts();
   const chunkedProducts = products?.sort(() => Math.random() - 0.5);
 
@@ -12,9 +17,15 @@ function RandomProducts({ startIndex, endIndex }) {
 
   return (
     <NewProducts>
-      {chunkedProducts?.slice(startIndex, endIndex).map((product) => (
-        <ProductCard isLoading={isLoading} key={product.id} product={product} />
-      ))}
+      {chunkedProducts
+        ?.slice(startIndex, endIndex)
+        .map((product) => (
+          <ProductCard
+            isLoading={isLoading}
+            key={product.id}
+            product={product}
+          />
+        ))}
     </NewProducts>
   );
 }

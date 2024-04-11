@@ -2,13 +2,23 @@ import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import { RiArrowDropLeftLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 
+interface StyledProductsUlProps {
+  toggleExpansion: () => void;
+  heading: string;
+  list: string[];
+  openedHeading: string;
+  onClick: () => void;
+}
+
 function StyledProductsUl({
   toggleExpansion,
   heading,
   list,
   openedHeading,
   onClick,
-}) {
+}: StyledProductsUlProps) {
+  console.log(list);
+
   return (
     <div className="text-stone-500 dark:text-white max-md:relative max-md:w-full">
       <h4
