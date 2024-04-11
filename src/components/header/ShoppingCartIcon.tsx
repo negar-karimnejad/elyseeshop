@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { RefObject, useEffect, useRef, useState } from 'react';
 import { BiShoppingBag } from 'react-icons/bi';
 import { Link, useNavigate } from 'react-router-dom';
 import useCart from '../../features/cart/useCart';
@@ -6,14 +6,14 @@ import Button from '../Button';
 
 function ShoppingCartIcon() {
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const cartRef = useRef(null);
+  const cartRef: RefObject<HTMLDivElement> = useRef(null);
   const navigate = useNavigate();
 
   const { totalQty, cart } = useCart();
 
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (cartRef.current && !cartRef.current.contains(event.target)) {
+    function handleClickOutside(event: MouseEvent | TouchEvent) {
+      if (cartRef.current && !cartRef.current.contains(event.target as Node)) {
         setIsCartOpen(false);
       }
     }
@@ -44,14 +44,14 @@ function ShoppingCartIcon() {
       {isCartOpen && (
         <div
           ref={cartRef}
-          className={`${cart.length ? 'w-80' : 'w-52'} absolute right-0 top-10 z-10 rounded-md bg-white p-3 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-stone-600`}
+          className={`${cart?.length ? 'w-80' : 'w-52'} absolute right-0 top-10 z-10 rounded-md bg-white p-3 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-stone-600`}
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="user-menu-button"
-          tabIndex="-1"
+          tabIndex={-1}
           onClick={(e) => e.stopPropagation()}
         >
-          {cart.map((product) => (
+          {cart?.map((product) => (
             <Link
               to={`/product/${product.item.name.replaceAll(' ', '-')}`}
               key={product.id}
@@ -70,7 +70,13 @@ function ShoppingCartIcon() {
               </div>
             </Link>
           ))}
-          <Button className="block" onClick={clickHandler}>
+          <Button
+            disabled=""
+            type="button"
+            variant=""
+            className="block"
+            onClick={clickHandler}
+          >
             مشاهده سبد خرید
           </Button>
         </div>

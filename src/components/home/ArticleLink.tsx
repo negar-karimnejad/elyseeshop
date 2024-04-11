@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom';
 
-const ArticleLink = ({ link }) => {
+interface ArticleLinkProps {
+  link: {
+    title: string;
+    image: string;
+  };
+}
+
+const ArticleLink = ({ link }: ArticleLinkProps) => {
   return (
     <Link to={`/products/${link.title}`} className="overflow-hidden rounded-md">
       <img

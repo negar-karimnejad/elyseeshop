@@ -1,15 +1,19 @@
+interface MobileMenuIconProps {
+  isMenuOpen: boolean;
+  toggleMenu: () => void;
+}
 
-function MobileMenuIcon({ isMenuOpen, toggleMenu }) {
+function MobileMenuIcon({ isMenuOpen, toggleMenu }: MobileMenuIconProps) {
   return (
     <button
       type="button"
-      className="text-stone-700 dark:text-stone-200 lg:hidden hover:text-stone-400"
+      className="text-stone-700 hover:text-stone-400 dark:text-stone-200 lg:hidden"
       aria-controls="mobile-menu"
       onClick={toggleMenu}
     >
       <svg
         className={`${
-          isMenuOpen ? "hidden" : "block"
+          isMenuOpen ? 'hidden' : 'block'
         } h-10 w-10 transition-all`}
         fill="none"
         viewBox="0 0 24 24"
@@ -25,7 +29,7 @@ function MobileMenuIcon({ isMenuOpen, toggleMenu }) {
       </svg>
       <svg
         className={`${
-          isMenuOpen ? "block" : "hidden"
+          isMenuOpen ? 'block' : 'hidden'
         } h-10 w-10 transition-all`}
         fill="none"
         viewBox="0 0 24 24"

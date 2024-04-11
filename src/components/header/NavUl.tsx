@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowLeft,
 } from 'react-icons/md';
 
-function NavUl({ children, title }) {
+interface NavUlProps {
+  children: ReactNode;
+  title: string;
+}
+function NavUl({ children, title }: NavUlProps) {
   const [activeMenu, setActiveMenu] = useState('');
 
   return (

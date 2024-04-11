@@ -1,7 +1,14 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-
-function NavMobileDropdownLink({ title, to, onClick }) {
+interface NavMobileDropdownLinkProps {
+  title: string;
+  to: string;
+  onClick: () => void;
+}
+function NavMobileDropdownLink({
+  title,
+  to,
+  onClick,
+}: NavMobileDropdownLinkProps) {
   return (
     <li onClick={onClick}>
       <Link

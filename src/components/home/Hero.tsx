@@ -4,7 +4,12 @@ import 'swiper/css/navigation';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const HeroLink = ({ to, image }) => {
+interface HeroLinkProps {
+  to: string;
+  image: string;
+}
+
+const HeroLink = ({ to, image }: HeroLinkProps) => {
   return (
     <Link to={to}>
       <img src={image} alt="brand" />

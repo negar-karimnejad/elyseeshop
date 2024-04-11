@@ -1,15 +1,19 @@
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import Input from '../Input';
 import Instagram from '../Instagram';
 
-function TopNav({ scrollPosition }) {
+interface TopNavProps {
+  scrollPosition: number;
+}
+
+function TopNav({ scrollPosition }: TopNavProps) {
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
 
-  const submitHandler = (e) => {
+  const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     navigate(`/products/${query}`);
     setQuery('');
@@ -39,8 +43,13 @@ function TopNav({ scrollPosition }) {
               type="text"
               placeholder="جستجو"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              required
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setQuery(e.target.value)
+              }
+              disabled=""
+              defaultValue=""
+              id=""
+              name=""
             />
           </label>
         </form>
