@@ -14,10 +14,14 @@ interface FooterLinkProps {
 }
 
 const FooterLink = ({ link }: FooterLinkProps) => {
+  const ScrollUp = () => {
+    window.scrollTo(0, 0);
+  };
   return (
     <div>
       <Link
         to={link.heading.to}
+        onClick={ScrollUp}
         className="font-vazirBold uppercase text-stone-700 dark:text-white"
       >
         {link.heading.title}
@@ -27,6 +31,7 @@ const FooterLink = ({ link }: FooterLinkProps) => {
           <li key={index}>
             <Link
               to={item.to}
+              onClick={ScrollUp}
               className="transition-all hover:text-stone-700 hover:underline  dark:text-stone-300 dark:hover:text-stone-100"
             >
               {item.title}

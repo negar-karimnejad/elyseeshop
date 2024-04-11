@@ -5,6 +5,7 @@ import Instagram from '../Instagram';
 import FooterLink from './FooterLink';
 
 function Footer() {
+  
   const ScrollUp = () => {
     window.scrollTo(0, 0);
   };
