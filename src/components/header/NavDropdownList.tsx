@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom';
 import { navMenu } from '../../data/data';
 import Divider from '../Divider';
 
-function NavDropdownList({ id }) {
-  const [list, setList] = useState(null);
+interface NavDropdownListProps {
+  id: string;
+}
+
+function NavDropdownList({ id }: NavDropdownListProps) {
+  const [list, setList] = useState<string[][]>([]);
 
   useEffect(() => {
     navMenu.map((item) => {
@@ -21,7 +25,7 @@ function NavDropdownList({ id }) {
           {l.map((item, index) => (
             <li key={index}>
               <Link
-                to={`/products/${item.replaceAll(" ","-")}`}
+                to={`/products/${item.replaceAll(' ', '-')}`}
                 className={`text-sm ${
                   index === 0
                     ? 'font-vazirBold text-[14px] text-pink-500 hover:text-pink-400 dark:text-pink-400'

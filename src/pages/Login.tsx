@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Button from '../components/Button';
+import Input from '../components/Input';
+import Loader from '../components/Loader';
 import useLogin from '../features/auth/useLogin';
 import useUser from '../features/auth/useUser';
-import { Link, useNavigate } from 'react-router-dom';
-import Loader from '../components/Loader';
-import Input from '../components/Input';
-import Button from '../components/Button';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -15,7 +15,7 @@ function Login() {
 
   const navigate = useNavigate();
 
-  const submitHandler = (e) => {
+  const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     login({ email, password });
     if (isSuccess) {
@@ -35,23 +35,35 @@ function Login() {
       </p>
       <form onSubmit={submitHandler} className="mt-5 flex flex-col gap-3">
         <Input
+          defaultValue=""
+          id=""
+          name=""
           placeholder="ایمیل"
           className="p-3"
           type="email"
           value={email}
           disabled={isPending}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setEmail(e.target.value)
+          }
         />
         <Input
+          defaultValue=""
+          id=""
+          name=""
           placeholder="رمز عبور"
           className="p-3"
           type="password"
           value={password}
           disabled={isPending}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setPassword(e.target.value)
+          }
         />
         <Button
           type="submit"
+          variant=""
+          onClick={() => {}}
           disabled={isPending}
           className="w-full rounded-sm dark:bg-white dark:text-black dark:hover:bg-pink-600 dark:hover:text-white"
         >

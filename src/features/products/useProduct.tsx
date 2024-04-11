@@ -1,7 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { getProduct } from '../../services/apiProducts';
 
-function useProduct(id) {
+interface UseProductProps {
+  id: number;
+}
+
+function useProduct(id: UseProductProps) {
   const { data, error, isLoading, refetch, isFetching } = useQuery({
     queryKey: ['product'],
     queryFn: () => getProduct(id),

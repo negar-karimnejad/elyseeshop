@@ -37,7 +37,7 @@ function Product() {
   }, [product, products, refetch, id]);
 
   if (error) return;
-  if (isLoading) return <Loader />;
+  if (isLoading) return <Loader title="" />;
 
   const {
     name,

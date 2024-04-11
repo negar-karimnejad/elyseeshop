@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import supabase from '../services/supabase';
@@ -10,7 +10,7 @@ function CreateProduct() {
   const [newPrice, setNewPrice] = useState('');
   const [oldPrice, setOldPrice] = useState('');
 
-  const submitHandle = async (e) => {
+  const submitHandle = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
@@ -594,37 +594,78 @@ function CreateProduct() {
       <h2 className="my-4 text-3xl font-bold">Create Product</h2>
       <form onSubmit={submitHandle} className="flex flex-col gap-2">
         <Input
+          className=""
+          disabled=""
+          id=""
+          name=""
+          defaultValue=""
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setName(e.target.value)
+          }
           placeholder="name"
           type="text"
         />
         <Input
+          className=""
+          disabled=""
+          id=""
+          name=""
+          defaultValue=""
           value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setCategory(e.target.value)
+          }
           placeholder="category"
           type="text"
         />
         <Input
+          className=""
+          disabled=""
+          id=""
+          name=""
+          defaultValue=""
           value={image}
-          onChange={(e) => setImage(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setImage(e.target.value)
+          }
           placeholder="image"
           type="text"
         />
         <Input
+          className=""
+          disabled=""
+          id=""
+          name=""
+          defaultValue=""
           value={newPrice}
-          onChange={(e) => setNewPrice(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setNewPrice(e.target.value)
+          }
           placeholder="new price"
           type="text"
         />
         <Input
+          className=""
+          disabled=""
+          id=""
+          name=""
+          defaultValue=""
           value={oldPrice}
-          onChange={(e) => setOldPrice(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setOldPrice(e.target.value)
+          }
           placeholder="old price"
           type="text"
         />
         <div className="w-1/3">
-          <Button type="submit" variant="secondaryLessRound">
+          <Button
+            onClick={() => {}}
+            disabled=""
+            className=""
+            type="submit"
+            variant="secondaryLessRound"
+          >
             Create Product
           </Button>
         </div>

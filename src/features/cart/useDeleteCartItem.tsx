@@ -9,9 +9,10 @@ function useDeleteCartItem() {
     mutationFn: (id) => deleteFromCart(id),
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: 'cart',
+        queryKey: ['cart'],
       });
-      queryClient.refetchQueries('cart');
+      // queryClient.refetchQueries('cart');
+      queryClient.refetchQueries({ queryKey: ['cart'] });
     },
     onError: (error) => toast.error(error.message),
   });

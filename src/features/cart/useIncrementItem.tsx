@@ -11,7 +11,9 @@ function useIncrementItem() {
       queryClient.invalidateQueries({
         queryKey: ['cart'],
       });
-      queryClient.refetchQueries('cart');
+      // queryClient.refetchQueries('cart');
+      queryClient.refetchQueries({ queryKey: ['cart'] });
+
     },
     onError: (error) => toast.error(error.message),
   });

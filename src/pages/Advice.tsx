@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 
@@ -6,7 +6,7 @@ function Advice() {
   const [message, setMessage] = useState('');
   const user = true;
 
-  const submitHandler = (e) => {
+  const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setMessage('');
   };
@@ -23,14 +23,17 @@ function Advice() {
           </label>
           <textarea
             className="rounded-md border p-2 outline-none dark:bg-stone-300"
-            cols="30"
-            rows="3"
+            cols={30}
+            rows={3}
             required
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           ></textarea>
           <Button
+            disabled=""
+            variant=""
             type="submit"
+            onClick={() => {}}
             className="rounded-md bg-sky-600 px-12 hover:bg-sky-700 dark:bg-black dark:hover:bg-sky-700"
           >
             ارسال

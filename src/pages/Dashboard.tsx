@@ -34,6 +34,8 @@ function Dashboard() {
               عزیز , خوش آمدید
             </h3>
             <Button
+              disabled=""
+              variant=""
               type="submit"
               onClick={() => setIsShowUpdateModal(true)}
               className="rounded-md bg-sky-600 px-12 hover:bg-sky-700 dark:bg-stone-900 dark:hover:bg-stone-800"
