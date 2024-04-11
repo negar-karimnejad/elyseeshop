@@ -30,8 +30,6 @@ function Advice() {
             onChange={(e) => setMessage(e.target.value)}
           ></textarea>
           <Button
-            disabled=""
-            variant=""
             type="submit"
             onClick={() => {}}
             className="rounded-md bg-sky-600 px-12 hover:bg-sky-700 dark:bg-black dark:hover:bg-sky-700"

@@ -1,7 +1,9 @@
-import React from 'react';
 import { BiSearch } from 'react-icons/bi';
+interface SearchIconProps {
+  toggleSearchModal: () => void;
+}
 
-function SearchIcon({ toggleSearchModal }) {
+function SearchIcon({ toggleSearchModal }: SearchIconProps) {
   return (
     <button
       type="button"

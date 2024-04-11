@@ -12,7 +12,6 @@ function Checkout() {
         تکمیل سفارش
       </p>
       <Button
-        disabled=""
         type="button"
         onClick={checkoutHandler}
         variant="dark"

@@ -47,18 +47,13 @@ function CartTotal() {
             کد تخفیف:
           </label>
           <Input
-            defaultValue=""
-            disabled=""
-            name=""
             onChange={() => {}}
-            placeholder=""
             type="text"
             value=""
             className="px-2 py-1"
             id="offCode"
           />
           <Button
-            disabled=""
             onClick={() => {}}
             type="submit"
             variant="gray"

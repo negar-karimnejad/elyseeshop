@@ -11,7 +11,7 @@ function ProductsSidebar() {
 
   const menuEntry = navMobileMenu.find((item) => item.id === urlQuery);
   const list = menuEntry ? menuEntry.list : [];
-  const listId = menuEntry?.id;
+  const listId = menuEntry?.id || null;
 
   const toggleExpansion = () => {
     setOpenedHeading(null);

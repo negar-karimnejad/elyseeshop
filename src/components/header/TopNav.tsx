@@ -46,10 +46,6 @@ function TopNav({ scrollPosition }: TopNavProps) {
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setQuery(e.target.value)
               }
-              disabled=""
-              defaultValue=""
-              id=""
-              name=""
             />
           </label>
         </form>

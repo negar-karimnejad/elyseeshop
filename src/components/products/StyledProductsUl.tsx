@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 interface StyledProductsUlProps {
   toggleExpansion: () => void;
-  heading: string;
+  heading: string | null;
   list: string[];
-  openedHeading: string;
+  openedHeading: string | null;
   onClick: () => void;
 }
 
@@ -17,8 +17,6 @@ function StyledProductsUl({
   openedHeading,
   onClick,
 }: StyledProductsUlProps) {
-  console.log(list);
-
   return (
     <div className="text-stone-500 dark:text-white max-md:relative max-md:w-full">
       <h4

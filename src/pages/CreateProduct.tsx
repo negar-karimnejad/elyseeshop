@@ -594,11 +594,6 @@ function CreateProduct() {
       <h2 className="my-4 text-3xl font-bold">Create Product</h2>
       <form onSubmit={submitHandle} className="flex flex-col gap-2">
         <Input
-          className=""
-          disabled=""
-          id=""
-          name=""
-          defaultValue=""
           value={name}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setName(e.target.value)
@@ -607,11 +602,6 @@ function CreateProduct() {
           type="text"
         />
         <Input
-          className=""
-          disabled=""
-          id=""
-          name=""
-          defaultValue=""
           value={category}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setCategory(e.target.value)
@@ -620,11 +610,6 @@ function CreateProduct() {
           type="text"
         />
         <Input
-          className=""
-          disabled=""
-          id=""
-          name=""
-          defaultValue=""
           value={image}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setImage(e.target.value)
@@ -633,11 +618,6 @@ function CreateProduct() {
           type="text"
         />
         <Input
-          className=""
-          disabled=""
-          id=""
-          name=""
-          defaultValue=""
           value={newPrice}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setNewPrice(e.target.value)
@@ -646,11 +626,6 @@ function CreateProduct() {
           type="text"
         />
         <Input
-          className=""
-          disabled=""
-          id=""
-          name=""
-          defaultValue=""
           value={oldPrice}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setOldPrice(e.target.value)
@@ -659,13 +634,7 @@ function CreateProduct() {
           type="text"
         />
         <div className="w-1/3">
-          <Button
-            onClick={() => {}}
-            disabled=""
-            className=""
-            type="submit"
-            variant="secondaryLessRound"
-          >
+          <Button onClick={() => {}} type="submit" variant="secondaryLessRound">
             Create Product
           </Button>
         </div>

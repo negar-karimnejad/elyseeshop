@@ -70,13 +70,7 @@ function ShoppingCartIcon() {
               </div>
             </Link>
           ))}
-          <Button
-            disabled=""
-            type="button"
-            variant=""
-            className="block"
-            onClick={clickHandler}
-          >
+          <Button type="button" className="block" onClick={clickHandler}>
             مشاهده سبد خرید
           </Button>
         </div>
