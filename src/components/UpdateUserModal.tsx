@@ -9,16 +9,11 @@ interface UpdateUserModalProps {
 }
 
 function UpdateUserModal({ closeModal }: UpdateUserModalProps) {
-  const {
-    user: {
-      user_metadata: { username: currentusername },
-    },
-  } = useUser();
+  const { user } = useUser();
+  const currentUsername = user?.user_metadata?.username ?? ''; // Access username safely
 
   const { isUpdating, updateUser } = useUpdateUser();
-
-  const [username, setUsername] = useState(currentusername);
-  //   const [password, setPassword] = useState('');
+  const [username, setUsername] = useState<string | ''>(currentUsername);
 
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

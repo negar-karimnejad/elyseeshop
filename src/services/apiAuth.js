@@ -72,9 +72,9 @@ export async function logout() {
   }
 }
 
-export async function updateUser({ password, username }) {
+export async function updateUser({ username }) {
   let updateData;
-  if (password) updateData = { password };
+  // if (password) updateData = { password };
   if (username) updateData = { data: { username } };
 
   const { data, error } = await supabase.auth.updateUser(updateData);
