@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import Input from '../components/Input';
@@ -16,7 +16,7 @@ function Register() {
   const { isPending, signup, isSuccess } = useSignup();
   const { user } = useUser();
 
-  const submitHandler = (e) => {
+  const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     signup({ username, email, password });
     if (isSuccess) {
@@ -36,30 +36,47 @@ function Register() {
       </p>
       <form onSubmit={submitHandler} className="mt-5 flex flex-col gap-3">
         <Input
+          defaultValue=""
+          id=""
+          name=""
           placeholder="نام کاربری"
           className="p-3"
           type="text"
           value={username}
           disabled={isPending}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setUsername(e.target.value)
+          }
         />
         <Input
+          defaultValue=""
+          id=""
+          name=""
           placeholder="ایمیل"
           className="p-3"
           type="email"
           value={email}
           disabled={isPending}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setEmail(e.target.value)
+          }
         />
         <Input
+          defaultValue=""
+          id=""
+          name=""
           placeholder="رمز عبور"
           className="p-3"
           type="password"
           value={password}
           disabled={isPending}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setPassword(e.target.value)
+          }
         />
         <Button
+          onClick={() => {}}
+          variant=""
           type="submit"
           disabled={isPending}
           className="w-full rounded-sm dark:bg-white dark:text-black dark:hover:bg-pink-600 dark:hover:text-white"

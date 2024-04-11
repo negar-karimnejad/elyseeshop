@@ -1,5 +1,4 @@
 import Loader from '../../components/Loader';
-import useUser from '../../features/auth/useUser';
 import useCart from '../../features/cart/useCart';
 import CartProducts from './CartProducts';
 import CartTable from './CartTable';
@@ -8,8 +7,7 @@ import Checkout from './Checkout';
 
 function Cart() {
   const { cart, isLoading } = useCart();
-  const { user } = useUser();
-  if (isLoading) return <Loader />;
+  if (isLoading) return <Loader title="" />;
 
   return (
     <div className="min-h-72 dark:bg-stone-600">
@@ -17,7 +15,7 @@ function Cart() {
         🛒 سبد خرید
       </h2>
       <div className="container pb-20 pt-10">
-        {cart.length ? (
+        {cart?.length ? (
           <div>
             <CartTable />
             <div className="shadow">
@@ -26,7 +24,7 @@ function Cart() {
               ))}
             </div>
             <CartTotal />
-            {user === null && <Checkout />}
+            <Checkout />
           </div>
         ) : (
           <p className="text-center font-vazirBold text-xl text-pink-600 dark:text-pink-400">

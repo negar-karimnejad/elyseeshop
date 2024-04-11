@@ -3,7 +3,12 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 import useCart from '../../features/cart/useCart';
 
-const StyledDiv = ({ title, value }) => {
+interface StyledDivProps {
+  title: string;
+  value: number;
+}
+
+const StyledDiv = ({ title, value }: StyledDivProps) => {
   return (
     <div className="flex gap-3 bg-white dark:bg-stone-600">
       <p className="w-full bg-pink-700 p-1 dark:bg-stone-800">{title}</p>
@@ -41,8 +46,24 @@ function CartTotal() {
           <label htmlFor="offCode" className="dark:text-white">
             کد تخفیف:
           </label>
-          <Input className="px-2 py-1" id="offCode" />
-          <Button variant="gray" className="px-8">
+          <Input
+            defaultValue=""
+            disabled=""
+            name=""
+            onChange={() => {}}
+            placeholder=""
+            type="text"
+            value=""
+            className="px-2 py-1"
+            id="offCode"
+          />
+          <Button
+            disabled=""
+            onClick={() => {}}
+            type="submit"
+            variant="gray"
+            className="px-8"
+          >
             ثبت
           </Button>
         </form>

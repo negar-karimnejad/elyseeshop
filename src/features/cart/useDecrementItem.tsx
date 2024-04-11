@@ -6,7 +6,7 @@ function useDecrementItem() {
   const queryClient = useQueryClient();
 
   const { mutate,isPending } = useMutation({
-    mutationFn: (id) => decrementQty(id),
+    mutationFn: (id:number) => decrementQty(id),
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ['cart'],

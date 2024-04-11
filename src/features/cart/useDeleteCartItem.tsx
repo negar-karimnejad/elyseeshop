@@ -6,7 +6,7 @@ function useDeleteCartItem() {
   const queryClient = useQueryClient();
 
   const { mutate, isPending } = useMutation({
-    mutationFn: (id) => deleteFromCart(id),
+    mutationFn: (id: number) => deleteFromCart(id),
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ['cart'],

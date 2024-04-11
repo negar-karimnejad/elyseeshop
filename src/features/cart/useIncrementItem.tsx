@@ -5,20 +5,19 @@ import { incrementQty } from '../../services/apiCart';
 function useIncrementItem() {
   const queryClient = useQueryClient();
 
-  const { mutate,isPending } = useMutation({
-    mutationFn: (id) => incrementQty(id),
+  const { mutate, isPending } = useMutation({
+    mutationFn: (id: number) => incrementQty(id),
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ['cart'],
       });
       // queryClient.refetchQueries('cart');
       queryClient.refetchQueries({ queryKey: ['cart'] });
-
     },
     onError: (error) => toast.error(error.message),
   });
 
-  return { mutate,isPending };
+  return { mutate, isPending };
 }
 
 export default useIncrementItem;

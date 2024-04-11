@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ChangeEvent, ReactNode, useState } from 'react';
 import { AiOutlineLoading } from 'react-icons/ai';
 import { BiTrash } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,28 @@ import useDecrementItem from '../../features/cart/useDecrementItem';
 import useDeleteCartItem from '../../features/cart/useDeleteCartItem';
 import useIncrementItem from '../../features/cart/useIncrementItem';
 
-const StyledDiv = ({ children, style }) => {
+interface StyledDivProps {
+  children: ReactNode;
+  style: string;
+}
+
+interface CartProductsProps {
+  product: {
+    id: number;
+    userId: string;
+    productId: number;
+    quantity: number;
+    item: {
+      id: number;
+      image: string;
+      name: string;
+      price: number;
+      category: string;
+    };
+  };
+}
+
+const StyledDiv = ({ children, style }: StyledDivProps) => {
   return (
     <div
       className={`flex items-center border border-r border-white dark:border-stone-500/50 ${style}`}
@@ -18,7 +39,7 @@ const StyledDiv = ({ children, style }) => {
   );
 };
 
-function CartProducts({ product }) {
+function CartProducts({ product }: CartProductsProps) {
   const [quantity, setQuantity] = useState(product?.quantity);
 
   const { mutate, isPending } = useDeleteCartItem();
@@ -29,10 +50,10 @@ function CartProducts({ product }) {
 
   const { image, name, price, category } = product.item;
 
-  const changeHandler = async (e) => {
-    setQuantity(e.target.value);
+  const changeHandler = async (e: ChangeEvent<HTMLInputElement>) => {
+    setQuantity(Number(e.target.value));
     try {
-      if (quantity > e.target.value) {
+      if (quantity > Number(e.target.value)) {
         decrementtItem(product.id);
       } else {
         incrementItem(product.id);
@@ -53,7 +74,7 @@ function CartProducts({ product }) {
           <div className="flex items-center gap-2">
             <button
               onClick={() => {
-                mutate(product.id);
+                mutate(product?.id);
                 toast.dismiss();
               }}
               className="rounded-md bg-red-500 px-5 py-1 text-white transition-all hover:bg-red-400"
@@ -88,6 +109,10 @@ function CartProducts({ product }) {
       </StyledDiv>
       <StyledDiv style="col-span-1 h-full justify-center p-1 text-center">
         <Input
+          defaultValue=""
+          id=""
+          name=""
+          placeholder=""
           className="w-full py-1 text-center md:w-1/2"
           value={quantity}
           onChange={changeHandler}
