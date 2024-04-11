@@ -1,18 +1,19 @@
-import  { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { IoIosPricetag } from 'react-icons/io';
+import { toast } from 'react-toastify';
+import useUser from '../../features/auth/useUser';
+import useCreateCartItem from '../../features/cart/useCreateCartItem';
 import Button from '../Button';
 import Input from '../Input';
-import useCreateCartItem from '../../features/cart/useCreateCartItem';
-import useUser from '../../features/auth/useUser';
-import { toast } from 'react-toastify';
+import { ProductProps } from '../../types/ProductProps';
 
-function ProductCartForm({ product }) {
+function ProductCartForm({ product }: { product: ProductProps }) {
   const [quantity, setQuantity] = useState(1);
 
   const { mutate, isPending } = useCreateCartItem();
   const { user } = useUser();
 
-  const submitAddToCart = async (e) => {
+  const submitAddToCart = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!user) {
       toast.error('ابتدا باید وارد حساب خود شوید');
@@ -44,7 +45,7 @@ function ProductCartForm({ product }) {
           <Input
             className="mr-4 w-full p-2"
             value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
+            onChange={(e) => setQuantity(Number(e.target.value))}
             type="number"
           />
         </div>
@@ -62,6 +63,7 @@ function ProductCartForm({ product }) {
       </div>
       <div className="w-60">
         <Button
+          onClick={() => {}}
           type="submit"
           disabled={isPending}
           className="w-full cursor-pointer rounded-sm font-vazirBold"

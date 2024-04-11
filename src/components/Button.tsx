@@ -1,4 +1,21 @@
-function Button({ type, onClick, children, disabled, className, variant }) {
+import { ReactNode } from 'react';
+
+interface ButtonProps {
+  type: 'submit' | 'reset' | 'button' | undefined;
+  onClick: () => void;
+  children: ReactNode;
+  disabled?: boolean;
+  className?: string;
+  variant?: string;
+}
+function Button({
+  type,
+  onClick,
+  children,
+  disabled,
+  className,
+  variant,
+}: ButtonProps) {
   return (
     <button
       type={type}

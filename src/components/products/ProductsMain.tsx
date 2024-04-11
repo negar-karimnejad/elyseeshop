@@ -3,16 +3,17 @@ import { useParams } from 'react-router-dom';
 import useProducts from '../../features/products/useProducts';
 import ProductCard from '../home/ProductCard';
 import ProductSorting from './ProductSorting';
+import { ProductProps } from '../../types/ProductProps';
 
 function ProductsMain() {
   const [productList, setProductList] = useState([]);
   const { products } = useProducts();
 
   const { id } = useParams();
-  const urlQuery = id.replaceAll('-', ' ');
+  const urlQuery = id?.replaceAll('-', ' ');
 
-  const sortChangeHandler = (sort) => {
-    let filteredProducts = [];
+  const sortChangeHandler = (sort: string) => {
+    let filteredProducts: ProductProps[] = [];
 
     if (sort === 'ارزان ترین') {
       filteredProducts = productList.slice().sort((a, b) => a.price - b.price);
@@ -44,8 +45,8 @@ function ProductsMain() {
       <ProductSorting sortChangeHandler={sortChangeHandler} />
       <div className="mt-10 grid grid-cols-2 gap-5 lg:grid-cols-3 xl:grid-cols-4">
         {productList?.length ? (
-          productList?.map((product) => (
-            <ProductCard key={product.id} product={product} />
+          productList?.map((product, index) => (
+            <ProductCard key={index} product={product} isLoading={false} />
           ))
         ) : (
           <p className="text-stone-600">هیچ محصولی یافت نشد</p>

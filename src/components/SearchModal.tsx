@@ -1,13 +1,17 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from './Button';
 import Input from './Input';
 
-function SearchModal({ closeSearchModal }) {
+interface SearchModalProps {
+  closeSearchModal: () => void;
+}
+
+function SearchModal({ closeSearchModal }: SearchModalProps) {
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
 
-  const submitHandler = (e) => {
+  const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     navigate(`/products/${query}`);
     closeSearchModal();
@@ -32,7 +36,9 @@ function SearchModal({ closeSearchModal }) {
             onChange={(e) => setQuery(e.target.value)}
             className="p-2"
           />
-          <Button type="submit">جستجو</Button>
+          <Button onClick={() => {}} type="submit">
+            جستجو
+          </Button>
         </form>
       </div>
     </div>

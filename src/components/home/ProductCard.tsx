@@ -1,10 +1,17 @@
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../Button';
+import { ProductProps } from '../../types/ProductProps';
 
-function ProductCard({ product, isLoading }) {
+type ProductCardProps = {
+  product: ProductProps;
+  isLoading: boolean;
+};
+
+function ProductCard({ product, isLoading }: ProductCardProps) {
   const navigate = useNavigate();
 
   if (!product) return;
+
   const { image, name, brand, price } = product;
 
   const clickHandler = () => {
@@ -22,6 +29,7 @@ function ProductCard({ product, isLoading }) {
           alt="new product"
         />
         <Button
+          type="button"
           onClick={clickHandler}
           className="absolute -bottom-16 left-0 right-0 m-auto bg-stone-950 text-sm text-white group-hover:bottom-10 group-hover:block"
         >
@@ -30,7 +38,7 @@ function ProductCard({ product, isLoading }) {
       </div>
       <div className="flex w-full flex-1 flex-col justify-between gap-5 bg-pink-50 px-1 py-5 dark:bg-stone-800">
         <Link to={`/product/${name.replaceAll(' ', '-')}`}>
-          <p className="font-vazirMedium h-8 text-sm hover:text-pink-400">
+          <p className="h-8 font-vazirMedium text-sm hover:text-pink-400">
             {name}
           </p>
         </Link>

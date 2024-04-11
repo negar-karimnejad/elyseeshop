@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import useUpdateUser from '../features/auth/useUpdateUser';
 import useUser from '../features/auth/useUser';
 import Button from './Button';
 import Input from './Input';
 
-function UpdateUserModal({ closeModal }) {
+interface UpdateUserModalProps {
+  closeModal: () => void;
+}
+
+function UpdateUserModal({ closeModal }: UpdateUserModalProps) {
   const {
     user: {
       user_metadata: { username: currentusername },
@@ -16,7 +20,7 @@ function UpdateUserModal({ closeModal }) {
   const [username, setUsername] = useState(currentusername);
   //   const [password, setPassword] = useState('');
 
-  const submitHandler = (e) => {
+  const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     updateUser({ username });
 
@@ -44,16 +48,8 @@ function UpdateUserModal({ closeModal }) {
             disabled={isUpdating}
             onChange={(e) => setUsername(e.target.value)}
           />
-
-          {/* <Input
-            placeholder="رمز عبور"
-            className="p-3"
-            type="password"
-            value={password}
-            disabled={isUpdating}
-            onChange={(e) => setPassword(e.target.value)}
-          /> */}
           <Button
+            onClick={() => {}}
             type="submit"
             disabled={isUpdating}
             className="w-full rounded-md bg-sky-600 px-12 hover:bg-sky-700 dark:bg-stone-900 dark:hover:bg-stone-800"

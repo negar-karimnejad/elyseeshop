@@ -1,11 +1,15 @@
-import { useRef } from 'react';
+import { RefObject, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { navMobileMenu } from '../../data/data';
 import NavMobileDropdownLink from './NavMobileDropdownLink';
 import NavUl from './NavUl';
 
-function MobileNavMenu({ toggleMenu }) {
-  const ref = useRef();
+interface MobileNavMenuProps {
+  toggleMenu: () => void;
+}
+function MobileNavMenu({ toggleMenu }: MobileNavMenuProps) {
+  const ref: RefObject<HTMLDivElement> = useRef(null);
+  
   return (
     <>
       <div className="fixed inset-0 z-0" onClick={toggleMenu}></div>

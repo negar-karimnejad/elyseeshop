@@ -4,10 +4,10 @@ import { ProductsPagebrands, navMobileMenu } from '../../data/data';
 import StyledProductsUl from './StyledProductsUl';
 
 function ProductsSidebar() {
-  const [openedHeading, setOpenedHeading] = useState(null);
+  const [openedHeading, setOpenedHeading] = useState<string | null>(null);
 
   const { id } = useParams();
-  const urlQuery = id.replaceAll('-', ' ');
+  const urlQuery = id?.replaceAll('-', ' ');
 
   const menuEntry = navMobileMenu.find((item) => item.id === urlQuery);
   const list = menuEntry ? menuEntry.list : [];
@@ -23,7 +23,9 @@ function ProductsSidebar() {
         <StyledProductsUl
           toggleExpansion={toggleExpansion}
           onClick={() =>
-            setOpenedHeading((prev) => (prev === listId ? '' : listId))
+            setOpenedHeading((prev: string | null): string | null => {
+              return prev === listId ? null : listId || null;
+            })
           }
           openedHeading={openedHeading}
           heading={listId}
