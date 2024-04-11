@@ -4,7 +4,7 @@ function CommonQuestions() {
       <div className="flex items-center justify-center">
         <img src="/images/commonQ.jpg" className="w-96" alt="قوانین-و-مقررات" />
       </div>
-      <h5 className="font-vazirBold my-5 text-lg text-stone-600 dark:text-stone-300">
+      <h5 className="my-5 font-vazirBold text-lg text-stone-600 dark:text-stone-300">
         آیا می‌توانم بدون ثبت ‌نام یا داشتن حساب کاربری در فروشگاه الیزه شاپ
         سفارش خود را ثبت کنم؟
       </h5>
@@ -12,25 +12,25 @@ function CommonQuestions() {
         خیر برای ثبت سفارش لازم است بر روی سایت، یک حساب کاربری داشته باشید.
         ایجاد حساب کاربری بر روی سایت الیزه شاپ بسیار ساده می ‌باشد.
         <br />
-        <div className="font-vazirBold my-2 text-lg text-stone-600 dark:text-stone-300">
+        <div className="my-2 font-vazirBold text-lg text-stone-600 dark:text-stone-300">
           نحوه ثبت نام در سایت الیزه شاپ چگونه است؟{' '}
         </div>
         کلیه ی اصول و قواعد در فروشگاه اینترنتی الیزه شاپابتدا شماره موبایل خود
         را در قسمت ثبت نام وارد کنید و دکمه ثبت نام را بزنید. کد تاییدی که به
         شماره موبایل شما فرستاده می شود را وارد کنید و دکمه ورود را بزنید.{' '}
         <br />
-        <div className="font-vazirBold my-2 text-lg text-stone-600 dark:text-stone-300">
+        <div className="my-2 font-vazirBold text-lg text-stone-600 dark:text-stone-300">
           چگونه میتوانیم سوابق خرید و سفارشاتمان را در پروفایل مشاهده کنیم؟{' '}
         </div>
         در قسمت بالای صفحه روی علامت پروفایل کلیک کنید و فهرست سفارش ها رو
         انتخاب کنید. <br />
-        <div className="font-vazirBold my-2 text-lg text-stone-600 dark:text-stone-300">
+        <div className="my-2 font-vazirBold text-lg text-stone-600 dark:text-stone-300">
           آیا امکان ویرایش مشخصات کاربری و ایمیل من وجود دارد ؟
         </div>
         شما می توانید مشخصات کاربری خود را ویرایش کنید. برای این کار با وارد شدن
         به پنل "مشخصات فردی" میتوانید مشخصات خود را ویرایش نمایید.
         <br />
-        <div className="font-vazirBold my-2 text-lg text-stone-600 dark:text-stone-300">
+        <div className="my-2 font-vazirBold text-lg text-stone-600 dark:text-stone-300">
           نحوه ی سفارش و خرید محصول از الیزه شاپ به چه صورت است؟
         </div>
         برای خرید از الیزه شاپ پس از ایجاد حساب کاربری یا ورود به حساب کاربری
@@ -38,7 +38,7 @@ function CommonQuestions() {
         سفارش، اطلاعات گیرنده سفارش و آدرس خود را وارد‌ نمایید، پس از انتخاب روش
         ارسال، نحوه پرداخت خود را انتخاب نمایید و سفارش خود را تکمیل کنید.{' '}
         <br />
-        <div className="font-vazirBold my-2 text-lg text-stone-600 dark:text-stone-300">
+        <div className="my-2 font-vazirBold text-lg text-stone-600 dark:text-stone-300">
           آیا در تمام ساعات شبانه روز می‌ توانم سفارش خود را ثبت کنم؟
         </div>
         بله در 24 ساعت شبانه روز و 7 روز هفته می‌ توانید سفارش خود را ثبت‌

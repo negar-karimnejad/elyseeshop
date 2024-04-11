@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 function About() {
   return (
@@ -10,7 +10,7 @@ function About() {
         1395 فروشگاه اینترنتی الیزه به منظور ارائه خدمات غیرحضوری به سراسر ایران
         فعالیت خود را در هر سه بخش بهداشتی، آرایشی و عطر آغاز کرده است.
       </p>
-      <h5 className="font-vazirBold my-5 text-lg text-stone-500 dark:text-stone-300">
+      <h5 className="my-5 font-vazirBold text-lg text-stone-500 dark:text-stone-300">
         گستره محصولات ما
       </h5>
       <p className="leading-9 text-stone-500 dark:text-stone-400">

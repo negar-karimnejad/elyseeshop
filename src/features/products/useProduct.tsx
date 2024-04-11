@@ -7,7 +7,7 @@ function useProduct(id) {
     queryFn: () => getProduct(id),
   });
   const product = data?.at(0);
-  return { product, error, isLoading, refetch, isFetching};
+  return { product, error, isLoading, refetch, isFetching };
 }
 
 export default useProduct;

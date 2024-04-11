@@ -4,7 +4,7 @@ function Terms() {
       <div className="flex items-center justify-center">
         <img src="/images/terms.png" className="w-96" alt="قوانین-و-مقررات" />
       </div>
-      <h5 className="font-vazirBold my-5 text-xl text-stone-600 dark:text-stone-300">
+      <h5 className="my-5 font-vazirBold text-xl text-stone-600 dark:text-stone-300">
         قوانین و مقررات فروشگاه الیزه شاپ
       </h5>
       <div className="font-vazirMedium leading-9 text-stone-500 dark:text-stone-400">
@@ -13,7 +13,7 @@ function Terms() {
         شاپ و ثبت سفارش در هر زمان به معنی پذیرفتن کامل کلیه شرایط و قوانین
         فروشگاه اینترنتی الیزه شاپ از سوی کاربر است.
         <br />
-        <div className="font-vazirBold my-2 text-lg text-stone-600 dark:text-stone-300">
+        <div className="my-2 font-vazirBold text-lg text-stone-600 dark:text-stone-300">
           قوانین عمومی{' '}
         </div>
         کلیه ی اصول و قواعد در فروشگاه اینترنتی الیزه شاپ منطبق با قوانین جمهوری
@@ -22,21 +22,21 @@ function Terms() {
         آینده، موارد در همین صفحه منتشر می گردد و شما توافق می کنید که استفاده
         مستمر شما از این فروشگاه اینترنتی به معنی پذیرش هرگونه تغییر است.
         <br />
-        <div className="font-vazirBold my-2 text-lg text-stone-600 dark:text-stone-300">
+        <div className="my-2 font-vazirBold text-lg text-stone-600 dark:text-stone-300">
           تعریف مشتری یا کاربر{' '}
         </div>
         مشتری یا کاربر به شخصی گفته می شود که به سایت مراجعه کرده و اطلاعات خود
         را در فرم ثبت نام وارد نموده است، تا به ثبت سفارش و یا هرگونه استفاده از
         خدمات فروشگاهی اینترنتی الیزه شاپ پرداخته باشد.
         <br />
-        <div className="font-vazirBold my-2 text-lg text-stone-600 dark:text-stone-300">
+        <div className="my-2 font-vazirBold text-lg text-stone-600 dark:text-stone-300">
           سیاست های رعایت حریم شخصی
         </div>
         فروشگاه اینترنتی الیزه شاپ، در حفظ اطلاعات هر کاربر کوشاست و هیچگونه
         اطلاعاتی از کاربران را در اختیار اشخاص دیگر قرار نمیدهد. به طور مفصل در
         قسمت حریم خصوصی به آن پرداخته ایم.
         <br />
-        <div className="font-vazirBold my-2 text-lg text-stone-600 dark:text-stone-300">
+        <div className="my-2 font-vazirBold text-lg text-stone-600 dark:text-stone-300">
           حق نشر
         </div>
         همه ی مطالب در دسترس از طریق سایت اعم از لوگو، علائم تجاری، متن و .....
@@ -45,7 +45,7 @@ function Terms() {
         در دسترس، انحصارا در اختیار الیزه شاپ است و هرگونه استفاده بدون کسب مجوز
         کتبی، برای الیزه شاپ حق پیگرد قانونی دارد.
         <br />
-        <div className="font-vazirBold my-2 text-lg text-stone-600 dark:text-stone-300">
+        <div className="my-2 font-vazirBold text-lg text-stone-600 dark:text-stone-300">
           ثبت، پردازش و ارسال سفارش
         </div>
         روز کاری به معنی هر روز هفته به غیر از جمعه و تعطیلات عمومی در ایران است
