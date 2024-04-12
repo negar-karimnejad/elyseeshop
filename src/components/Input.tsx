@@ -34,6 +34,7 @@ function Input({
       id={id}
       defaultValue={defaultValue}
       name={name}
+      
     />
   );
 }

@@ -10,18 +10,16 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const { isPending, login, isSuccess } = useLogin();
+  const { isPending, login } = useLogin();
   const { user } = useUser();
 
   const navigate = useNavigate();
 
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setEmail('');
+    setPassword('');
     login({ email, password });
-    if (isSuccess) {
-      setEmail('');
-      setPassword('');
-    }
   };
 
   if (user !== null) {
@@ -35,9 +33,6 @@ function Login() {
       </p>
       <form onSubmit={submitHandler} className="mt-5 flex flex-col gap-3">
         <Input
-          defaultValue=""
-          id=""
-          name=""
           placeholder="ایمیل"
           className="p-3"
           type="email"
@@ -48,9 +43,6 @@ function Login() {
           }
         />
         <Input
-          defaultValue=""
-          id=""
-          name=""
           placeholder="رمز عبور"
           className="p-3"
           type="password"
@@ -62,7 +54,6 @@ function Login() {
         />
         <Button
           type="submit"
-          variant=""
           onClick={() => {}}
           disabled={isPending}
           className="w-full rounded-sm dark:bg-white dark:text-black dark:hover:bg-pink-600 dark:hover:text-white"
