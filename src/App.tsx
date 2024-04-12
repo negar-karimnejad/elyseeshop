@@ -41,7 +41,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <ToastContainer autoClose={3000} />
+      <ToastContainer autoClose={3000} className="max-sm:w-[300px] max-sm:mt-2" />
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
