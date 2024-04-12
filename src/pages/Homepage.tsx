@@ -7,6 +7,7 @@ import RandomProducts from "../components/products/RandomProducts";
 
 
 function Homepage() {
+  
   return (
     <div className="pb-14">
       <Hero />
