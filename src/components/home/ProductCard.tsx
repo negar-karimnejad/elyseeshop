@@ -1,3 +1,4 @@
+import { AiOutlineLoading } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { ProductProps } from '../../types/ProductProps';
 import Button from '../Button';
@@ -11,16 +12,22 @@ function ProductCard({
 }) {
   const navigate = useNavigate();
 
-  if (!product) return;
-
   const clickHandler = () => {
     navigate(`/product/${product.name.replaceAll(' ', '-')}`);
   };
 
+  if (isLoading)
+    return (
+      <div className="flex items-center justify-center overflow-hidden rounded-md bg-white shadow-lg dark:bg-stone-900 dark:text-stone-200">
+        <AiOutlineLoading
+          size={24}
+          className="h-96 animate-spin text-pink-400"
+        />
+      </div>
+    );
+
   return (
-    <div
-      className={`${isLoading ? 'animate-pulse' : ''} flex flex-col items-center overflow-hidden rounded-md bg-white text-center shadow-lg dark:bg-stone-900 dark:text-stone-200`}
-    >
+    <div className="flex flex-col items-center overflow-hidden rounded-md bg-white text-center shadow-lg dark:bg-stone-900 dark:text-stone-200">
       <div className="group relative overflow-hidden">
         <img
           src={product.image}

@@ -9,7 +9,7 @@ interface RandomProductsProps {
 }
 
 function RandomProducts({ startIndex, endIndex }: RandomProductsProps) {
-  const { products, isLoading } = useProducts();
+  const { products, isLoading, isFetching } = useProducts();
   const chunkedProducts = products?.sort(() => Math.random() - 0.5);
 
   if (isLoading) return <Loader title="" />;
@@ -20,7 +20,7 @@ function RandomProducts({ startIndex, endIndex }: RandomProductsProps) {
         ?.slice(startIndex, endIndex)
         .map((product) => (
           <ProductCard
-            isLoading={isLoading}
+            isLoading={isFetching}
             key={product.id}
             product={product}
           />

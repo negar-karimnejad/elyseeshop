@@ -7,11 +7,12 @@ function useProducts() {
     data: products,
     error,
     isLoading,
+    isFetching,
   } = useQuery<ProductProps[]>({
     queryKey: ['products'],
     queryFn: getProducts,
   });
-  return { products, error, isLoading };
+  return { products, error, isLoading, isFetching };
 }
 
 export default useProducts;
