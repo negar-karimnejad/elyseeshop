@@ -30,6 +30,7 @@ function ProductCard({
     <div className="flex flex-col items-center overflow-hidden rounded-md bg-white text-center shadow-lg dark:bg-stone-900 dark:text-stone-200">
       <div className="group relative overflow-hidden">
         <img
+          loading="lazy"
           src={product.image}
           className="w-full transition-all duration-500 group-hover:brightness-75"
           alt="new product"

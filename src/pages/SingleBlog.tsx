@@ -11,6 +11,7 @@ function SingleBlog() {
       {blog && (
         <>
           <img
+            loading="lazy"
             src={blog.image}
             className="mx-auto w-[600px] object-contain"
             alt={blog.title}

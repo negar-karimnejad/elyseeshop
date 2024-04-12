@@ -67,7 +67,12 @@ function Product() {
                 className="mx-auto mt-32 animate-spin text-pink-400"
               />
             ) : (
-              <img src={image} alt="product" className="h-fit max-w-md" />
+              <img
+                loading="lazy"
+                src={image}
+                alt="product"
+                className="h-fit max-w-md"
+              />
             )}
           </div>
           <div className="flex flex-col border-r pr-3">
@@ -82,7 +87,13 @@ function Product() {
                   className="m-auto mt-5 animate-spin text-pink-400"
                 />
               ) : (
-                <img className="" src={image} alt={name} title={name} />
+                <img
+                  loading="lazy"
+                  className=""
+                  src={image}
+                  alt={name}
+                  title={name}
+                />
               )}
             </div>
 
@@ -91,7 +102,13 @@ function Product() {
             <div className="my-10 flex items-center justify-between">
               <p className="text-sm text-stone-400">کد کالا: {code}</p>
 
-              <img className="w-32" src={brandImage} alt={name} title={name} />
+              <img
+                loading="lazy"
+                className="w-32"
+                src={brandImage}
+                alt={name}
+                title={name}
+              />
             </div>
             <hr />
             <div className="cursor-pointer border-b py-2">

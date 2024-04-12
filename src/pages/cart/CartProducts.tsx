@@ -97,7 +97,7 @@ function CartProducts({ product }: CartProductsProps) {
       className={`grid grid-cols-12 items-center bg-stone-200 text-stone-700 transition-all hover:bg-stone-200 dark:text-white dark:hover:bg-stone-700 ${product.id % 2 === 0 ? 'dark:bg-stone-500/50' : 'dark:bg-stone-700'}`}
     >
       <StyledDiv style="justify-center py-3  max-md:hidden">
-        <img className="w-16" src={image} alt={category} />
+        <img loading="lazy" className="w-16" src={image} alt={category} />
       </StyledDiv>
       <StyledDiv style="col-span-4 h-full p-2 text-center sm:col-span-6 md:col-span-5">
         <Link

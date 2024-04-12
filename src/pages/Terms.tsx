@@ -2,7 +2,12 @@ function Terms() {
   return (
     <div className="container py-14">
       <div className="flex items-center justify-center">
-        <img src="/images/terms.png" className="w-96" alt="قوانین-و-مقررات" />
+        <img
+          loading="lazy"
+          src="/images/terms.png"
+          className="w-96"
+          alt="قوانین-و-مقررات"
+        />
       </div>
       <h5 className="my-5 font-vazirBold text-xl text-stone-600 dark:text-stone-300">
         قوانین و مقررات فروشگاه الیزه شاپ

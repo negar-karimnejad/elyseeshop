@@ -12,7 +12,7 @@ interface HeroLinkProps {
 const HeroLink = ({ to, image }: HeroLinkProps) => {
   return (
     <Link to={to}>
-      <img src={image} alt="brand" />
+      <img loading="lazy" src={image} alt="brand" />
     </Link>
   );
 };

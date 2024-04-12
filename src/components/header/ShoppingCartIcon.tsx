@@ -58,6 +58,7 @@ function ShoppingCartIcon() {
               className="my-5 flex border-b dark:border-b-stone-700 dark:text-white"
             >
               <img
+                loading="lazy"
                 src={product.item.image}
                 className="h-20 w-20 border object-contain"
                 alt={product.item.name}

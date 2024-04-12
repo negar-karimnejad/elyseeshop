@@ -2,9 +2,14 @@ function Privacy() {
   return (
     <div className="container py-14">
       <div className="flex items-center justify-center">
-        <img src="/images/privacy.png" className="w-96" alt="حریم-خصوصی" />
+        <img
+          loading="lazy"
+          src="/images/privacy.png"
+          className="w-96"
+          alt="حریم-خصوصی"
+        />
       </div>
-      <h5 className="font-vazirBold my-5 text-lg text-stone-600 dark:text-stone-300">
+      <h5 className="my-5 font-vazirBold text-lg text-stone-600 dark:text-stone-300">
         رعایت حریم خصوصی در وب سایت الیزه شاپ
       </h5>
       <p className="font-vazirMedium leading-9 text-stone-500 dark:text-stone-400">

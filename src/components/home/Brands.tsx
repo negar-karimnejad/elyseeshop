@@ -7,6 +7,7 @@ function Brands() {
         {Array.from({ length: 12 }).map((_, index) => (
           <Link key={index} to="/brands">
             <img
+              loading="lazy"
               src={`./images/brands/${index + 1}.jpg`}
               alt="brand image"
               key={index}

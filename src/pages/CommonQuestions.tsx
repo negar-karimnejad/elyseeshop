@@ -2,7 +2,12 @@ function CommonQuestions() {
   return (
     <div className="container py-14">
       <div className="flex items-center justify-center">
-        <img src="/images/commonQ.jpg" className="w-96" alt="قوانین-و-مقررات" />
+        <img
+          loading="lazy"
+          src="/images/commonQ.jpg"
+          className="w-96"
+          alt="قوانین-و-مقررات"
+        />
       </div>
       <h5 className="my-5 font-vazirBold text-lg text-stone-600 dark:text-stone-300">
         آیا می‌توانم بدون ثبت ‌نام یا داشتن حساب کاربری در فروشگاه الیزه شاپ

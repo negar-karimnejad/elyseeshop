@@ -8,6 +8,7 @@ function Blog() {
         <Link key={index} to={`/blog/${item.title.replaceAll(' ', '-')}`}>
           <div className="overflow-hidden rounded-md">
             <img
+              loading="lazy"
               className="object-contain transition-all duration-700 hover:scale-110"
               src={item.image}
               alt={item.title}
