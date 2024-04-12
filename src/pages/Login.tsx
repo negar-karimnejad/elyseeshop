@@ -7,30 +7,32 @@ import useLogin from '../features/auth/useLogin';
 import useUser from '../features/auth/useUser';
 
 function Login() {
+  const navigate = useNavigate();
+  const { user } = useUser();
+  const { isPending, login, isSuccess } = useLogin();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const { isPending, login } = useLogin();
-  const { user } = useUser();
-
-  const navigate = useNavigate();
-
-  const submitHandler = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setEmail('');
-    setPassword('');
-    login({ email, password });
-  };
 
   useEffect(() => {
     setEmail('');
     setPassword('');
   }, []);
 
+  const submitHandler = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    login({ email, password });
+    if (isSuccess) {
+      setEmail('');
+      setPassword('');
+    }
+  };
+
   if (user !== null) {
     navigate('/dashboard');
     return <Loader title="در حال انتقال..." />;
   }
+  
   return (
     <div className="container my-10 md:mx-auto md:w-1/2 lg:w-1/3">
       <p className="text-lg text-stone-600 dark:text-stone-200">
