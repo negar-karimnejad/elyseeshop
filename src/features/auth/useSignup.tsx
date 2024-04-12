@@ -10,6 +10,7 @@ function useSignup() {
     mutate: signup,
     isPending,
     isSuccess,
+    error
   } = useMutation({
     mutationFn: signupApi,
     onSuccess: () => {
@@ -17,7 +18,7 @@ function useSignup() {
       navigate('/login', { replace: true });
     },
   });
-  return { signup, isPending, isSuccess };
+  return { signup, isPending, isSuccess,error };
 }
 
 export default useSignup;

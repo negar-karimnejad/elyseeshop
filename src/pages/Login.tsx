@@ -13,11 +13,20 @@ function Login() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   useEffect(() => {
     setEmail('');
     setPassword('');
   }, []);
+
+  useEffect(() => {
+    if (password && password.length < 6) {
+      setPasswordError('رمز کاربری باید حداقل 6 کاراکتر باشد');
+    } else {
+      setPasswordError('');
+    }
+  }, [password]);
 
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,7 +41,7 @@ function Login() {
     navigate('/dashboard');
     return <Loader title="در حال انتقال..." />;
   }
-  
+
   return (
     <div className="container my-10 md:mx-auto md:w-1/2 lg:w-1/3">
       <p className="text-lg text-stone-600 dark:text-stone-200">
@@ -59,10 +68,11 @@ function Login() {
             setPassword(e.target.value)
           }
         />
+        {passwordError && <p className="text-red-500">{passwordError}</p>}
         <Button
           type="submit"
           onClick={() => {}}
-          disabled={isPending}
+          disabled={isPending || Boolean(passwordError)}
           className="w-full rounded-sm dark:bg-white dark:text-black dark:hover:bg-pink-600 dark:hover:text-white"
         >
           ثبت نام

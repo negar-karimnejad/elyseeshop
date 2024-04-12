@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import Input from '../components/Input';
@@ -10,6 +10,8 @@ function Register() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [usernameError, setUsernameError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   const navigate = useNavigate();
 
@@ -25,9 +27,24 @@ function Register() {
       setPassword('');
     }
   };
+
+  useEffect(() => {
+    if (username && username.length < 3) {
+      setUsernameError('نام کاربری باید حداقل 3 کاراکتر باشد');
+    } else {
+      setUsernameError('');
+    }
+
+    if (password && password.length < 6) {
+      setPasswordError('رمز کاربری باید حداقل 6 کاراکتر باشد');
+    } else {
+      setPasswordError('');
+    }
+  }, [password, username]);
+
   if (user !== null) {
     navigate('/dashboard');
-    return <Loader title="در حال انتقال..." />;
+    return <Loader title="Redirecting..." />;
   }
   return (
     <div className="container my-10 md:mx-auto md:w-1/2 lg:w-1/3">
@@ -36,9 +53,6 @@ function Register() {
       </p>
       <form onSubmit={submitHandler} className="mt-5 flex flex-col gap-3">
         <Input
-          defaultValue=""
-          id=""
-          name=""
           placeholder="نام کاربری"
           className="p-3"
           type="text"
@@ -48,10 +62,8 @@ function Register() {
             setUsername(e.target.value)
           }
         />
+        {usernameError && <p className="text-red-500">{usernameError}</p>}
         <Input
-          defaultValue=""
-          id=""
-          name=""
           placeholder="ایمیل"
           className="p-3"
           type="email"
@@ -62,9 +74,6 @@ function Register() {
           }
         />
         <Input
-          defaultValue=""
-          id=""
-          name=""
           placeholder="رمز عبور"
           className="p-3"
           type="password"
@@ -74,6 +83,7 @@ function Register() {
             setPassword(e.target.value)
           }
         />
+        {passwordError && <p className="text-red-500">{passwordError}</p>}
         <Button
           onClick={() => {}}
           variant=""
