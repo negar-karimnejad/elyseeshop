@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import Input from '../components/Input';
@@ -21,6 +21,11 @@ function Login() {
     setPassword('');
     login({ email, password });
   };
+
+  useEffect(() => {
+    setEmail('');
+    setPassword('');
+  }, []);
 
   if (user !== null) {
     navigate('/dashboard');
