@@ -38,7 +38,6 @@ function Login() {
       </p>
       <form onSubmit={submitHandler} className="mt-5 flex flex-col gap-3">
         <Input
-          defaultValue=""
           placeholder="ایمیل"
           className="p-3"
           type="email"
