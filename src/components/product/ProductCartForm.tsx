@@ -51,7 +51,7 @@ function ProductCartForm({ product }: { product: ProductProps }) {
         </div>
       </label>
       <div className="flex items-center text-lg">
-        <span className="bg-stone-200 p-3 text-stone-300">
+        <span className="bg-stone-200 flex items-center justify-center w-[45px] h-[45px]  text-stone-400">
           <IoIosPricetag size={28} />
         </span>
         <p className="w-48 bg-stone-100 p-3">
