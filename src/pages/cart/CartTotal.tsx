@@ -2,6 +2,7 @@ import { toast } from 'react-toastify';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import useCart from '../../features/cart/useCart';
+import { useState } from 'react';
 
 interface StyledDivProps {
   title: string;
@@ -31,6 +32,7 @@ const StyledDiv = ({ title, value }: StyledDivProps) => {
 };
 
 function CartTotal() {
+  const [code, setCode] = useState('');
   const { totalPrice, totalQty } = useCart();
 
   return (
@@ -47,9 +49,9 @@ function CartTotal() {
             کد تخفیف:
           </label>
           <Input
-            onChange={() => {}}
+            onChange={(e) => setCode(e.target.value)}
             type="text"
-            value=""
+            value={code}
             className="px-2 py-1"
             id="offCode"
           />
