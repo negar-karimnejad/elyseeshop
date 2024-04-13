@@ -26,6 +26,11 @@ import Products from './pages/Products';
 import Register from './pages/Register';
 import SingleBlog from './pages/SingleBlog';
 import Terms from './pages/Terms';
+import AdminArticals from './pages/admin/AdminArticals';
+import AdminLayout from './pages/admin/AdminLayout';
+import AdminPanel from './pages/admin/AdminPanel';
+import AdminProducts from './pages/admin/AdminProducts';
+import AdminUsers from './pages/admin/AdminUsers';
 import Cart from './pages/cart/Cart';
 
 function App() {
@@ -38,12 +43,13 @@ function App() {
     },
   });
 
-  
-  
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <ToastContainer autoClose={3000} className="max-sm:w-[300px] max-sm:mt-2" />
+      <ToastContainer
+        autoClose={3000}
+        className="max-sm:mt-2 max-sm:w-[300px]"
+      />
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
@@ -69,6 +75,12 @@ function App() {
             <Route path="/orders" element={<Orders />} />
             <Route path="/myAdvice" element={<MyAdvice />} />
             <Route path="/dashboard" element={<Dashboard />} />
+          </Route>
+          <Route element={<AdminLayout />}>
+            <Route path="/admin-panel" element={<AdminPanel />} />
+            <Route path="/admin-panel/products" element={<AdminProducts />} />
+            <Route path="/admin-panel/users" element={<AdminUsers />} />
+            <Route path="/admin-panel/articals" element={<AdminArticals />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

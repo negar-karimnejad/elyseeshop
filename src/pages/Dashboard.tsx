@@ -10,6 +10,7 @@ import useUser from '../features/auth/useUser';
 function Dashboard() {
   const [isShowUpdateModal, setIsShowUpdateModal] = useState(false);
   const { user } = useUser();
+console.log(user);
 
   const navigate = useNavigate();
 
