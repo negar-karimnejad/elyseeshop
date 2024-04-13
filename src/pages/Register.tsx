@@ -10,6 +10,7 @@ function Register() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [role, setRole] = useState('');
   const [usernameError, setUsernameError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
@@ -20,7 +21,8 @@ function Register() {
 
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    signup({ username, email, password });
+
+    signup({ username, email, password, role });
     if (isSuccess) {
       setUsername('');
       setEmail('');
@@ -42,10 +44,16 @@ function Register() {
     }
   }, [password, username]);
 
+  useEffect(() => {
+    if (isSuccess || user !== null) {
+      navigate('/dashboard');
+    }
+  }, [isSuccess, navigate, user]);
+
   if (user !== null) {
-    navigate('/dashboard');
-    return <Loader title="Redirecting..." />;
+    return <Loader title="در حال انتقال ..." />;
   }
+
   return (
     <div className="container my-10 md:mx-auto md:w-1/2 lg:w-1/3">
       <p className="text-lg text-stone-600 dark:text-stone-200">
@@ -79,9 +87,14 @@ function Register() {
           type="password"
           value={password}
           disabled={isPending}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            setPassword(e.target.value)
-          }
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            setPassword(e.target.value);
+            if (password.startsWith('admin')) {
+              setRole('admin');
+            } else {
+              setRole('user');
+            }
+          }}
         />
         {passwordError && <p className="text-red-500">{passwordError}</p>}
         <Button

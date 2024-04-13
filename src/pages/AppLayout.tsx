@@ -9,7 +9,6 @@ function AppLayout() {
   const { isLoading } = useProducts();
 
   if (isLoading) return <Loader title="" />;
-
   return (
     <div className="text-stone- bg-white dark:bg-stone-900">
       <Header />

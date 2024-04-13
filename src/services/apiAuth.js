@@ -1,6 +1,6 @@
 import supabase from './supabase';
 
-export async function signup({ email, password, username }) {
+export async function signup({ email, password, username, role }) {
   try {
     let { data, error } = await supabase.auth.signUp({
       email,
@@ -8,6 +8,7 @@ export async function signup({ email, password, username }) {
       options: {
         data: {
           username,
+          role,
         },
       },
     });
@@ -16,7 +17,7 @@ export async function signup({ email, password, username }) {
       console.error(error);
       throw new Error('متاسفانه ثبت نام انجام نشد');
     }
-
+console.log("🎁",data);
     return data;
   } catch (error) {
     throw new Error(error.message);

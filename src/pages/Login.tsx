@@ -28,9 +28,17 @@ function Login() {
     }
   }, [password]);
 
+  useEffect(() => {
+    if (isSuccess || user !== null) {
+      navigate('/dashboard');
+    }
+  }, [isSuccess, navigate, user]);
+
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     login({ email, password });
+
     if (isSuccess) {
       setEmail('');
       setPassword('');
@@ -38,8 +46,7 @@ function Login() {
   };
 
   if (user !== null) {
-    navigate('/dashboard');
-    return <Loader title="در حال انتقال..." />;
+    return <Loader title="در حال انتقال ..." />;
   }
 
   return (
