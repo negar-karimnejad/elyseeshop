@@ -20,7 +20,7 @@ function AdminLayout() {
   return (
     <>
       <AdminHeader />
-      <div className="grid min-h-[544px] grid-cols-12">
+      <div className="grid grid-cols-12">
         <AdminSidebar />
         <Outlet />
       </div>
