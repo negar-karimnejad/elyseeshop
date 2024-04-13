@@ -1,4 +1,3 @@
-import { toast } from 'react-toastify';
 import supabase from './supabase';
 
 export async function signup({ email, password, username }) {
@@ -20,7 +19,6 @@ export async function signup({ email, password, username }) {
 
     return data;
   } catch (error) {
-    toast.error(error.message);
     throw new Error(error.message);
   }
 }
@@ -39,7 +37,6 @@ export async function login({ email, password }) {
 
     return data;
   } catch (error) {
-    toast.error(error.message);
     throw new Error(error.message);
   }
 }
@@ -67,7 +64,6 @@ export async function logout() {
       throw new Error('متاسفانه عملیات با موفقیت انجام نشد');
     }
   } catch (error) {
-    toast.error(error.message);
     throw new Error(error.message);
   }
 }

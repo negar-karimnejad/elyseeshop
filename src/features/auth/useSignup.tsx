@@ -10,15 +10,19 @@ function useSignup() {
     mutate: signup,
     isPending,
     isSuccess,
-    error
+    error,
   } = useMutation({
     mutationFn: signupApi,
     onSuccess: () => {
       toast.success('ثبت نام با موفقیت انجام شد');
       navigate('/login', { replace: true });
     },
+    onError: (err) => {
+      console.log('ERROR', err);
+      toast.error('ایمیل یا پسورد نامعتبر است');
+    },
   });
-  return { signup, isPending, isSuccess,error };
+  return { signup, isPending, isSuccess, error };
 }
 
 export default useSignup;
