@@ -1,21 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { createNewProduct } from '../../services/apiProducts';
 import { toast } from 'react-toastify';
-
-interface NewProductProps {
-  name: string;
-  brand: string;
-  brandImage: string;
-  brandDescription: string;
-  image: string;
-  features: string[];
-  tag: string[];
-  mass: number;
-  price: number;
-  category: string;
-  code: string;
-  description: string;
-}
+import { NewProductProps } from '../../types/ProductProps';
 
 function useCreateProduct() {
   const queryClient = useQueryClient();

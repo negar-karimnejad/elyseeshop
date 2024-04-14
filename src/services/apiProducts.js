@@ -24,6 +24,7 @@ export async function getProduct(id) {
 }
 
 export async function createNewProduct(newProduct) {
+  console.log(newProduct);
   try {
     const { data, error } = await supabase
       .from('products')
