@@ -28,10 +28,11 @@ function SearchModal({ closeSearchModal }: SearchModalProps) {
         className="w-2/3 rounded-md bg-white p-5"
       >
         <form onSubmit={submitHandler} className="flex flex-col gap-4">
-          <label htmlFor="" className="font-vazirBold text-stone-500">
+          <label htmlFor="query" className="font-vazirBold text-stone-500">
             کلمه مورد نظر را جستجو کنید:
           </label>
           <Input
+            id="query"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="p-2"

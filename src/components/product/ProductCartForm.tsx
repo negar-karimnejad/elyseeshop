@@ -38,12 +38,13 @@ function ProductCartForm({ product }: { product: ProductProps }) {
     <form onSubmit={submitAddToCart} className="flex flex-col gap-5 pt-14">
       <label
         className="flex items-center font-vazirBold dark:text-stone-100"
-        htmlFor=""
+        htmlFor="quantity"
       >
         تعداد
         <div className="w-[175px]">
           <Input
             className="mr-4 w-full p-2"
+            id='quantity'
             value={quantity}
             onChange={(e) => setQuantity(Number(e.target.value))}
             type="number"

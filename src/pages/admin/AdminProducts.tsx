@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
-import AdminAddProduct from '../../components/admin/AdminAddProduct';
-import AdminDeleteProduct from '../../components/admin/AdminDeleteProduct';
-import AdminUpdateProduct from '../../components/admin/AdminUpdateProduct';
+import AdminAddProduct from '../../components/admin/admin-products/AdminAddProduct';
+import AdminDeleteProduct from '../../components/admin/admin-products/AdminDeleteProduct';
+import AdminUpdateProduct from '../../components/admin/admin-products/AdminUpdateProduct';
 import useProducts from '../../features/products/useProducts';
 
 interface StyledDivProps {

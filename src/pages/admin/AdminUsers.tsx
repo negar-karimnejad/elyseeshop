@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode } from 'react';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Create from '../../components/admin/Create';
@@ -18,60 +18,33 @@ const StyledDiv = ({ children, style, content }: StyledDivProps) => {
   );
 };
 function AdminUsers() {
-  const [title, setTitle] = useState('');
-
   return (
     <div className="bg-stone-100 max-md:col-span-12 md:col-span-9 lg:col-span-10">
       <Create heading="افزودن کاربر جدید">
         <form className="flex flex-col gap-5">
           <div className="flex gap-2">
-            <label htmlFor="" className="flex w-full flex-col gap-1">
+            <label htmlFor="fullname" className="flex w-full flex-col gap-1">
               نام ونام خانوادگی
-              <Input
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                type="text"
-                className="px-1 py-2"
-              />
+              <Input id="fullname" type="text" className="px-1 py-2" />
             </label>
-            <label htmlFor="" className="flex w-full flex-col gap-1">
+            <label htmlFor="username" className="flex w-full flex-col gap-1">
               نام کاربری
-              <Input
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                type="text"
-                className="px-1 py-2"
-              />
+              <Input id="username" type="text" className="px-1 py-2" />
             </label>
           </div>
           <div className="flex gap-2">
-            <label htmlFor="" className="flex w-full flex-col gap-1">
+            <label htmlFor="email" className="flex w-full flex-col gap-1">
               ایمیل
-              <Input
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                type="number"
-                className="px-1 py-2"
-              />
+              <Input id="email" type="number" className="px-1 py-2" />
             </label>
-            <label htmlFor="" className="flex w-full flex-col gap-1">
+            <label htmlFor="password" className="flex w-full flex-col gap-1">
               رمز عبور
-              <Input
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                type="number"
-                className="px-1 py-2"
-              />
+              <Input id="password" type="number" className="px-1 py-2" />
             </label>
           </div>
-          <label htmlFor="" className="flex w-full flex-col gap-1">
+          <label htmlFor="phone" className="flex w-full flex-col gap-1">
             شماره تلفن
-            <Input
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              type="number"
-              className="w-1/2 px-1 py-2"
-            />
+            <Input id="phone" type="number" className="w-1/2 px-1 py-2" />
           </label>
           <Button
             onClick={() => {}}

@@ -1,9 +1,9 @@
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import { AiOutlineLoading } from 'react-icons/ai';
-import useProducts from '../../features/products/useProducts';
-import useUpdateProduct from '../../features/products/useUpdateProduct';
-import { UpdateProductProps } from '../../types/ProductProps';
-import Button from '../Button';
+import useProducts from '../../../features/products/useProducts';
+import useUpdateProduct from '../../../features/products/useUpdateProduct';
+import { UpdateProductProps } from '../../../types/ProductProps';
+import Button from '../../Button';
 
 interface AdminUpdateProductProps {
   name: string;
@@ -90,89 +90,105 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
               readOnly
               className="hidden"
             />
-            <label htmlFor="" className='"w-full flex items-center gap-1'>
+            <label htmlFor="name" className='"w-full flex items-center gap-1'>
               <span className="w-20 shrink-0 text-right text-sm text-stone-400">
                 نام محصول:
               </span>
-
               <input
+                id="name"
                 defaultValue={product?.name}
                 type="text"
                 name="name"
                 className="w-full border p-2 text-sm outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300"
               />
             </label>
-            <label htmlFor="" className='"w-full flex items-center gap-1'>
+            <label htmlFor="brand" className='"w-full flex items-center gap-1'>
               <span className="w-20 shrink-0 text-right text-sm text-stone-400">
                 نام برند:
               </span>
               <input
+                id="brand"
                 defaultValue={product?.brand}
                 type="text"
                 name="brand"
                 className="w-full border p-2 text-sm outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300"
               />
             </label>
-            <label htmlFor="" className='"w-full flex items-center gap-1'>
+            <label htmlFor="price" className='"w-full flex items-center gap-1'>
               <span className="w-20 shrink-0 text-right text-sm text-stone-400">
                 قیمت:
               </span>
               <input
+                id="price"
                 defaultValue={product?.price}
                 type="number"
                 name="price"
                 className="w-full border p-2 text-sm outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300"
               />
             </label>
-            <label htmlFor="" className='"w-full flex items-center gap-1'>
+            <label htmlFor="mass" className='"w-full flex items-center gap-1'>
               <span className="w-20 shrink-0 text-right text-sm text-stone-400">
                 حجم:
               </span>
               <input
+                id="mass"
                 defaultValue={product?.mass}
                 type="number"
                 name="mass"
                 className="w-full border p-2 text-sm outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300"
               />
             </label>
-            <label htmlFor="" className='"w-full flex items-center gap-1'>
+            <label htmlFor="code" className='"w-full flex items-center gap-1'>
               <span className="w-20 shrink-0 text-right text-sm text-stone-400">
                 کد محصول:
               </span>
               <input
+                id="code"
                 defaultValue={product?.code}
                 type="text"
                 name="code"
                 className="w-full border p-2 text-sm outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300"
               />
             </label>
-            <label htmlFor="" className='"w-full flex items-center gap-1'>
+            <label
+              htmlFor="brandDescription"
+              className='"w-full flex items-center gap-1'
+            >
               <span className="w-20 shrink-0 text-right text-sm text-stone-400">
                 متن برند:
               </span>
               <input
+                id="brandDescription"
                 defaultValue={product?.brandDescription}
                 type="text"
                 name="brandDescription"
                 className="w-full border p-2 text-sm outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300"
               />
             </label>
-            <label htmlFor="" className='"w-full flex items-center gap-1'>
+            <label
+              htmlFor="description"
+              className='"w-full flex items-center gap-1'
+            >
               <span className="w-20 shrink-0 text-right text-sm text-stone-400">
                 متن محصول:
               </span>
               <input
+                id="description"
                 defaultValue={product?.description}
                 type="text"
                 name="description"
                 className="w-full border p-2 text-sm outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300"
               />
             </label>
-            <label htmlFor="" className="flex w-full items-center gap-1">
+            <label
+              htmlFor="category"
+              className="flex w-full items-center gap-1"
+            >
               <span className="w-20 shrink-0 text-right text-sm text-stone-400">
                 دسته بندی:
               </span>
               <select
+                id="category"
                 name="category"
                 className="w-full border px-1.5 py-2 text-sm outline-0"
               >

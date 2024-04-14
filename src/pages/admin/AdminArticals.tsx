@@ -26,18 +26,20 @@ function AdminArticals() {
     <div className="bg-stone-100 max-md:col-span-12 md:col-span-9 lg:col-span-10">
       <Create heading="افزودن مقاله جدید">
         <form className="flex flex-col gap-5">
-          <label htmlFor="" className="flex flex-1 flex-col">
+          <label htmlFor="title" className="flex flex-1 flex-col">
             نام مقاله
             <Input
+              id="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               type="text"
               className="p-2"
             />
           </label>
-          <label htmlFor="" className="flex flex-1 flex-col">
+          <label htmlFor="content" className="flex flex-1 flex-col">
             متن مقاله
             <textarea
+              id="content"
               value={content}
               onChange={(e) => setContent(e.target.value)}
               required
@@ -45,9 +47,10 @@ function AdminArticals() {
               className="p-2 text-lg outline-none disabled:opacity-50"
             ></textarea>
           </label>
-          <label htmlFor="" className="flex w-fit flex-col">
+          <label htmlFor="image" className="flex w-fit flex-col">
             پوستر مقاله
             <Input
+            id='image'
               value={image}
               onChange={(e) => setImage(e.target.value)}
               type="file"

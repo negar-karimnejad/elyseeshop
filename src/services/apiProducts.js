@@ -55,20 +55,23 @@ export async function deleteProduct(id) {
 
 export async function updateProduct(updatedProduct) {
   try {
-    if (!updatedProduct) {
-      throw new Error('Updated product data is empty');
-    }
-
     const { data, error } = await supabase
       .from('products')
-      .update(updateProduct)
-      .eq('id', updatedProduct.id)
-      .select();
+      .update({
+        name: updatedProduct.name,
+        brand: updatedProduct.brand,
+        brandDescription: updatedProduct.brandDescription,
+        mass: updatedProduct.mass,
+        price: updatedProduct.price,
+        category: updatedProduct.category,
+        code: updatedProduct.code,
+        description: updatedProduct.description,
+      })
+      .eq('id', updatedProduct.id);
 
     if (error) {
       throw error;
     }
-console.log(data);
     return data;
   } catch (error) {
     console.error('Error updating product:', error.message);

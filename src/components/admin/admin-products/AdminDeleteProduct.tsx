@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import useDeleteProduct from '../../features/products/useDeleteProduct';
-import Button from '../Button';
+import useDeleteProduct from '../../../features/products/useDeleteProduct';
+import Button from '../../Button';
 import { toast } from 'react-toastify';
 import { AiOutlineLoading } from 'react-icons/ai';
 

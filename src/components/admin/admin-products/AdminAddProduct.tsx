@@ -1,10 +1,10 @@
 import { FormEvent, useRef } from 'react';
 import { FiUploadCloud } from 'react-icons/fi';
-import Create from '../../components/admin/Create';
-import useCreateProduct from '../../features/products/useCreateProduct';
-import useProducts from '../../features/products/useProducts';
-import Button from '../Button';
-import Input from '../Input';
+import useCreateProduct from '../../../features/products/useCreateProduct';
+import useProducts from '../../../features/products/useProducts';
+import Button from '../../Button';
+import Input from '../../Input';
+import Create from '../Create';
 
 function AdminAddProduct() {
   const { addProduct, isPending } = useCreateProduct();
@@ -56,82 +56,94 @@ function AdminAddProduct() {
             readOnly
             className="hidden px-1 py-2"
           />
-          <label htmlFor="" className="flex w-full flex-col gap-1">
+          <label htmlFor="name" className="flex w-full flex-col gap-1">
             نام محصول
             <Input
               disabled={isPending}
               name="name"
+              id="name"
               type="text"
               className="px-1 py-2"
             />
           </label>
-          <label htmlFor="" className="flex w-full flex-col gap-1">
+          <label htmlFor="brand" className="flex w-full flex-col gap-1">
             نام برند
             <Input
               disabled={isPending}
               name="brand"
+              id="brand"
               type="text"
               className="px-1 py-2"
             />
           </label>
         </div>
         <div className="flex gap-2">
-          <label htmlFor="" className="flex w-full flex-col gap-1">
+          <label htmlFor="price" className="flex w-full flex-col gap-1">
             قیمت محصول
             <Input
               disabled={isPending}
               name="price"
+              id="price"
               type="number"
               className="px-1 py-2"
             />
           </label>
-          <label htmlFor="" className="flex w-full flex-col gap-1">
+          <label htmlFor="mass" className="flex w-full flex-col gap-1">
             حجم محصول
             <Input
               disabled={isPending}
               name="mass"
+              id="mass"
               type="number"
               className="px-1 py-2"
             />
           </label>
         </div>
         <div className="flex gap-2">
-          <label htmlFor="" className="flex w-full flex-col gap-1">
+          <label htmlFor="code" className="flex w-full flex-col gap-1">
             کد محصول
             <Input
               disabled={isPending}
               name="code"
+              id="code"
               type="text"
               className="px-1 py-2"
             />
           </label>
-          <label htmlFor="" className="flex w-full flex-col gap-1">
-            توضیحات محصول
-            <Input
+          <label
+            htmlFor="brandDescription"
+            className="flex w-full flex-col gap-1"
+          >
+            توضیحات برند
+            <textarea
+              name="brandDescription"
               disabled={isPending}
-              name="description"
-              type="text"
-              className="px-1 py-2"
-            />
+              id="brandDescription"
+              required
+              rows={1}
+              className="px-1 py-2 text-lg outline-none disabled:opacity-50"
+            ></textarea>
           </label>
         </div>
-
-        <label htmlFor="" className="flex w-full flex-col gap-1">
-          متن محصول
+        <label htmlFor="description" className="flex w-full flex-col gap-1">
+          توضیحات محصول
           <textarea
-            name="content"
+            name="description"
             disabled={isPending}
+            id="description"
             required
             rows={5}
             className="px-1 py-2 text-lg outline-none disabled:opacity-50"
           ></textarea>
         </label>
+
         <div className="flex flex-col justify-around gap-2 sm:flex-row">
-          <label htmlFor="" className="flex w-full flex-col gap-1">
+          <label htmlFor="category" className="flex w-full flex-col gap-1">
             دسته بندی محصول
             <select
               disabled={isPending}
               name="category"
+              id="category"
               required
               className="px-1 py-2 outline-0"
             >
@@ -144,11 +156,15 @@ function AdminAddProduct() {
             </select>
           </label>
           <div className="flex justify-between gap-x-10 px-10">
-            <label htmlFor="" className="relative flex w-fit flex-col">
+            <label
+              htmlFor="productImage"
+              className="relative flex w-fit flex-col"
+            >
               عکس محصول
               <Input
                 name="productImage"
                 type="file"
+                id="productImage"
                 className="absolute left-0 right-0 top-10 m-auto cursor-pointer border-0 text-[2px] opacity-0"
               />
               <FiUploadCloud
@@ -156,11 +172,15 @@ function AdminAddProduct() {
                 size={24}
               />
             </label>
-            <label htmlFor="" className="relative flex w-fit flex-col">
+            <label
+              htmlFor="brandImage"
+              className="relative flex w-fit flex-col"
+            >
               عکس برند
               <Input
                 name="brandImage"
                 type="file"
+                id="brandImage"
                 className="absolute left-0 right-0 top-10 m-auto cursor-pointer border-0 text-[2px] opacity-0"
               />
               <FiUploadCloud
