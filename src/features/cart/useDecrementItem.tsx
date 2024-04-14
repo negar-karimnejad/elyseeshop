@@ -5,19 +5,18 @@ import { decrementQty } from '../../services/apiCart';
 function useDecrementItem() {
   const queryClient = useQueryClient();
 
-  const { mutate,isPending } = useMutation({
-    mutationFn: (id:number) => decrementQty(id),
+  const { mutate, isPending } = useMutation({
+    mutationFn: (id: number) => decrementQty(id),
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ['cart'],
       });
-      // queryClient.refetchQueries('cart');
       queryClient.refetchQueries({ queryKey: ['cart'] });
     },
     onError: (error) => toast.error(error.message),
   });
 
-  return { mutate,isPending };
+  return { mutate, isPending };
 }
 
 export default useDecrementItem;

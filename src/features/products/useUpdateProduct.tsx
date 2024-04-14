@@ -1,18 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
 import { updateProduct } from '../../services/apiProducts';
-
-interface UpdateProductProps {
-  id: number;
-  name: string;
-  brand: string;
-  brandDescription: string;
-  mass: number;
-  price: number;
-  category: string;
-  code: string;
-  description: string;
-}
+import { UpdateProductProps } from '../../types/ProductProps';
 
 function useUpdateProduct() {
   const queryClient = useQueryClient();
@@ -23,7 +12,7 @@ function useUpdateProduct() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['products'] });
       toast.success('محصول با موفقیت ویرایش شد');
-      queryClient.refetchQueries();
+      queryClient.refetchQueries({ queryKey: ['products'] });
     },
     onError: (error) => toast.error(error.message),
   });

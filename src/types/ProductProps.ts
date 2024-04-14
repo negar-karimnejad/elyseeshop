@@ -24,7 +24,19 @@ export interface NewProductProps {
   image: string;
   features: string[];
   tag: string[];
-  mass: number;
+  mass: string;
+  price: number;
+  category: string;
+  code: string;
+  description: string;
+}
+
+export interface UpdateProductProps {
+  id: number;
+  name: string;
+  brand: string;
+  brandDescription: string;
+  mass: string;
   price: number;
   category: string;
   code: string;

@@ -24,7 +24,7 @@ function AdminAddProduct() {
       image: formData.get('image') as string,
       features: [] as string[],
       tag: [] as string[],
-      mass: parseInt(formData.get('mass') as string),
+      mass: formData.get('mass') as string,
       price: parseFloat(formData.get('price') as string),
       category: formData.get('category') as string,
       code: formData.get('code') as string,
@@ -40,7 +40,7 @@ function AdminAddProduct() {
       console.error(error);
     }
   };
-  
+
   return (
     <Create heading="افزودن محصول جدید">
       <form

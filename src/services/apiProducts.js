@@ -11,7 +11,6 @@ export async function getProducts() {
 }
 
 export async function getProduct(id) {
-  console.log(id);
   const { data, error } = await supabase
     .from('products')
     .select('*')
@@ -56,15 +55,23 @@ export async function deleteProduct(id) {
 
 export async function updateProduct(updatedProduct) {
   try {
+    if (!updatedProduct) {
+      throw new Error('Updated product data is empty');
+    }
+
     const { data, error } = await supabase
       .from('products')
       .update(updateProduct)
-      .eq('id', updatedProduct.id);
+      .eq('id', updatedProduct.id)
+      .select();
+
     if (error) {
       throw error;
     }
+console.log(data);
     return data;
   } catch (error) {
     console.error('Error updating product:', error.message);
+    throw error;
   }
 }
