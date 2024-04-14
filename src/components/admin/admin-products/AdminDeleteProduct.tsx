@@ -46,7 +46,7 @@ function AdminDeleteProduct({ id }: AdminDeleteProductProps) {
     <Button
       onClick={deleteHandler}
       type="button"
-      className="rounded-md bg-red-600 hover:bg-red-700 max-sm:px-4"
+      className="rounded-md bg-red-600 hover:bg-red-700 max-sm:px-2"
     >
       {deletedProduct === id && isDeleting ? (
         <AiOutlineLoading size={22} className="animate-spin" />

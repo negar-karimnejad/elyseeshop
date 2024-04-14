@@ -57,9 +57,13 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
       <Button
         onClick={() => setIsOpenEditModal(true)}
         type="button"
-        className="rounded-md bg-sky-600 hover:bg-sky-700 max-sm:px-4"
+        className="rounded-md bg-sky-600 hover:bg-sky-700 max-sm:px-1"
       >
-        ویرایش
+        {product?.name && isUpdating ? (
+          <AiOutlineLoading size={22} className="animate-spin" />
+        ) : (
+          'ویرایش'
+        )}
       </Button>
 
       {/* Edit Modal */}
@@ -67,7 +71,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
         className={`fixed left-0 top-0 flex h-screen w-full items-center justify-center bg-black/50 transition-all duration-1000 ${isOpenEditModal ? 'visible z-50 opacity-100' : 'invisible  opacity-0'}`}
       >
         <div
-          className={`relative w-[600px] rounded-md bg-white p-8 text-center shadow-md transition-all duration-1000 max-sm:w-96 ${isOpenEditModal ? 'translate-y-0' : '-translate-y-[370px]'}`}
+          className={`relative w-[600px] rounded-md bg-white p-5 text-center shadow-md transition-all duration-1000 max-sm:w-96 sm:p-8 ${isOpenEditModal ? 'translate-y-0' : '-translate-y-[370px]'}`}
         >
           <div
             className="absolute top-3 cursor-pointer font-vazirBold text-2xl transition-all hover:text-pink-500"
@@ -81,7 +85,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
           <form
             ref={formRef}
             onSubmit={updateHandler}
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-4 max-sm:gap-1 "
           >
             <input
               name="id"
@@ -192,7 +196,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
                 name="category"
                 className="w-full border px-1.5 py-2 text-sm outline-0"
               >
-                <option value="">دسته بندی مورد نظر را انتخاب کنید</option>
+                <option value="-1">دسته بندی مورد نظر را انتخاب کنید</option>
                 <option value="عطر و ادکلن">عطر و ادکلن</option>
                 <option value="لوازم آرایشی">لوازم آرایشی</option>
                 <option value="محصولات بدن">محصولات بدن</option>
@@ -204,11 +208,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
               type="submit"
               className="mt-5 w-full rounded-md bg-sky-600 font-vazirBold text-lg hover:bg-sky-700 max-sm:px-4"
             >
-              {product?.name && isUpdating ? (
-                <AiOutlineLoading size={22} className="animate-spin" />
-              ) : (
-                'ویرایش'
-              )}
+              ویرایش
             </Button>
           </form>
         </div>

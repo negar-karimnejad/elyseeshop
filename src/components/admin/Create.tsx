@@ -9,7 +9,7 @@ function Create({ children, heading }: CreateProps) {
 
 
   return (
-    <div className="mx-10 mb-5 border p-5 shadow-md">
+    <div className="sm:mx-10 mb-8 border p-5 shadow-md">
       <h2 className="mb-10 font-vazirBold text-xl text-stone-700">{heading}</h2>
       {children}
     </div>

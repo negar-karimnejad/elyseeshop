@@ -48,7 +48,7 @@ function AdminAddProduct() {
         onSubmit={createHandler}
         className="flex flex-col gap-5"
       >
-        <div className="flex gap-2">
+        <div className="flex gap-2 max-sm:flex-col">
           <input
             name="id"
             type="number"
@@ -77,7 +77,7 @@ function AdminAddProduct() {
             />
           </label>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 max-sm:flex-col">
           <label htmlFor="price" className="flex w-full flex-col gap-1">
             قیمت محصول
             <Input
@@ -99,7 +99,7 @@ function AdminAddProduct() {
             />
           </label>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 max-sm:flex-col">
           <label htmlFor="code" className="flex w-full flex-col gap-1">
             کد محصول
             <Input
@@ -147,7 +147,7 @@ function AdminAddProduct() {
               required
               className="px-1 py-2 outline-0"
             >
-              <option value="">دسته بندی مورد نظر را انتخاب کنید</option>
+              <option value="-1">دسته بندی مورد نظر را انتخاب کنید</option>
               <option value="عطر و ادکلن">عطر و ادکلن</option>
               <option value="لوازم آرایشی">لوازم آرایشی</option>
               <option value="محصولات بدن">محصولات بدن</option>
@@ -155,7 +155,7 @@ function AdminAddProduct() {
               <option value="مراقبت از پوست">مراقبت از پوست</option>
             </select>
           </label>
-          <div className="flex justify-between gap-x-10 px-10">
+          <div className="flex justify-between gap-x-10 max-sm:mt-5 sm:px-10">
             <label
               htmlFor="productImage"
               className="relative flex w-fit flex-col"

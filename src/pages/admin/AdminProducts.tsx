@@ -25,20 +25,17 @@ function AdminProducts() {
 
   return (
     <div className="bg-stone-100 max-md:col-span-12 md:col-span-9 lg:col-span-10">
-      <div className="mx-10 border p-5 shadow-md ">
+      <div className="border p-5 shadow-md sm:mx-10 ">
         <h2 className="mb-10 font-vazirBold text-xl text-stone-700">
           لیست محصولات
         </h2>
         <AdminAddProduct />
 
-        {/* Artical list heading */}
+        {/* Products list heading */}
         <div className="grid grid-cols-12 bg-stone-400 text-stone-100 dark:bg-stone-700">
+          <StyledDiv style="max-sm:hidden col-span-1 border" content="شناسه" />
           <StyledDiv
-            style="max-sm:col-span-2 col-span-1 border"
-            content="شناسه"
-          />
-          <StyledDiv
-            style="col-span-3 border max-sm:col-span-4"
+            style="col-span-3 border max-sm:col-span-6"
             content="نام محصول"
           />
           <StyledDiv
@@ -59,18 +56,18 @@ function AdminProducts() {
           />
         </div>
 
-        {/* Artical list */}
+        {/* Products list */}
         {productsList?.map((product) => (
           <div
             key={product.id}
             className="grid grid-cols-12 items-center border-b bg-white"
           >
             <StyledDiv
-              style="col-span-1 max-sm:col-span-2"
+              style="col-span-1 max-sm:hidden"
               content={String(product.id)}
             />
             <StyledDiv
-              style="col-span-3 text-right max-sm:col-span-4 text-sm"
+              style="col-span-3 text-right max-sm:col-span-6 text-sm"
               content={product.name}
             />
             <StyledDiv
@@ -81,10 +78,10 @@ function AdminProducts() {
               style="col-span-2 max-sm:hidden"
               content={`${product.price.toLocaleString()} تومان`}
             />
-            <StyledDiv style="col-span-2 p-3 max-sm:col-span-3">
+            <StyledDiv style="col-span-2 sm:p-3 max-sm:col-span-3">
               <AdminUpdateProduct name={product?.name} />
             </StyledDiv>
-            <StyledDiv style="col-span-2 p-3 max-sm:col-span-3">
+            <StyledDiv style="col-span-2 sm:p-3 max-sm:col-span-3">
               <AdminDeleteProduct id={product?.id} />
             </StyledDiv>
           </div>

@@ -31,7 +31,10 @@ function TopNav({ scrollPosition }: TopNavProps) {
           <FaPhoneAlt size={13} />
         </div>
         <form className="w-[500px]" onSubmit={submitHandler}>
-          <label className="rounded-5 flex items-center gap-3 rounded-full border border-stone-300 bg-white px-4 py-1 dark:bg-stone-800">
+          <label
+            htmlFor="query"
+            className="rounded-5 flex items-center gap-3 rounded-full border border-stone-300 bg-white px-4 py-1 dark:bg-stone-800"
+          >
             <button
               type="submit"
               className="cursor-pointer hover:text-pink-500 dark:hover:text-white"
@@ -41,6 +44,7 @@ function TopNav({ scrollPosition }: TopNavProps) {
             <Input
               className="border-0 bg-white dark:bg-stone-800"
               type="text"
+              id="query"
               placeholder="جستجو"
               value={query}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
