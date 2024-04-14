@@ -19,7 +19,6 @@ function useCreateCartItem() {
       queryClient.invalidateQueries({
         queryKey: ['cart'],
       });
-      // queryClient.refetchQueries('cart');
       queryClient.refetchQueries({ queryKey: ['cart'] });
     },
     onError: (error) => {

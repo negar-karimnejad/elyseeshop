@@ -1,8 +1,9 @@
-import { ReactNode, useState } from 'react';
+import { FormEvent, ReactNode } from 'react';
 import { FiUploadCloud } from 'react-icons/fi';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Create from '../../components/admin/Create';
+import useCreateProduct from '../../features/products/useCreateProduct';
 
 interface StyledDivProps {
   children?: ReactNode;
@@ -18,81 +19,61 @@ const StyledDiv = ({ children, style, content }: StyledDivProps) => {
     </div>
   );
 };
+
 function AdminProducts() {
-  const [title, setTitle] = useState('');
-  const [image, setImage] = useState('');
-  const [content, setContent] = useState('');
+  const { addProduct, isPending } = useCreateProduct();
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+
+    const newProduct = [...formData.entries()];
+    try {
+      addProduct(newProduct);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="bg-stone-100 max-md:col-span-12 md:col-span-9 lg:col-span-10">
       <Create heading="افزودن محصول جدید">
-        <form className="flex flex-col gap-5">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           <div className="flex gap-2">
             <label htmlFor="" className="flex w-full flex-col gap-1">
               نام محصول
-              <Input
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                type="text"
-                className="px-1 py-2"
-              />
+              <Input name="title" type="text" className="px-1 py-2" />
             </label>
             <label htmlFor="" className="flex w-full flex-col gap-1">
               نام برند
-              <Input
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                type="text"
-                className="px-1 py-2"
-              />
+              <Input name="brand" type="text" className="px-1 py-2" />
             </label>
           </div>
           <div className="flex gap-2">
             <label htmlFor="" className="flex w-full flex-col gap-1">
               قیمت محصول
-              <Input
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                type="number"
-                className="px-1 py-2"
-              />
+              <Input name="price" type="number" className="px-1 py-2" />
             </label>
             <label htmlFor="" className="flex w-full flex-col gap-1">
               حجم محصول
-              <Input
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                type="number"
-                className="px-1 py-2"
-              />
+              <Input name="mass" type="number" className="px-1 py-2" />
             </label>
           </div>
           <div className="flex gap-2">
             <label htmlFor="" className="flex w-full flex-col gap-1">
               کد محصول
-              <Input
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                type="number"
-                className="px-1 py-2"
-              />
+              <Input name="code" type="text" className="px-1 py-2" />
             </label>
             <label htmlFor="" className="flex w-full flex-col gap-1">
               توضیحات محصول
-              <Input
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                type="number"
-                className="px-1 py-2"
-              />
+              <Input name="description" type="text" className="px-1 py-2" />
             </label>
           </div>
 
           <label htmlFor="" className="flex w-full flex-col gap-1">
             متن محصول
             <textarea
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
+              name="content"
               required
               rows={5}
               className="px-1 py-2 text-lg outline-none disabled:opacity-50"
@@ -101,21 +82,20 @@ function AdminProducts() {
           <div className="flex flex-col justify-around gap-2 sm:flex-row">
             <label htmlFor="" className="flex w-full flex-col gap-1">
               دسته بندی محصول
-              <select name="" id="" className="px-1 py-2 outline-0">
+              <select name="category" id="" className="px-1 py-2 outline-0">
                 <option value="">دسته بندی مورد نظر را انتخاب کنید</option>
-                <option value="">عطر و ادکلن</option>
-                <option value="">لوازم آرایشی</option>
-                <option value="">محصولات بدن</option>
-                <option value="">مراقبت از مو</option>
-                <option value="">مراقبت از پوست</option>
+                <option value="perfume">عطر و ادکلن</option>
+                <option value="cosmetic">لوازم آرایشی</option>
+                <option value="body">محصولات بدن</option>
+                <option value="haircare">مراقبت از مو</option>
+                <option value="skincare">مراقبت از پوست</option>
               </select>
             </label>
             <div className="flex justify-between gap-x-10 px-10">
               <label htmlFor="" className="relative flex w-fit flex-col">
                 عکس محصول
                 <Input
-                  value={image}
-                  onChange={(e) => setImage(e.target.value)}
+                  name="productImage"
                   type="file"
                   className="absolute left-0 right-0 top-10 m-auto cursor-pointer border-0 text-[2px] opacity-0"
                 />
@@ -127,8 +107,7 @@ function AdminProducts() {
               <label htmlFor="" className="relative flex w-fit flex-col">
                 عکس برند
                 <Input
-                  value={image}
-                  onChange={(e) => setImage(e.target.value)}
+                  name="brandImage"
                   type="file"
                   className="absolute left-0 right-0 top-10 m-auto cursor-pointer border-0 text-[2px] opacity-0"
                 />
@@ -140,7 +119,6 @@ function AdminProducts() {
             </div>
           </div>
           <Button
-            onClick={() => {}}
             type="submit"
             className="mt-10 w-36 rounded-md bg-sky-600 hover:bg-sky-700 dark:bg-stone-900 dark:hover:bg-stone-800"
           >

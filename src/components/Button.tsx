@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 interface ButtonProps {
   type: 'submit' | 'reset' | 'button' | undefined;
-  onClick: () => void;
+  onClick?: () => void;
   children: ReactNode;
   disabled?: boolean;
   className?: string;

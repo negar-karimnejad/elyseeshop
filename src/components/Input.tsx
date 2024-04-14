@@ -4,8 +4,8 @@ interface InputProps {
   className?: string;
   type?: string;
   placeholder?: string;
-  value: string | number;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  value?: string | number;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   id?: string;
   name?: string;

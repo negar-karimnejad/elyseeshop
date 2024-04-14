@@ -23,3 +23,17 @@ export async function getProduct(id) {
   return data;
 }
 
+export async function createNewProduct(newProduct) {
+  try {
+    const { data, error } = await supabase
+      .from('products')
+      .insert(newProduct)
+      .select();
+    if (error) {
+      throw error;
+    }
+    return data;
+  } catch (error) {
+    console.error('Error adding product:', error.message);
+  }
+}
