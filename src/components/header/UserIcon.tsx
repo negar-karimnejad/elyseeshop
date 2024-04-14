@@ -31,7 +31,7 @@ function UserIcon() {
       console.error('Logout error:', error);
     }
   };
-  
+
   return (
     <div className="relative">
       <button
@@ -51,6 +51,16 @@ function UserIcon() {
             className="userIcon absolute rounded-md border bg-white px-10 py-5 text-stone-500 shadow-lg dark:border-0 dark:bg-stone-600 dark:text-white"
           >
             <ul className="flex flex-col gap-3">
+              {user?.user_metadata.role === 'admin' && (
+                <li onClick={() => setIsShowUserModal(false)}>
+                  <Link
+                    to="admin-panel"
+                    className="whitespace-nowrap transition-all hover:text-pink-500"
+                  >
+                    پنل مدیریت
+                  </Link>
+                </li>
+              )}
               {userList.map((item) => (
                 <li key={item.id} onClick={() => setIsShowUserModal(false)}>
                   <Link

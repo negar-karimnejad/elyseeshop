@@ -121,7 +121,7 @@ function AdminAddProduct() {
               id="brandDescription"
               required
               rows={1}
-              className="px-1 py-2 text-lg outline-none disabled:opacity-50"
+              className="bg-white dark:bg-stone-500 px-1 py-2 text-lg outline-none disabled:opacity-50"
             ></textarea>
           </label>
         </div>
@@ -133,7 +133,7 @@ function AdminAddProduct() {
             id="description"
             required
             rows={5}
-            className="px-1 py-2 text-lg outline-none disabled:opacity-50"
+            className="bg-white dark:bg-stone-500 px-1 py-2 text-lg outline-none disabled:opacity-50"
           ></textarea>
         </label>
 
@@ -145,7 +145,7 @@ function AdminAddProduct() {
               name="category"
               id="category"
               required
-              className="px-1 py-2 outline-0"
+              className="px-1 py-2 outline-0 bg-white dark:bg-stone-500"
             >
               <option value="-1">دسته بندی مورد نظر را انتخاب کنید</option>
               <option value="عطر و ادکلن">عطر و ادکلن</option>
@@ -193,7 +193,7 @@ function AdminAddProduct() {
         <Button
           disabled={isPending}
           type="submit"
-          className="mt-10 w-36 rounded-md bg-sky-600 hover:bg-sky-700 dark:bg-stone-900 dark:hover:bg-stone-800"
+          className="mt-10 w-full py-3 font-vazirBold text-lg rounded-md mx-auto bg-sky-600 hover:bg-sky-700"
         >
           افزودن
         </Button>

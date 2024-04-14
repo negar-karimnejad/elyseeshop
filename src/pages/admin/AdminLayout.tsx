@@ -4,6 +4,7 @@ import Loader from '../../components/Loader';
 import AdminHeader from '../../components/admin/AdminHeader';
 import AdminSidebar from '../../components/admin/AdminSidebar';
 import useUser from '../../features/auth/useUser';
+import DarkMode from '../../components/DarkMode';
 function AdminLayout() {
   const { user, isLoading } = useUser();
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ function AdminLayout() {
       <div className="grid grid-cols-12">
         <AdminSidebar />
         <Outlet />
+        <DarkMode />
       </div>
     </>
   );

@@ -9,7 +9,7 @@ function AdminHeader() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   return (
-    <div className="top-0 z-50 grid h-20 grid-cols-12 max-md:sticky">
+    <div className="top-0 z-50 grid h-20 grid-cols-12 sticky">
       <div className="col-span-3 flex items-center justify-between border-b bg-stone-600 max-md:col-span-12 lg:col-span-2">
         <Link
           to="/"

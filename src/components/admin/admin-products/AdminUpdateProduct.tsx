@@ -57,7 +57,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
       <Button
         onClick={() => setIsOpenEditModal(true)}
         type="button"
-        className="rounded-md bg-sky-600 hover:bg-sky-700 max-sm:px-1"
+        className="rounded-md bg-sky-600 hover:bg-sky-700 max-sm:px-1 max-lg:px-4"
       >
         {product?.name && isUpdating ? (
           <AiOutlineLoading size={22} className="animate-spin" />
