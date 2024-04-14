@@ -11,6 +11,7 @@ export async function getProducts() {
 }
 
 export async function getProduct(id) {
+  console.log(id);
   const { data, error } = await supabase
     .from('products')
     .select('*')
@@ -24,7 +25,6 @@ export async function getProduct(id) {
 }
 
 export async function createNewProduct(newProduct) {
-  console.log(newProduct);
   try {
     const { data, error } = await supabase
       .from('products')
@@ -36,5 +36,35 @@ export async function createNewProduct(newProduct) {
     return data;
   } catch (error) {
     console.error('Error adding product:', error.message);
+  }
+}
+
+export async function deleteProduct(id) {
+  try {
+    const { data, error } = await supabase
+      .from('products')
+      .delete()
+      .eq('id', id);
+    if (error) {
+      throw error;
+    }
+    return data;
+  } catch (error) {
+    console.error('Error deleting product:', error.message);
+  }
+}
+
+export async function updateProduct(updatedProduct) {
+  try {
+    const { data, error } = await supabase
+      .from('products')
+      .update(updateProduct)
+      .eq('id', updatedProduct.id);
+    if (error) {
+      throw error;
+    }
+    return data;
+  } catch (error) {
+    console.error('Error updating product:', error.message);
   }
 }

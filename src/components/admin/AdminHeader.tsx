@@ -3,16 +3,20 @@ import { IoClose } from 'react-icons/io5';
 import { SlMenu } from 'react-icons/sl';
 import AdminNavbar from './AdminNavbar';
 import AdminPanelList from './AdminPanelList';
+import { Link } from 'react-router-dom';
 
 function AdminHeader() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   return (
-    <div className="max-md:sticky top-0 z-50 grid h-20 grid-cols-12">
+    <div className="top-0 z-50 grid h-20 grid-cols-12 max-md:sticky">
       <div className="col-span-3 flex items-center justify-between border-b bg-stone-600 max-md:col-span-12 lg:col-span-2">
-        <h2 className="p-4 text-3xl font-bold tracking-widest text-pink-500">
+        <Link
+          to="/"
+          className="p-4 text-3xl font-bold tracking-widest text-pink-500"
+        >
           الیزه
-        </h2>
+        </Link>
         <div
           onClick={() => setIsOpenMenu((prev) => !prev)}
           className="relative cursor-pointer p-4 text-3xl text-white transition-all md:hidden"
