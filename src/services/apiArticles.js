@@ -31,70 +31,86 @@ export async function getArticle(title) {
     throw error;
   }
 }
-
 export async function addArticle(newArticle) {
-  const id = newArticle.id;
-  const hasImagePath = newArticle.image?.startsWith?.(supabaseUrl);
+  try {
+    const { id, image } = newArticle;
 
-  const imageName = newArticle.image.name.replaceAll('/', '');
-  const imagePath = hasImagePath
-    ? newArticle.image
-    : `${supabaseUrl}/storage/v1/object/public/article-image/${imageName}`;
+    // Check if the image already exists in storage
+    const hasImagePath = image?.startsWith?.(supabaseUrl);
 
-  // 1. Create/edit article
-  let query = supabase.from('articles');
+    // If the image doesn't exist in storage, upload it
+    if (!hasImagePath) {
+      const imageName = image.name.replaceAll('/', '');
+      const { data: storageData, error: storageError } = await supabase.storage
+        .from('article-image')
+        .upload(imageName, image);
 
-  // A) CREATE
-  if (!id) query = query.insert([{ ...newArticle, image: imagePath }]);
+      if (storageError) {
+        console.error(storageError);
+        throw new Error('Article image could not be uploaded');
+      }
 
-  // B) EDIT
-  if (id)
-    query = query.update({ ...newArticle, image: imagePath }).eq('id', id);
+      // Construct the image path
+      const imagePath = `${supabaseUrl}/storage/v1/object/public/article-image/${imageName}`;
 
-  const { data, error } = await query.select().single();
+      // Insert or update the article with the new image path
+      const articleData = await insertOrUpdateArticle(newArticle, imagePath, id);
 
-  if (error) {
+      return articleData;
+    } else {
+      // Insert or update the article with the existing image path
+      const articleData = await insertOrUpdateArticle(newArticle, image, id);
+
+      return articleData;
+    }
+  } catch (error) {
     console.error(error);
-    throw new Error('article could not be created');
+    throw error;
   }
-
-  // 2. Upload image
-  if (hasImagePath) return data;
-
-  const { error: storageError } = await supabase.storage
-    .from('article-image')
-    .upload(imageName, newArticle.image);
-
-  // 3. Delete the article IF there was an error uplaoding image
-  if (storageError) {
-    await supabase.from('articles').delete().eq('id', data.id);
-    console.error(storageError);
-    throw new Error(
-      'article image could not be uploaded and the article was not created',
-    );
-  }
-  console.log(data);
-  return data;
-
-  // if (!newArticle.image) {
-  //   throw new Error('متاسفانه مقاله جدید اضافه نشد');
-  // }
-
-  // try {
-  //   const { data, error } = await supabase
-  //     .from('articles')
-  //     .insert(newArticle)
-  //     .select();
-
-  //   if (error) {
-  //     throw error;
-  //   }
-  //   return data;
-  // } catch (error) {
-  //   console.error('Error adding artical:', error.message);
-  //   throw error;
-  // }
 }
+
+async function insertOrUpdateArticle(newArticle, imagePath, id) {
+  try {
+    let query = supabase.from('articles');
+
+    // A) CREATE
+    if (!id) {
+      // Insert the new article
+      const { data, error } = await query
+        .insert([{ ...newArticle, image: imagePath }])
+        .select(); // Select the inserted data
+
+      if (error) {
+        console.error(error);
+        throw new Error('Article could not be created');
+      }
+
+      // Ensure only one record is returned
+      const articleData = data ? data[0] : null;
+      return articleData;
+    }
+
+    // B) EDIT
+    // Update the existing article
+    const { data, error } = await query
+      .update({ ...newArticle, image: imagePath })
+      .eq('id', id)
+      .select(); // Select the updated data
+
+    if (error) {
+      console.error(error);
+      throw new Error('Article could not be updated');
+    }
+
+    // Ensure only one record is returned
+    const articleData = data ? data[0] : null;
+    return articleData;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
 
 export async function updateArticle(updatedArticle) {
   try {
