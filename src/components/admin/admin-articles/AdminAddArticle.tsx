@@ -2,7 +2,6 @@ import { FormEvent, useRef } from 'react';
 import { FiUploadCloud } from 'react-icons/fi';
 import useAddArticle from '../../../features/articles/useAddArticle';
 import useArticles from '../../../features/articles/useArticles';
-import supabase, { supabaseUrl } from '../../../services/supabase';
 import Button from '../../Button';
 import Input from '../../Input';
 import Create from '../Create';
@@ -23,19 +22,8 @@ function AdminAddArticle() {
       image: formData.get('image') as File,
     };
 
-    const { data, error } = await supabase.storage
-      .from('article-image')
-      .upload(
-        `${supabaseUrl}/storage/v1/object/public/article-image/${newArticle.image.name}`,
-        newArticle.image,
-      );
-    if (error) {
-      console.log(error);
-    }
-    console.log(data);
-
     try {
-      createArticle({ ...newArticle, image: data });
+      createArticle(newArticle);
       if (formRef.current) {
         formRef.current?.reset();
       }
@@ -43,6 +31,41 @@ function AdminAddArticle() {
       console.error(error);
     }
   };
+
+  // async function uploadImage(e: ChangeEvent<HTMLFormElement>) {
+  //   const file = e?.target?.files[0];
+
+  //   const { data, error } = await supabase.storage
+  //     .from('article-image')
+  //     .upload(user?.id + '/' + uuidv4(), file);
+
+  //   if (data) {
+  //     getMedia();
+  //   } else {
+  //     console.log(error);
+  //   }
+  // }
+
+  // async function getMedia() {
+  //   const { data, error } = await supabase.storage
+  //     .from('article-image')
+  //     .list(user?.id + '/', {
+  //       limit: 10,
+  //       offset: 0,
+  //       sortBy: {
+  //         column: 'name',
+  //         order: 'asc',
+  //       },
+  //     });
+
+  //   if (data) {
+  //     setMedia(data);
+  //   } else {
+  //     console.log(71, error);
+  //   }
+  // }
+
+  // console.log('media', media);
 
   return (
     <Create heading="افزودن مقاله جدید">
@@ -85,7 +108,7 @@ function AdminAddArticle() {
 
         <label htmlFor="image" className="relative flex w-fit flex-col">
           پوستر مقاله
-          <Input
+          <input
             name="image"
             type="file"
             id="image"
@@ -97,7 +120,7 @@ function AdminAddArticle() {
             size={24}
           />
         </label>
-
+        {/* <input type="file" onChange={(e) => uploadImage(e)} /> */}
         <Button
           disabled={isAdding}
           type="submit"
