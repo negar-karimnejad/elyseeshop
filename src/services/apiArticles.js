@@ -7,8 +7,7 @@ export async function getArticles() {
       .select('*');
 
     if (error) {
-      console.error(error);
-      throw error('مقالات بارگذاری نشدند');
+      throw error;
     }
     return articles;
   } catch (error) {
@@ -17,15 +16,14 @@ export async function getArticles() {
   }
 }
 
-export async function getArticle(id) {
+export async function getArticle(title) {
   try {
     const { data: article, error } = await supabase
       .from('articles')
       .select('*')
-      .eq('id', id);
+      .eq('title', title);
     if (error) {
-      console.error(error);
-      throw new Error('مقاله مورد نظر بارگذاری نشد');
+      throw error;
     }
     return article;
   } catch (error) {
@@ -42,8 +40,7 @@ export async function addArticle(newArticle) {
       .select();
 
     if (error) {
-      console.error(error);
-      throw new Error('مقاله جدید اضافه شد');
+      throw error;
     }
     return data;
   } catch (error) {

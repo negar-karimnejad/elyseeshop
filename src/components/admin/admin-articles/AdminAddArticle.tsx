@@ -11,7 +11,7 @@ function AdminAddArticle() {
   const formRef = useRef<HTMLFormElement>(null);
   const { articles } = useArticles();
 
-  const createHandler = (e: FormEvent<HTMLFormElement>) => {
+  const createHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
 
@@ -39,7 +39,7 @@ function AdminAddArticle() {
         onSubmit={createHandler}
         className="flex flex-col gap-5"
       >
-        <div className="flex gap-2 max-sm:flex-col">
+        <div className="flex flex-col gap-2">
           <input
             name="id"
             type="number"
@@ -59,13 +59,15 @@ function AdminAddArticle() {
           </label>
           <label htmlFor="content" className="flex w-full flex-col gap-1">
             متن مقاله
-            <Input
+            <textarea
               disabled={isAdding}
               name="content"
               id="content"
-              type="text"
-              className="px-1 py-2"
-            />
+              cols={30}
+              rows={5}
+              required
+              className="border bg-white px-1 py-2 text-lg outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500"
+            ></textarea>
           </label>
         </div>
 
@@ -75,6 +77,7 @@ function AdminAddArticle() {
             name="image"
             type="file"
             id="image"
+            accept="image/*"
             className="absolute left-0 right-0 top-10 m-auto cursor-pointer border-0 text-[2px] opacity-0"
           />
           <FiUploadCloud
@@ -82,6 +85,7 @@ function AdminAddArticle() {
             size={24}
           />
         </label>
+
         <Button
           disabled={isAdding}
           type="submit"

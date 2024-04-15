@@ -10,6 +10,7 @@ interface InputProps {
   id?: string;
   name?: string;
   defaultValue?: string;
+  accept?: string;
 }
 function Input({
   className,
@@ -21,6 +22,7 @@ function Input({
   id,
   name,
   defaultValue,
+  accept,
 }: InputProps) {
   return (
     <input
@@ -34,6 +36,7 @@ function Input({
       id={id}
       defaultValue={defaultValue}
       name={name}
+      accept={accept}
     />
   );
 }

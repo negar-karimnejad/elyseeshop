@@ -39,13 +39,10 @@ function AdminArticals() {
             content="نام مقاله"
           />
           <StyledDiv
-            style="col-span-2 border max-sm:hidden"
+            style="col-span-4 border max-sm:hidden"
             content="متن مقاله"
           />
-          <StyledDiv
-            style="col-span-2 border max-sm:hidden"
-            content="آدرس پوستر مقاله"
-          />
+
           <StyledDiv style="col-span-2 border" content="ویرایش" />
           <StyledDiv style="col-span-2 border" content="حذف" />
         </div>
@@ -62,12 +59,8 @@ function AdminArticals() {
               content={article.title}
             />
             <StyledDiv
-              style="col-span-2 max-sm:hidden"
+              style="col-span-4 line-clamp-2 max-sm:hidden"
               content={article.content}
-            />
-            <StyledDiv
-              style="col-span-2 max-sm:hidden"
-              content={article.image}
             />
             <StyledDiv style="col-span-2 sm:p-3">
               <AdminUpdateProduct name={article?.title} />

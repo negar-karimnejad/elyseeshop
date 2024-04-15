@@ -1,27 +1,29 @@
 import { useParams } from 'react-router-dom';
-import { blogLinks } from '../data/data';
+
+import useArticle from '../features/articles/useArticle';
 
 function SingleBlog() {
   const { id } = useParams();
-  const blogTitle = id ? id.replaceAll('-', ' ') : '';
-  const blog = blogLinks.find((blog) => blog.title === blogTitle);
+  const articleTitle = id ? id.replaceAll('-', ' ') : '';
+  
+  const { article } = useArticle(articleTitle);
 
   return (
     <div className="container my-20">
-      {blog && (
+      {article && (
         <>
           <img
             loading="lazy"
-            src={blog.image}
+            src={article.image}
             className="mx-auto w-[600px] object-contain"
-            alt={blog.title}
+            alt={article.title}
           />
           <h5 className="mb-5 mt-20 font-vazirBold text-xl text-stone-700 dark:text-stone-200">
-            {blogTitle}
+            {article.title}
           </h5>
-          {blog.content && (
+          {article.content && (
             <div
-              dangerouslySetInnerHTML={{ __html: blog.content }}
+              dangerouslySetInnerHTML={{ __html: article.content }}
               className="leading-10 text-stone-600 dark:text-stone-400"
             />
           )}

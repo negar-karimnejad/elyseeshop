@@ -1,7 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
 import { addArticle } from '../../services/apiArticles';
-import { ArticleProps } from '../../types/ProductProps';
 
 function useAddArticle() {
   const queryClient = useQueryClient();
@@ -11,7 +10,7 @@ function useAddArticle() {
     isPending: isAdding,
     error,
   } = useMutation({
-    mutationFn: (newArticle: ArticleProps) => addArticle(newArticle),
+    mutationFn: addArticle,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['articles'] });
       toast.success('مقاله جدید اضافه شد');
