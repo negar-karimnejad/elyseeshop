@@ -42,3 +42,8 @@ export interface UpdateProductProps {
   code: string;
   description: string;
 }
+export interface ArticleProps {
+  title: string;
+  image: string;
+  content: string;
+}
