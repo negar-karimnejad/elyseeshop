@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import AdminAddArticle from '../../components/admin/admin-articles/AdminAddArticle';
-import AdminDeleteProduct from '../../components/admin/admin-products/AdminDeleteProduct';
-import AdminUpdateProduct from '../../components/admin/admin-products/AdminUpdateProduct';
+import AdminDeleteArticle from '../../components/admin/admin-articles/AdminDeleteArticle';
+import AdminUpdateAticle from '../../components/admin/admin-articles/AdminUpdateAticle';
 import useArticles from '../../features/articles/useArticles';
 
 interface StyledDivProps {
@@ -63,10 +63,10 @@ function AdminArticals() {
               content={article.content}
             />
             <StyledDiv style="col-span-2 sm:p-3">
-              <AdminUpdateProduct name={article?.title} />
+              <AdminUpdateAticle id={article?.id} />
             </StyledDiv>
             <StyledDiv style="col-span-2 sm:p-3">
-              <AdminDeleteProduct id={article?.id} />
+              <AdminDeleteArticle id={article?.id} />
             </StyledDiv>
           </div>
         ))}

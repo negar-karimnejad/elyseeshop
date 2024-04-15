@@ -2,6 +2,7 @@ import { FormEvent, useRef } from 'react';
 import { FiUploadCloud } from 'react-icons/fi';
 import useAddArticle from '../../../features/articles/useAddArticle';
 import useArticles from '../../../features/articles/useArticles';
+import supabase, { supabaseUrl } from '../../../services/supabase';
 import Button from '../../Button';
 import Input from '../../Input';
 import Create from '../Create';
@@ -19,11 +20,22 @@ function AdminAddArticle() {
       id: parseInt(formData.get('id') as string),
       title: formData.get('title') as string,
       content: formData.get('content') as string,
-      image: formData.get('image') as string,
+      image: formData.get('image') as File,
     };
 
+    const { data, error } = await supabase.storage
+      .from('article-image')
+      .upload(
+        `${supabaseUrl}/storage/v1/object/public/article-image/${newArticle.image.name}`,
+        newArticle.image,
+      );
+    if (error) {
+      console.log(error);
+    }
+    console.log(data);
+
     try {
-      createArticle(newArticle);
+      createArticle({ ...newArticle, image: data });
       if (formRef.current) {
         formRef.current?.reset();
       }

@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
 import { updateArticle } from '../../services/apiArticles';
-import { ArticleProps } from '../../types/ProductProps';
+import { ArticleProps } from '../../types/ArticleProps';
 
 function useUpdateArticle() {
   const queryClient = useQueryClient();

@@ -33,6 +33,10 @@ export async function getArticle(title) {
 }
 
 export async function addArticle(newArticle) {
+  if (!newArticle.image) {
+    throw new Error('متاسفانه مقاله جدید اضافه نشد');
+  }
+
   try {
     const { data, error } = await supabase
       .from('articles')
@@ -53,9 +57,11 @@ export async function updateArticle(updatedArticle) {
   try {
     const { data, error } = await supabase
       .from('articles')
-      .update(updatedArticle) //موارد اپدیت شده را داخل {} یک به یک بنویس
-      .eq('some_column', 'someValue')
-      .select();
+      .update({
+        title: updatedArticle.title,
+        content: updatedArticle.content,
+      })
+      .eq('id', updatedArticle.id);
     if (error) {
       throw error;
     }

@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { getArticles } from '../../services/apiArticles';
-import { ArticleProps } from '../../types/ProductProps';
+import { ArticleProps } from '../../types/ArticleProps';
 
 function useArticles() {
   const {
