@@ -59,8 +59,8 @@ export async function addArticle(newArticle) {
     throw error;
   }
 }
-
 export async function updateArticle(updatedArticle) {
+  console.log(updatedArticle);
   const imageName = updatedArticle.image.name;
   const imagePath = `${supabaseUrl}/storage/v1/object/public/article-image/${imageName}`;
 
@@ -81,6 +81,7 @@ export async function updateArticle(updatedArticle) {
         image: imagePath,
       })
       .eq('id', updatedArticle.id);
+
     if (error) {
       throw error;
     }

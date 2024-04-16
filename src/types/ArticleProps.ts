@@ -1,6 +1,6 @@
 export interface ArticleProps {
   id: number;
   title: string;
-  image: string | File;
+  image: null | File;
   content: string;
 }

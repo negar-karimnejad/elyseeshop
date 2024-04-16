@@ -1,10 +1,11 @@
 import { FormEvent, useEffect, useRef, useState } from 'react';
+import Dropzone from 'react-dropzone';
 import { AiOutlineLoading } from 'react-icons/ai';
+import { FiUploadCloud } from 'react-icons/fi';
 import useProducts from '../../../features/products/useProducts';
 import useUpdateProduct from '../../../features/products/useUpdateProduct';
 import { UpdateProductProps } from '../../../types/ProductProps';
 import Button from '../../Button';
-import { FiUploadCloud } from 'react-icons/fi';
 
 interface AdminUpdateProductProps {
   name: string;
@@ -13,6 +14,8 @@ interface AdminUpdateProductProps {
 function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
   const [isOpenEditModal, setIsOpenEditModal] = useState(false);
   const [product, setProduct] = useState<UpdateProductProps | null>(null);
+  const [productFile, setProductFile] = useState<File[] | null>(null);
+  const [brandFile, setBrandFile] = useState<File[] | null>(null);
 
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -42,8 +45,8 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
       category: formData.get('category') as string,
       code: formData.get('code') as string,
       description: formData.get('description') as string,
-      image: formData.get('productImage') as File,
-      brandImage: formData.get('brandImage') as File,
+      image: productFile ? productFile[0] : null,
+      brandImage: brandFile ? brandFile[0] : null,
     };
     console.log(updatedProduct.id);
 
@@ -209,44 +212,43 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
                 <option value="مراقبت از پوست">مراقبت از پوست</option>
               </select>
             </label>
-            <label
-              htmlFor="productImage"
-              className="relative flex w-full items-center gap-1"
-            >
-              <span className="w-20 shrink-0 text-right text-sm text-stone-400">
-                پوستر محصول:
-              </span>
-              <input
-                name="productImage"
-                type="file"
-                id="productImage"
-                accept="image/*"
-                className="absolute left-0 right-0 top-10 m-auto cursor-pointer border-0 text-[2px] opacity-0"
-              />
-              <FiUploadCloud
-                className="w-full border p-2 text-sm outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300"
-                size={35}
-              />
-            </label>
-            <label
-              htmlFor="brandImage"
-              className="relative flex w-full items-center gap-1"
-            >
-              <span className="w-20 shrink-0 text-right text-sm text-stone-400">
-                پوستر برند:
-              </span>
-              <input
-                name="brandImage"
-                type="file"
-                id="brandImage"
-                accept="image/*"
-                className="absolute left-0 right-0 top-10 m-auto cursor-pointer border-0 text-[2px] opacity-0"
-              />
-              <FiUploadCloud
-                className="w-full border p-2 text-sm outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300"
-                size={35}
-              />
-            </label>
+
+            <Dropzone onDrop={(acceptedFiles) => setProductFile(acceptedFiles)}>
+              {({ getRootProps, getInputProps }) => (
+                <section>
+                  <div {...getRootProps()}>
+                    <input {...getInputProps()} />
+                    <p className="flex w-full items-center gap-1">
+                      <span className="w-20 shrink-0 text-right text-sm text-stone-400">
+                        پوستر محصول:
+                      </span>
+                      <FiUploadCloud
+                        className="w-full border p-2 text-sm outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300"
+                        size={35}
+                      />
+                    </p>
+                  </div>
+                </section>
+              )}
+            </Dropzone>
+            <Dropzone onDrop={(acceptedFiles) => setBrandFile(acceptedFiles)}>
+              {({ getRootProps, getInputProps }) => (
+                <section>
+                  <div {...getRootProps()}>
+                    <input {...getInputProps()} />
+                    <p className="flex w-full items-center gap-1">
+                      <span className="w-20 shrink-0 text-right text-sm text-stone-400">
+                        پوستر برند:
+                      </span>
+                      <FiUploadCloud
+                        className="w-full border p-2 text-sm outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300"
+                        size={35}
+                      />
+                    </p>
+                  </div>
+                </section>
+              )}
+            </Dropzone>
             <Button
               type="submit"
               className="mt-2 w-full rounded-md bg-sky-600 font-vazirBold text-lg hover:bg-sky-700 max-sm:px-4"

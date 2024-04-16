@@ -1,10 +1,11 @@
 import { FormEvent, useEffect, useRef, useState } from 'react';
+import Dropzone from 'react-dropzone';
 import { AiOutlineLoading } from 'react-icons/ai';
-import { FiUploadCloud } from 'react-icons/fi';
 import useArticles from '../../../features/articles/useArticles';
 import useUpdateArticle from '../../../features/articles/useUpdateArticle';
 import { ArticleProps } from '../../../types/ArticleProps';
 import Button from '../../Button';
+import { FiUploadCloud } from 'react-icons/fi';
 
 interface AdminUpdateAticleProps {
   id: number;
@@ -13,6 +14,7 @@ interface AdminUpdateAticleProps {
 function AdminUpdateAticle({ id }: AdminUpdateAticleProps) {
   const [isOpenEditModal, setIsOpenEditModal] = useState(false);
   const [article, setArticle] = useState<ArticleProps | null>(null);
+  const [file, setFile] = useState<File[] | null>(null);
 
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -36,7 +38,7 @@ function AdminUpdateAticle({ id }: AdminUpdateAticleProps) {
       id: parseInt(formData.get('id') as string),
       title: formData.get('title') as string,
       content: formData.get('content') as string,
-      image: formData.get('image') as File,
+      image: file ? file[0] : null,
     };
 
     try {
@@ -118,7 +120,7 @@ function AdminUpdateAticle({ id }: AdminUpdateAticleProps) {
                 className="w-full border p-2 text-sm outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300"
               />
             </label>
-            <label
+            {/* <label
               htmlFor="image"
               className="relative flex w-full items-center gap-1"
             >
@@ -136,7 +138,25 @@ function AdminUpdateAticle({ id }: AdminUpdateAticleProps) {
                 className="w-full border p-2 text-sm outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300"
                 size={35}
               />
-            </label>
+            </label> */}
+            <Dropzone onDrop={(acceptedFiles) => setFile(acceptedFiles)}>
+              {({ getRootProps, getInputProps }) => (
+                <section>
+                  <div {...getRootProps()}>
+                    <input {...getInputProps()} />
+                    <p className="flex w-full items-center gap-1">
+                      <span className="w-20 shrink-0 text-right text-sm text-stone-400">
+                        پوستر مقاله:
+                      </span>
+                      <FiUploadCloud
+                        className="w-full border p-2 text-sm outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300"
+                        size={35}
+                      />
+                    </p>
+                  </div>
+                </section>
+              )}
+            </Dropzone>
             <Button
               type="submit"
               className="mt-5 w-full rounded-md bg-sky-600 font-vazirBold text-lg hover:bg-sky-700 max-sm:px-4"
