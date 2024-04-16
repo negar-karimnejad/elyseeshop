@@ -13,9 +13,6 @@ function AdminPanelList() {
         <Link to="/admin-panel/articals">مقالات</Link>
       </li>
       <li className="p-5 text-white transition-all duration-200 hover:bg-stone-800">
-        <Link to="/admin-panel/users">کاربران</Link>
-      </li>
-      <li className="p-5 text-white transition-all duration-200 hover:bg-stone-800">
         <button>خروج</button>
       </li>
     </ul>

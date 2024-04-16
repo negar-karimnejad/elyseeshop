@@ -1,4 +1,5 @@
 import { FormEvent, useRef } from 'react';
+import { AiOutlineLoading } from 'react-icons/ai';
 import { FiUploadCloud } from 'react-icons/fi';
 import useCreateProduct from '../../../features/products/useCreateProduct';
 import Button from '../../Button';
@@ -160,6 +161,7 @@ function AdminAddProduct() {
             >
               عکس محصول
               <Input
+                disabled={isPending}
                 name="productImage"
                 type="file"
                 id="productImage"
@@ -176,6 +178,7 @@ function AdminAddProduct() {
             >
               عکس برند
               <Input
+                disabled={isPending}
                 name="brandImage"
                 type="file"
                 id="brandImage"
@@ -193,7 +196,14 @@ function AdminAddProduct() {
           type="submit"
           className="mx-auto mt-10 w-full rounded-md bg-sky-600 py-3 font-vazirBold text-lg hover:bg-sky-700"
         >
-          افزودن
+          {isPending ? (
+            <div className="flex items-center justify-center gap-2">
+              <AiOutlineLoading size={22} className="animate-spin" />
+              در حال افزودن...
+            </div>
+          ) : (
+            'افزودن'
+          )}
         </Button>
       </form>
     </Create>

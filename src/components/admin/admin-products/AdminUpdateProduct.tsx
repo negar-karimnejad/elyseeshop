@@ -48,7 +48,6 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
       image: productFile ? productFile[0] : null,
       brandImage: brandFile ? brandFile[0] : null,
     };
-    console.log(updatedProduct.id);
 
     try {
       editProduct(updatedProduct);
@@ -96,6 +95,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
             className="flex flex-col gap-4 max-sm:gap-1 "
           >
             <input
+              disabled={isUpdating}
               name="id"
               type="number"
               defaultValue={product?.id}
@@ -107,6 +107,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
                 نام محصول:
               </span>
               <input
+                disabled={isUpdating}
                 id="name"
                 defaultValue={product?.name}
                 type="text"
@@ -119,6 +120,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
                 نام برند:
               </span>
               <input
+                disabled={isUpdating}
                 id="brand"
                 defaultValue={product?.brand}
                 type="text"
@@ -131,6 +133,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
                 قیمت:
               </span>
               <input
+                disabled={isUpdating}
                 id="price"
                 defaultValue={product?.price}
                 type="number"
@@ -143,6 +146,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
                 حجم:
               </span>
               <input
+                disabled={isUpdating}
                 id="mass"
                 defaultValue={product?.mass}
                 type="number"
@@ -155,6 +159,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
                 کد محصول:
               </span>
               <input
+                disabled={isUpdating}
                 id="code"
                 defaultValue={product?.code}
                 type="text"
@@ -170,6 +175,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
                 متن برند:
               </span>
               <input
+                disabled={isUpdating}
                 id="brandDescription"
                 defaultValue={product?.brandDescription}
                 type="text"
@@ -185,6 +191,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
                 متن محصول:
               </span>
               <input
+                disabled={isUpdating}
                 id="description"
                 defaultValue={product?.description}
                 type="text"
@@ -200,6 +207,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
                 دسته بندی:
               </span>
               <select
+                disabled={isUpdating}
                 id="category"
                 name="category"
                 className="w-full border px-1.5 py-2 text-sm outline-0 dark:bg-stone-500 dark:text-stone-100"
@@ -217,7 +225,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
               {({ getRootProps, getInputProps }) => (
                 <section>
                   <div {...getRootProps()}>
-                    <input {...getInputProps()} />
+                    <input disabled={isUpdating} {...getInputProps()} />
                     <p className="flex w-full items-center gap-1">
                       <span className="w-20 shrink-0 text-right text-sm text-stone-400">
                         پوستر محصول:
@@ -235,7 +243,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
               {({ getRootProps, getInputProps }) => (
                 <section>
                   <div {...getRootProps()}>
-                    <input {...getInputProps()} />
+                    <input disabled={isUpdating} {...getInputProps()} />
                     <p className="flex w-full items-center gap-1">
                       <span className="w-20 shrink-0 text-right text-sm text-stone-400">
                         پوستر برند:
@@ -250,6 +258,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
               )}
             </Dropzone>
             <Button
+              disabled={isUpdating}
               type="submit"
               className="mt-2 w-full rounded-md bg-sky-600 font-vazirBold text-lg hover:bg-sky-700 max-sm:px-4"
             >

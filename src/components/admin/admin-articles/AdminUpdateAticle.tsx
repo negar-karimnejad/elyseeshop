@@ -87,6 +87,7 @@ function AdminUpdateAticle({ id }: AdminUpdateAticleProps) {
             className="flex flex-col gap-4 max-sm:gap-1 "
           >
             <input
+              disabled={isUpdating}
               name="id"
               type="number"
               defaultValue={article?.id}
@@ -98,6 +99,7 @@ function AdminUpdateAticle({ id }: AdminUpdateAticleProps) {
                 نام مقاله:
               </span>
               <input
+                disabled={isUpdating}
                 id="title"
                 defaultValue={article?.title}
                 type="text"
@@ -113,6 +115,7 @@ function AdminUpdateAticle({ id }: AdminUpdateAticleProps) {
                 متن مقاله:
               </span>
               <input
+                disabled={isUpdating}
                 id="content"
                 defaultValue={article?.content}
                 type="text"
@@ -120,30 +123,12 @@ function AdminUpdateAticle({ id }: AdminUpdateAticleProps) {
                 className="w-full border p-2 text-sm outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300"
               />
             </label>
-            {/* <label
-              htmlFor="image"
-              className="relative flex w-full items-center gap-1"
-            >
-              <span className="w-20 shrink-0 text-right text-sm text-stone-400">
-                پوستر مقاله:
-              </span>
-              <input
-                name="image"
-                type="file"
-                id="image"
-                accept="image/*"
-                className="absolute left-0 right-0 top-10 m-auto cursor-pointer border-0 text-[2px] opacity-0"
-              />
-              <FiUploadCloud
-                className="w-full border p-2 text-sm outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300"
-                size={35}
-              />
-            </label> */}
+
             <Dropzone onDrop={(acceptedFiles) => setFile(acceptedFiles)}>
               {({ getRootProps, getInputProps }) => (
                 <section>
                   <div {...getRootProps()}>
-                    <input {...getInputProps()} />
+                    <input disabled={isUpdating} {...getInputProps()} />
                     <p className="flex w-full items-center gap-1">
                       <span className="w-20 shrink-0 text-right text-sm text-stone-400">
                         پوستر مقاله:
@@ -158,6 +143,7 @@ function AdminUpdateAticle({ id }: AdminUpdateAticleProps) {
               )}
             </Dropzone>
             <Button
+              disabled={isUpdating}
               type="submit"
               className="mt-5 w-full rounded-md bg-sky-600 font-vazirBold text-lg hover:bg-sky-700 max-sm:px-4"
             >

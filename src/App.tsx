@@ -30,7 +30,6 @@ import AdminArticals from './pages/admin/AdminArticals';
 import AdminLayout from './pages/admin/AdminLayout';
 import AdminPanel from './pages/admin/AdminPanel';
 import AdminProducts from './pages/admin/AdminProducts';
-import AdminUsers from './pages/admin/AdminUsers';
 import Cart from './pages/cart/Cart';
 
 function App() {
@@ -79,7 +78,6 @@ function App() {
           <Route element={<AdminLayout />}>
             <Route path="/admin-panel" element={<AdminPanel />} />
             <Route path="/admin-panel/products" element={<AdminProducts />} />
-            <Route path="/admin-panel/users" element={<AdminUsers />} />
             <Route path="/admin-panel/articals" element={<AdminArticals />} />
           </Route>
           <Route path="*" element={<NotFound />} />

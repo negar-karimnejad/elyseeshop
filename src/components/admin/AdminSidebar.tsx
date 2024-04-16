@@ -6,7 +6,7 @@ function AdminSidebar() {
       <AdminPanelList />
       <img
         src="/images/dark-logo.png"
-        alt=""
+        alt="dark-logo"
         className="ml-10 object-cover opacity-20"
       />
     </div>

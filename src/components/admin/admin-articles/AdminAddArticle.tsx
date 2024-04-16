@@ -4,6 +4,7 @@ import useAddArticle from '../../../features/articles/useAddArticle';
 import Button from '../../Button';
 import Input from '../../Input';
 import Create from '../Create';
+import { AiOutlineLoading } from 'react-icons/ai';
 
 function AdminAddArticle() {
   const { createArticle, isAdding } = useAddArticle();
@@ -39,6 +40,7 @@ function AdminAddArticle() {
       >
         <div className="flex flex-col gap-2">
           <input
+            disabled={isAdding}
             name="id"
             type="number"
             defaultValue={Math.floor(Math.random() * 1000)}
@@ -75,6 +77,7 @@ function AdminAddArticle() {
             type="file"
             id="image"
             accept="image/*"
+            disabled={isAdding}
             className="absolute left-0 right-0 top-10 m-auto cursor-pointer border-0 text-[2px] opacity-0"
           />
           <FiUploadCloud
@@ -87,7 +90,14 @@ function AdminAddArticle() {
           type="submit"
           className="mx-auto mt-10 w-full rounded-md bg-sky-600 py-3 font-vazirBold text-lg hover:bg-sky-700"
         >
-          افزودن
+         {isAdding ? (
+            <div className='flex items-center gap-2 justify-center'>
+            <AiOutlineLoading size={22} className="animate-spin" />
+            در حال افزودن...
+            </div>
+          ) : (
+            'افزودن'
+          )}
         </Button>
       </form>
     </Create>
