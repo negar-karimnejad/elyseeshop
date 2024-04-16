@@ -40,7 +40,7 @@ function Product() {
   }, [product, products, refetch, id]);
 
   if (error) return;
-  if (isLoading) return <Loader title="" />;
+  if (isLoading) return <Loader />;
 
   const {
     name,

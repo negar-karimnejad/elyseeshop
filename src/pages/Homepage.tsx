@@ -1,13 +1,10 @@
-import Articles from "../components/home/Articles";
-import Banner from "../components/home/Banner";
-import Brands from "../components/home/Brands";
-import Hero from "../components/home/Hero";
-import RandomProducts from "../components/products/RandomProducts";
-
-
+import Articles from '../components/home/Articles';
+import Banner from '../components/home/Banner';
+import Brands from '../components/home/Brands';
+import Hero from '../components/home/Hero';
+import RandomProducts from '../components/products/RandomProducts';
 
 function Homepage() {
-  
   return (
     <div className="pb-14">
       <Hero />

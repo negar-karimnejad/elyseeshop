@@ -12,7 +12,7 @@ function RandomProducts({ startIndex, endIndex }: RandomProductsProps) {
   const { products, isLoading, isFetching } = useProducts();
   const chunkedProducts = products?.sort(() => Math.random() - 0.5);
 
-  if (isLoading) return <Loader title="" />;
+  if (isLoading) return <Loader />;
 
   return (
     <NewProducts>

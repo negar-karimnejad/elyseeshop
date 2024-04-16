@@ -90,10 +90,10 @@ function AdminAddArticle() {
           type="submit"
           className="mx-auto mt-10 w-full rounded-md bg-sky-600 py-3 font-vazirBold text-lg hover:bg-sky-700"
         >
-         {isAdding ? (
-            <div className='flex items-center gap-2 justify-center'>
-            <AiOutlineLoading size={22} className="animate-spin" />
-            در حال افزودن...
+          {isAdding ? (
+            <div className="flex items-center justify-center gap-2">
+              <AiOutlineLoading size={22} className="animate-spin" />
+              در حال افزودن...
             </div>
           ) : (
             'افزودن'

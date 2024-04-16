@@ -1,5 +1,5 @@
 interface LoaderProps {
-  title: string;
+  title?: string;
 }
 
 function Loader({ title }: LoaderProps) {

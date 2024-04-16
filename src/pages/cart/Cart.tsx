@@ -7,7 +7,7 @@ import Checkout from './Checkout';
 
 function Cart() {
   const { cart, isLoading } = useCart();
-  if (isLoading) return <Loader title="" />;
+  if (isLoading) return <Loader />;
 
   return (
     <div className="min-h-72 dark:bg-stone-600">

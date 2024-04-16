@@ -8,7 +8,7 @@ import useProducts from '../features/products/useProducts';
 function AppLayout() {
   const { isLoading } = useProducts();
 
-  if (isLoading) return <Loader title="" />;
+  if (isLoading) return <Loader />;
   return (
     <div className="text-stone- bg-white dark:bg-stone-900">
       <Header />
