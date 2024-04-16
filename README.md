@@ -15,7 +15,10 @@ I appreciate your support in advance. ❤</p>
 ![supabase](https://img.shields.io/badge/supabase-ff69b4?style=for-the-badge&logo=supabase&logoColor=white)
 ![react](https://img.shields.io/badge/react-ff69b4?style=for-the-badge&logo=react&logoColor=white)
 ![typescript](https://img.shields.io/badge/typescript-ff69b4?style=for-the-badge&logo=typescript&logoColor=white)
+![reactquery](https://img.shields.io/badge/react%20query-ff69b4?style=for-the-badge&logo=reactquery&logoColor=white)
 ![tailwindcss](https://img.shields.io/badge/tailwindcss-ff69b4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![chart.js](https://img.shields.io/badge/chart.js-ff69b4?style=for-the-badge&logo=chart.js&logoColor=white)
+![swiper](https://img.shields.io/badge/swiper-ff69b4?style=for-the-badge&logo=swiper&logoColor=white)
   
 </div>
 
