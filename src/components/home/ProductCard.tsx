@@ -1,17 +1,13 @@
 import { AiOutlineLoading } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
+import { ProductProps } from '../../types/ProductProps';
 import Button from '../Button';
 
 function ProductCard({
   product,
   isLoading,
 }: {
-  product: {
-    name: string;
-    image: string|undefined;
-    brand: string;
-    price: number;
-  };
+  product: ProductProps;
   isLoading: boolean;
 }) {
   const navigate = useNavigate();
@@ -33,12 +29,14 @@ function ProductCard({
   return (
     <div className="flex flex-col items-center overflow-hidden rounded-md bg-white text-center shadow-lg dark:bg-stone-900 dark:text-stone-200">
       <div className="group relative overflow-hidden">
-        <img
-          loading="lazy"
-          src={product.image}
-          className="w-full transition-all duration-500 group-hover:brightness-75"
-          alt="new product"
-        />
+        {product.image && typeof product.image === 'string' ? (
+          <img
+            loading="lazy"
+            src={product.image}
+            className="w-full transition-all duration-500 group-hover:brightness-75"
+            alt="new product"
+          />
+        ) : null}
         <Button
           type="button"
           onClick={clickHandler}

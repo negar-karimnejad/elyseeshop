@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import { getArticle } from '../../services/apiArticles';
-import { ArticlesProps } from '../../types/ArticleProps';
+import { ArticleProps } from '../../types/ArticleProps';
 
 function useArticle(title: string) {
-  const { data, isLoading, error, refetch } = useQuery<ArticlesProps[]>({
+  const { data, isLoading, error, refetch } = useQuery<ArticleProps[]>({
     queryKey: ['articles'],
     queryFn: () => getArticle(title),
   });

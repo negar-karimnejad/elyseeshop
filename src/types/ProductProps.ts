@@ -5,7 +5,7 @@ export interface ProductProps {
   brandImage: null | File;
   brandName: string;
   brandDescription: string;
-  image: null | File;
+  image: null | File | string | undefined;
   features: string[];
   tag: string[];
   mass: string;
@@ -41,6 +41,6 @@ export interface UpdateProductProps {
   category: string;
   code: string;
   description: string;
-  image: null | File;
-  brandImage: null | File;
+  image: null | File | string | undefined;
+  brandImage: null | File | string | undefined;
 }
