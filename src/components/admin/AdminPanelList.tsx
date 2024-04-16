@@ -1,8 +1,8 @@
+import { useState } from 'react';
+import { AiOutlineLoading } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import useLogout from '../../features/auth/useLogout';
-import { AiOutlineLoading } from 'react-icons/ai';
 import Loader from '../Loader';
-import { useState } from 'react';
 
 function AdminPanelList() {
   const { isPending, logout } = useLogout();
