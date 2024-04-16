@@ -8,11 +8,13 @@ import SearchIcon from './SearchIcon';
 import ShoppingCartIcon from './ShoppingCartIcon';
 import UserIcon from './UserIcon';
 import SearchModal from '../SearchModal';
+import useUser from '../../features/auth/useUser';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
 
+  const { user } = useUser();
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
@@ -28,8 +30,12 @@ function Navbar() {
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center justify-between gap-4">
               <MobileMenuIcon toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />
-              <ShoppingCartIcon />
-              <Divider className="h-5 border-r-2 border-stone-100" />
+              {user && (
+                <>
+                  <ShoppingCartIcon />
+                  <Divider className="h-5 border-r-2 border-stone-100" />
+                </>
+              )}
               <UserIcon />
               <Divider className="h-5 border-r-2 border-stone-100 lg:hidden" />
               <SearchIcon

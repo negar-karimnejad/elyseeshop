@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaCartPlus } from 'react-icons/fa';
 import { IoIosChatbubbles } from 'react-icons/io';
 import { Link, useNavigate } from 'react-router-dom';
@@ -17,8 +17,13 @@ function Dashboard() {
     setIsShowUpdateModal(false);
   };
 
+  useEffect(() => {
+    if (user === null) {
+      navigate('/login');
+    }
+  }, [navigate, user]);
+
   if (user === null) {
-    navigate('/login');
     return <Loader title="در حال انتقال..." />;
   }
 

@@ -109,10 +109,6 @@ function CartProducts({ product }: CartProductsProps) {
       </StyledDiv>
       <StyledDiv style="col-span-1 h-full justify-center p-1 text-center">
         <Input
-          defaultValue=""
-          id=""
-          name=""
-          placeholder=""
           className="w-full py-1 text-center md:w-1/2"
           value={quantity}
           onChange={changeHandler}
