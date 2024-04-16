@@ -11,7 +11,6 @@ import Brands from './pages/Brands';
 import CommonQuestions from './pages/CommonQuestions';
 import Complaints from './pages/Complaints';
 import Contact from './pages/Contact';
-import CreateProduct from './pages/CreateProduct';
 import CustomerClub from './pages/CustomerClub';
 import Dashboard from './pages/Dashboard';
 import Guide from './pages/Guide';
@@ -56,7 +55,6 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/brands" element={<Brands />} />
-            <Route path="/create-product" element={<CreateProduct />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<SingleBlog />} />
             <Route path="/advice" element={<Advice />} />
