@@ -8,7 +8,7 @@ function ProductCard({
 }: {
   product: {
     name: string;
-    image: string;
+    image: string|undefined;
     brand: string;
     price: number;
   };

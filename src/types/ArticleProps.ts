@@ -7,6 +7,6 @@ export interface ArticleProps {
 export interface ArticlesProps {
   id: number;
   title: string;
-  image: string | '';
+  image: string | undefined;
   content: string;
 }
