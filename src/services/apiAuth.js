@@ -17,7 +17,6 @@ export async function signup({ email, password, username, role }) {
       console.error(error);
       throw new Error('متاسفانه ثبت نام انجام نشد');
     }
-console.log("🎁",data);
     return data;
   } catch (error) {
     throw new Error(error.message);

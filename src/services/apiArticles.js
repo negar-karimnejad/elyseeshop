@@ -60,7 +60,6 @@ export async function addArticle(newArticle) {
   }
 }
 export async function updateArticle(updatedArticle) {
-  console.log(updatedArticle);
   const imageName = updatedArticle.image.name;
   const imagePath = `${supabaseUrl}/storage/v1/object/public/article-image/${imageName}`;
 
