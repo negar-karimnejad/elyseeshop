@@ -4,3 +4,9 @@ export interface ArticleProps {
   image: null | File;
   content: string;
 }
+export interface ArticlesProps {
+  id: number;
+  title: string;
+  image: string | '';
+  content: string;
+}

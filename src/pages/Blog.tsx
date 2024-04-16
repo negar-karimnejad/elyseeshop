@@ -6,7 +6,7 @@ function Blog() {
   const { articles, isLoading } = useArticles();
 
   if (isLoading) return <Loader title="" />;
-  
+
   return (
     <div className="container my-20 grid grid-cols-1 gap-5 gap-y-20 pt-5 md:grid-cols-3">
       {articles?.map((article) => (

@@ -1,13 +1,17 @@
 import { AiOutlineLoading } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
-import { ProductProps } from '../../types/ProductProps';
 import Button from '../Button';
 
 function ProductCard({
   product,
   isLoading,
 }: {
-  product: ProductProps;
+  product: {
+    name: string;
+    image: string;
+    brand: string;
+    price: number;
+  };
   isLoading: boolean;
 }) {
   const navigate = useNavigate();
