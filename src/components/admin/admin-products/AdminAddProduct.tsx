@@ -1,7 +1,6 @@
 import { FormEvent, useRef } from 'react';
 import { FiUploadCloud } from 'react-icons/fi';
 import useCreateProduct from '../../../features/products/useCreateProduct';
-import useProducts from '../../../features/products/useProducts';
 import Button from '../../Button';
 import Input from '../../Input';
 import Create from '../Create';
@@ -9,7 +8,6 @@ import Create from '../Create';
 function AdminAddProduct() {
   const { addProduct, isPending } = useCreateProduct();
   const formRef = useRef<HTMLFormElement>(null);
-  const { products } = useProducts();
 
   const createHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -19,9 +17,9 @@ function AdminAddProduct() {
       id: parseInt(formData.get('id') as string),
       name: formData.get('name') as string,
       brand: formData.get('brand') as string,
-      brandImage: formData.get('brandImage') as string,
+      brandImage: formData.get('brandImage') as File,
       brandDescription: formData.get('brandDescription') as string,
-      image: formData.get('image') as string,
+      image: formData.get('productImage') as File,
       features: [] as string[],
       tag: [] as string[],
       mass: formData.get('mass') as string,
@@ -52,7 +50,7 @@ function AdminAddProduct() {
           <input
             name="id"
             type="number"
-            defaultValue={products && products?.length + 1}
+            defaultValue={Math.floor(Math.random() * 1000)}
             readOnly
             className="hidden px-1 py-2"
           />

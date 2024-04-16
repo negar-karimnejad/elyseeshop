@@ -1,4 +1,4 @@
-import supabase from './supabase';
+import supabase, { supabaseUrl } from './supabase';
 
 export async function getProducts() {
   const { data, error } = await supabase.from('products').select('*');
@@ -24,11 +24,34 @@ export async function getProduct(id) {
 }
 
 export async function createNewProduct(newProduct) {
+  const imageName = newProduct.image.name;
+  const imagePath = `${supabaseUrl}/storage/v1/object/public/products/${imageName}`;
+
+  const brandImageName = newProduct.brandImage.name;
+  const brandImagePath = `${supabaseUrl}/storage/v1/object/public/brands/${brandImageName}`;
+
   try {
+    const { error: storageError } = await supabase.storage
+      .from('products')
+      .upload(imageName, newProduct.image);
+
+    if (storageError) {
+      throw storageError;
+    }
+
+    const { error: brandStorageError } = await supabase.storage
+      .from('brands')
+      .upload(brandImageName, newProduct.brandImage);
+
+    if (brandStorageError) {
+      throw brandStorageError;
+    }
+
     const { data, error } = await supabase
       .from('products')
-      .insert(newProduct)
+      .insert([{ ...newProduct, image: imagePath, brandImage: brandImagePath }])
       .select();
+
     if (error) {
       throw error;
     }
@@ -54,7 +77,28 @@ export async function deleteProduct(id) {
 }
 
 export async function updateProduct(updatedProduct) {
+  const imageName = updatedProduct.image.name;
+  const imagePath = `${supabaseUrl}/storage/v1/object/public/products/${imageName}`;
+  
+  const brandImageName = updatedProduct.brandImage.name;
+  const brandImagePath = `${supabaseUrl}/storage/v1/object/public/brands/${brandImageName}`;
+  
   try {
+    const { error: storageError } = await supabase.storage
+      .from('products')
+      .upload(imageName, updatedProduct.image);
+
+    if (storageError) {
+      throw storageError;
+    }
+
+    const { error: brandStorageError } = await supabase.storage
+      .from('brands')
+      .upload(brandImageName, updatedProduct.brandImage);
+
+    if (brandStorageError) {
+      throw brandStorageError;
+    }
     const { data, error } = await supabase
       .from('products')
       .update({
@@ -66,6 +110,8 @@ export async function updateProduct(updatedProduct) {
         category: updatedProduct.category,
         code: updatedProduct.code,
         description: updatedProduct.description,
+        image: imagePath,
+        brandImage: brandImagePath,
       })
       .eq('id', updatedProduct.id);
 

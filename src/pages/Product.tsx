@@ -54,7 +54,6 @@ function Product() {
     features,
     tag,
   } = product;
-
   return (
     <div className="pt-5">
       <div className="container">

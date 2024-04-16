@@ -2,10 +2,10 @@ export interface ProductProps {
   id: number;
   name: string;
   brand: string;
-  brandImage: string;
+  brandImage: string | File;
   brandName: string;
   brandDescription: string;
-  image: string;
+  image: string | File;
   features: string[];
   tag: string[];
   mass: string;
@@ -19,9 +19,9 @@ export interface ProductProps {
 export interface NewProductProps {
   name: string;
   brand: string;
-  brandImage: string;
+  brandImage: string | File;
   brandDescription: string;
-  image: string;
+  image: string | File;
   features: string[];
   tag: string[];
   mass: string;
@@ -41,5 +41,6 @@ export interface UpdateProductProps {
   category: string;
   code: string;
   description: string;
+  image: string | File;
+  brandImage: string | File;
 }
-

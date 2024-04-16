@@ -38,10 +38,9 @@ function AdminUpdateAticle({ id }: AdminUpdateAticleProps) {
       content: formData.get('content') as string,
       image: formData.get('image') as File,
     };
-    console.log(updatedArticle);
 
     try {
-      editArticle({ ...updatedArticle, image: updatedArticle.image.name });
+      editArticle(updatedArticle);
       if (formRef.current) {
         setIsOpenEditModal(false);
       }
@@ -138,7 +137,6 @@ function AdminUpdateAticle({ id }: AdminUpdateAticleProps) {
                 size={35}
               />
             </label>
-
             <Button
               type="submit"
               className="mt-5 w-full rounded-md bg-sky-600 font-vazirBold text-lg hover:bg-sky-700 max-sm:px-4"

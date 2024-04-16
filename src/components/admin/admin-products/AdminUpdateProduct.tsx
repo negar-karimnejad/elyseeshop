@@ -4,6 +4,7 @@ import useProducts from '../../../features/products/useProducts';
 import useUpdateProduct from '../../../features/products/useUpdateProduct';
 import { UpdateProductProps } from '../../../types/ProductProps';
 import Button from '../../Button';
+import { FiUploadCloud } from 'react-icons/fi';
 
 interface AdminUpdateProductProps {
   name: string;
@@ -41,7 +42,11 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
       category: formData.get('category') as string,
       code: formData.get('code') as string,
       description: formData.get('description') as string,
+      image: formData.get('productImage') as File,
+      brandImage: formData.get('brandImage') as File,
     };
+    console.log(updatedProduct.id);
+
     try {
       editProduct(updatedProduct);
       if (formRef.current) {
@@ -57,7 +62,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
       <Button
         onClick={() => setIsOpenEditModal(true)}
         type="button"
-        className="rounded-md bg-sky-600 hover:bg-sky-700 max-sm:px-1 max-lg:px-4"
+        className="rounded-md bg-sky-600 hover:bg-sky-700 max-lg:px-4 max-sm:px-1"
       >
         {product?.name && isUpdating ? (
           <AiOutlineLoading size={22} className="animate-spin" />
@@ -71,7 +76,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
         className={`fixed left-0 top-0 flex h-screen w-full items-center justify-center bg-black/50 transition-all duration-1000 ${isOpenEditModal ? 'visible z-50 opacity-100' : 'invisible  opacity-0'}`}
       >
         <div
-          className={`relative w-[600px] rounded-md bg-white p-5 text-center shadow-md transition-all duration-1000 max-sm:w-96 sm:p-8 ${isOpenEditModal ? 'translate-y-0' : '-translate-y-[370px]'}`}
+          className={`relative w-[600px] rounded-md bg-white p-5 text-center shadow-md transition-all duration-1000 max-sm:w-96 sm:px-10 ${isOpenEditModal ? 'translate-y-0' : '-translate-y-[370px]'}`}
         >
           <div
             className="absolute top-3 cursor-pointer font-vazirBold text-2xl transition-all hover:text-pink-500"
@@ -194,7 +199,7 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
               <select
                 id="category"
                 name="category"
-                className="w-full border px-1.5 py-2 text-sm outline-0"
+                className="w-full border px-1.5 py-2 text-sm outline-0 dark:bg-stone-500 dark:text-stone-100"
               >
                 <option value="-1">دسته بندی مورد نظر را انتخاب کنید</option>
                 <option value="عطر و ادکلن">عطر و ادکلن</option>
@@ -204,9 +209,47 @@ function AdminUpdateProduct({ name }: AdminUpdateProductProps) {
                 <option value="مراقبت از پوست">مراقبت از پوست</option>
               </select>
             </label>
+            <label
+              htmlFor="productImage"
+              className="relative flex w-full items-center gap-1"
+            >
+              <span className="w-20 shrink-0 text-right text-sm text-stone-400">
+                پوستر محصول:
+              </span>
+              <input
+                name="productImage"
+                type="file"
+                id="productImage"
+                accept="image/*"
+                className="absolute left-0 right-0 top-10 m-auto cursor-pointer border-0 text-[2px] opacity-0"
+              />
+              <FiUploadCloud
+                className="w-full border p-2 text-sm outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300"
+                size={35}
+              />
+            </label>
+            <label
+              htmlFor="brandImage"
+              className="relative flex w-full items-center gap-1"
+            >
+              <span className="w-20 shrink-0 text-right text-sm text-stone-400">
+                پوستر برند:
+              </span>
+              <input
+                name="brandImage"
+                type="file"
+                id="brandImage"
+                accept="image/*"
+                className="absolute left-0 right-0 top-10 m-auto cursor-pointer border-0 text-[2px] opacity-0"
+              />
+              <FiUploadCloud
+                className="w-full border p-2 text-sm outline-none disabled:opacity-50 dark:border-0 dark:bg-stone-500  dark:text-stone-100 dark:placeholder:text-stone-300"
+                size={35}
+              />
+            </label>
             <Button
               type="submit"
-              className="mt-5 w-full rounded-md bg-sky-600 font-vazirBold text-lg hover:bg-sky-700 max-sm:px-4"
+              className="mt-2 w-full rounded-md bg-sky-600 font-vazirBold text-lg hover:bg-sky-700 max-sm:px-4"
             >
               ویرایش
             </Button>
