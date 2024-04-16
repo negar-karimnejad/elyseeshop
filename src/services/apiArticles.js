@@ -31,6 +31,7 @@ export async function getArticle(title) {
     throw error;
   }
 }
+
 export async function addArticle(newArticle) {
   try {
     const { id, image } = newArticle;
@@ -41,7 +42,7 @@ export async function addArticle(newArticle) {
     // If the image doesn't exist in storage, upload it
     if (!hasImagePath) {
       const imageName = image.name.replaceAll('/', '');
-      const { data: storageData, error: storageError } = await supabase.storage
+      const { error: storageError } = await supabase.storage
         .from('article-image')
         .upload(imageName, image);
 
@@ -54,7 +55,11 @@ export async function addArticle(newArticle) {
       const imagePath = `${supabaseUrl}/storage/v1/object/public/article-image/${imageName}`;
 
       // Insert or update the article with the new image path
-      const articleData = await insertOrUpdateArticle(newArticle, imagePath, id);
+      const articleData = await insertOrUpdateArticle(
+        newArticle,
+        imagePath,
+        id,
+      );
 
       return articleData;
     } else {
@@ -110,7 +115,6 @@ async function insertOrUpdateArticle(newArticle, imagePath, id) {
     throw error;
   }
 }
-
 
 export async function updateArticle(updatedArticle) {
   try {

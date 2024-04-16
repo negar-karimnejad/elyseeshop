@@ -6,6 +6,22 @@ import Button from '../../Button';
 import Input from '../../Input';
 import Create from '../Create';
 
+import { FilePond, registerPlugin } from "react-filepond";
+
+import "filepond/dist/filepond.min.css";
+
+import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
+import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
+
+import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
+import { FILE_POND_BUCKET } from "@/lib/constant";
+
+registerPlugin(
+	FilePondPluginImageExifOrientation,
+	FilePondPluginImagePreview,
+	FilePondPluginFileValidateType
+);
 function AdminAddArticle() {
   const { createArticle, isAdding } = useAddArticle();
   const formRef = useRef<HTMLFormElement>(null);
@@ -31,41 +47,6 @@ function AdminAddArticle() {
       console.error(error);
     }
   };
-
-  // async function uploadImage(e: ChangeEvent<HTMLFormElement>) {
-  //   const file = e?.target?.files[0];
-
-  //   const { data, error } = await supabase.storage
-  //     .from('article-image')
-  //     .upload(user?.id + '/' + uuidv4(), file);
-
-  //   if (data) {
-  //     getMedia();
-  //   } else {
-  //     console.log(error);
-  //   }
-  // }
-
-  // async function getMedia() {
-  //   const { data, error } = await supabase.storage
-  //     .from('article-image')
-  //     .list(user?.id + '/', {
-  //       limit: 10,
-  //       offset: 0,
-  //       sortBy: {
-  //         column: 'name',
-  //         order: 'asc',
-  //       },
-  //     });
-
-  //   if (data) {
-  //     setMedia(data);
-  //   } else {
-  //     console.log(71, error);
-  //   }
-  // }
-
-  // console.log('media', media);
 
   return (
     <Create heading="افزودن مقاله جدید">
@@ -105,8 +86,7 @@ function AdminAddArticle() {
             ></textarea>
           </label>
         </div>
-
-        <label htmlFor="image" className="relative flex w-fit flex-col">
+        {/* <label htmlFor="image" className="relative flex w-fit flex-col">
           پوستر مقاله
           <input
             name="image"
@@ -119,8 +99,65 @@ function AdminAddArticle() {
             className="mx-auto mt-3 h-16 w-24 cursor-pointer rounded-md border p-2 text-stone-400"
             size={24}
           />
-        </label>
-        {/* <input type="file" onChange={(e) => uploadImage(e)} /> */}
+        </label> */}
+        <FilePond
+          acceptedFileTypes={['image/*']}
+          allowMultiple={true}
+          server={{
+            process: async (
+              fieldName,
+              file,
+              metadata,
+              load,
+              error,
+              progress,
+              abort,
+            ) => {
+              const formData = new FormData();
+              formData.append(fieldName, file, file.name);
+              const request = new XMLHttpRequest();
+              request.open(
+                'POST',
+                `${process.env.REACT_PUBLIC_SUPABASE_URL}/storage/v1/object/${FILE_POND_BUCKET}/${file.name}`,
+              );
+              request.setRequestHeader(
+                'Authorization',
+                // make sure to change and enforce your policy
+                'Bearer ' + process.env.REACT_PUBLIC_SUPABASE_ANON_KEY,
+              );
+              request.upload.onprogress = (e) => {
+                progress(e.lengthComputable, e.loaded, e.total);
+              };
+              request.onload = function () {
+                if (request.status >= 200 && request.status < 300) {
+                  load(request.responseText);
+                } else {
+                  error('oh no');
+                }
+              };
+
+              request.send(formData);
+
+              return {
+                abort: () => {
+                  request.abort();
+                  abort();
+                },
+              };
+            },
+            remove: async (fileId, load) => {
+              // implementation here
+            },
+            revert: (source, load, error) => {
+              // implementation here
+            },
+            load: async (source, load, error) => {
+              // implementation here
+            },
+          }}
+          name="files"
+          labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
+        />{' '}
         <Button
           disabled={isAdding}
           type="submit"
