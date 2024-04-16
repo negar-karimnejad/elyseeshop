@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import useArticles from '../features/articles/useArticles';
 import Loader from '../components/Loader';
+import useArticles from '../features/articles/useArticles';
 
 function Blog() {
   const { articles, isLoading } = useArticles();

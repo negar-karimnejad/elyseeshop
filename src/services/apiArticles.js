@@ -9,6 +9,7 @@ export async function getArticles() {
     if (error) {
       throw error;
     }
+
     return articles;
   } catch (error) {
     console.error('Error getting articals:', error.message);

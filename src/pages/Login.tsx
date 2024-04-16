@@ -82,7 +82,7 @@ function Login() {
           disabled={isPending || Boolean(passwordError)}
           className="w-full rounded-sm dark:bg-white dark:text-black dark:hover:bg-pink-600 dark:hover:text-white"
         >
-          ثبت نام
+          ورود به حساب کابری
         </Button>
       </form>
       <Link
