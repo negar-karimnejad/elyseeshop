@@ -13,6 +13,7 @@ import { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { FaShoppingCart } from 'react-icons/fa';
 import { GiPayMoney, GiReceiveMoney } from 'react-icons/gi';
+import useUser from '../../features/auth/useUser';
 
 ChartJS.register(
   CategoryScale,
@@ -106,10 +107,15 @@ const costsData = {
 
 function AdminPanel() {
   const [isActive, setIsActive] = useState('incomes');
+  const { user } = useUser();
+
   return (
     <div className="bg-stone-100 px-10 max-md:col-span-12 md:col-span-9 lg:col-span-10">
       <h2 className="my-10 text-xl">
-        خوش آمدید, <span className="text-xl text-pink-500">نگار عزیز</span>
+        <span className="text-xl text-pink-500 font-vazirBold">
+          {user?.user_metadata.username}
+        </span>{' '}
+        عزیز, خوش آمدید
       </h2>
       <div className="grid grid-cols-12 gap-x-5 gap-y-10">
         <div className="relative col-span-4 rounded-md bg-white p-4 shadow-md max-sm:col-span-12">
