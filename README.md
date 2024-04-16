@@ -7,6 +7,10 @@ I appreciate your support in advance. ❤</p>
 
 <img src="public/images/Screenshot (161).png"/>
 
+<p align="center">Including Admin Dashboard</p>
+
+<img src="public/images/Screenshot (162).png"/>
+
 
 ### <p align="center">🔧Technologies:</p>
 <div align="center" >
