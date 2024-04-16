@@ -86,21 +86,13 @@ function Product() {
                   className="m-auto mt-5 animate-spin text-pink-400"
                 />
               ) : (
-                <img
-                  loading="lazy"
-                  className=""
-                  src={image}
-                  alt={name}
-                  title={name}
-                />
+                <img loading="lazy" src={image} alt={name} title={name} />
               )}
             </div>
-
             <p className="font-BKoodak text-sm dark:text-stone-300">{`${mass} میل`}</p>
             <ProductCartForm product={product} />
             <div className="my-10 flex items-center justify-between">
               <p className="text-sm text-stone-400">کد کالا: {code}</p>
-
               <img
                 loading="lazy"
                 className="w-32"

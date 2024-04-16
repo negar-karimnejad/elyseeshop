@@ -7,7 +7,7 @@ import Input from '../../Input';
 import Create from '../Create';
 
 function AdminAddProduct() {
-  const { addProduct, isPending } = useCreateProduct();
+  const { addProduct, isPending, isSuccess } = useCreateProduct();
   const formRef = useRef<HTMLFormElement>(null);
 
   const createHandler = (e: FormEvent<HTMLFormElement>) => {
@@ -161,7 +161,6 @@ function AdminAddProduct() {
             >
               عکس محصول
               <Input
-                disabled={isPending}
                 name="productImage"
                 type="file"
                 id="productImage"
@@ -178,7 +177,6 @@ function AdminAddProduct() {
             >
               عکس برند
               <Input
-                disabled={isPending}
                 name="brandImage"
                 type="file"
                 id="brandImage"
@@ -196,7 +194,7 @@ function AdminAddProduct() {
           type="submit"
           className="mx-auto mt-10 w-full rounded-md bg-sky-600 py-3 font-vazirBold text-lg hover:bg-sky-700"
         >
-          {isPending ? (
+          {isPending && isSuccess ? (
             <div className="flex items-center justify-center gap-2">
               <AiOutlineLoading size={22} className="animate-spin" />
               در حال افزودن...

@@ -105,7 +105,7 @@ function CartProducts({ product }: CartProductsProps) {
           className="font-vazirMedium transition-all hover:text-pink-500 max-sm:text-sm"
         >
           {name}
-        </Link>{' '}
+        </Link>
       </StyledDiv>
       <StyledDiv style="col-span-1 h-full justify-center p-1 text-center">
         <Input

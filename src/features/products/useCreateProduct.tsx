@@ -10,6 +10,7 @@ function useCreateProduct() {
     mutate: addProduct,
     error,
     isPending,
+    isSuccess,
   } = useMutation({
     mutationFn: (newProduct: NewProductProps) => createNewProduct(newProduct),
     onSuccess: () => {
@@ -23,7 +24,7 @@ function useCreateProduct() {
       toast.error(error.message);
     },
   });
-  return { addProduct, error, isPending };
+  return { addProduct, error, isPending, isSuccess };
 }
 
 export default useCreateProduct;
